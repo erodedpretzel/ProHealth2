@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ProHealth Mobile</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">hello world!</string>
+    <string name="main_title">ProHealth Mobile</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="icon_providers">Providers</string>
+    <string name="icon_contact_us">Call</string>
+    <string name="icon_locations">Locations</string>
+    <string name="icon_forms">Forms</string>
+    <string name="icon_patient_portal">Portal</string>
+    <string name="icon_programs">Programs</string>
+    <string name="icon_bustracker">Tracker</string>
+    <string name="icon_job_openings">Jobs</string>
+    <string name="icon_facebook">Facebook</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_feedback">Give Us Feedback</string>
+    <string name="call_directions">Select a location to call</string>
+    <string name="call_location_bloom">Bloomingdale</string>
+    <string name="call_location_cay">Cayuga</string>
+    <string name="call_location_clint">Clinton</string>
+    <string name="call_location_craw">Crawfordsville</string>
+    <string name="call_location_terre">Terre Haute</string>
+</resources>
