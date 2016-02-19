@@ -21,4 +21,9 @@
     <string name="call_location_clint">Clinton</string>
     <string name="call_location_craw">Crawfordsville</string>
     <string name="call_location_terre">Terre Haute</string>
+    <string name="title_activity_providers">providers</string>
+    <string name="title_activity_locations">LocationsActivity</string>
+    <string name="title_activity_forms">FormsActivity</string>
+    <string name="title_activity_jobs">JobsActivity</string>
+    <string name="title_activity_programs">Programs</string>
 </resources>

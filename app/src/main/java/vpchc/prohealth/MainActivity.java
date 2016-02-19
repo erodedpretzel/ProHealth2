@@ -17,11 +17,12 @@ import android.content.Intent;
 import android.app.Dialog;
 import android.content.Context;
 import android.widget.Toast;
+import android.graphics.drawable.ColorDrawable;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private Dialog callDialog;
+    Dialog callDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,19 +59,25 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.callButton:
                     ImageView homeButton = (ImageView) findViewById(R.id.callButton);
                     homeButton.setImageResource(R.drawable.call_on);
-                    callPopup();
+                    callPopup(0);
                     break;
                 case R.id.providerButton:
                     ImageView providerButton = (ImageView) findViewById(R.id.providerButton);
                     providerButton.setImageResource(R.drawable.providers_on);
+                    Intent openProvidersIntent = new Intent(MainActivity.this, ProvidersActivity.class);
+                    startActivity(openProvidersIntent);
                     break;
                 case R.id.locationsButton:
                     ImageView locationsButton = (ImageView) findViewById(R.id.locationsButton);
                     locationsButton.setImageResource(R.drawable.locations_on);
+                    Intent openLocationsIntent = new Intent(MainActivity.this, LocationsActivity.class);
+                    startActivity(openLocationsIntent);
                     break;
                 case R.id.formsButton:
                     ImageView formsButton = (ImageView) findViewById(R.id.formsButton);
                     formsButton.setImageResource(R.drawable.forms_on);
+                    Intent openFormsIntent = new Intent(MainActivity.this, FormsActivity.class);
+                    startActivity(openFormsIntent);
                     break;
                 case R.id.portalButton:
                     ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
@@ -83,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.programsButton:
                     ImageView programsButton = (ImageView) findViewById(R.id.programsButton);
                     programsButton.setImageResource(R.drawable.programs_on);
+                    Intent openProgramsIntent = new Intent(MainActivity.this, ProgramsActivity.class);
+                    startActivity(openProgramsIntent);
                     break;
                 case R.id.trackerButton:
                     ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
@@ -91,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.jobsButton:
                     ImageView jobsButton = (ImageView) findViewById(R.id.jobsButton);
                     jobsButton.setImageResource(R.drawable.jobs_on);
+                    Intent openJobsIntent = new Intent(MainActivity.this, JobsActivity.class);
+                    startActivity(openJobsIntent);
                     break;
                 case R.id.facebookButton:
                     ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
@@ -106,18 +117,25 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public boolean callPopup(){
-        Dialog dialog = new Dialog(MainActivity.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.call_dialog);
-        dialog.show();
+    private boolean callPopup(int choice){
+        if(choice == 0) {
+            callDialog = new Dialog(MainActivity.this);
+            callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            callDialog.setContentView(R.layout.call_dialog);
+            callDialog.show();
+        }else{
+            callDialog.dismiss();
+            ImageView homeButton = (ImageView) findViewById(R.id.callButton);
+            homeButton.setImageResource(R.drawable.call_off);
+            return true;
+        }
 
-        View buttonCallBloomImage = dialog.findViewById(R.id.buttonCallBloom);
-        View buttonCallCayImage = dialog.findViewById(R.id.buttonCallCay);
-        View buttonCallClintImage = dialog.findViewById(R.id.buttonCallClint);
-        View buttonCallCrawImage = dialog.findViewById(R.id.buttonCallCraw);
-        View buttonCallTerreImage = dialog.findViewById(R.id.buttonCallTerre);
-        View buttonCallCloseImage = dialog.findViewById(R.id.buttonCallClose);
+        View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
+        View buttonCallCayImage = callDialog.findViewById(R.id.buttonCallCay);
+        View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
+        View buttonCallCrawImage = callDialog.findViewById(R.id.buttonCallCraw);
+        View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
+        View buttonCallCloseImage = callDialog.findViewById(R.id.buttonCallClose);
 
         buttonCallCloseImage.setOnClickListener(callListener);
         buttonCallBloomImage.setOnClickListener(callListener);
@@ -125,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         buttonCallClintImage.setOnClickListener(callListener);
         buttonCallCrawImage.setOnClickListener(callListener);
         buttonCallTerreImage.setOnClickListener(callListener);
+
+
 
         return true;
     }
@@ -163,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Calling Terre Haute Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallClose:
+                    callPopup(1);
                     break;
                 default:
                     break;

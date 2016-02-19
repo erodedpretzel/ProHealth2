@@ -10,7 +10,7 @@
         android:background="@color/colorPrimary">
         <ImageView
             android:id="@+id/buttonCallClose"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="end"
             android:src="@drawable/call_close"
@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:text="@string/call_directions"
-            android:textSize="22sp"
+            android:textSize="20sp"
             />
     </LinearLayout>
     <android.support.v7.widget.GridLayout
@@ -41,6 +41,7 @@
             android:layout_height="wrap_content"
             android:text="@string/call_location_bloom"
             android:textSize="@dimen/call_location"
+            android:textColor="#000000"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
@@ -58,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/call_location_cay"
+            android:textColor="#000000"
             android:textSize="@dimen/call_location"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -76,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/call_location_clint"
+            android:textColor="#000000"
             android:textSize="@dimen/call_location"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -94,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/call_location_craw"
+            android:textColor="#000000"
             android:textSize="@dimen/call_location"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -112,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/call_location_terre"
+            android:textColor="#000000"
             android:textSize="@dimen/call_location"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
