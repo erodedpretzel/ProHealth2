@@ -20,6 +20,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private Dialog callDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.call_dialog);
         dialog.show();
 
-        View buttonCallBloomImage = findViewById(R.id.buttonCallBloom);
-        View buttonCallCayImage = findViewById(R.id.buttonCallCay);
-        View buttonCallClintImage = findViewById(R.id.buttonCallClint);
-        View buttonCallCrawImage = findViewById(R.id.buttonCallCraw);
-        View buttonCallTerreImage = findViewById(R.id.buttonCallTerre);
-        View buttonCallCloseImage = findViewById(R.id.buttonCallClose);
+        View buttonCallBloomImage = dialog.findViewById(R.id.buttonCallBloom);
+        View buttonCallCayImage = dialog.findViewById(R.id.buttonCallCay);
+        View buttonCallClintImage = dialog.findViewById(R.id.buttonCallClint);
+        View buttonCallCrawImage = dialog.findViewById(R.id.buttonCallCraw);
+        View buttonCallTerreImage = dialog.findViewById(R.id.buttonCallTerre);
+        View buttonCallCloseImage = dialog.findViewById(R.id.buttonCallClose);
 
         buttonCallCloseImage.setOnClickListener(callListener);
         buttonCallBloomImage.setOnClickListener(callListener);
@@ -123,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         buttonCallCrawImage.setOnClickListener(callListener);
         buttonCallTerreImage.setOnClickListener(callListener);
 
-
         return true;
     }
 
@@ -131,52 +133,36 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonCallBloom:
-                    Intent inBloom=new Intent(Intent.ACTION_CALL,Uri.parse("7654989000"));
-                    try{
-                        startActivity(inBloom);
-                    }
-                    catch (android.content.ActivityNotFoundException ex){
-                        Toast.makeText(getApplicationContext(),"Could not make the call",Toast.LENGTH_SHORT).show();
-                    }
+                    Intent callBloomIntent = new Intent(Intent.ACTION_CALL);
+                    callBloomIntent.setData(Uri.parse("tel:7654989000"));
+                    startActivity(callBloomIntent);
+                    Toast.makeText(getApplicationContext(),"Calling Bloomingdale Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallCay:
-                    Intent inClay=new Intent(Intent.ACTION_CALL,Uri.parse("7654929042"));
-                    try{
-                        startActivity(inClay);
-                    }
-                    catch (android.content.ActivityNotFoundException ex){
-                        Toast.makeText(getApplicationContext(),"Could not make the call",Toast.LENGTH_SHORT).show();
-                    }
+                    Intent callCayIntent = new Intent(Intent.ACTION_CALL);
+                    callCayIntent.setData(Uri.parse("tel:7654929042"));
+                    startActivity(callCayIntent);
+                    Toast.makeText(getApplicationContext(),"Calling Cayuga Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallClint:
-                    Intent inClint=new Intent(Intent.ACTION_CALL,Uri.parse("7658281003"));
-                    try{
-                        startActivity(inClint);
-                    }
-                    catch (android.content.ActivityNotFoundException ex){
-                        Toast.makeText(getApplicationContext(),"Could not make the call",Toast.LENGTH_SHORT).show();
-                    }
+                    Intent callClintIntent = new Intent(Intent.ACTION_CALL);
+                    callClintIntent.setData(Uri.parse("tel:7658281003"));
+                    startActivity(callClintIntent);
+                    Toast.makeText(getApplicationContext(),"Calling Clinton Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallCraw:
-                    Intent inCraw=new Intent(Intent.ACTION_CALL,Uri.parse("7653625100"));
-                    try{
-                        startActivity(inCraw);
-                    }
-                    catch (android.content.ActivityNotFoundException ex){
-                        Toast.makeText(getApplicationContext(),"Could not make the call",Toast.LENGTH_SHORT).show();
-                    }
+                    Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
+                    callCrawIntent.setData(Uri.parse("tel:7653625100"));
+                    startActivity(callCrawIntent);
+                    Toast.makeText(getApplicationContext(),"Calling Crawfordsville Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallTerre:
-                    Intent inTerre=new Intent(Intent.ACTION_CALL,Uri.parse("7652387631"));
-                    try{
-                        startActivity(inTerre);
-                    }
-                    catch (android.content.ActivityNotFoundException ex){
-                        Toast.makeText(getApplicationContext(),"Could not make the call",Toast.LENGTH_SHORT).show();
-                    }
+                    Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
+                    callTerreIntent.setData(Uri.parse("tel:8122387631"));
+                    startActivity(callTerreIntent);
+                    Toast.makeText(getApplicationContext(),"Calling Terre Haute Location",Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.buttonCallClose:
-
                     break;
                 default:
                     break;
