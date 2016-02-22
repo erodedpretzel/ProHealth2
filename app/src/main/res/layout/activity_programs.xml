@@ -13,24 +13,40 @@
         android:layout_height="80dp"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay">
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/programs_logo"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:gravity="left"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/programsBackButton"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
 
-            android:text="Programs"
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            />
+                android:layout_marginTop="10dp"
+                android:src="@drawable/back_arrow"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".2"
+                    android:src="@drawable/programs_logo"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5"
+
+                    android:text="Programs"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+        </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/content_programs"/>

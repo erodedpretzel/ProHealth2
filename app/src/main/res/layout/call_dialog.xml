@@ -42,10 +42,12 @@
             android:text="@string/call_location_bloom"
             android:textSize="@dimen/call_location"
             android:textColor="#000000"
+
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             />
+
         <ImageView
             android:id="@+id/buttonCallBloom"
             android:layout_width="100dp"

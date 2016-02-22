@@ -19,7 +19,7 @@
                 android:layout_height="45dp"
                 android:layout_marginLeft="55dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/main_logo"
                 />
             <TextView
                 android:layout_width="wrap_content"
