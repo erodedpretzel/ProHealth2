@@ -9,37 +9,51 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonCallClose"
+            android:id="@+id/buttonProvidersClose"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="end"
             android:src="@drawable/dialog_close"
             />
         <TextView
-            android:id="@+id/callDirectionsText"
+            android:id="@+id/providersTypeText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:text="@string/call_directions"
-            android:textSize="20sp"
+            android:textSize="18sp"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:id="@+id/providersLocationsText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""
+            android:textSize="20sp"
+        />
     </LinearLayout>
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        grid:columnCount="2"
-        grid:rowCount="5"
+        grid:columnCount="1"
+        grid:rowCount="7"
         grid:orientation="horizontal"
         grid:alignmentMode="alignBounds"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="73dp"
         android:id="@+id/homeGrid">
 
         <TextView
+            android:id="@+id/providersText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/call_location_bloom"
+            android:text=" "
             android:textSize="@dimen/call_location"
             android:textColor="#000000"
 
@@ -47,92 +61,77 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             />
+        <TextView
+            android:id="@+id/providersText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="@dimen/call_location"
+            android:textColor="#000000"
 
-        <ImageView
-            android:id="@+id/buttonCallBloom"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:src="@drawable/call_site"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             />
         <TextView
+            android:id="@+id/providersText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/call_location_cay"
-            android:textColor="#000000"
+            android:text=" "
             android:textSize="@dimen/call_location"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <ImageView
-            android:id="@+id/buttonCallCay"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:src="@drawable/call_site"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/call_location_clint"
             android:textColor="#000000"
-            android:textSize="@dimen/call_location"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <ImageView
-            android:id="@+id/buttonCallClint"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:src="@drawable/call_site"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/call_location_craw"
-            android:textColor="#000000"
-            android:textSize="@dimen/call_location"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <ImageView
-            android:id="@+id/buttonCallCraw"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:src="@drawable/call_site"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/call_location_terre"
-            android:textColor="#000000"
-            android:textSize="@dimen/call_location"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
-        <ImageView
-            android:id="@+id/buttonCallTerre"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:src="@drawable/call_site"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
 
-        </android.support.v7.widget.GridLayout>
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/providersText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/call_location"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/providersText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="@dimen/call_location"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/providersText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="@dimen/call_location"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/providersText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="@dimen/call_location"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+            />
+    </android.support.v7.widget.GridLayout>
+
 </RelativeLayout>

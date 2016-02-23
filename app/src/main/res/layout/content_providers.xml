@@ -8,7 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:orientation="horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ProvidersActivity"
     tools:showIn="@layout/activity_providers">
@@ -24,9 +23,9 @@
         android:spinnerMode="dropdown"/>
 
     <Spinner
+        android:id="@+id/spinnerProviderLocations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:spinnerMode="dropdown"/>

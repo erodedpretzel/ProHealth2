@@ -21,23 +21,28 @@
         </activity>
         <activity
             android:name=".ProvidersActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_providers"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProgramsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_programs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_locations"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FormsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_forms"
             android:icon="@drawable/forms_logo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".JobsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_jobs"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
