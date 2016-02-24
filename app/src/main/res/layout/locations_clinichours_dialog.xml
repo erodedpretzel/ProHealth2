@@ -2,25 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:grid="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonProvidersClose"
+            android:id="@+id/buttonLocationsClinicHoursClose"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="end"
             android:src="@drawable/dialog_close"
             />
         <TextView
-            android:id="@+id/providersTypeText"
+            android:id="@+id/locationsClinicHoursTitleText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_gravity="center"
+            android:text="Clinic Hours"
             android:textColor="@color/white"
             android:textSize="18sp"
             />
@@ -31,31 +32,43 @@
         android:background="@color/white"
         android:layout_marginTop="50dp">
         <TextView
-            android:id="@+id/providersLocationsText"
+            android:id="@+id/locationsClinicHoursLocationText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text=""
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-        />
+            />
     </LinearLayout>
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         grid:columnCount="1"
-        grid:rowCount="7"
+        grid:rowCount="10"
         grid:orientation="horizontal"
         grid:alignmentMode="alignBounds"
         android:layout_marginTop="73dp"
         android:id="@+id/homeGrid">
 
         <TextView
-            android:id="@+id/providersText1"
+            android:id="@+id/locationsClinicHoursText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday:"
+            android:textSize="15sp"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+            />
+        <TextView
+            android:id="@+id/locationsClinicHoursText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="@dimen/call_location"
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -63,11 +76,23 @@
             grid:layout_gravity="center"
             />
         <TextView
-            android:id="@+id/providersText2"
+            android:id="@+id/locationsClinicHoursText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday:"
+            android:textSize="15sp"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+            />
+        <TextView
+            android:id="@+id/locationsClinicHoursText4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="@dimen/call_location"
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -75,11 +100,23 @@
             grid:layout_gravity="center"
             />
         <TextView
-            android:id="@+id/providersText3"
+            android:id="@+id/locationsClinicHoursText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday:"
+            android:textSize="15sp"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+            />
+        <TextView
+            android:id="@+id/locationsClinicHoursText6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="@dimen/call_location"
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -87,10 +124,23 @@
             grid:layout_gravity="center"
             />
         <TextView
-            android:id="@+id/providersText4"
+            android:id="@+id/locationsClinicHoursText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/call_location"
+            android:text="Thursday:"
+            android:textSize="15sp"
+            android:textColor="#000000"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+            />
+        <TextView
+            android:id="@+id/locationsClinicHoursText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -98,41 +148,30 @@
             grid:layout_gravity="center"
             />
         <TextView
-            android:id="@+id/providersText5"
+            android:id="@+id/locationsClinicHoursText9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" "
-            android:textSize="@dimen/call_location"
+            android:text="Friday:"
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="left"
             />
         <TextView
-            android:id="@+id/providersText6"
+            android:id="@+id/locationsClinicHoursText10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="@dimen/call_location"
+            android:textSize="15sp"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             />
-        <TextView
-            android:id="@+id/providersText7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" "
-            android:textSize="@dimen/call_location"
-            android:textColor="#000000"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            />
     </android.support.v7.widget.GridLayout>
 
 </RelativeLayout>

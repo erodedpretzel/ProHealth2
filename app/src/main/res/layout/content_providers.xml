@@ -12,16 +12,15 @@
     tools:context=".ProvidersActivity"
     tools:showIn="@layout/activity_providers">
 
-
     <Spinner
         android:id="@+id/spinnerProviderType"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
         android:spinnerMode="dropdown"/>
-
     <Spinner
         android:id="@+id/spinnerProviderLocations"
         android:layout_width="wrap_content"
