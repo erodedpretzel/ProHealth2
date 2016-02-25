@@ -19,13 +19,16 @@ public class LocationsActivity extends AppCompatActivity {
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
     private static final String[]locations = {"Please select a location", "Bloomingdale", "Cayuga",
-            "Clinton", "Crawfordsville", "MSBHC", "Terre Haute"};
+            "Clinton", "Crawfordsville", "Terre Haute"};
     private static final String[]options = {"Please select an option", "Clinic Hours", "Contact Info",
             "Get Directions"};
-    private int selectionLocation;
-    private static final String[]terrehauteclinichours = {"8:00 a.m. - 5:00 p.m.",
-            "8:00 a.m. - 5:00 p.m.","8:00 a.m. - 5:00 p.m.","8:30 a.m. - 5:00 p.m.",
-            "8:00 a.m. - 4:30 p.m."};
+    private static final String[]contactinfo = {"201 W. Academy St.","Bloomingdale, IN 47832",
+            "(765) 498-9000","(765) 798-9004","114 N Division St.","Cayuga, IN 47928",
+            "(765) 492-9042","(765) 492-9048","777 S. Main Street, Suite 100","Clinton, IN 47842",
+            "(765) 828-1003","(765) 828-1030","1810 Layfayette Ave","Crawfordsville, IN 47933",
+            "(765) 362-5100","(765) 362-5171","1530 North 7th Site, Suite 201",
+            "Terre Haute, IN 47807","(812) 238-7631","(812) 238-7003"};
+    private int selectionLocation;;
     Dialog locationsClinicHoursDialog;
     Dialog locationsContactInfoDialog;
 
@@ -44,9 +47,9 @@ public class LocationsActivity extends AppCompatActivity {
 
         spinnerLocationsOptions = (Spinner)findViewById(R.id.spinnerLocationsOptions);
         ArrayAdapter<String>adapterLocationsOptions = new ArrayAdapter<String>(LocationsActivity.this,
-                R.layout.fancy_spinner_item,locations);
+                R.layout.fancy_spinner_item,options);
         adapterLocationsOptions.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
-        spinnerLocationsOptions.setAdapter(adapterProviderLocations);
+        spinnerLocationsOptions.setAdapter(adapterLocationsOptions);
         spinnerLocationsOptions.setVisibility(View.GONE);
 
         View buttonBack = findViewById(R.id.locationsBackButton);
@@ -102,9 +105,9 @@ public class LocationsActivity extends AppCompatActivity {
                     case 0:
                         break;
                     case 1:
-                        locationsClinicHoursPopup(0);
+                        locationsClinicHoursPopup(1);
                     case 2:
-                        locationsContactInfoPopup(0);
+                        locationsContactInfoPopup(1);
                     case 3:
                         //open map here
                         break;
@@ -115,10 +118,7 @@ public class LocationsActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
 
             }
-
         });
-
-
     }
 
     private boolean locationsClinicHoursPopup(int choice){
@@ -127,8 +127,7 @@ public class LocationsActivity extends AppCompatActivity {
         int j=0;
         int count=0;
         int foundCount=1;
-        int numberOfProviders;
-        int locationIndex;
+        int contactInfoIndex;
         int replaceTextId;
         String replaceTextString;
         String temp[];
@@ -136,6 +135,11 @@ public class LocationsActivity extends AppCompatActivity {
             locationsClinicHoursDialog.dismiss();
             spinnerLocationsOptions.setSelection(0);
             return true;
+        }else{
+            locationsClinicHoursDialog = new Dialog(LocationsActivity.this);
+            locationsClinicHoursDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            locationsClinicHoursDialog.setContentView(R.layout.locations_clinichours_dialog);
+            locationsClinicHoursDialog.show();
         }
 
         TextView locationsText = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
@@ -155,7 +159,7 @@ public class LocationsActivity extends AppCompatActivity {
             replaceTextString = "locationsClinicHoursText" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView tempText = (TextView) locationsClinicHoursDialog.findViewById(replaceTextId);
-            if(selectionLocation!=3 | selectionLocation!=5){
+            if(selectionLocation!=3 & selectionLocation!=5){
                 tempText.setText("8:00 a.m. - 5:00 p.m.");
             }else if(selectionLocation == 3) {
                 if(i==10){
@@ -174,7 +178,6 @@ public class LocationsActivity extends AppCompatActivity {
             }
         }
 
-
         View buttonLocationsClinicHoursCloseImage = locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
         buttonLocationsClinicHoursCloseImage.setOnClickListener(locationsCloseDialogListener);
 
@@ -182,13 +185,24 @@ public class LocationsActivity extends AppCompatActivity {
     }
 
     private boolean locationsContactInfoPopup(int choice) {
-        if (choice == 0){
+        int i;
+        int contactInfoIndex;
+        int count=0;
+        int replaceTextId;
+        String replaceTextString;
+        String temp[];
+        if(choice == 0){
             locationsContactInfoDialog.dismiss();
             spinnerLocationsOptions.setSelection(0);
             return true;
+        }else{
+            locationsContactInfoDialog = new Dialog(LocationsActivity.this);
+            locationsContactInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            locationsContactInfoDialog.setContentView(R.layout.locations_contactinfo_dialog);
+            locationsContactInfoDialog.show();
         }
 
-        TextView locationsText = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsClinicHoursLocationText);
+        TextView locationsText = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
         if(selectionLocation == 1){
             locationsText.setText("Bloomingdale");
         }else if(selectionLocation == 2){
@@ -199,6 +213,18 @@ public class LocationsActivity extends AppCompatActivity {
             locationsText.setText("Crawfordsville");
         }else if(selectionLocation == 5){
             locationsText.setText("Terre Haute");
+        }
+
+        contactInfoIndex = (selectionLocation - 1) * 4;
+        for(i=2;i<=7;i++){
+            replaceTextString = "locationsContactInfoText" + i;
+            Log.w("myApp", replaceTextString);
+            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
+            TextView tempText = (TextView) locationsContactInfoDialog.findViewById(replaceTextId);
+            tempText.setText(contactinfo[contactInfoIndex + count++]);
+            if(i>2){
+                i++;
+            }
         }
 
         View buttonLocationsContactInfoCloseImage = locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
@@ -222,17 +248,15 @@ public class LocationsActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonLocationsClinicHoursClose:
-                    locationsPopup(0);
+                    locationsClinicHoursPopup(0);
                     break;
                 case R.id.buttonLocationsContactInfoClose:
-                    locationsPopup(1);
+                    locationsContactInfoPopup(0);
                     break;
                 default:
                     break;
             }
         }
     };
-
-    }
 
 }

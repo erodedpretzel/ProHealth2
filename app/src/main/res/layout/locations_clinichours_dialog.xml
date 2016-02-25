@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:text="Clinic Hours"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="25sp"
             />
     </LinearLayout>
     <LinearLayout
@@ -56,31 +56,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monday:"
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="left"
-            />
+        />
         <TextView
             android:id="@+id/locationsClinicHoursText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:id="@+id/locationsClinicHoursText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tuesday:"
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -92,19 +92,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:id="@+id/locationsClinicHoursText5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wednesday:"
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -116,19 +116,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:id="@+id/locationsClinicHoursText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thursday:"
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -140,19 +140,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:id="@+id/locationsClinicHoursText9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Friday:"
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
@@ -164,12 +164,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textSize="15sp"
+            android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
 
     </android.support.v7.widget.GridLayout>
