@@ -14,8 +14,8 @@
 
     <Spinner
         android:id="@+id/spinnerProviderType"
-
-        android:layout_width="wrap_content"
+        style="@style/fancySpinnerDropDown"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -23,7 +23,8 @@
         android:spinnerMode="dropdown"/>
     <Spinner
         android:id="@+id/spinnerProviderLocations"
-        android:layout_width="wrap_content"
+        style="@style/fancySpinnerDropDown"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

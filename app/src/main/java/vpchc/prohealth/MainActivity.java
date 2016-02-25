@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -153,36 +154,53 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonCallBloom:
+                    ImageView callBloomButton = (ImageView) callDialog.findViewById(R.id.buttonCallBloom);
+                    callBloomButton.setImageResource(R.drawable.call_site_on);
                     Intent callBloomIntent = new Intent(Intent.ACTION_CALL);
                     callBloomIntent.setData(Uri.parse("tel:7654989000"));
                     startActivity(callBloomIntent);
                     Toast.makeText(getApplicationContext(),"Calling Bloomingdale Location",Toast.LENGTH_SHORT).show();
+                    callPopup(1);
                     break;
                 case R.id.buttonCallCay:
+                    ImageView callCayButton = (ImageView) callDialog.findViewById(R.id.buttonCallCay);
+                    callCayButton.setImageResource(R.drawable.call_site_on);
                     Intent callCayIntent = new Intent(Intent.ACTION_CALL);
                     callCayIntent.setData(Uri.parse("tel:7654929042"));
                     startActivity(callCayIntent);
                     Toast.makeText(getApplicationContext(),"Calling Cayuga Location",Toast.LENGTH_SHORT).show();
+                    callPopup(1);
                     break;
                 case R.id.buttonCallClint:
+                    ImageView callClintButton = (ImageView) callDialog.findViewById(R.id.buttonCallClint);
+                    callClintButton.setImageResource(R.drawable.call_site_on);
                     Intent callClintIntent = new Intent(Intent.ACTION_CALL);
                     callClintIntent.setData(Uri.parse("tel:7658281003"));
                     startActivity(callClintIntent);
                     Toast.makeText(getApplicationContext(),"Calling Clinton Location",Toast.LENGTH_SHORT).show();
+                    callPopup(1);
                     break;
                 case R.id.buttonCallCraw:
+                    ImageView callCrawButton = (ImageView) callDialog.findViewById(R.id.buttonCallCraw);
+                    callCrawButton.setImageResource(R.drawable.call_site_on);
                     Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
                     callCrawIntent.setData(Uri.parse("tel:7653625100"));
                     startActivity(callCrawIntent);
                     Toast.makeText(getApplicationContext(),"Calling Crawfordsville Location",Toast.LENGTH_SHORT).show();
+                    callPopup(1);
                     break;
                 case R.id.buttonCallTerre:
+                    ImageView callTerreButton = (ImageView) callDialog.findViewById(R.id.buttonCallTerre);
+                    callTerreButton.setImageResource(R.drawable.call_site_on);
                     Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
                     callTerreIntent.setData(Uri.parse("tel:8122387631"));
                     startActivity(callTerreIntent);
                     Toast.makeText(getApplicationContext(),"Calling Terre Haute Location",Toast.LENGTH_SHORT).show();
+                    callPopup(1);
                     break;
                 case R.id.buttonCallClose:
+                    ImageView closeCallButton = (ImageView) callDialog.findViewById(R.id.buttonCallClose);
+                    closeCallButton.setImageResource(R.drawable.dialog_close_on);
                     callPopup(1);
                     break;
                 default:
@@ -190,5 +208,29 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ImageView callButton = (ImageView) findViewById(R.id.callButton);
+        ImageView providerButton = (ImageView) findViewById(R.id.providerButton);
+        ImageView locationsButton = (ImageView) findViewById(R.id.locationsButton);
+        ImageView formsButton = (ImageView) findViewById(R.id.formsButton);
+        ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
+        ImageView programsButton = (ImageView) findViewById(R.id.programsButton);
+        ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
+        ImageView jobsButton = (ImageView) findViewById(R.id.jobsButton);
+        ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
+
+        callButton.setImageResource(R.drawable.call_off);
+        providerButton.setImageResource(R.drawable.providers_off);
+        locationsButton.setImageResource(R.drawable.locations_off);
+        formsButton.setImageResource(R.drawable.forms_off);
+        portalButton.setImageResource(R.drawable.portal_off);
+        programsButton.setImageResource(R.drawable.programs_off);
+        trackerButton.setImageResource(R.drawable.tracker_off);
+        jobsButton.setImageResource(R.drawable.jobs_off);
+        facebookButton.setImageResource(R.drawable.facebook_off);
+    }
 
 }

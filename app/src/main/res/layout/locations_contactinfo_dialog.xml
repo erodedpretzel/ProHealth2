@@ -13,7 +13,7 @@ android:layout_height="match_parent">
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:gravity="end"
-        android:src="@drawable/dialog_close"
+        android:src="@drawable/dialog_close_off"
         />
     <TextView
         android:id="@+id/locationsContactInfoTitleText"
@@ -55,13 +55,15 @@ android:layout_height="match_parent">
         android:id="@+id/locationsContactInfoText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="Address:"
+        android:textStyle="bold"
         android:textSize="@dimen/location_clinic_hours_dialog"
         android:textColor="#000000"
 
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
-        grid:layout_gravity="left"
+        grid:layout_gravity="left|center"
         />
     <TextView
         android:id="@+id/locationsContactInfoText2"
@@ -91,13 +93,15 @@ android:layout_height="match_parent">
         android:id="@+id/locationsContactInfoText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="Phone:"
+        android:textStyle="bold"
         android:textSize="@dimen/location_clinic_hours_dialog"
         android:textColor="#000000"
 
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
-        grid:layout_gravity="left"
+        grid:layout_gravity="left|center"
         />
     <TextView
         android:id="@+id/locationsContactInfoText5"
@@ -115,13 +119,15 @@ android:layout_height="match_parent">
         android:id="@+id/locationsContactInfoText6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="Fax:"
+        android:textStyle="bold"
         android:textSize="@dimen/location_clinic_hours_dialog"
         android:textColor="#000000"
 
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
-        grid:layout_gravity="left"
+        grid:layout_gravity="left|center"
         />
     <TextView
         android:id="@+id/locationsContactInfoText7"

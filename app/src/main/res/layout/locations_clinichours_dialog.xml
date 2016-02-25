@@ -13,7 +13,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="end"
-            android:src="@drawable/dialog_close"
+            android:src="@drawable/dialog_close_off"
             />
         <TextView
             android:id="@+id/locationsClinicHoursTitleText"
@@ -56,17 +56,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monday:"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="left"
+            grid:layout_gravity="left|center"
         />
         <TextView
             android:id="@+id/locationsClinicHoursText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text=" "
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
@@ -79,7 +82,9 @@
             android:id="@+id/locationsClinicHoursText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Tuesday:"
+            android:textStyle="bold"
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
@@ -103,7 +108,9 @@
             android:id="@+id/locationsClinicHoursText5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Wednesday:"
+            android:textStyle="bold"
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
@@ -127,7 +134,9 @@
             android:id="@+id/locationsClinicHoursText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Thursday:"
+            android:textStyle="bold"
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 
@@ -151,7 +160,9 @@
             android:id="@+id/locationsClinicHoursText9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Friday:"
+            android:textStyle="bold"
             android:textSize="@dimen/location_clinic_hours_dialog"
             android:textColor="#000000"
 

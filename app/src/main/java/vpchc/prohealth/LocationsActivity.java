@@ -1,6 +1,8 @@
 package vpchc.prohealth;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,9 +21,9 @@ public class LocationsActivity extends AppCompatActivity {
 
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
-    private static final String[]locations = {"Please select a location", "Bloomingdale", "Cayuga",
+    private static final String[]locations = {"Select a location", "Bloomingdale", "Cayuga",
             "Clinton", "Crawfordsville", "Terre Haute"};
-    private static final String[]options = {"Please select an option", "Clinic Hours", "Contact Info",
+    private static final String[]options = {"Select an option", "Clinic Hours", "Contact Info",
             "Get Directions"};
     private static final String[]contactinfo = {"201 W. Academy St.","Bloomingdale, IN 47832",
             "(765) 498-9000","(765) 798-9004","114 N Division St.","Cayuga, IN 47928",
@@ -34,6 +37,7 @@ public class LocationsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final String[] locationCoordinates = new String[1];
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -106,10 +110,26 @@ public class LocationsActivity extends AppCompatActivity {
                         break;
                     case 1:
                         locationsClinicHoursPopup(1);
+                        break;
                     case 2:
                         locationsContactInfoPopup(1);
+                        break;
                     case 3:
-                        //open map here
+                        if(selectionLocation == 1){
+                            locationCoordinates[0] = "201 W. Academy St., Bloomingdale,IN 47832";
+                        }else if(selectionLocation == 2){
+                            locationCoordinates[0] = "114 N. Division St., Cayuga, IN 47928";
+                        }else if(selectionLocation == 3){
+                            locationCoordinates[0] = "777 S. Main Street, Suite 100 Clinton, IN 47842";
+                        }else if(selectionLocation == 4){
+                            locationCoordinates[0] = "1810 Lafayette Ave, Crawfordsville, IN 47933";
+                        }else if(selectionLocation == 5){
+                            locationCoordinates[0] = "1530 North 7th Street, Suite 201, Terre Haute, IN 47807";
+                        }
+                        Uri gmmIntentUri = Uri.parse("geo:0,0?q="+locationCoordinates[0]);
+                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                        mapIntent.setPackage("com.google.android.apps.maps");
+                        startActivity(mapIntent);
                         break;
                 }
             }
@@ -237,6 +257,8 @@ public class LocationsActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.locationsBackButton:
                     finish();
+                    ImageView backButton = (ImageView) findViewById(R.id.locationsBackButton);
+                    backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 default:
                     break;
@@ -248,9 +270,13 @@ public class LocationsActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonLocationsClinicHoursClose:
+                    ImageView closeClinicHoursButton = (ImageView) locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
+                    closeClinicHoursButton.setImageResource(R.drawable.dialog_close_on);
                     locationsClinicHoursPopup(0);
                     break;
                 case R.id.buttonLocationsContactInfoClose:
+                    ImageView closeContactInfoButton = (ImageView) locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
+                    closeContactInfoButton.setImageResource(R.drawable.dialog_close_on);
                     locationsContactInfoPopup(0);
                     break;
                 default:

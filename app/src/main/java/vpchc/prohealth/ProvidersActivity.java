@@ -29,9 +29,9 @@ public class ProvidersActivity extends AppCompatActivity {
     private Spinner spinnerProviderLocations;
     private boolean selectionProviderType;
     private int selectionProviderLocation;
-    private static final String[]types = {"Please select a type of Provider", "Behavioral Health",
+    private static final String[]types = {"Select a type of Provider", "Behavioral Health",
             "Medical"};
-    private static final String[]locations = {"Please select a location", "Bloomingdale", "Cayuga",
+    private static final String[]locations = {"Select a location", "Bloomingdale", "Cayuga",
             "Clinton", "Crawfordsville", "MSBHC", "Terre Haute"};
     Dialog providersDialog;
     private static final String[]medicalproviders = {
@@ -161,6 +161,8 @@ public class ProvidersActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.providerBackButton:
                     finish();
+                    ImageView backButton = (ImageView) findViewById(R.id.providerBackButton);
+                    backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 default:
                     break;
@@ -242,6 +244,8 @@ public class ProvidersActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonProvidersClose:
+                    ImageView closeButton = (ImageView) providersDialog.findViewById(R.id.buttonProvidersClose);
+                    closeButton.setImageResource(R.drawable.dialog_close_on);
                     providersPopup(1);
                     break;
                 default:
