@@ -20,7 +20,12 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_weight=".5"
+                    android:layout_weight=".01"
+                    />
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_weight=".2"
                     android:layout_gravity="center"
                     android:src="@drawable/main_logo"
                     />
@@ -30,7 +35,7 @@
                     android:layout_weight=".7"
                     android:layout_gravity="center"
 
-                    android:text="ProHealth Mobile"
+                    android:text="Valley ProHealth"
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     />
