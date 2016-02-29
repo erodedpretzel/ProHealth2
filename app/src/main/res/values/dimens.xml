@@ -7,6 +7,6 @@
     <dimen name="icon_height">70dp</dimen>
     <dimen name="home_icon">18sp</dimen>
     <dimen name="call_location">20sp</dimen>
-    <dimen name="location_clinic_hours_dialog">20dp</dimen>
+    <dimen name="location_clinic_hours_dialog">16dp</dimen>
 
 </resources>
