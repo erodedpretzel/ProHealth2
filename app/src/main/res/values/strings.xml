@@ -28,7 +28,7 @@
     <string name="title_activity_programs">Programs</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="trackerTitleText">Where is the Mobile Bus?</string>
-    <string name="trackerDescription">Location of MSBHC</string>
+    <string name="trackerDescription">MSBHC Tracker</string>
     <string name="trackerLocationText">Location:</string>
     <string name="trackerTimes">Times:</string>
     <string name="trackerStatus">Status:</string>

@@ -84,7 +84,7 @@
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            grid:layout_gravity="center|top"
             />
         <ImageView
             android:id="@+id/buttonTrackerScheduleDownload"
@@ -142,7 +142,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/download_button_off"
+            android:src="@drawable/download_button"
             />
         <TextView
             android:layout_width="wrap_content"

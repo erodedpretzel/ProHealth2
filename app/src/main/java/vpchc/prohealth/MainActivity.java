@@ -242,32 +242,36 @@ public class MainActivity extends AppCompatActivity {
         int times = index + 2;
         double  busStartHour = 0, busStartMin = 0, busStartTime = 0,
                 busEndHour = 0, busEndMin = 0, busEndTime = 0,
-                currentYear = 0, currentMonth = 0, currentDay = 0,
                 currentHour = 0, currentMin = 0, currentTime = 0, compareStart = 0,
                 compareEnd = 0, currentMil = 0;
         String[] splitStartTime;
         String[] splitEndTime;
 //Create a usable current time date method
         Calendar splitCurrentTime = Calendar.getInstance();
-        currentHour = (splitCurrentTime.get(Calendar.HOUR))*3.6e6;
+        currentHour = (splitCurrentTime.get(Calendar.HOUR_OF_DAY))*3.6e6;
         currentMin = (splitCurrentTime.get(Calendar.MINUTE))*6e4;
         currentMil = splitCurrentTime.get(Calendar.MILLISECOND);
         currentTime =  currentHour + currentMin + currentMil;
+        Log.d("myApp","currentTime" + currentTime);
 
 //Split the start time and create a useble bus start time date method
         splitStartTime = busSchedule[times++].split(":");
         busStartHour = (Double.parseDouble(splitStartTime[0]))*3.6e6;
         busStartMin = (Double.parseDouble(splitStartTime[1]))*6e4;
         busStartTime = busStartHour + busStartMin;
+        Log.d("myApp","busStartTime" + busStartTime);
 
 //Split the end time and create a useable bus end time date method
         splitEndTime = busSchedule[times].split(":");
-        busEndHour = (Double.parseDouble(splitStartTime[0]))*3.6e6;
-        busEndMin = (Double.parseDouble(splitStartTime[1]))*6e4;
+        busEndHour = (Double.parseDouble(splitEndTime[0]))*3.6e6;
+        busEndMin = (Double.parseDouble(splitEndTime[1]))*6e4;
         busEndTime = busEndHour + busEndMin;
+        Log.d("myApp","busEndTime" + busEndTime);
 
         compareStart = busStartTime - currentTime;
         compareEnd = busEndTime - currentTime;
+        Log.d("myApp","compareStart" + compareStart);
+        Log.d("myApp","compareEnd" + compareEnd);
 
 //Where the comparing happens
         if(compareEnd <= 1.8e6 && compareEnd > 0){
@@ -339,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             timesText.setText(busSchedule[today]);
         }else{
             locationText.setText(busSubSchedule[Integer.parseInt(busSchedule[today + 4])]);
-            timesText.setText(busSubSchedule[Integer.parseInt(busSchedule[today+1 + 4])]);
+            timesText.setText(busSubSchedule[Integer.parseInt(busSchedule[today + 4])+1]);
         }
 
         TextView statusText = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
@@ -379,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
     /*02/02*/"SVMS/SVHS", "10:30a - 2:45p", "10:30", "14:45", "0",
     /*02/04*/"Rosedale Elem", "11:30a - 2:00p", "11:30", "14:00", "0",
     /*02/18*/"Rosedale Elem", "11:30a - 2:00 p", "11:30", "14:00", "0",
-    /*03/01*/"SVMS/SVHS", "10:30a - 2:45p", "10:30", "14:45", "0",
+    /*03/01*/"SVMS/SVHS", "10:30a - 2:45p", "10:30", "16:45", "0",
     /*03/03*/"Rosedale Elem", "11:30a - 2:00p", "11:30", "14:00", "0",
     /*03/14*/"Ernie Pyle", "11:30a - 2:00p", "11:30", "14:00", "0",
     /*03/17*/"Rosedale Elem", "11:30a - 2:00p", "11:30", "14:00", "0",
