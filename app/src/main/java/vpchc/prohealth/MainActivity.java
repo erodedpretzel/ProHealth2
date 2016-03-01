@@ -309,6 +309,15 @@ public class MainActivity extends AppCompatActivity {
             trackerDialog.show();
         }
 
+        Calendar currDate = Calendar.getInstance();
+        String todaysMonth = Integer.toString(currDate.get(Calendar.MONTH) + 1);
+        String todaysDay = Integer.toString(currDate.get(Calendar.DATE));
+        String todaysDate = todaysMonth + "/" + todaysDay;
+        TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
+        todaysDateText.setText(todaysDate);
+
+
+
 // Check the times for current day location 1
         busSchedule = busTrackerSchedules(0);
         today = getCurrDay();
@@ -348,6 +357,9 @@ public class MainActivity extends AppCompatActivity {
         }
         View buttonTrackerClose = trackerDialog.findViewById(R.id.buttonTrackerCallClose);
         buttonTrackerClose.setOnClickListener(trackerListener);
+
+        View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
+        buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
     }
 
     private String[] busTrackerSchedules(int choice){
@@ -764,8 +776,15 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener trackerListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.buttonTrackerScheduleDownload:
+                    Toast.makeText(getApplicationContext(),"Downloading MSBHC Schedule...",Toast.LENGTH_SHORT).show();
+                    Uri scheduleUri = Uri.parse("http://vpchc.org/files/MSBHC_2016_Jan_May.pdf?");
+                    Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
+                    startActivity(scheduleIntent);
+                    break;
                 case R.id.buttonTrackerCallClose:
-                   busTrackerMain(0);
+                    busTrackerMain(0);
+                    break;
                 default:
                     break;
             }
