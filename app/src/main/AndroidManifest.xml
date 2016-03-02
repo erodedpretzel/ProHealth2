@@ -15,7 +15,7 @@
     </activity>
     <activity android:name=".ProvidersActivity" android:screenOrientation="portrait" android:label="@string/title_activity_providers"
         android:theme="@style/AppTheme.NoActionBar" />
-    <activity android:name=".ProgramsActivity" android:screenOrientation="portrait" android:label="@string/title_activity_programs"
+    <activity android:name=".ServicesActivity" android:screenOrientation="portrait" android:label="@string/title_activity_programs"
         android:theme="@style/AppTheme.NoActionBar" />
     <activity android:name=".LocationsActivity" android:screenOrientation="portrait" android:label="@string/title_activity_locations"
         android:theme="@style/AppTheme.NoActionBar" />

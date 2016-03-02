@@ -1,25 +1,17 @@
 package vpchc.prohealth;
 
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.Window;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.content.Intent;
 import android.app.Dialog;
-import android.content.Context;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.drawable.ColorDrawable;
 
 import java.util.Calendar;
 
@@ -41,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         View locationsImage = findViewById(R.id.locationsButton);
         View formsImage = findViewById(R.id.formsButton);
         View portalImage = findViewById(R.id.portalButton);
-        View programsImage = findViewById(R.id.programsButton);
+        View servicesImage = findViewById(R.id.servicesButton);
         View trackerImage = findViewById(R.id.trackerButton);
         View jobsImage = findViewById(R.id.jobsButton);
         View facebookImage = findViewById(R.id.facebookButton);
@@ -52,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         locationsImage.setOnClickListener(homeListener);
         formsImage.setOnClickListener(homeListener);
         portalImage.setOnClickListener(homeListener);
-        programsImage.setOnClickListener(homeListener);
+        servicesImage.setOnClickListener(homeListener);
         trackerImage.setOnClickListener(homeListener);
         jobsImage.setOnClickListener(homeListener);
         facebookImage.setOnClickListener(homeListener);
@@ -92,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
                     portalLink.setData(Uri.parse(portalUrl));
                     startActivity(portalLink);
                     break;
-                case R.id.programsButton:
-                    ImageView programsButton = (ImageView) findViewById(R.id.programsButton);
-                    programsButton.setImageResource(R.drawable.programs_on);
-                    Intent openProgramsIntent = new Intent(MainActivity.this, ProgramsActivity.class);
-                    startActivity(openProgramsIntent);
+                case R.id.servicesButton:
+                    ImageView servicesButton = (ImageView) findViewById(R.id.servicesButton);
+                    servicesButton.setImageResource(R.drawable.services_on);
+                    Intent openservicesIntent = new Intent(MainActivity.this, ServicesActivity.class);
+                    startActivity(openservicesIntent);
                     break;
                 case R.id.trackerButton:
                     ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
@@ -803,7 +795,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView locationsButton = (ImageView) findViewById(R.id.locationsButton);
         ImageView formsButton = (ImageView) findViewById(R.id.formsButton);
         ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
-        ImageView programsButton = (ImageView) findViewById(R.id.programsButton);
+        ImageView servicesButton = (ImageView) findViewById(R.id.servicesButton);
         ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
         ImageView jobsButton = (ImageView) findViewById(R.id.jobsButton);
         ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
@@ -813,7 +805,7 @@ public class MainActivity extends AppCompatActivity {
         locationsButton.setImageResource(R.drawable.locations_off);
         formsButton.setImageResource(R.drawable.forms_off);
         portalButton.setImageResource(R.drawable.portal_off);
-        programsButton.setImageResource(R.drawable.programs_off);
+        servicesButton.setImageResource(R.drawable.services_off);
         trackerButton.setImageResource(R.drawable.tracker_off);
         jobsButton.setImageResource(R.drawable.jobs_off);
         facebookButton.setImageResource(R.drawable.facebook_off);

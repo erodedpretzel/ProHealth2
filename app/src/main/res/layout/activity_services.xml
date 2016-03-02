@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="vpchc.prohealth.ProgramsActivity">
+    tools:context=".ServicesActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/programsBackButton"
+                android:id="@+id/servicesBackButton"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
 
@@ -33,7 +33,7 @@
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:layout_weight=".2"
-                    android:src="@drawable/programs_logo"
+                    android:src="@drawable/services_logo"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                     android:layout_gravity="center"
                     android:layout_weight=".5"
 
-                    android:text="Programs"
+                    android:text="Services"
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     />
@@ -49,7 +49,7 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <include layout="@layout/content_programs"/>
+    <include layout="@layout/content_services"/>
 
 
 </android.support.design.widget.CoordinatorLayout>

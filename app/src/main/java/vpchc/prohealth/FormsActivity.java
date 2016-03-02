@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class FormsActivity extends AppCompatActivity {
 
@@ -177,16 +178,19 @@ public class FormsActivity extends AppCompatActivity {
                         case 0:
                             break;
                         case 1:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri1 = Uri.parse("http://vpchc.org/files/form_behavioral_health_release.pdf");
                             Intent intent = new Intent(Intent.ACTION_VIEW, uri1);
                             startActivity(intent);
                             break;
                         case 2:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri2 = Uri.parse("http://vpchc.org/files/form_release_of_information.pdf");
                             Intent intent2 = new Intent(Intent.ACTION_VIEW, uri2);
                             startActivity(intent2);
                             break;
                         case 3:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri3 = Uri.parse("http://vpchc.org/files/forms_telemedicine_consent.pdf");
                             Intent intent3 = new Intent(Intent.ACTION_VIEW, uri3);
                             startActivity(intent3);
@@ -198,16 +202,19 @@ public class FormsActivity extends AppCompatActivity {
                             case 0:
                                 break;
                             case 1:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri4 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_adult_bloomcayclint.pdf");
                                 Intent intent4 = new Intent(Intent.ACTION_VIEW, uri4);
                                 startActivity(intent4);
                                 break;
                             case 2:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri5 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_child_bloomcayclint.pdf");
                                 Intent intent5 = new Intent(Intent.ACTION_VIEW, uri5);
                                 startActivity(intent5);
                                 break;
                             case 3:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri6 = Uri.parse("http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf");
                                 Intent intent6 = new Intent(Intent.ACTION_VIEW, uri6);
                                 startActivity(intent6);
@@ -218,16 +225,19 @@ public class FormsActivity extends AppCompatActivity {
                             case 0:
                                 break;
                             case 1:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri7 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_adult_crawfordsville.pdf");
                                 Intent intent7 = new Intent(Intent.ACTION_VIEW, uri7);
                                 startActivity(intent7);
                                 break;
                             case 2:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri8 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_child_crawfordsville.pdf");
                                 Intent intent8 = new Intent(Intent.ACTION_VIEW, uri8);
                                 startActivity(intent8);
                                 break;
                             case 3:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri9 = Uri.parse("http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf");
                                 Intent intent9 = new Intent(Intent.ACTION_VIEW, uri9);
                                 startActivity(intent9);
@@ -238,16 +248,19 @@ public class FormsActivity extends AppCompatActivity {
                             case 0:
                                 break;
                             case 1:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri10 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_adult_terrehaute.pdf");
                                 Intent intent10 = new Intent(Intent.ACTION_VIEW, uri10);
                                 startActivity(intent10);
                                 break;
                             case 2:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri11 = Uri.parse("http://vpchc.org/files/form_new_patient_packet_child_terrehaute.pdf");
                                 Intent intent11 = new Intent(Intent.ACTION_VIEW, uri11);
                                 startActivity(intent11);
                                 break;
                             case 3:
+                                Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                                 Uri uri12 = Uri.parse("http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf");
                                 Intent intent12 = new Intent(Intent.ACTION_VIEW, uri12);
                                 startActivity(intent12);
@@ -260,16 +273,19 @@ public class FormsActivity extends AppCompatActivity {
                         case 0:
                             break;
                         case 1:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri13 = Uri.parse("http://vpchc.org/files/form_acknowledgement_receipt.pdf");
                             Intent intent13 = new Intent(Intent.ACTION_VIEW, uri13);
                             startActivity(intent13);
                             break;
                         case 2:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri14 = Uri.parse("http://vpchc.org/files/form_patient_bill_of_rights.pdf");
                             Intent intent14 = new Intent(Intent.ACTION_VIEW, uri14);
                             startActivity(intent14);
                             break;
                         case 3:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri15 = Uri.parse("http://vpchc.org/files/form_notice_privacy_practices.pdf");
                             Intent intent15 = new Intent(Intent.ACTION_VIEW, uri15);
                             startActivity(intent15);
@@ -280,11 +296,13 @@ public class FormsActivity extends AppCompatActivity {
                         case 0:
                             break;
                         case 1:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri16 = Uri.parse("http://vpchc.org/files/form_ihsaa_physical.pdf");
                             Intent intent16 = new Intent(Intent.ACTION_VIEW, uri16);
                             startActivity(intent16);
                             break;
                         case 2:
+                            Toast.makeText(getApplicationContext(), "Downloading Form...", Toast.LENGTH_SHORT).show();
                             Uri uri17 = Uri.parse("http://vpchc.org/files/form_msbhc_student_enrollment.pdf");
                             Intent intent17 = new Intent(Intent.ACTION_VIEW, uri17);
                             startActivity(intent17);
