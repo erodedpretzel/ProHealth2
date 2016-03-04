@@ -19,8 +19,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center">
                     <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:src="@drawable/main_logo"
                     />
@@ -29,8 +29,8 @@
                     android:layout_height="match_parent"
                     android:gravity="left|center"
 
-                    android:text="Valley ProHealth"
-                    android:textSize="25sp"
+                    android:text=" Valley Professionals \n Community Health Center"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     />
             </LinearLayout>

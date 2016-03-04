@@ -96,8 +96,8 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/portal_off"
-            android:id="@+id/portalButton"
+            android:src="@drawable/services_off"
+            android:id="@+id/servicesButton"
         />
         <ImageView
             android:layout_width="@dimen/icon_width"
@@ -105,8 +105,8 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/services_off"
-            android:id="@+id/servicesButton"
+            android:src="@drawable/tracker_off"
+            android:id="@+id/trackerButton"
             />
         <TextView
             android:text="@string/icon_forms"
@@ -119,17 +119,17 @@
             android:id="@+id/formsButtonText"
             />
         <TextView
-            android:text="@string/icon_patient_portal"
+            android:text="@string/icon_services"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/portalButtonText"
+            android:id="@+id/servicesButtonText"
             />
         <TextView
-            android:text="@string/icon_services"
+            android:text="@string/icon_bustracker"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
             grid:layout_columnWeight="1"
@@ -144,17 +144,8 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/tracker_off"
-            android:id="@+id/trackerButton"
-            />
-        <ImageView
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-            android:src="@drawable/jobs_off"
-            android:id="@+id/jobsButton"
+            android:src="@drawable/portal_off"
+            android:id="@+id/portalButton"
             />
         <ImageView
             android:layout_width="@dimen/icon_width"
@@ -165,25 +156,24 @@
             android:src="@drawable/facebook_off"
             android:id="@+id/facebookButton"
             />
-        <TextView
-            android:text="@string/icon_bustracker"
-            android:textColor='#000000'
-            android:textSize="@dimen/home_icon"
+        <ImageView
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
-            grid:layout_gravity="top"
-            android:gravity="center"
-            android:id="@+id/trackerButtonText"
+            grid:layout_gravity="center"
+            android:src="@drawable/website_off"
+            android:id="@+id/websiteButton"
             />
         <TextView
-            android:text="@string/icon_job_openings"
+            android:text="@string/icon_patient_portal"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/jobsButtonText"
+            android:id="@+id/portalButtonText"
             />
         <TextView
             android:text="@string/icon_facebook"
@@ -193,7 +183,17 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/facebookButtonText"
+            android:id="@+id/jobsButtonText"
+            />
+        <TextView
+            android:text="@string/icon_website"
+            android:textColor='#000000'
+            android:textSize="@dimen/home_icon"
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+            android:gravity="center"
+            android:id="@+id/websiteButtonText"
             />
     </android.support.v7.widget.GridLayout>
 

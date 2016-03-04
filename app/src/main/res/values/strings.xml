@@ -35,4 +35,5 @@
     <string name="trackerScheduleDownloa">Download Bus Schedule</string>
     <string name="trackerScheduleDownload">Download Bus Schedule</string>
     <string name="icon_services">Services</string>
+    <string name="icon_website">Website</string>
 </resources>

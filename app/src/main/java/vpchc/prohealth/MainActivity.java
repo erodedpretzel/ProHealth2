@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         View portalImage = findViewById(R.id.portalButton);
         View servicesImage = findViewById(R.id.servicesButton);
         View trackerImage = findViewById(R.id.trackerButton);
-        View jobsImage = findViewById(R.id.jobsButton);
+        View websiteImage = findViewById(R.id.websiteButton);
         View facebookImage = findViewById(R.id.facebookButton);
 
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         portalImage.setOnClickListener(homeListener);
         servicesImage.setOnClickListener(homeListener);
         trackerImage.setOnClickListener(homeListener);
-        jobsImage.setOnClickListener(homeListener);
+        websiteImage.setOnClickListener(homeListener);
         facebookImage.setOnClickListener(homeListener);
     }
 
@@ -96,11 +96,13 @@ public class MainActivity extends AppCompatActivity {
                     trackerButton.setImageResource(R.drawable.tracker_on);
                     busTrackerMain(1);
                     break;
-                case R.id.jobsButton:
-                    ImageView jobsButton = (ImageView) findViewById(R.id.jobsButton);
-                    jobsButton.setImageResource(R.drawable.jobs_on);
-                    Intent openJobsIntent = new Intent(MainActivity.this, JobsActivity.class);
-                    startActivity(openJobsIntent);
+                case R.id.websiteButton:
+                    ImageView websiteButton = (ImageView) findViewById(R.id.websiteButton);
+                    websiteButton.setImageResource(R.drawable.website_on);
+                    String websiteUrl = "http://www.vpchc.org";
+                    Intent websiteLink = new Intent(Intent.ACTION_VIEW);
+                    websiteLink.setData(Uri.parse(websiteUrl));
+                    startActivity(websiteLink);
                     break;
                 case R.id.facebookButton:
                     ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
@@ -798,7 +800,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
         ImageView servicesButton = (ImageView) findViewById(R.id.servicesButton);
         ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
-        ImageView jobsButton = (ImageView) findViewById(R.id.jobsButton);
+        ImageView websiteButton = (ImageView) findViewById(R.id.websiteButton);
         ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
 
         callButton.setImageResource(R.drawable.call_off);
@@ -808,7 +810,7 @@ public class MainActivity extends AppCompatActivity {
         portalButton.setImageResource(R.drawable.portal_off);
         servicesButton.setImageResource(R.drawable.services_off);
         trackerButton.setImageResource(R.drawable.tracker_off);
-        jobsButton.setImageResource(R.drawable.jobs_off);
+        websiteButton.setImageResource(R.drawable.website_off);
         facebookButton.setImageResource(R.drawable.facebook_off);
     }
 
