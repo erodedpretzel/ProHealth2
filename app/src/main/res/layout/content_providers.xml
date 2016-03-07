@@ -13,7 +13,7 @@
     tools:showIn="@layout/activity_providers">
 
     <Spinner
-        android:id="@+id/spinnerProviderType"
+        android:id="@+id/spinnerProviderLocations"
         style="@style/fancySpinnerDropDown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_marginTop="90dp"
         android:spinnerMode="dropdown"/>
     <Spinner
-        android:id="@+id/spinnerProviderLocations"
+        android:id="@+id/spinnerProviderType"
         style="@style/fancySpinnerDropDown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

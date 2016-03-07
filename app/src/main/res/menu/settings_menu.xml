@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuPref"
+        android:title="Reset Location Preference" />
+    <item android:id="@+id/menuFeedback"
+        android:title="Give App Feedback" />
+</menu>

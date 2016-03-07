@@ -2,9 +2,11 @@ package vpchc.prohealth;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -32,7 +34,7 @@ public class ProvidersActivity extends AppCompatActivity {
     private static final String[]types = {"Select a type of Provider", "Behavioral Health",
             "Medical"};
     private static final String[]locations = {"Select a location", "Bloomingdale", "Cayuga",
-            "Clinton", "Crawfordsville", "MSBHC", "Terre Haute"};
+            "Clinton", "Crawfordsville", "Terre Haute", "MSBHC"};
     Dialog providersDialog;
     private static final String[]medicalproviders = {
                                               "Aziz Abed, MD","0","0","1","0","0","0",
@@ -69,79 +71,68 @@ public class ProvidersActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        spinnerProviderType = (Spinner)findViewById(R.id.spinnerProviderType);
-        ArrayAdapter<String>adapterProviderType = new ArrayAdapter<String>(ProvidersActivity.this,
-                R.layout.fancy_spinner_item,types);
-        adapterProviderType.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
-        spinnerProviderType.setAdapter(adapterProviderType);
 
         spinnerProviderLocations = (Spinner)findViewById(R.id.spinnerProviderLocations);
         ArrayAdapter<String>adapterProviderLocations = new ArrayAdapter<String>(ProvidersActivity.this,
                 R.layout.fancy_spinner_item,locations);
         adapterProviderLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerProviderLocations.setAdapter(adapterProviderLocations);
-        spinnerProviderLocations.setVisibility(View.GONE);
+
+        spinnerProviderType = (Spinner)findViewById(R.id.spinnerProviderType);
+        ArrayAdapter<String>adapterProviderType = new ArrayAdapter<String>(ProvidersActivity.this,
+                R.layout.fancy_spinner_item,types);
+        adapterProviderType.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
+        spinnerProviderType.setAdapter(adapterProviderType);
+
+        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+        int locationPref = pref.getInt("prefLocation", 2);
+        Log.d("myApp2","Preferred location outside activity: " + locationPref);
+
+        spinnerProviderLocations.setSelection(locationPref);
+
+        if(locationPref == 0){
+            spinnerProviderType.setVisibility(View.GONE);
+        }
 
         View buttonBack = findViewById(R.id.providerBackButton);
         buttonBack.setOnClickListener(providerListener);
-
-        spinnerProviderType.setOnItemSelectedListener(new OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                switch (position) {
-                    case 0:
-                        spinnerProviderLocations.setSelection(0);
-                        break;
-                    case 1:
-                        spinnerProviderLocations.setVisibility(View.VISIBLE);
-                        spinnerProviderLocations.setSelection(0);
-                        selectionProviderType = false;
-                        break;
-                    case 2:
-                        spinnerProviderLocations.setVisibility(View.VISIBLE);
-                        spinnerProviderLocations.setSelection(0);
-                        selectionProviderType = true;
-                        break;
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
-
-        });
 
         spinnerProviderLocations.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 switch (position) {
                     case 0:
+                        spinnerProviderType.setSelection(0);
                         break;
                     case 1:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 1;
-                        providersPopup(0);
                         break;
                     case 2:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 2;
-                        providersPopup(0);
                         break;
                     case 3:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 3;
-                        providersPopup(0);
                         break;
                     case 4:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 4;
-                        providersPopup(0);
                         break;
                     case 5:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 5;
-                        providersPopup(0);
                         break;
                     case 6:
+                        spinnerProviderType.setSelection(0);
+                        spinnerProviderType.setVisibility(View.VISIBLE);
                         selectionProviderLocation = 6;
-                        providersPopup(0);
                         break;
                 }
             }
@@ -153,6 +144,29 @@ public class ProvidersActivity extends AppCompatActivity {
 
         });
 
+        spinnerProviderType.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        selectionProviderType = false;
+                        providersPopup(0);
+                        break;
+                    case 2:
+                        selectionProviderType = true;
+                        providersPopup(0);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+
+        });
 
     }
 
@@ -189,7 +203,7 @@ public class ProvidersActivity extends AppCompatActivity {
             providersDialog.show();
         }else{
             providersDialog.dismiss();
-            spinnerProviderLocations.setSelection(0);
+            spinnerProviderType.setSelection(0);
             return true;
         }
 
@@ -226,9 +240,9 @@ public class ProvidersActivity extends AppCompatActivity {
         }else if(selectionProviderLocation == 4){
             locationsText.setText("Crawfordsville");
         }else if(selectionProviderLocation == 5){
-            locationsText.setText("MSBHC");
-        }else if(selectionProviderLocation == 6){
             locationsText.setText("Terre Haute");
+        }else if(selectionProviderLocation == 6){
+            locationsText.setText("MSBHC");
         }
 
 

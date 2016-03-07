@@ -1,10 +1,15 @@
 package vpchc.prohealth;
 
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -17,7 +22,8 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
     Dialog callDialog;
     Dialog trackerDialog;
 
@@ -28,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Font path
+        String fontPath = "fonts/franklinGothicHeavyRegular.ttf";
+        TextView mainTitleText = (TextView) findViewById(R.id.mainTitleText);
+        Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
+        mainTitleText.setTypeface(customTitleText);
 
         View callImage = findViewById(R.id.callButton);
         View providersImage = findViewById(R.id.providerButton);
@@ -49,6 +61,31 @@ public class MainActivity extends AppCompatActivity {
         trackerImage.setOnClickListener(homeListener);
         websiteImage.setOnClickListener(homeListener);
         facebookImage.setOnClickListener(homeListener);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuPref:
+                pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+                editor = pref.edit();
+                editor.clear();
+                editor.commit();
+                Intent openPrefIntent = new Intent(MainActivity.this, LocationsPreferenceActivity.class);
+                startActivity(openPrefIntent);
+                return true;
+            case R.id.menuFeedback:
+//                Intent openMainIntent = new Intent(MainActivity.this, LocationsPreferenceActivity.class);
+//                startActivity(openMainIntent);
+                return true;
+            default:
+                return true;
+        }
     }
 
     private View.OnClickListener homeListener = new View.OnClickListener() {

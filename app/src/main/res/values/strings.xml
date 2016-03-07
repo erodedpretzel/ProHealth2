@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProHealth Mobile</string>
+    <string name="app_name">Valley ProHealth</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">hello world!</string>
     <string name="main_title">ProHealth Mobile</string>
@@ -36,4 +36,5 @@
     <string name="trackerScheduleDownload">Download Bus Schedule</string>
     <string name="icon_services">Services</string>
     <string name="icon_website">Website</string>
+    <string name="company">vpchc</string>
 </resources>
