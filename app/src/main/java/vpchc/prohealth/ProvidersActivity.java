@@ -85,8 +85,7 @@ public class ProvidersActivity extends AppCompatActivity {
         spinnerProviderType.setAdapter(adapterProviderType);
 
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
-        int locationPref = pref.getInt("prefLocation", 2);
-        Log.d("myApp2","Preferred location outside activity: " + locationPref);
+        int locationPref = pref.getInt("prefLocation", 0);
 
         spinnerProviderLocations.setSelection(locationPref);
 
@@ -221,10 +220,8 @@ public class ProvidersActivity extends AppCompatActivity {
         for(i=0;i<numberOfProviders;i++){
             if(temp[count+locationIndex]== "1"){
                 replaceTextString = "providersText" + foundCount++;
-                Log.w("myApp", "replacestring = " + replaceTextString);
                 replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
                 TextView tempText = (TextView) providersDialog.findViewById(replaceTextId);
-                Log.w("myApp", "providerfound = " + temp[count]);
                 tempText.setText(temp[count]);
             }
             count+=7;

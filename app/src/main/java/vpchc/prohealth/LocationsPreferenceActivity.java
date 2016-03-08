@@ -16,7 +16,7 @@ public class LocationsPreferenceActivity extends AppCompatActivity {
 
     private Spinner spinnerPrefSelection;
     private static final String[]locations = {"Select a preferred location", "No preference","Bloomingdale", "Cayuga",
-            "Clinton", "Crawfordsville", "Terre Haute"};
+            "Clinton", "Crawfordsville", "Terre Haute", "MSBHC"};
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
@@ -81,7 +81,12 @@ public class LocationsPreferenceActivity extends AppCompatActivity {
                         editor.apply();
                         openMainActivity();
                         break;
-
+                    case 7:
+                        Toast.makeText(getApplicationContext(), "Saving...", Toast.LENGTH_SHORT).show();
+                        editor.putInt("prefLocation", 6);
+                        editor.apply();
+                        openMainActivity();
+                        break;
                 }
             }
 

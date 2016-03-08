@@ -1,6 +1,7 @@
 package vpchc.prohealth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -54,7 +55,6 @@ public class FormsActivity extends AppCompatActivity {
                 R.layout.fancy_spinner_item,categories);
         adapterFormsCategories.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsCategories.setAdapter(adapterFormsCategories);
-        spinnerFormsCategories.setVisibility(View.GONE);
 
         spinnerFormsSelection = (Spinner)findViewById(R.id.spinnerFormsSelection);
         final ArrayAdapter<String>adapterFormsSelection = new ArrayAdapter<String>(FormsActivity.this,
@@ -62,6 +62,19 @@ public class FormsActivity extends AppCompatActivity {
         adapterFormsSelection.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsSelection.setAdapter(adapterFormsSelection);
         spinnerFormsSelection.setVisibility(View.GONE);
+
+        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+        int locationPref = pref.getInt("prefLocation", 0);
+
+        if(locationPref == 6){
+            locationPref = 0;//This sets MSBHC to no preference do to no location section for it
+        }
+
+        spinnerFormsLocations.setSelection(locationPref);
+
+        if(locationPref == 0){
+            spinnerFormsCategories.setVisibility(View.GONE);
+        };
 
         spinnerFormsLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

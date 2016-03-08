@@ -2,6 +2,7 @@ package vpchc.prohealth;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -54,7 +55,19 @@ public class LocationsActivity extends AppCompatActivity {
                 R.layout.fancy_spinner_item,options);
         adapterLocationsOptions.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerLocationsOptions.setAdapter(adapterLocationsOptions);
-        spinnerLocationsOptions.setVisibility(View.GONE);
+
+        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+        int locationPref = pref.getInt("prefLocation", 0);
+
+        if(locationPref == 6){
+            locationPref = 0;//This sets MSBHC to no preference do to no location section for it
+        }
+
+        spinnerLocations.setSelection(locationPref);
+
+        if(locationPref == 0){
+            spinnerLocationsOptions.setVisibility(View.GONE);
+        }
 
         View buttonBack = findViewById(R.id.locationsBackButton);
         buttonBack.setOnClickListener(locationsListener);
