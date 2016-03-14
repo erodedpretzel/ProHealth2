@@ -27,7 +27,7 @@
             android:layout_marginBottom="50dp"/>
 
         <Spinner
-            android:id="@+id/spinnerServicesType"
+            android:id="@+id/spinnerServicesCategories"
             style="@style/fancySpinnerDropDown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

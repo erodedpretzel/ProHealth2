@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/buttonFeedbackDialogClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="end"
+            android:src="@drawable/dialog_close_off"
+            />
+        <TextView
+            android:id="@+id/feedbackTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/feedback_message_dialog_title"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        >
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        grid:columnCount="1"
+        grid:rowCount="4"
+        grid:orientation="horizontal"
+        grid:alignmentMode="alignBounds">
+
+        <EditText
+            android:id="@+id/feedbackMessageSubjectLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            grid:layout_gravity="center"
+            android:hint="@string/feedback_hint_subject"
+
+            />
+        <EditText
+            android:id="@+id/feedbackMessageBodyLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            grid:layout_gravity="center"
+            android:hint="@string/feedback_hint_message"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            grid:layout_gravity="center"
+            android:text="@string/feedback_send_message"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+        <ImageView
+            android:id="@+id/feedbackButtonSendMessage"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            grid:layout_gravity="center|top"
+            android:src="@drawable/send_message"
+            />
+    </android.support.v7.widget.GridLayout>
+    </ScrollView>
+</RelativeLayout>

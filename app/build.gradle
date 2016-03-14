@@ -1,4 +1,11 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+}
 apply plugin: 'com.android.application'
+
 
 android {
     compileSdkVersion 23

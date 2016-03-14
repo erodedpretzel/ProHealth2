@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,12 +19,18 @@ import android.app.Dialog;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 import java.util.Calendar;
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
+    private String TWITTER_KEY = "dnJRpdPD3K6EErlFHLHZGORmh";
+    private String TWITTER_SECRET = "nrAE2KEhvxxYiML3TPOXU1H7E1LOhod5IUkuNwYPS6Lm01r9Ed";
     Dialog callDialog;
     Dialog trackerDialog;
 
@@ -35,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+
         // Font path
         String fontPath = "fonts/franklinGothicHeavyRegular.ttf";
         TextView mainTitleText = (TextView) findViewById(R.id.mainTitleText);
         Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
         mainTitleText.setTypeface(customTitleText);
+
+        twitterFeedSetup();
 
         View callImage = findViewById(R.id.callButton);
         View providersImage = findViewById(R.id.providerButton);
@@ -63,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
         facebookImage.setOnClickListener(homeListener);
     }
 
+    private void twitterFeedSetup() {
+        final TextView twitterFeed =(TextView)findViewById(R.id.twitterFeed);
+        twitterFeed.setSelected(true);
+
+
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.settings_menu, menu);
@@ -80,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(openPrefIntent);
                 return true;
             case R.id.menuFeedback:
-//                Intent openMainIntent = new Intent(MainActivity.this, LocationsPreferenceActivity.class);
-//                startActivity(openMainIntent);
+                Intent openFeedbackIntent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(openFeedbackIntent);
                 return true;
             default:
                 return true;
@@ -161,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
             callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             callDialog.setContentView(R.layout.call_dialog);
             callDialog.show();
+            callDialog.setCancelable(false);
+            callDialog.setCanceledOnTouchOutside(false);
         }else{
             callDialog.dismiss();
             ImageView homeButton = (ImageView) findViewById(R.id.callButton);
@@ -189,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
     private View.OnClickListener callListener = new View.OnClickListener() {
         public void onClick(View v) {
+            String toastText;
             switch (v.getId()) {
                 case R.id.buttonCallBloom:
                     ImageView callBloomButton = (ImageView) callDialog.findViewById(R.id.buttonCallBloom);
@@ -196,7 +216,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent callBloomIntent = new Intent(Intent.ACTION_CALL);
                     callBloomIntent.setData(Uri.parse("tel:7654989000"));
                     startActivity(callBloomIntent);
-                    Toast.makeText(getApplicationContext(),"Calling Bloomingdale Location",Toast.LENGTH_SHORT).show();
+                    toastText = getResources().getString(R.string.toast_call_bloom);
+                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
                     callPopup(1);
                     break;
                 case R.id.buttonCallCay:
@@ -205,7 +226,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent callCayIntent = new Intent(Intent.ACTION_CALL);
                     callCayIntent.setData(Uri.parse("tel:7654929042"));
                     startActivity(callCayIntent);
-                    Toast.makeText(getApplicationContext(),"Calling Cayuga Location",Toast.LENGTH_SHORT).show();
+                    toastText = getResources().getString(R.string.toast_call_cay);
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     callPopup(1);
                     break;
                 case R.id.buttonCallClint:
@@ -214,7 +236,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent callClintIntent = new Intent(Intent.ACTION_CALL);
                     callClintIntent.setData(Uri.parse("tel:7658281003"));
                     startActivity(callClintIntent);
-                    Toast.makeText(getApplicationContext(),"Calling Clinton Location",Toast.LENGTH_SHORT).show();
+                    toastText = getResources().getString(R.string.toast_call_clint);
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     callPopup(1);
                     break;
                 case R.id.buttonCallCraw:
@@ -223,7 +246,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
                     callCrawIntent.setData(Uri.parse("tel:7653625100"));
                     startActivity(callCrawIntent);
-                    Toast.makeText(getApplicationContext(),"Calling Crawfordsville Location",Toast.LENGTH_SHORT).show();
+                    toastText = getResources().getString(R.string.toast_call_craw);
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     callPopup(1);
                     break;
                 case R.id.buttonCallTerre:
@@ -232,7 +256,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
                     callTerreIntent.setData(Uri.parse("tel:8122387631"));
                     startActivity(callTerreIntent);
-                    Toast.makeText(getApplicationContext(),"Calling Terre Haute Location",Toast.LENGTH_SHORT).show();
+                    toastText = getResources().getString(R.string.toast_call_terre);
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     callPopup(1);
                     break;
                 case R.id.buttonCallClose:
@@ -330,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
         int today = 0;
         int ret = 0;
         int twoAreas = 0;
+        String busStatus;
         String[] busSchedule;
         String[] busSubSchedule={};
 
@@ -343,6 +369,8 @@ public class MainActivity extends AppCompatActivity {
             trackerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             trackerDialog.setContentView(R.layout.tracker_dialog);
             trackerDialog.show();
+            trackerDialog.setCancelable(false);
+            trackerDialog.setCanceledOnTouchOutside(false);
         }
 
         Calendar currDate = Calendar.getInstance();
@@ -380,17 +408,20 @@ public class MainActivity extends AppCompatActivity {
 
         TextView statusText = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
 // Display the status
+
         if(ret == 1){
-            statusText.setText("Open");
+            busStatus = getResources().getString(R.string.tracker_status_open);
         }else if(ret == 2){
-            statusText.setText("Opening Soon");;
+            busStatus = getResources().getString(R.string.tracker_status_open_soon);
         }else if(ret == 3){
-            statusText.setText("En Route");
+            busStatus = getResources().getString(R.string.tracker_status_enroute);
         }else if(ret == 4){
-            statusText.setText("Closing Soon");
+            busStatus = getResources().getString(R.string.tracker_status_close_soon);
         }else{
-            statusText.setText("Closed");
+            busStatus = getResources().getString(R.string.tracker_status_closed);
         }
+        statusText.setText(busStatus);
+
         View buttonTrackerClose = trackerDialog.findViewById(R.id.buttonTrackerCallClose);
         buttonTrackerClose.setOnClickListener(trackerListener);
 
@@ -813,7 +844,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonTrackerScheduleDownload:
-                    Toast.makeText(getApplicationContext(),"Downloading MSBHC Schedule...",Toast.LENGTH_SHORT).show();
+                    String toastText = getResources().getString(R.string.toast_tracker_download_schedule);
+                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     Uri scheduleUri = Uri.parse("http://vpchc.org/files/MSBHC_2016_Jan_May.pdf?");
                     Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
                     startActivity(scheduleIntent);

@@ -22,16 +22,6 @@ public class LocationsActivity extends AppCompatActivity {
 
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
-    private static final String[]locations = {"Select a location", "Bloomingdale", "Cayuga",
-            "Clinton", "Crawfordsville", "Terre Haute"};
-    private static final String[]options = {"Select an option", "Clinic Hours", "Contact Info",
-            "Get Directions"};
-    private static final String[]contactinfo = {"201 W. Academy St.","Bloomingdale, IN 47832",
-            "(765) 498-9000","(765) 798-9004","114 N Division St.","Cayuga, IN 47928",
-            "(765) 492-9042","(765) 492-9048","777 S. Main Street, Suite 100","Clinton, IN 47842",
-            "(765) 828-1003","(765) 828-1030","1810 Layfayette Ave","Crawfordsville, IN 47933",
-            "(765) 362-5100","(765) 362-5171","1530 North 7th Site, Suite 201",
-            "Terre Haute, IN 47807","(812) 238-7631","(812) 238-7003"};
     private int selectionLocation;;
     Dialog locationsClinicHoursDialog;
     Dialog locationsContactInfoDialog;
@@ -44,6 +34,12 @@ public class LocationsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String locations[]={};
+        String locationsOptions[]={};
+
+        locations = getResources().getStringArray(R.array.vpchc_locations);
+        locationsOptions = getResources().getStringArray(R.array.locations_options);
+
         spinnerLocations = (Spinner)findViewById(R.id.spinnerLocations);
         ArrayAdapter<String> adapterLocations = new ArrayAdapter<String>(LocationsActivity.this,
                 R.layout.fancy_spinner_item,locations);
@@ -52,7 +48,7 @@ public class LocationsActivity extends AppCompatActivity {
 
         spinnerLocationsOptions = (Spinner)findViewById(R.id.spinnerLocationsOptions);
         ArrayAdapter<String>adapterLocationsOptions = new ArrayAdapter<String>(LocationsActivity.this,
-                R.layout.fancy_spinner_item,options);
+                R.layout.fancy_spinner_item,locationsOptions);
         adapterLocationsOptions.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerLocationsOptions.setAdapter(adapterLocationsOptions);
 
@@ -155,15 +151,9 @@ public class LocationsActivity extends AppCompatActivity {
     }
 
     private boolean locationsClinicHoursPopup(int choice){
-        int replaceText;
         int i;
-        int j=0;
-        int count=0;
-        int foundCount=1;
-        int contactInfoIndex;
         int replaceTextId;
         String replaceTextString;
-        String temp[];
         if(choice == 0) {
             locationsClinicHoursDialog.dismiss();
             spinnerLocationsOptions.setSelection(0);
@@ -173,6 +163,8 @@ public class LocationsActivity extends AppCompatActivity {
             locationsClinicHoursDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             locationsClinicHoursDialog.setContentView(R.layout.locations_clinichours_dialog);
             locationsClinicHoursDialog.show();
+            locationsClinicHoursDialog.setCancelable(false);
+            locationsClinicHoursDialog.setCanceledOnTouchOutside(false);
         }
 
         TextView locationsText = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
@@ -212,7 +204,7 @@ public class LocationsActivity extends AppCompatActivity {
         }
 
         View buttonLocationsClinicHoursCloseImage = locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
-        buttonLocationsClinicHoursCloseImage.setOnClickListener(locationsCloseDialogListener);
+        buttonLocationsClinicHoursCloseImage.setOnClickListener(locationsListener);
 
         return true;
     }
@@ -223,7 +215,8 @@ public class LocationsActivity extends AppCompatActivity {
         int count=0;
         int replaceTextId;
         String replaceTextString;
-        String temp[];
+        String locationsContactInfo[]={};
+
         if(choice == 0){
             locationsContactInfoDialog.dismiss();
             spinnerLocationsOptions.setSelection(0);
@@ -233,6 +226,8 @@ public class LocationsActivity extends AppCompatActivity {
             locationsContactInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             locationsContactInfoDialog.setContentView(R.layout.locations_contactinfo_dialog);
             locationsContactInfoDialog.show();
+            locationsContactInfoDialog.setCancelable(false);
+            locationsContactInfoDialog.setCanceledOnTouchOutside(false);
         }
 
         TextView locationsText = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
@@ -248,20 +243,21 @@ public class LocationsActivity extends AppCompatActivity {
             locationsText.setText("Terre Haute");
         }
 
+        locationsContactInfo = getResources().getStringArray(R.array.locations_contact_info);
         contactInfoIndex = (selectionLocation - 1) * 4;
         for(i=2;i<=7;i++){
             replaceTextString = "locationsContactInfoText" + i;
             Log.w("myApp", replaceTextString);
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView tempText = (TextView) locationsContactInfoDialog.findViewById(replaceTextId);
-            tempText.setText(contactinfo[contactInfoIndex + count++]);
+            tempText.setText(locationsContactInfo[contactInfoIndex + count++]);
             if(i>2){
                 i++;
             }
         }
 
         View buttonLocationsContactInfoCloseImage = locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
-        buttonLocationsContactInfoCloseImage.setOnClickListener(locationsCloseDialogListener);
+        buttonLocationsContactInfoCloseImage.setOnClickListener(locationsListener);
         return true;
     }
 
@@ -273,15 +269,6 @@ public class LocationsActivity extends AppCompatActivity {
                     ImageView backButton = (ImageView) findViewById(R.id.locationsBackButton);
                     backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
-                default:
-                    break;
-            }
-        }
-    };
-
-    private View.OnClickListener locationsCloseDialogListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
                 case R.id.buttonLocationsClinicHoursClose:
                     ImageView closeClinicHoursButton = (ImageView) locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
                     closeClinicHoursButton.setImageResource(R.drawable.dialog_close_on);

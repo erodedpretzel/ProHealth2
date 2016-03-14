@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 public class LocationsPreferenceActivity extends AppCompatActivity {
 
     private Spinner spinnerPrefSelection;
@@ -99,7 +100,7 @@ public class LocationsPreferenceActivity extends AppCompatActivity {
     }
 
     private void openMainActivity() {
-        Intent openMainIntent = new Intent(LocationsPreferenceActivity.this, MainActivity.class);
+        Intent openMainIntent = new Intent(LocationsPreferenceActivity.this, SplashScreen.class);
         openMainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(openMainIntent);
     }

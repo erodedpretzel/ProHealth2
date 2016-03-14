@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
     grid:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main"
     tools:context="vpchc.prohealth.MainActivity"
@@ -16,42 +16,45 @@
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         grid:columnCount="3"
         grid:rowCount="6"
         grid:orientation="horizontal"
         grid:alignmentMode="alignBounds"
-        android:layout_marginTop="65dp"
-        android:id="@+id/homeGrid">
+        android:id="@+id/homeGrid"
+        android:layout_marginTop="60dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentTop="true">
 
         <ImageView
+            android:id="@+id/callButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/call_off"
-            android:id="@+id/callButton"
             />
         <ImageView
+            android:id="@+id/providerButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/providers_off"
-            android:id="@+id/providerButton"
             />
         <ImageView
+            android:id="@+id/locationsButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/locations_off"
-            android:id="@+id/locationsButton"
             />
         <TextView
+            android:id="@+id/callButtonText"
             android:text="@string/icon_contact_us"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -59,9 +62,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/callButtonText"
             />
         <TextView
+            android:id="@+id/providersButtonText"
             android:text="@string/icon_providers"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -69,9 +72,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/providersButtonText"
             />
         <TextView
+            android:id="@+id/locationsButtonText"
             android:text="@string/icon_locations"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -79,36 +82,36 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/locationsButtonText"
             />
         <ImageView
+            android:id="@+id/formsButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/forms_off"
-            android:id="@+id/formsButton"
             />
         <ImageView
+            android:id="@+id/servicesButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/services_off"
-            android:id="@+id/servicesButton"
         />
         <ImageView
+            android:id="@+id/trackerButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/tracker_off"
-            android:id="@+id/trackerButton"
             />
         <TextView
+            android:id="@+id/formsButtonText"
             android:text="@string/icon_forms"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -116,9 +119,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/formsButtonText"
             />
         <TextView
+            android:id="@+id/servicesButtonText"
             android:text="@string/icon_services"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -126,9 +129,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/servicesButtonText"
             />
         <TextView
+            android:id="@+id/trackerButtonText"
             android:text="@string/icon_bustracker"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -136,36 +139,36 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/servicesButtonText"
             />
         <ImageView
+            android:id="@+id/portalButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/portal_off"
-            android:id="@+id/portalButton"
             />
         <ImageView
+            android:id="@+id/facebookButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/facebook_off"
-            android:id="@+id/facebookButton"
             />
         <ImageView
+            android:id="@+id/websiteButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
             android:src="@drawable/website_off"
-            android:id="@+id/websiteButton"
             />
         <TextView
+            android:id="@+id/portalButtonText"
             android:text="@string/icon_patient_portal"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -173,9 +176,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/portalButtonText"
             />
         <TextView
+            android:id="@+id/jobsButtonText"
             android:text="@string/icon_facebook"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -183,9 +186,9 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/jobsButtonText"
             />
         <TextView
+            android:id="@+id/websiteButtonText"
             android:text="@string/icon_website"
             android:textColor='#000000'
             android:textSize="@dimen/home_icon"
@@ -193,9 +196,41 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="top"
             android:gravity="center"
-            android:id="@+id/websiteButtonText"
             />
     </android.support.v7.widget.GridLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        style="@style/twitterFeed">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/twitter_bird"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/twitterFeed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:text="this is a test to see if it scrolls. This is going to be around 1402 characters or so to test it. Need more words so here you go. This is it"
+                android:textColor="#70B244"
+                android:textSize="18sp"
+            />
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
+
 

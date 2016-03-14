@@ -3,49 +3,65 @@
     package="vpchc.prohealth">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <activity
             android:name=".MainActivity"
             android:allowBackup="true"
-            android:icon="@drawable/logo"
-            android:label="@string/company"
+            android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProvidersActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_providers"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ServicesActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_programs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationsActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_locations"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FormsActivity"
+            android:noHistory="true"
             android:icon="@drawable/forms_logo"
             android:label="@string/title_activity_forms"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LocationsPreferenceActivity"
+        <activity
+            android:name=".LocationsPreferenceActivity"
+            android:icon="@drawable/logo"
             android:label="@string/app_name"
+            android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

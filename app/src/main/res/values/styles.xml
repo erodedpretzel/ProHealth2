@@ -29,4 +29,18 @@
         <item name="android:paddingBottom">5dp</item>
     </style>
 
+    <style name="twitterFeed" parent="Theme.AppCompat">
+        <item name="android:background">@drawable/twitter_feed_bg</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
 </resources>

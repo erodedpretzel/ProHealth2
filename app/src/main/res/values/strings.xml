@@ -1,40 +1,263 @@
 <resources>
     <string name="app_name">Valley ProHealth</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">hello world!</string>
-    <string name="main_title">ProHealth Mobile</string>
-    <string name="contact_us">Contact Us</string>
+
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="title_activity_feedback" translatable="false">FeedbackActivity</string>
+    <string name="title_activity_providers" translatable="false">ProvidersActivity</string>
+    <string name="title_activity_locations" translatable="false">LocationsActivity</string>
+    <string name="title_activity_forms" translatable="false">FormsActivity</string>
+    <string name="title_activity_programs" translatable="false">ProgramsActivity</string>
+    <string name="title_activity_splash_screen" translatable="false">Valley ProHealth</string>
+
+    <string name="main_title" translatable="false">&#032;Valley Professionals\n Community Health Center</string>
     <string name="icon_providers">Providers</string>
     <string name="icon_contact_us">Call</string>
     <string name="icon_locations">Locations</string>
     <string name="icon_forms">Forms</string>
-    <string name="icon_patient_portal">Portal</string>
-    <string name="icon_programs">Programs</string>
+    <string name="icon_patient_portal" translatable="false">Portal</string>
     <string name="icon_bustracker">Tracker</string>
-    <string name="icon_job_openings">Jobs</string>
-    <string name="icon_facebook">Facebook</string>
-    <string name="menu_settings">Settings</string>
+    <string name="icon_facebook" translatable="false">Facebook</string>
+    <string name="icon_services">Services</string>
+    <string name="icon_website">Website</string>
+
     <string name="menu_feedback">Give Us Feedback</string>
+    <string name="menu_preferred">Reset Preferred Location</string>
+
     <string name="call_directions">Select a location to call</string>
-    <string name="call_location_bloom">Bloomingdale</string>
-    <string name="call_location_cay">Cayuga</string>
-    <string name="call_location_clint">Clinton</string>
-    <string name="call_location_craw">Crawfordsville</string>
-    <string name="call_location_terre">Terre Haute</string>
-    <string name="title_activity_providers">providers</string>
-    <string name="title_activity_locations">LocationsActivity</string>
-    <string name="title_activity_forms">FormsActivity</string>
-    <string name="title_activity_jobs">JobsActivity</string>
-    <string name="title_activity_programs">Programs</string>
-    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="call_location_bloom" translatable="false">Bloomingdale</string>
+    <string name="call_location_cay" translatable="false">Cayuga</string>
+    <string name="call_location_clint" translatable="false">Clinton</string>
+    <string name="call_location_craw" translatable="false">Crawfordsville</string>
+    <string name="call_location_terre" translatable="false">Terre Haute</string>
+    <string name="call_location">\@drawable/call_site_off</string>
+
     <string name="trackerTitleText">Where is the Mobile Bus?</string>
     <string name="trackerDescription">MSBHC Tracker</string>
     <string name="trackerLocationText">Location:</string>
     <string name="trackerTimes">Times:</string>
     <string name="trackerStatus">Status:</string>
-    <string name="trackerScheduleDownloa">Download Bus Schedule</string>
     <string name="trackerScheduleDownload">Download Bus Schedule</string>
-    <string name="icon_services">Services</string>
-    <string name="icon_website">Website</string>
-    <string name="company">vpchc</string>
+
+
+    <string name="toast_call_bloom">Calling Bloomingdale Location...</string>
+    <string name="toast_call_cay">Calling Cayuga Location...</string>
+    <string name="toast_call_clint">Calling Clinton Location...</string>
+    <string name="toast_call_craw">Calling Crawfordsville Location...</string>
+    <string name="toast_call_terre">Calling Terre Haute Location...</string>
+    <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule...</string>
+    <string name="toast_forms_download">Downloading Form...</string>
+
+    <string name="tracker_status_open">Open</string>
+    <string name="tracker_status_open_soon">Opening Soon</string>
+    <string name="tracker_status_close_soon">Closing Soon</string>
+    <string name="tracker_status_closed">Closed</string>
+    <string name="tracker_status_enroute">En Route</string>
+
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
+    <string name="feedback_message">If you would like to leave the developers of this app feedback, please send us a message</string>
+    <string name="feedback_subject">Subject:</string>
+    <string name="feedback_hint_subject">Subject:</string>
+    <string name="feedback_hint_message">Message:</string>
+    <string name="feedback_send_message">Send:</string>
+    <string name="feedback_message_dialog_title">Give Us Feedback</string>
+
+    <string name="services_title">Services</string>
+
+    <string name="forms_title">Forms</string>
+
+    <string name="providers_title">Providers</string>
+    <string name="providers_mprovider">Medical Providers</string>
+    <string name="providers_bhprovider">Behavioral Health Providers</string>
+
+    <string name="location_hours_monday">Monday:</string>
+    <string name="location_hours_tuesday">Tuesday:</string>
+    <string name="location_hours_wednesday">Wednesday:</string>
+    <string name="location_hours_thursday">Thursday:</string>
+    <string name="location_hours_friday">Friday:</string>
+    <string name="locations_clinchours_dialog_title">Clinic Hours</string>
+    <string name="locations_contactinfo_fax" translatable="false">Fax:</string>
+    <string name="locations_contactinfo_phone">Phone:</string>
+    <string name="locations_contactinfo_address">Address:</string>
+    <string name="locations_contactinfo_dialog_title">Contact Info</string>
+    <string name="locations_title">Locations</string>
+
+    <string-array name="BehavioralHealth">
+        <item>•Child/Adolescent counseling</item>
+        <item>•Crisis counseling</item>
+        <item>•Family counseling</item>
+        <item>•Psychiatry</item>
+        <item>•Testing/assessment(upon referral)</item>
+    </string-array>
+
+    <string-array name="Dental">
+        <item>•Preventive and restorative services</item>
+    </string-array>
+
+    <string-array name="PatientSupport">
+        <item>•Community Health Workers</item>
+        <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
+        <item>-Educate patients on preventive health care behaviors</item>
+        <item>-Help patients find necessities like food, clothes, and toiletries</item>
+        <item>•Patient Care Coordinator</item>
+        <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
+        <item>-Are patient advocates  and your navigator through the healthcare system</item>
+    </string-array>
+
+    <string-array name="PrimaryCare1">
+        <item>•Acute illness</item>
+        <item>•Chronic disease care</item>
+        <item>•CDL exam</item>
+        <item>•Family planning</item>
+        <item>•Geriatric care</item>
+        <item>•Immunizations</item>
+        <item>•Laboratory services</item>
+        <item>•Men\'s health</item>
+        <item>•Minor surgery</item>
+        <item>•Nutritional counseling</item>
+        <item>•Physical exam</item>
+        <item>•Preventive care</item>
+        <item>•Well child visits</item>
+        <item>•Women\'s health</item>
+    </string-array>
+
+    <string-array name="PrimaryCare2">
+        <item>•Acute illness</item>
+        <item>•Chronic disease care</item>
+        <item>•Colposcopy</item>
+        <item>•CDL exam</item>
+        <item>•Family planning</item>
+        <item>•Geriatric care</item>
+        <item>•Immunizations</item>
+        <item>•Labor and Delivery</item>
+        <item>•Laboratory services</item>
+        <item>•Men\'s health</item>
+        <item>•Minor surgery</item>
+        <item>•Nutritional counseling</item>
+        <item>•Pregnancy care</item>
+        <item>•Preventive care</item>
+        <item>•Physical exam</item>
+        <item>•Well child visits</item>
+        <item>•Women\'s health</item>
+        <item>•Vasectomy</item>
+    </string-array>
+
+    <string-array name="vpchc_locations">
+        <item>Select a location</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
+        <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Terre Haute</item>
+        <item>MSBHC</item>
+    </string-array>
+
+    <string-array name="provider_types">
+        <item>Select a type of Provider</item>
+        <item>Behavioral Health</item>
+        <item>Medical</item>
+    </string-array>
+
+    <string-array name="locations_options">
+        <item>Select an option</item>
+        <item>Clinic Hours</item>
+        <item>Get Directions</item>
+        <item>Clinton</item>
+    </string-array>
+
+    <string-array name="locations_contact_info">
+        <item>201 W. Academy St.</item>
+        <item>Bloomingdale, IN 47832</item>
+        <item>(765) 498-9000</item>
+        <item>(765) 798-9004</item>
+        <item>114 N Division St.</item>
+        <item>Cayuga, IN 47928</item>
+        <item>(765) 492-9042</item>
+        <item>(765) 492-90484</item>
+        <item>777 S. Main Street, Suite 100</item>
+        <item>Clinton, IN 47842</item>
+        <item>(765) 828-1003</item>
+        <item>(765) 828-1030</item>
+        <item>1810 Layfayette Ave.</item>
+        <item>Crawfordsville, IN 47933</item>
+        <item>(765) 362-5100</item>
+        <item>(765) 362-5171</item>
+        <item>1530 North 7th Site, Suite 201</item>
+        <item>Terre Haute, IN 47807</item>
+        <item>(812) 238-7631</item>
+        <item>(812) 238-7003</item>
+    </string-array>
+
+    <string-array name="forms_categories">
+        <item>Select a form</item>
+        <item>Consent</item>
+        <item>New Patient</item>
+        <item>Notice</item>
+        <item>Student Forms</item>
+    </string-array>
+    <string-array name="forms1">
+        <item>Select a form</item>
+        <item>Behavioral Health Release</item>
+        <item>Release of Information</item>
+        <item>Telemedicine</item>
+    </string-array>
+    <string-array name="forms2">
+        <item>Select a form</item>
+        <item>Adult</item>
+        <item>Child</item>
+        <item>Sliding Fee Scale</item>
+    </string-array>
+    <string-array name="forms3">
+        <item>Select a form</item>
+        <item>Acknowledgement of Bill of Rights</item>
+        <item>Bill of Rights</item>
+        <item>Privacy Practice</item>
+    </string-array>
+    <string-array name="forms4">
+        <item>Select a form</item>
+        <item>ISHAA Physical</item>
+        <item>MSBHC Enrollment</item>
+    </string-array>
+
+    <string-array name="forms1_url">
+        <item>http://vpchc.org/files/form_behavioral_health_release.pdf</item>
+        <item>http://vpchc.org/files/form_release_of_information.pdf</item>
+        <item>http://vpchc.org/files/forms_telemedicine_consent.pdf</item>
+    </string-array>
+    <string-array name="forms2_bloomclintcay_url">
+        <item>http://vpchc.org/files/form_new_patient_packet_adult_bloomcayclint.pdf</item>
+        <item>http://vpchc.org/files/form_new_patient_packet_child_bloomcayclint.pdf</item>
+        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+    </string-array>
+    <string-array name="forms2_craw_url">
+        <item>http://vpchc.org/files/form_new_patient_packet_adult_crawfordsville.pdf</item>
+        <item>http://vpchc.org/files/form_new_patient_packet_child_crawfordsville.pdf</item>
+        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+    </string-array>
+    <string-array name="forms2_terre_url">
+        <item>http://vpchc.org/files/form_new_patient_packet_adult_terrehaute.pdf</item>
+        <item>http://vpchc.org/files/form_new_patient_packet_child_terrehaute.pdf</item>
+        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+    </string-array>
+
+    <string-array name="forms3_url">
+        <item>http://vpchc.org/files/form_acknowledgement_receipt.pdf</item>
+        <item>http://vpchc.org/files/form_patient_bill_of_rights.pdf</item>
+        <item>http://vpchc.org/files/form_notice_privacy_practices.pdf</item>
+    </string-array>
+
+    <string-array name="forms4_url">
+        <item>http://vpchc.org/files/form_ihsaa_physical.pdf</item>
+        <item>http://vpchc.org/files/form_msbhc_student_enrollment.pdf</item>
+    </string-array>
+
+    <string-array name="services_categories">
+        <item>Select a services category</item>
+        <item>Behavioral Health</item>
+        <item>Dental</item>
+        <item>Patient Support</item>
+        <item>Primary Care</item>
+    </string-array>
+
+
 </resources>

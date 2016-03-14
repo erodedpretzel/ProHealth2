@@ -31,10 +31,6 @@ public class ProvidersActivity extends AppCompatActivity {
     private Spinner spinnerProviderLocations;
     private boolean selectionProviderType;
     private int selectionProviderLocation;
-    private static final String[]types = {"Select a type of Provider", "Behavioral Health",
-            "Medical"};
-    private static final String[]locations = {"Select a location", "Bloomingdale", "Cayuga",
-            "Clinton", "Crawfordsville", "Terre Haute", "MSBHC"};
     Dialog providersDialog;
     private static final String[]medicalproviders = {
                                               "Aziz Abed, MD","0","0","1","0","0","0",
@@ -71,6 +67,11 @@ public class ProvidersActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String locations[]={};
+        String providerTypes[]={};
+
+        locations = getResources().getStringArray(R.array.vpchc_locations);
+        providerTypes = getResources().getStringArray(R.array.provider_types);
 
         spinnerProviderLocations = (Spinner)findViewById(R.id.spinnerProviderLocations);
         ArrayAdapter<String>adapterProviderLocations = new ArrayAdapter<String>(ProvidersActivity.this,
@@ -80,7 +81,7 @@ public class ProvidersActivity extends AppCompatActivity {
 
         spinnerProviderType = (Spinner)findViewById(R.id.spinnerProviderType);
         ArrayAdapter<String>adapterProviderType = new ArrayAdapter<String>(ProvidersActivity.this,
-                R.layout.fancy_spinner_item,types);
+                R.layout.fancy_spinner_item,providerTypes);
         adapterProviderType.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerProviderType.setAdapter(adapterProviderType);
 
@@ -194,12 +195,15 @@ public class ProvidersActivity extends AppCompatActivity {
         int locationIndex;
         int replaceTextId;
         String replaceTextString;
+        String titleText;
         String temp[];
         if(choice == 0) {
             providersDialog = new Dialog(ProvidersActivity.this);
             providersDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             providersDialog.setContentView(R.layout.providers_dialog);
             providersDialog.show();
+            providersDialog.setCancelable(false);
+            providersDialog.setCanceledOnTouchOutside(false);
         }else{
             providersDialog.dismiss();
             spinnerProviderType.setSelection(0);
@@ -210,10 +214,12 @@ public class ProvidersActivity extends AppCompatActivity {
         locationIndex = selectionProviderLocation;
         if(selectionProviderType == false){
             temp = behavioralproviders;
-            typeText.setText("Behavioral Health Providers");
+            titleText = getResources().getString(R.string.providers_bhprovider);
+            typeText.setText(titleText);
         }else{
             temp = medicalproviders;
-            typeText.setText("Medical Providers");
+            titleText = getResources().getString(R.string.providers_mprovider);
+            typeText.setText(titleText);
         }
 
         numberOfProviders = temp.length/7;
