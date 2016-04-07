@@ -20,9 +20,8 @@
         grid:columnCount="3"
         grid:rowCount="6"
         grid:orientation="horizontal"
-        grid:alignmentMode="alignBounds"
         android:id="@+id/homeGrid"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_above="@+id/linearLayout"
         android:layout_alignParentTop="true">
 
@@ -205,6 +204,7 @@
         android:layout_alignParentBottom="true"
         style="@style/twitterFeed">
         <ImageView
+            android:id="@+id/twitterBird"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/twitter_bird"
@@ -224,7 +224,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:scrollHorizontally="true"
-                android:text="this is a test to see if it scrolls. This is going to be around 1402 characters or so to test it. Need more words so here you go. This is it"
+                android:text="@string/main_twitter_feed_initial_tweet"
                 android:textColor="#70B244"
                 android:textSize="18sp"
             />

@@ -9,7 +9,7 @@
     <string name="title_activity_programs" translatable="false">ProgramsActivity</string>
     <string name="title_activity_splash_screen" translatable="false">Valley ProHealth</string>
 
-    <string name="main_title" translatable="false">&#032;Valley Professionals\n Community Health Center</string>
+    <string name="main_title" translatable="false">&#032;Valley Professionals\nCommunity Health Center</string>
     <string name="icon_providers">Providers</string>
     <string name="icon_contact_us">Call</string>
     <string name="icon_locations">Locations</string>
@@ -31,12 +31,12 @@
     <string name="call_location_terre" translatable="false">Terre Haute</string>
     <string name="call_location">\@drawable/call_site_off</string>
 
-    <string name="trackerTitleText">Where is the Mobile Bus?</string>
+    <string name="trackerTitleText">Where is the MSBHC?</string>
     <string name="trackerDescription">MSBHC Tracker</string>
     <string name="trackerLocationText">Location:</string>
     <string name="trackerTimes">Times:</string>
     <string name="trackerStatus">Status:</string>
-    <string name="trackerScheduleDownload">Download Bus Schedule</string>
+    <string name="trackerScheduleDownload">Download Schedule</string>
 
 
     <string name="toast_call_bloom">Calling Bloomingdale Location...</string>
@@ -81,6 +81,23 @@
     <string name="locations_contactinfo_address">Address:</string>
     <string name="locations_contactinfo_dialog_title">Contact Info</string>
     <string name="locations_title">Locations</string>
+    <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
+    <string name="toast_location_preference_save">Saving location preference...</string>
+    <string name="toast_twitter_open">Opening VPCHC Twitter page...</string>
+    <string name="toast_facebook_open">Opening VPCHC Facebook page...</string>
+    <string name="toast_website_open">Opening VPCHC website...</string>
+    <string name="toast_portal_open">Opening VPCHC Patient Portal webpage...</string>
+    <string name="tracker_refresh">Refresh Tracker</string>
+    <string name="outdated_firstline">Schedule outdated</string>
+    <string name="outdated_secondline">Refresh Tracker</string>
+    <string name="outdated_thirdline">&lt;------</string>
+    <string name="network_error">Please check network</string>
+    <string name="toast_network_error">Error: Please check your network connection</string>
+    <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please hit Refresh Tracker</string>
+    <string name="toast_tracker_refresh">Refreshing MSBHC schedule...</string>
+    <string name="call_location_msbhc">MSBHC</string>
+    <string name="toast_call_MSBHC">Calling MSBHC...</string>
+    <string name="title_activity_services">Services</string>
 
     <string-array name="BehavioralHealth">
         <item>•Child/Adolescent counseling</item>
@@ -152,6 +169,17 @@
         <item>MSBHC</item>
     </string-array>
 
+    <string-array name="preferred_locations">
+        <item>Select a preferred location</item>
+        <item>No Preference</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
+        <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Terre Haute</item>
+        <item>MSBHC</item>
+    </string-array>
+
     <string-array name="provider_types">
         <item>Select a type of Provider</item>
         <item>Behavioral Health</item>
@@ -161,8 +189,24 @@
     <string-array name="locations_options">
         <item>Select an option</item>
         <item>Clinic Hours</item>
+        <item>Contact Info</item>
         <item>Get Directions</item>
+    </string-array>
+
+    <string-array name="vpchc_locations2">
+        <item>Select a location</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
         <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Terre Haute</item>
+    </string-array>
+
+    <string-array name="twitter_feed_tips">
+        <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
+        <item>If you are not able to make an appointment, please call to let us know.</item>
+        <item>Refills can take up to 48 business hours to refill.</item>
+        <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
     </string-array>
 
     <string-array name="locations_contact_info">
@@ -189,7 +233,7 @@
     </string-array>
 
     <string-array name="forms_categories">
-        <item>Select a form</item>
+        <item>Select a category</item>
         <item>Consent</item>
         <item>New Patient</item>
         <item>Notice</item>
@@ -224,7 +268,7 @@
         <item>http://vpchc.org/files/form_release_of_information.pdf</item>
         <item>http://vpchc.org/files/forms_telemedicine_consent.pdf</item>
     </string-array>
-    <string-array name="forms2_bloomclintcay_url">
+    <string-array name="forms2_bloomcayclint_url">
         <item>http://vpchc.org/files/form_new_patient_packet_adult_bloomcayclint.pdf</item>
         <item>http://vpchc.org/files/form_new_patient_packet_child_bloomcayclint.pdf</item>
         <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>

@@ -41,16 +41,29 @@ android:layout_height="match_parent">
         android:textSize="20sp"
         />
 </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp">
 <android.support.v7.widget.GridLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     grid:columnCount="1"
-    grid:rowCount="7"
+    grid:rowCount="8"
     grid:orientation="horizontal"
-    grid:alignmentMode="alignBounds"
-    android:layout_marginTop="73dp"
+
     android:id="@+id/homeGrid">
 
+
+    <ImageView
+        android:id="@+id/locationsContactInfoPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        grid:layout_columnWeight="1"
+        grid:layout_rowWeight="1"
+        grid:layout_gravity="center"
+        />
     <TextView
         android:id="@+id/locationsContactInfoText1"
         android:layout_width="wrap_content"
@@ -143,5 +156,6 @@ android:layout_height="match_parent">
         />
 
 </android.support.v7.widget.GridLayout>
+    </ScrollView>
 
 </RelativeLayout>

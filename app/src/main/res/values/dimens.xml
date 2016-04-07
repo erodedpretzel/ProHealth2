@@ -8,6 +8,6 @@
     <dimen name="home_icon">18sp</dimen>
     <dimen name="call_location">20sp</dimen>
     <dimen name="location_clinic_hours_dialog">16dp</dimen>
-    <dimen name="trackeScheduleDownload">16dp</dimen>
+    <dimen name="trackerScheduleDownload">16dp</dimen>
 
 </resources>

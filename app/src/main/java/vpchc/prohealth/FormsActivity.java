@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -43,37 +39,35 @@ public class FormsActivity extends AppCompatActivity {
         String locations[] = {};
         String categories[] = {};
 
-        locations = getResources().getStringArray(R.array.vpchc_locations);
+        locations = getResources().getStringArray(R.array.vpchc_locations2);
         categories = getResources().getStringArray(R.array.forms_categories);
 
         spinnerFormsLocations = (Spinner) findViewById(R.id.spinnerFormsLocations);
-        ArrayAdapter<String> adapterFormsLocations = new ArrayAdapter<String>(FormsActivity.this,
+        ArrayAdapter<String> adapterFormsLocations = new ArrayAdapter<>(getApplicationContext(),
                 R.layout.fancy_spinner_item, locations);
         adapterFormsLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsLocations.setAdapter(adapterFormsLocations);
 
         spinnerFormsCategories = (Spinner) findViewById(R.id.spinnerFormsCategories);
-        final ArrayAdapter<String> adapterFormsCategories = new ArrayAdapter<String>(FormsActivity.this,
+        final ArrayAdapter<String> adapterFormsCategories = new ArrayAdapter<>(getApplicationContext(),
                 R.layout.fancy_spinner_item, categories);
         adapterFormsCategories.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsCategories.setAdapter(adapterFormsCategories);
 
         spinnerFormsSelection = (Spinner) findViewById(R.id.spinnerFormsSelection);
-        final ArrayAdapter<String> adapterFormsSelection = new ArrayAdapter<String>(FormsActivity.this,
+        final ArrayAdapter<String> adapterFormsSelection = new ArrayAdapter<>(getApplicationContext(),
                 R.layout.fancy_spinner_item, finalForms);
         adapterFormsSelection.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsSelection.setAdapter(adapterFormsSelection);
         spinnerFormsSelection.setVisibility(View.GONE);
 
+        //Sets the preferred location
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
-
         if (locationPref == 6) {
             locationPref = 0;//This sets MSBHC to no preference due to no location section for it
         }
-
         spinnerFormsLocations.setSelection(locationPref);
-
         if (locationPref == 0) {
             spinnerFormsCategories.setVisibility(View.GONE);
         }
@@ -225,7 +219,7 @@ public class FormsActivity extends AppCompatActivity {
                             formsDownload(2);
                             break;
                     }
-                } else if (selectionCategory == 4) {
+                } else if (selectionCategory == 4 & Locale.getDefault().getLanguage() != "es" ) {
                     switch (position) {
                         case 0:
                             break;
@@ -247,18 +241,22 @@ public class FormsActivity extends AppCompatActivity {
     }
 
     private void formsSetup(int formChoice){
-
-        String forms[]={};
-        //This is used to get the proper forms array
+    /*
+	    Arguments: formChoice(1 - forms1, 2 - form2, 3 - forms3, 4 - forms4) all arrays found in strings.xml
+	    Description: Populates the forms selection based on the category chosen
+	    Returns: Nothing
+    */
+        //Gets correct forms array
         String replaceTextString = "forms" + formChoice;
-        int replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-        forms = getResources().getStringArray(replaceTextId);
+        int replaceTextId = getResources().getIdentifier(replaceTextString, "array", getPackageName());
+        finalForms = getResources().getStringArray(replaceTextId);
 
+        //Recreates adapter to change the available forms from the form category chosen.
+        //TODO: There should be a cleaner way to update the spinner without recreating it.
         selectionCategory = formChoice;
-
         spinnerFormsSelection = (Spinner) findViewById(R.id.spinnerFormsSelection);
-        final ArrayAdapter<String> adapterFormsSelection = new ArrayAdapter<String>(FormsActivity.this,
-                R.layout.fancy_spinner_item, forms);
+        final ArrayAdapter<String> adapterFormsSelection = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.fancy_spinner_item, finalForms);
         adapterFormsSelection.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerFormsSelection.setAdapter(adapterFormsSelection);
         spinnerFormsSelection.setVisibility(View.VISIBLE);
@@ -266,6 +264,11 @@ public class FormsActivity extends AppCompatActivity {
     }
 
     private void formsDownload(int selectForm){
+    /*
+	    Arguments: selectForm(index of array of URLs)
+	    Description: Gets URL from an array based on selection and opens that URL to download form
+	    Returns: Nothing
+    */
         Intent downloadFormIntent;
         Uri formUri = Uri.EMPTY;
         String urlArray[]={};
@@ -273,14 +276,15 @@ public class FormsActivity extends AppCompatActivity {
         String toastText = getResources().getString(R.string.toast_forms_download);
         Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
 
+        //Selects appropriate URL based on selection
         if(selectionCategory == 1){
             urlArray = getResources().getStringArray(R.array.forms1_url);
         }else if(selectionCategory == 2){
             if((selectionLocation >= 1 && selectionLocation <= 3)) {
-                urlArray = getResources().getStringArray(R.array.forms2_bloomclintcay_url);
-            }else if (selectionLocation == 4) {
+                urlArray = getResources().getStringArray(R.array.forms2_bloomcayclint_url);
+            }else if (selectionLocation == 4 ) {
                 urlArray = getResources().getStringArray(R.array.forms2_craw_url);
-            } else if (selectionLocation == 5 || Locale.getDefault().getLanguage() == "es") {
+            } else if (selectionLocation == 5) {
                 urlArray = getResources().getStringArray(R.array.forms2_terre_url);
             }
         }else if(selectionCategory == 3){
@@ -289,6 +293,7 @@ public class FormsActivity extends AppCompatActivity {
             urlArray = getResources().getStringArray(R.array.forms4_url);
         }
 
+        //Opens the URL
         formUri = Uri.parse(urlArray[selectForm]);
         downloadFormIntent = new Intent(Intent.ACTION_VIEW, formUri);
         startActivity(downloadFormIntent);

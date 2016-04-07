@@ -11,7 +11,7 @@
 
 
     <Spinner
-        android:id="@+id/spinnerPrefSelection"
+        android:id="@+id/spinnerPrefSelection2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/fancySpinnerDropDown"

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application>
         <activity
@@ -11,57 +12,50 @@
             android:allowBackup="true"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ProvidersActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_providers"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ServicesActivity"
+            android:label="@string/title_activity_services"
             android:noHistory="true"
-            android:label="@string/title_activity_programs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LocationsActivity"
-            android:noHistory="true"
             android:label="@string/title_activity_locations"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FormsActivity"
-            android:noHistory="true"
-            android:icon="@drawable/forms_logo"
             android:label="@string/title_activity_forms"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LocationsPreferenceActivity"
-            android:icon="@drawable/logo"
-            android:label="@string/app_name"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen"
+            android:icon="@mipmap/logo"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".FeedbackActivity"
             android:label="@string/title_activity_feedback"
+            android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

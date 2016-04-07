@@ -3,18 +3,14 @@ package vpchc.prohealth;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class FeedbackActivity extends AppCompatActivity {
@@ -41,14 +37,24 @@ public class FeedbackActivity extends AppCompatActivity {
     }
 
     private boolean feedbackMessagePopup(int choice){
-        EditText text1;
+    /*
+	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Description: Displays or dismisses a dialog for creating a feedback message
+	    Returns: True
+    */
         if(choice == 0) {
             ImageView feedbackMessageButton = (ImageView) findViewById(R.id.feedbackMessageButton);
             feedbackMessageButton.setImageResource(R.drawable.message_off);
             feedbackMessageDialog.dismiss();
             return true;
         }else{
-            feedbackMessageDialog = new Dialog(FeedbackActivity.this);
+            //This cond. statement is to make the styling of the dialog look more modern on devices
+            //that support it which are API's >= 14
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                feedbackMessageDialog = new Dialog(FeedbackActivity.this);
+            }else{
+                feedbackMessageDialog = new Dialog(FeedbackActivity.this, R.style.AppTheme_NoActionBar);
+            }
             feedbackMessageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             feedbackMessageDialog.setContentView(R.layout.feedback_message_dialog);
             feedbackMessageDialog.show();
@@ -56,16 +62,11 @@ public class FeedbackActivity extends AppCompatActivity {
             feedbackMessageDialog.setCanceledOnTouchOutside(false);
         }
 
-
-
-
         View buttonFeedbackSendMessage= feedbackMessageDialog.findViewById(R.id.feedbackButtonSendMessage);
         buttonFeedbackSendMessage.setOnClickListener(feedbackListener);
 
         View buttonFeedbackCloseDialog= feedbackMessageDialog.findViewById(R.id.buttonFeedbackDialogClose);
         buttonFeedbackCloseDialog.setOnClickListener(feedbackListener);
-
-
         return true;
     }
 
@@ -89,6 +90,7 @@ public class FeedbackActivity extends AppCompatActivity {
                     break;
                 case R.id.feedbackButtonSendMessage:
                     Toast.makeText(getApplicationContext(), "Sending Message", Toast.LENGTH_SHORT).show();
+                    //This will create an email intent and attempt to open it in an email client if available.
                     messageSubject = (EditText) feedbackMessageDialog.findViewById(R.id.feedbackMessageSubjectLine);
                     messageBody = (EditText) feedbackMessageDialog.findViewById(R.id.feedbackMessageBodyLine);
                     String email[] = {"androidfeedback@vpchc.org"};
@@ -103,7 +105,6 @@ public class FeedbackActivity extends AppCompatActivity {
                     } catch (android.content.ActivityNotFoundException ex) {
                         Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
                     }
-
                     feedbackMessagePopup(0);
                     break;
                 case R.id.buttonFeedbackDialogClose:
@@ -116,5 +117,13 @@ public class FeedbackActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ImageView rateButton = (ImageView) findViewById(R.id.feedbackRateButton);
+        rateButton.setImageResource(R.drawable.rate_off);
+    }
+
 
 }

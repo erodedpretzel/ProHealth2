@@ -2,10 +2,10 @@ package vpchc.prohealth;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -35,23 +35,27 @@ public class ServicesActivity extends AppCompatActivity {
 
         String locations[];
         String categories[];
-        locations = getResources().getStringArray(R.array.vpchc_locations);
+        locations = getResources().getStringArray(R.array.vpchc_locations2);
         categories = getResources().getStringArray(R.array.services_categories);
 
         spinnerServicesLocations = (Spinner)findViewById(R.id.spinnerServicesLocations);
-        ArrayAdapter<String> adapterServicesLocations = new ArrayAdapter<String>(ServicesActivity.this,
+        ArrayAdapter<String> adapterServicesLocations = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locations);
         adapterServicesLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerServicesLocations.setAdapter(adapterServicesLocations);
 
         spinnerServicesCategories= (Spinner)findViewById(R.id.spinnerServicesCategories);
-        ArrayAdapter<String> adapterServicesCategories= new ArrayAdapter<String>(ServicesActivity.this,
+        ArrayAdapter<String> adapterServicesCategories= new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,categories);
         adapterServicesCategories.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerServicesCategories.setAdapter(adapterServicesCategories);
 
+        //Sets the preferred location
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
+        if (locationPref == 6) {
+            locationPref = 0;//This sets MSBHC to no preference due to no location section for it
+        }
         spinnerServicesLocations.setSelection(locationPref);
         if(locationPref == 0){
             spinnerServicesCategories.setVisibility(View.GONE);
@@ -140,6 +144,11 @@ public class ServicesActivity extends AppCompatActivity {
     }
 
     private boolean servicesPopup(int choice){
+    /*
+	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Description: Displays or dismisses a dialog with selected type of services listed
+	    Returns: True
+    */
         int i;
         int replaceTextId;
         String categories[]={};
@@ -151,7 +160,13 @@ public class ServicesActivity extends AppCompatActivity {
             spinnerServicesCategories.setSelection(0);
             return true;
         }else{
-            servicesDialog = new Dialog(ServicesActivity.this);
+            //This cond. statement is to make the styling of the dialog look more modern on devices
+            //that support it which are API's >= 14
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                servicesDialog = new Dialog(ServicesActivity.this);
+            }else{
+                servicesDialog = new Dialog(ServicesActivity.this, R.style.AppTheme_NoActionBar);
+            }
             servicesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             servicesDialog.setContentView(R.layout.services_dialog);
             servicesDialog.show();
@@ -159,6 +174,7 @@ public class ServicesActivity extends AppCompatActivity {
             servicesDialog.setCanceledOnTouchOutside(false);
         }
 
+        //Sets the preferred location
         categories = getResources().getStringArray(R.array.services_categories);
         TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
         if(selectionProviderCategory == 1){
@@ -179,6 +195,7 @@ public class ServicesActivity extends AppCompatActivity {
             titleText.setText(categories[4]);
         }
 
+        //Sets location displayed
         TextView locationsText = (TextView) servicesDialog.findViewById(R.id.servicesLocationsText);
         if(selectionProviderLocation == 1){
             locationsText.setText("Bloomingdale");
@@ -192,7 +209,7 @@ public class ServicesActivity extends AppCompatActivity {
             locationsText.setText("Terre Haute");
         }
 
-
+        //Populate list of services based on type of service chosen
         for(i=1;i<=availableServices.length;i++){
             replaceTextString = "servicesText" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());

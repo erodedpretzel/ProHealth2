@@ -4,12 +4,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -37,30 +35,28 @@ public class LocationsActivity extends AppCompatActivity {
         String locations[]={};
         String locationsOptions[]={};
 
-        locations = getResources().getStringArray(R.array.vpchc_locations);
+        locations = getResources().getStringArray(R.array.vpchc_locations2);
         locationsOptions = getResources().getStringArray(R.array.locations_options);
 
         spinnerLocations = (Spinner)findViewById(R.id.spinnerLocations);
-        ArrayAdapter<String> adapterLocations = new ArrayAdapter<String>(LocationsActivity.this,
+        ArrayAdapter<String> adapterLocations = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locations);
         adapterLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerLocations.setAdapter(adapterLocations);
 
         spinnerLocationsOptions = (Spinner)findViewById(R.id.spinnerLocationsOptions);
-        ArrayAdapter<String>adapterLocationsOptions = new ArrayAdapter<String>(LocationsActivity.this,
+        ArrayAdapter<String>adapterLocationsOptions = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locationsOptions);
         adapterLocationsOptions.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerLocationsOptions.setAdapter(adapterLocationsOptions);
 
+        //Sets the preferred location
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
-
         if(locationPref == 6){
             locationPref = 0;//This sets MSBHC to no preference do to no location section for it
         }
-
         spinnerLocations.setSelection(locationPref);
-
         if(locationPref == 0){
             spinnerLocationsOptions.setVisibility(View.GONE);
         }
@@ -124,6 +120,7 @@ public class LocationsActivity extends AppCompatActivity {
                         locationsContactInfoPopup(1);
                         break;
                     case 3:
+                        //Opens the Google Maps app with the locations address already entered in
                         if(selectionLocation == 1){
                             locationCoordinates[0] = "201 W. Academy St., Bloomingdale,IN 47832";
                         }else if(selectionLocation == 2){
@@ -151,6 +148,11 @@ public class LocationsActivity extends AppCompatActivity {
     }
 
     private boolean locationsClinicHoursPopup(int choice){
+    /*
+	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Description: Displays or dismisses a dialog with the chosen location's clinic hours listed.
+	    Returns: True
+    */
         int i;
         int replaceTextId;
         String replaceTextString;
@@ -159,7 +161,11 @@ public class LocationsActivity extends AppCompatActivity {
             spinnerLocationsOptions.setSelection(0);
             return true;
         }else{
-            locationsClinicHoursDialog = new Dialog(LocationsActivity.this);
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                locationsClinicHoursDialog = new Dialog(LocationsActivity.this);
+            }else{
+                locationsClinicHoursDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
+            }
             locationsClinicHoursDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             locationsClinicHoursDialog.setContentView(R.layout.locations_clinichours_dialog);
             locationsClinicHoursDialog.show();
@@ -167,6 +173,7 @@ public class LocationsActivity extends AppCompatActivity {
             locationsClinicHoursDialog.setCanceledOnTouchOutside(false);
         }
 
+        //Sets location displayed
         TextView locationsText = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
         if(selectionLocation == 1){
             locationsText.setText("Bloomingdale");
@@ -180,6 +187,7 @@ public class LocationsActivity extends AppCompatActivity {
             locationsText.setText("Terre Haute");
         }
 
+        //Populate list of clinic hours depending on location chosen
         for(i=2;i<=10;i+=2){
             replaceTextString = "locationsClinicHoursText" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
@@ -210,6 +218,11 @@ public class LocationsActivity extends AppCompatActivity {
     }
 
     private boolean locationsContactInfoPopup(int choice) {
+    /*
+	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Description: Displays or dismisses a dialog with the chosen location's contact info listed.
+	    Returns: True
+    */
         int i;
         int contactInfoIndex;
         int count=0;
@@ -222,7 +235,11 @@ public class LocationsActivity extends AppCompatActivity {
             spinnerLocationsOptions.setSelection(0);
             return true;
         }else{
-            locationsContactInfoDialog = new Dialog(LocationsActivity.this);
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                locationsContactInfoDialog = new Dialog(LocationsActivity.this);
+            }else{
+                locationsContactInfoDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
+            }
             locationsContactInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             locationsContactInfoDialog.setContentView(R.layout.locations_contactinfo_dialog);
             locationsContactInfoDialog.show();
@@ -230,24 +247,31 @@ public class LocationsActivity extends AppCompatActivity {
             locationsContactInfoDialog.setCanceledOnTouchOutside(false);
         }
 
+        //Sets location displayed
+        ImageView locationsPic = (ImageView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoPic);
         TextView locationsText = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
         if(selectionLocation == 1){
             locationsText.setText("Bloomingdale");
+            locationsPic.setImageResource(R.drawable.bloomingdale_location);
         }else if(selectionLocation == 2){
             locationsText.setText("Cayuga");
+            locationsPic.setImageResource(R.drawable.cayuga_location);
         }else if(selectionLocation == 3){
             locationsText.setText("Clinton");
+            locationsPic.setImageResource(R.drawable.clinton_location);
         }else if(selectionLocation == 4){
             locationsText.setText("Crawfordsville");
+            locationsPic.setImageResource(R.drawable.crawfordsville_location);
         }else if(selectionLocation == 5){
             locationsText.setText("Terre Haute");
+            locationsPic.setImageResource(R.drawable.terrehaute_location);
         }
 
+        //Populate list of contact info depending on location chosen
         locationsContactInfo = getResources().getStringArray(R.array.locations_contact_info);
         contactInfoIndex = (selectionLocation - 1) * 4;
         for(i=2;i<=7;i++){
             replaceTextString = "locationsContactInfoText" + i;
-            Log.w("myApp", replaceTextString);
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView tempText = (TextView) locationsContactInfoDialog.findViewById(replaceTextId);
             tempText.setText(locationsContactInfo[contactInfoIndex + count++]);
