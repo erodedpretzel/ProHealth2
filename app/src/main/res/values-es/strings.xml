@@ -216,36 +216,36 @@
     </string-array>
 
     <string-array name="forms1_url">
-        <item>http://vpchc.org/files/form_release_of_information_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_release_of_information_spanish.pdf</item>
     </string-array>
 
     <string-array name="forms2_bloomcayclint_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_bloomcayclint_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_bloomcayclint_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_bloomcayclint_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_bloomcayclint_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
     </string-array>
 
     <string-array name="forms2_craw_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_crawfordsville_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_crawfordsville_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_crawfordsville_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_crawfordsville_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
     </string-array>
 
     <string-array name="forms2_terre_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_terrehaute_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_terrehaute_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_terrehaute_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_terrehaute_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
     </string-array>
 
     <string-array name="forms3_url">
-        <item>http://vpchc.org/files/form_acknowledgement_receipt_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_patient_bill_of_rights_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_notice_privacy_practices_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_acknowledgement_receipt_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_patient_bill_of_rights_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_notice_privacy_practices_spanish.pdf</item>
     </string-array>
 
     <string-array name="forms4_url">
-        <item>http://vpchc.org/files/form_ihsaa_physical_spanish.pdf</item>
-        <item>http://vpchc.org/files/form_msbhc_student_enrollment_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_ihsaa_physical_spanish.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/es/form_msbhc_student_enrollment_spanish.pdf</item>
     </string-array>
 
     <string-array name="services_categories">
@@ -255,5 +255,13 @@
         <item>Apoyo al Paciente</item>
         <item>Atención Primaria</item>
     </string-array>
+    <string name="tracker_refresh"> rastreador de actualización</string>
+    <string name="toast_tracker_refresh"> horario refrescante MSBHC...</string>
+    <string name="toast_schedule_outdated"> Su horario MSBHC se ha quedado obsoleto golpeado Actualizar Rastreador</string>
+    <string name="toast_network_error"> Error : Por favor, compruebe su conexión a la red</string>
+    <string name="toast_call_MSBHC">Llamando Ubicación MSBHC...</string>
+    <string name="outdated_secondline">rastreador de actualización</string>
+    <string name="network_error">Por favor, compruebe su red</string>
+    <string name="outdated_firstline"> horario obsoleta</string>
 
 </resources>

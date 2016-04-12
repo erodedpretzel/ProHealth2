@@ -12,7 +12,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "vpchc.prohealth"
+        applicationId "org.vpchc.valleyprohealth"
         minSdkVersion 10
         targetSdkVersion 21
         versionCode 1

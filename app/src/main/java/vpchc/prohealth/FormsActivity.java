@@ -189,6 +189,9 @@ public class FormsActivity extends AppCompatActivity {
                             case 3:
                                 formsDownload(2);
                                 break;
+                            case 4:
+                                formsDownload(3);
+                                break;
                         }
                     }
                 } else if (selectionCategory == 2) {
@@ -278,7 +281,12 @@ public class FormsActivity extends AppCompatActivity {
 
         //Selects appropriate URL based on selection
         if(selectionCategory == 1){
-            urlArray = getResources().getStringArray(R.array.forms1_url);
+            if(selectForm == 2){
+                urlArray = getResources().getStringArray(R.array.forms1_release_url);
+                selectForm = selectionLocation;
+            }else{
+                urlArray = getResources().getStringArray(R.array.forms1_url);
+            }
         }else if(selectionCategory == 2){
             if((selectionLocation >= 1 && selectionLocation <= 3)) {
                 urlArray = getResources().getStringArray(R.array.forms2_bloomcayclint_url);

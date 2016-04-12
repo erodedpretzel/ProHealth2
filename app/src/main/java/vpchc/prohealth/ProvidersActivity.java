@@ -2,7 +2,6 @@ package vpchc.prohealth;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.TextView;
@@ -67,7 +65,7 @@ public class ProvidersActivity extends AppCompatActivity {
         spinnerProviderLocations = (Spinner)findViewById(R.id.spinnerProviderLocations);
         ArrayAdapter<String>adapterProviderLocations = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locations);
-        adapterProviderLocations.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        adapterProviderLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerProviderLocations.setAdapter(adapterProviderLocations);
 
         spinnerProviderType = (Spinner)findViewById(R.id.spinnerProviderType);
@@ -233,6 +231,7 @@ public class ProvidersActivity extends AppCompatActivity {
                 replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
                 TextView tempText = (TextView) providersDialog.findViewById(replaceTextId);
                 tempText.setText(temp[count]);
+                tempText = null;
             }
             count+=7;
         }
@@ -247,12 +246,8 @@ public class ProvidersActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.providerBackButton:
                     finish();
-                    ImageView backButton = (ImageView) findViewById(R.id.providerBackButton);
-                    backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 case R.id.buttonProvidersClose:
-                    ImageView closeButton = (ImageView) providersDialog.findViewById(R.id.buttonProvidersClose);
-                    closeButton.setImageResource(R.drawable.dialog_close_on);
                     providersPopup(0);
                     break;
                 default:
@@ -260,5 +255,12 @@ public class ProvidersActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+
+    }
 
 }

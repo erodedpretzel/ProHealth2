@@ -20,7 +20,7 @@
                 android:id="@+id/servicesBackButton"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/back_arrow_off"
+                android:src="@drawable/back_arrow_list_drawable"
                 />
             <RelativeLayout
                 android:layout_width="wrap_content"

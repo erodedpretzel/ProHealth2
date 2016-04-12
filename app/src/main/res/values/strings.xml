@@ -90,14 +90,14 @@
     <string name="tracker_refresh">Refresh Tracker</string>
     <string name="outdated_firstline">Schedule outdated</string>
     <string name="outdated_secondline">Refresh Tracker</string>
-    <string name="outdated_thirdline">&lt;------</string>
-    <string name="network_error">Please check network</string>
+    <string name="outdated_thirdline" translatable="false">&lt;------</string>
+    <string name="network_error">Please check your network</string>
     <string name="toast_network_error">Error: Please check your network connection</string>
     <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please hit Refresh Tracker</string>
     <string name="toast_tracker_refresh">Refreshing MSBHC schedule...</string>
-    <string name="call_location_msbhc">MSBHC</string>
+    <string name="call_location_msbhc" translatable="false">MSBHC</string>
     <string name="toast_call_MSBHC">Calling MSBHC...</string>
-    <string name="title_activity_services">Services</string>
+    <string name="title_activity_services" translatable="false">Services</string>
 
     <string-array name="BehavioralHealth">
         <item>•Child/Adolescent counseling</item>
@@ -243,6 +243,7 @@
         <item>Select a form</item>
         <item>Behavioral Health Release</item>
         <item>Release of Information</item>
+        <item>Release of Records</item>
         <item>Telemedicine</item>
     </string-array>
     <string-array name="forms2">
@@ -264,35 +265,42 @@
     </string-array>
 
     <string-array name="forms1_url">
-        <item>http://vpchc.org/files/form_behavioral_health_release.pdf</item>
-        <item>http://vpchc.org/files/form_release_of_information.pdf</item>
-        <item>http://vpchc.org/files/forms_telemedicine_consent.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/behavioral_health_release.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/release_of_information.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/telemedicine_consent.pdf</item>
+    </string-array>
+    <string-array name="forms1_release_url">
+        <item>http://valleyprohealth.org/files/forms/en/records_release_bloomingdale.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_terre_haute.pdf</item>
     </string-array>
     <string-array name="forms2_bloomcayclint_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_bloomcayclint.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_bloomcayclint.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomcayclint.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomcayclint.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
     </string-array>
     <string-array name="forms2_craw_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_crawfordsville.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_crawfordsville.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
     </string-array>
     <string-array name="forms2_terre_url">
-        <item>http://vpchc.org/files/form_new_patient_packet_adult_terrehaute.pdf</item>
-        <item>http://vpchc.org/files/form_new_patient_packet_child_terrehaute.pdf</item>
-        <item>http://vpchc.org/files/form_sliding_fee_scale_reqs.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
     </string-array>
 
     <string-array name="forms3_url">
-        <item>http://vpchc.org/files/form_acknowledgement_receipt.pdf</item>
-        <item>http://vpchc.org/files/form_patient_bill_of_rights.pdf</item>
-        <item>http://vpchc.org/files/form_notice_privacy_practices.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/notice_privacy_practices.pdf</item>
     </string-array>
 
     <string-array name="forms4_url">
-        <item>http://vpchc.org/files/form_ihsaa_physical.pdf</item>
-        <item>http://vpchc.org/files/form_msbhc_student_enrollment.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
     </string-array>
 
     <string-array name="services_categories">

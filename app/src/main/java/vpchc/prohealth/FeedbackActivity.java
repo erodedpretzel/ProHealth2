@@ -76,16 +76,10 @@ public class FeedbackActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.feedbackBackButton:
                     finish();
-                    ImageView feedbackBackButton = (ImageView) findViewById(R.id.feedbackBackButton);
-                    feedbackBackButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 case R.id.feedbackRateButton:
-                    ImageView feedbackRateButton = (ImageView) findViewById(R.id.feedbackRateButton);
-                    feedbackRateButton.setImageResource(R.drawable.rate_on);
                     break;
                 case R.id.feedbackMessageButton:
-                    ImageView feedbackMessageButton = (ImageView) findViewById(R.id.feedbackMessageButton);
-                    feedbackMessageButton.setImageResource(R.drawable.message_on);
                     feedbackMessagePopup(1);
                     break;
                 case R.id.feedbackButtonSendMessage:
@@ -108,8 +102,6 @@ public class FeedbackActivity extends AppCompatActivity {
                     feedbackMessagePopup(0);
                     break;
                 case R.id.buttonFeedbackDialogClose:
-                    ImageView buttonfeedbackDialogClose = (ImageView) feedbackMessageDialog.findViewById(R.id.buttonFeedbackDialogClose);
-                    buttonfeedbackDialogClose.setImageResource(R.drawable.dialog_close_on);
                     feedbackMessagePopup(0);
                     break;
                 default:
@@ -117,13 +109,6 @@ public class FeedbackActivity extends AppCompatActivity {
             }
         }
     };
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ImageView rateButton = (ImageView) findViewById(R.id.feedbackRateButton);
-        rateButton.setImageResource(R.drawable.rate_off);
-    }
 
 
 }

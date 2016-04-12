@@ -455,8 +455,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(choice == 0) {
             trackerDialog.dismiss();
-            ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
-            trackerButton.setImageResource(R.drawable.tracker_off);
             return;
         }else{
             //Below if statement will only run if there is no network & there is no stored shared
@@ -465,8 +463,6 @@ public class MainActivity extends AppCompatActivity {
             if(networkCheck == 0 & !(mainloc.contains("mainloc"))){
                 String toastNetworkText = getResources().getString(R.string.toast_network_error);
                 Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
-                ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
-                trackerButton.setImageResource(R.drawable.tracker_off);
                 return;
             }
             //This cond. statement is to make the styling of the dialog look more modern on devices
@@ -515,7 +511,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Setup the locations, hours, & status to be displayed
         currDay = getSharedPreferences("currDay", MODE_PRIVATE);
-        int busDay = currDay.getInt("currDay", 0);
+        int busDay = currDay.getInt("currDay", -1);
         if(busDay < getCurrDay(0)){
             String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
             Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
@@ -638,8 +634,6 @@ public class MainActivity extends AppCompatActivity {
     */
         if(choice == 0) {
             callDialog.dismiss();
-            ImageView homeButton = (ImageView) findViewById(R.id.callButton);
-            homeButton.setImageResource(R.drawable.call_off);
             return true;
         }else{
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -671,7 +665,6 @@ public class MainActivity extends AppCompatActivity {
         buttonCallTerreImage.setOnClickListener(callListener);
         buttonCallMSBHCImage.setOnClickListener(callListener);
 
-
         return true;
     }
 
@@ -681,31 +674,21 @@ public class MainActivity extends AppCompatActivity {
             //Each button, except twitter/call, will open either a dialog,activity, or page and change its drawable to 'light up'
             switch (v.getId()) {
                 case R.id.callButton:
-                    ImageView homeButton = (ImageView) findViewById(R.id.callButton);
-                    homeButton.setImageResource(R.drawable.call_on);
                     callPopup(1);
                     break;
                 case R.id.providerButton:
-                    ImageView providerButton = (ImageView) findViewById(R.id.providerButton);
-                    providerButton.setImageResource(R.drawable.providers_on);
                     Intent openProvidersIntent = new Intent(MainActivity.this, ProvidersActivity.class);
                     startActivity(openProvidersIntent);
                     break;
                 case R.id.locationsButton:
-                    ImageView locationsButton = (ImageView) findViewById(R.id.locationsButton);
-                    locationsButton.setImageResource(R.drawable.locations_on);
                     Intent openLocationsIntent = new Intent(MainActivity.this, LocationsActivity.class);
                     startActivity(openLocationsIntent);
                     break;
                 case R.id.formsButton:
-                    ImageView formsButton = (ImageView) findViewById(R.id.formsButton);
-                    formsButton.setImageResource(R.drawable.forms_on);
                     Intent openFormsIntent = new Intent(MainActivity.this, FormsActivity.class);
                     startActivity(openFormsIntent);
                     break;
                 case R.id.portalButton:
-                    ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
-                    portalButton.setImageResource(R.drawable.portal_on);
                     String portalUrl = "https://secure2.myunionportal.org/vpchc/default.aspx";
                     Intent portalLink = new Intent(Intent.ACTION_VIEW);
                     portalLink.setData(Uri.parse(portalUrl));
@@ -714,20 +697,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.servicesButton:
-                    ImageView servicesButton = (ImageView) findViewById(R.id.servicesButton);
-                    servicesButton.setImageResource(R.drawable.services_on);
                     Intent openservicesIntent = new Intent(MainActivity.this, ServicesActivity.class);
                     startActivity(openservicesIntent);
                     break;
                 case R.id.trackerButton:
-                    ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
-                    trackerButton.setImageResource(R.drawable.tracker_on);
                     busTrackerMain(1);
                     break;
                 case R.id.websiteButton:
-                    ImageView websiteButton = (ImageView) findViewById(R.id.websiteButton);
-                    websiteButton.setImageResource(R.drawable.website_on);
-                    String websiteUrl = "http://www.vpchc.org";
+                    String websiteUrl = "http://www.valleyprohealth.org";
                     Intent websiteLink = new Intent(Intent.ACTION_VIEW);
                     websiteLink.setData(Uri.parse(websiteUrl));
                     startActivity(websiteLink);
@@ -735,8 +712,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.facebookButton:
-                    ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
-                    facebookButton.setImageResource(R.drawable.facebook_on);
                     //Goes to the vpchc page in the facebook app or in the browser if the app isn't present.
                     try {
                         Intent facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/132585333458352"));
@@ -858,26 +833,6 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         updateBusTracker();
-        ImageView callButton = (ImageView) findViewById(R.id.callButton);
-        ImageView providerButton = (ImageView) findViewById(R.id.providerButton);
-        ImageView locationsButton = (ImageView) findViewById(R.id.locationsButton);
-        ImageView formsButton = (ImageView) findViewById(R.id.formsButton);
-        ImageView portalButton = (ImageView) findViewById(R.id.portalButton);
-        ImageView servicesButton = (ImageView) findViewById(R.id.servicesButton);
-        ImageView trackerButton = (ImageView) findViewById(R.id.trackerButton);
-        ImageView websiteButton = (ImageView) findViewById(R.id.websiteButton);
-        ImageView facebookButton = (ImageView) findViewById(R.id.facebookButton);
-
-        
-        callButton.setImageResource(R.drawable.call_off);
-        providerButton.setImageResource(R.drawable.providers_off);
-        locationsButton.setImageResource(R.drawable.locations_off);
-        formsButton.setImageResource(R.drawable.forms_off);
-        portalButton.setImageResource(R.drawable.portal_off);
-        servicesButton.setImageResource(R.drawable.services_off);
-        trackerButton.setImageResource(R.drawable.tracker_off);
-        websiteButton.setImageResource(R.drawable.website_off);
-        facebookButton.setImageResource(R.drawable.facebook_off);
     }
 
 }

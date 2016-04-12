@@ -32,7 +32,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/call_off"
+            android:src="@drawable/call_state_list_drawable"
             />
         <ImageView
             android:id="@+id/providerButton"
@@ -41,7 +41,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/providers_off"
+            android:src="@drawable/providers_state_list_drawable"
             />
         <ImageView
             android:id="@+id/locationsButton"
@@ -50,7 +50,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/locations_off"
+            android:src="@drawable/locations_state_list_drawable"
             />
         <TextView
             android:id="@+id/callButtonText"
@@ -89,7 +89,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/forms_off"
+            android:src="@drawable/forms_state_list_drawable"
             />
         <ImageView
             android:id="@+id/servicesButton"
@@ -98,7 +98,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/services_off"
+            android:src="@drawable/services_state_list_drawable"
         />
         <ImageView
             android:id="@+id/trackerButton"
@@ -107,7 +107,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/tracker_off"
+            android:src="@drawable/tracker_state_list_drawable"
             />
         <TextView
             android:id="@+id/formsButtonText"
@@ -146,7 +146,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/portal_off"
+            android:src="@drawable/portal_state_list_drawable"
             />
         <ImageView
             android:id="@+id/facebookButton"
@@ -155,7 +155,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/facebook_off"
+            android:src="@drawable/facebook_state_list_drawable"
             />
         <ImageView
             android:id="@+id/websiteButton"
@@ -164,7 +164,7 @@
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"
-            android:src="@drawable/website_off"
+            android:src="@drawable/website_state_list_drawable"
             />
         <TextView
             android:id="@+id/portalButtonText"

@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="10dp"
-                android:src="@drawable/back_arrow_off"
+                android:src="@drawable/back_arrow_list_drawable"
                 />
                 <TextView
                     android:layout_width="wrap_content"

@@ -14,7 +14,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="end"
-            android:src="@drawable/dialog_close_off"
+            android:src="@drawable/close_dialog_state_list_drawable"
             />
         <TextView
             android:id="@+id/feedbackTitleText"

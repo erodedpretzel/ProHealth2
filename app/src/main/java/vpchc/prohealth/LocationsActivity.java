@@ -290,8 +290,6 @@ public class LocationsActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.locationsBackButton:
                     finish();
-                    ImageView backButton = (ImageView) findViewById(R.id.locationsBackButton);
-                    backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 case R.id.buttonLocationsClinicHoursClose:
                     ImageView closeClinicHoursButton = (ImageView) locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);

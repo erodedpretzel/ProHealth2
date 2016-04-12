@@ -36,7 +36,7 @@
             android:layout_width="70dp"
             app:layout_gravity="center"
             app:layout_rowWeight=".5"
-            android:src="@drawable/rate_off"
+            android:src="@drawable/rate_state_list_drawable"
             />
         <TextView
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:layout_width="70dp"
             app:layout_gravity="center"
             app:layout_rowWeight=".5"
-            android:src="@drawable/message_off"
+            android:src="@drawable/message_state_list_drawable"
             />
     </android.support.v7.widget.GridLayout>
 

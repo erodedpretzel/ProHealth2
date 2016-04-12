@@ -18,8 +18,8 @@ public class ServicesActivity extends AppCompatActivity {
 
     private Spinner spinnerServicesLocations;
     private Spinner spinnerServicesCategories;
-    private int selectionProviderLocation;
-    private int selectionProviderCategory;
+    private int selectionServicesLocation;
+    private int selectionServicesCategory;
 
     Dialog servicesDialog;
 
@@ -71,32 +71,32 @@ public class ServicesActivity extends AppCompatActivity {
                     case 1:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 1;
+                        selectionServicesLocation = 1;
                         break;
                     case 2:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 2;
+                        selectionServicesLocation = 2;
                         break;
                     case 3:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 3;
+                        selectionServicesLocation = 3;
                         break;
                     case 4:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 4;
+                        selectionServicesLocation = 4;
                         break;
                     case 5:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 5;
+                        selectionServicesLocation = 5;
                         break;
                     case 6:
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.VISIBLE);
-                        selectionProviderLocation = 6;
+                        selectionServicesLocation = 6;
                         break;
                 }
             }
@@ -116,19 +116,19 @@ public class ServicesActivity extends AppCompatActivity {
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 1:
-                        selectionProviderCategory = 1;
+                        selectionServicesCategory = 1;
                         servicesPopup(1);
                         break;
                     case 2:
-                        selectionProviderCategory = 2;
+                        selectionServicesCategory = 2;
                         servicesPopup(1);
                         break;
                     case 3:
-                        selectionProviderCategory = 3;
+                        selectionServicesCategory = 3;
                         servicesPopup(1);
                         break;
                     case 4:
-                        selectionProviderCategory = 4;
+                        selectionServicesCategory = 4;
                         servicesPopup(1);
                         break;
                 }
@@ -177,17 +177,17 @@ public class ServicesActivity extends AppCompatActivity {
         //Sets the preferred location
         categories = getResources().getStringArray(R.array.services_categories);
         TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
-        if(selectionProviderCategory == 1){
+        if(selectionServicesCategory == 1){
             titleText.setText(categories[1]);
             availableServices = getResources().getStringArray(R.array.BehavioralHealth);
-        }else if(selectionProviderCategory == 2){
+        }else if(selectionServicesCategory == 2){
             availableServices = getResources().getStringArray(R.array.Dental);
             titleText.setText(categories[2]);
-        }else if(selectionProviderCategory == 3){
+        }else if(selectionServicesCategory == 3){
             availableServices = getResources().getStringArray(R.array.PatientSupport);
             titleText.setText(categories[3]);
-        }else if(selectionProviderCategory == 4){
-            if(selectionProviderLocation==5) {
+        }else if(selectionServicesCategory == 4){
+            if(selectionServicesLocation==5) {
                 availableServices = getResources().getStringArray(R.array.PrimaryCare2);
             }else{
                 availableServices = getResources().getStringArray(R.array.PrimaryCare1);
@@ -197,15 +197,15 @@ public class ServicesActivity extends AppCompatActivity {
 
         //Sets location displayed
         TextView locationsText = (TextView) servicesDialog.findViewById(R.id.servicesLocationsText);
-        if(selectionProviderLocation == 1){
+        if(selectionServicesLocation == 1){
             locationsText.setText("Bloomingdale");
-        }else if(selectionProviderLocation == 2){
+        }else if(selectionServicesLocation == 2){
             locationsText.setText("Cayuga");
-        }else if(selectionProviderLocation == 3){
+        }else if(selectionServicesLocation == 3){
             locationsText.setText("Clinton");
-        }else if(selectionProviderLocation == 4){
+        }else if(selectionServicesLocation == 4){
             locationsText.setText("Crawfordsville");
-        }else if(selectionProviderLocation == 5){
+        }else if(selectionServicesLocation == 5){
             locationsText.setText("Terre Haute");
         }
 
@@ -230,8 +230,6 @@ public class ServicesActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.servicesBackButton:
                     finish();
-                    ImageView backButton = (ImageView) findViewById(R.id.servicesBackButton);
-                    backButton.setImageResource(R.drawable.back_arrow_on);
                     break;
                 case R.id.buttonServicesDialogClose:
                     ImageView closeButton = (ImageView) servicesDialog.findViewById(R.id.buttonServicesDialogClose);
