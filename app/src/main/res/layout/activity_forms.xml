@@ -1,53 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="vpchc.prohealth.FormsActivity"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="vpchc.prohealth.FormsActivity">
+    android:fitsSystemWindows="true">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarForms"
+
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/title_bar"
+
         android:background="?attr/colorPrimary"
+
         app:popupTheme="@style/AppTheme.PopupOverlay">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/title_bar">
             <ImageView
-                android:id="@+id/formsBackButton"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/backButtonForms"
                 android:src="@drawable/back_arrow_list_drawable"
-                />
+
+                android:layout_width="@dimen/back_button"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                >
+                android:layout_centerInParent="true">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="50dp"
                         android:src="@drawable/forms_logo"
-                        />
+
+                        android:layout_width="@dimen/title_bar_icon_width"
+                        android:layout_height="@dimen/title_bar_icon_height"/>
                     <TextView
+                        android:id="@+id/title_forms"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_gravity="center"
-                        android:text="@string/forms_title"
-                        android:textSize="25sp"
-                        android:textColor="@color/white"
-                        />
+
+                        android:text="@string/title_forms"
+                        android:textSize="@dimen/title_bar_label"
+                        android:textColor="@color/white"/>
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/content_forms"/>
+
 </android.support.design.widget.CoordinatorLayout>

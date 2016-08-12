@@ -1,267 +1,468 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Valley ProHealth</string>
-    <string name="call_directions"> Seleccionar una ubicación</string>
-    <string name="call_location">\@drawable/call_site_off_es</string>
-    <string name="feedback_hint_message"> Mensaje:</string>
-    <string name="feedback_hint_subject">Tema:</string>
-    <string name="feedback_message_dialog_title">Darnos Su Opinión</string>
-    <string name="feedback_message">Si desea salir de los desarrolladores de esta retroalimentación aplicación, por favor envíenos un mensaje</string>
-    <string name="feedback_playstore">Si te gusta nuestra aplicación, por favor puntuar en Play Store</string>
-    <string name="feedback_send_message">Enviar:</string>
-    <string name="feedback_subject">Tema:</string>
-    <string name="feedback_title">Realimentación</string>
-    <string name="forms_title">Formas</string>
-    <string name="icon_bustracker">Rastreador</string>
-    <string name="icon_contact_us">Llamada</string>
-    <string name="icon_forms">Formas</string>
-    <string name="icon_locations">Ubicaciones</string>
-    <string name="icon_providers">Proveedores</string>
-    <string name="icon_services"> Servicios</string>
-    <string name="icon_website">Sitio Web</string>
-    <string name="location_hours_friday">Viernes:</string>
-    <string name="location_hours_monday">Lunes:</string>
-    <string name="location_hours_thursday">Jueves:</string>
-    <string name="location_hours_tuesday">Martes:</string>
-    <string name="location_hours_wednesday">Miércoles:</string>
-    <string name="locations_clinchours_dialog_title">Horario de la Clínica</string>
-    <string name="locations_contactinfo_address">Dirección:</string>
-    <string name="locations_contactinfo_dialog_title"> Datos de contacto</string>
-    <string name="locations_contactinfo_phone">Teléfono:</string>
-    <string name="menu_feedback"> Déjenos sus comentarios</string>
-    <string name="menu_preferred"> Restablecer ubicación preferida</string>
-    <string name="providers_bhprovider"> Proveedores de salud mental</string>
-    <string name="providers_mprovider"> Los proveedores médicos</string>
-    <string name="providers_title"> Proveedores</string>
-    <string name="services_title"> Servicios</string>
-    <string name="toast_call_bloom">Llamando Ubicación Bloomingdale...</string>
-    <string name="toast_call_cay"> Llamando Ubicación Cayuga...</string>
-    <string name="toast_call_clint"> Llamando Ubicación Clinton...</string>
-    <string name="toast_call_craw">Llamando Ubicación Crawfordsville...</string>
-    <string name="toast_call_terre">Llamando Ubicación Terre Haute...</string>
-    <string name="toast_forms_download">Formulario de descarga...</string>
-    <string name="toast_tracker_download_schedule">Descarga de MSBHC Horario...</string>
-    <string name="toast_location_preference_save"> Ahorro de preferencia de ubicación...</string>
-    <string name="toast_twitter_open"> La apertura de la página de twitter VPCHC...</string>
-    <string name="toast_facebook_open"> La apertura VPCHC página de Facebook...</string>
-    <string name="toast_website_open"> Abriendo página web VPCHC...</string>
-    <string name="toast_portal_open"> VPCHC la apertura de la página web Portal del Paciente</string>
-    <string name="trackerDescription"> MSBHC Rastreador</string>
-    <string name="trackerLocationText">Ubicación:</string>
-    <string name="trackerScheduleDownload">Descargar Horario de Buses</string>
-    <string name="trackerStatus">Estado:</string>
-    <string name="trackerTimes">Veces:</string>
-    <string name="trackerTitleText"> ¿Dónde está el MSBHC?</string>
-    <string name="tracker_status_close_soon"> Próximas a concluir</string>
-    <string name="tracker_status_closed"> Cerrado</string>
-    <string name="tracker_status_enroute">En Camino</string>
-    <string name="tracker_status_open">Abierto</string>
-    <string name="tracker_status_open_soon"> Próxima apertura</string>
-    <string name="main_twitter_feed_initial_tweet"> Consulte aquí las últimas noticias e información en relación con el Centro de Salud Valle Comunidad Profesional .</string>
-    <string name="locations_title">Ubicaciones</string>
+    <!-- TABLE OF CONTENTS
+            CALL
+            FEEBACK
+            FORMS
+            LOCATIONS
+            MAIN
+            OPTIONS
+            PATIENT RESOURCES
+            PROVIDERS
+            SERVICES
+            TRACKER
+            TWITTER
+            VPCHC LOCATIONS
+    -->
 
-    <string-array name="BehavioralHealth">
-        <item>•Niño/orientación a los adolescentes</item>
-        <item>•La consejería de crisis</item>
-        <item>•asesoramiento familiar</item>
-        <item>•Psiquiatría</item>
-        <item>•Exámenes/evaluación (tras la recomendación)</item>
-    </string-array>
 
-    <string-array name="Dental">
-        <item>•Los servicios preventivos y de restauración</item>
-    </string-array>
+    <!--**********************************!>
+        #CALL
+    <!***********************************-->
+    <!--Text-->
+        <string name="call_directions">Llamando</string>
+        <string name="call_location">\@drawable/call_site_off_es</string>
+    <!--Toasts-->
+        <string name="toast_call_bloom">Llamando Ubicación Bloomingdale…</string>
+        <string name="toast_call_cay"> Llamando Ubicación Cayuga…</string>
+        <string name="toast_call_clint"> Llamando Ubicación Clinton…</string>
+        <string name="toast_call_craw">Llamando Ubicación Crawfordsville…</string>
+        <string name="toast_call_terre">Llamando Ubicación Terre Haute…</string>
 
-    <string-array name="PatientSupport">
-        <item>•Promotores de Salud</item>
-        <item>-Proporcionar asistencia navegación por el mercado de seguros, el Plan de Salud de Indiana , y las solicitudes de Medicaid</item>
-        <item>-Educar a los pacientes sobre los comportamientos de salud preventivos</item>
-        <item>-Ayudan a los pacientes a encontrar artículos de primera necesidad como alimentos , ropa y artículos de higiene</item>
-        <item>•Coordinador de Atención al Paciente</item>
-        <item>-Trabajar con un Coordinador de Atención y aprender cómo manejar los problemas de salud crónicos , y tomar medidas para mejorar su salud</item>
-        <item>-Son defensores de los pacientes y su navegador a través del sistema de salud</item>
-    </string-array>
 
-    <string-array name="PrimaryCare1">
-        <item>•Enfermedad grave</item>
-        <item>•atención de enfermedades crónicas</item>
-        <item>•examen de CDL</item>
-        <item>•Planificación familiar</item>
-        <item>•Atención geriátrica</item>
-        <item>•Vacunas</item>
-        <item>•Los servicios de laboratorio</item>
-        <item>•Salud de los hombres</item>
-        <item>•Cirugía menor</item>
-        <item>•Asesoramiento nutricional</item>
-        <item>•Examen físico</item>
-        <item>•Cuidado preventivo</item>
-        <item>•Así visitas de niños</item>
-        <item>•La salud de la mujer</item>
-    </string-array>
+    <!--**********************************!>
+          #FAQS
+    <!***********************************-->
+        <!--Array-->
+            <string-array name="faqs_categories">
+                <item>Seleccione una categoría</item>
+                <item>Facturación/Seguro</item>
+                <item>Diverso</item>
+                <item>Nuevos Pacientes</item>
+                <item>Servicios</item>
+            </string-array>
 
-    <string-array name="PrimaryCare2">
-        <item>•Enfermedad grave</item>
-        <item>•Atención de enfermedades crónicas</item>
-        <item>•Colposcopia</item>
-        <item>•examen de CDL</item>
-        <item>•Planificación familiar</item>
-        <item>•Atención geriátrica</item>
-        <item>•Vacunas</item>
-        <item>•Trabajo y entrega</item>
-        <item>•Los servicios de laboratorio</item>
-        <item>•Salud de los hombres</item>
-        <item>•Cirugía menor</item>
-        <item>•Asesoramiento nutricional</item>
-        <item>•Cuidados durante el embarazo</item>
-        <item>•Cuidado preventivo</item>
-        <item>•Examen físico</item>
-        <item>•Así visitas de niños</item>
-        <item>•La salud de la mujer</item>
-        <item>•La vasectomía</item>
-    </string-array>
+            <string-array name="faqs_newpat_questions">
+                <item>Estás aceptando nuevos pacientes?</item>
+                <item>¿Qué tan pronto voy a ser capaz de programar mi primera cita?</item>
+                <item>¿Qué necesito traer a mi primera cita?</item>
+                <item>¿Puedo hacer una cita con un consejero de salud del comportamiento?</item>
+                <item>Es lo que ofrece servicios de atención prenatal?</item>
+                <item>¿Puedo llamar y obtener información acerca de mi cónyuge/padre/adulto/niño ( de 18 años) o de sus registros médicos?</item>
+                <item>¿Puede alguien más ( es decir, abuelo, amigo de la familia , o proveedor de cuidado de niños) llevar a mi hijo a su cita?</item>
+            </string-array>
 
-    <string-array name="vpchc_locations">
-        <item>Seleccione una Ubicación</item>
-        <item>Bloomingdale</item>
-        <item>Cayuga</item>
-        <item>Clinton</item>
-        <item>Crawfordsville</item>
-        <item>Terre Haute</item>
-        <item>MSBHC</item>
-    </string-array>
-    <string-array name="vpchc_locations2">
-        <item>Seleccione una Ubicación</item>
-        <item>Bloomingdale</item>
-        <item>Cayuga</item>
-        <item>Clinton</item>
-        <item>Crawfordsville</item>
-        <item>Terre Haute</item>
-    </string-array>
+            <string-array name="faqs_newpat_answers">
+                <item>Para averiguar si uno de nuestros lugares está aceptando nuevos pacientes por favor, nos dan una llamada y estaremos encantados de ayudarle. La información de contacto para todas las clínicas está disponible en la sección ubicaciones de esta aplicación.</item>
+                <item>Nuevas citas de los pacientes se pueden programar tan pronto como dos semanas. Por el momento nosotros le enviará el papeleo para ser completada y presentada en el día de su cita.</item>
+                <item>Para su primera cita, usted debe traer su nueva paciente papeleo completado, junto con la licencia y el seguro de la información de su conductor. Al llegar, la oficina hará una copia de su tarjeta de seguro médico y verificar que la información de su cuenta está al día . Una enfermera completar su historial médico después de haber sido registrado, pero por favor traiga toda la información médica relevante, incluyendo todos los nombres y las dosis de medicamentos recetados y en el mostrador medicamentos que está tomando actualmente.</item>
+                <item>Si usted es un paciente establecido, hable con su médico de cabecera acerca de usted en referencia a un valle profesionales consejero de Salud del Comportamiento.</item>
+                <item>Los servicios prenatales, así como, la Sala de partos están disponibles en nuestra clínica Terre Haute por referencia. Para obtener más información, o para concertar una cita, póngase en contacto con el Valle de los profesionales de Community Health Center más cercano.</item>
+                <item>La Ley de Responsabilidad y Portabilidad del Seguro de Salud (HIPAA ) nos prohíbe el intercambio de información de salud del paciente confidencial sin autorización por escrito del paciente. Si un paciente le gustaría que le conceda permiso para hacer una cita para ellos o para tener acceso a sus registros médicos deben completar un formulario de divulgación de información, disponible en la sección de formularios de esta aplicación.</item>
+                <item>Sí, puede conceder permiso para que otra persona para llevar a su hijo a su nombramiento después de haber completado y enviado el formulario de consentimiento disponible en la sección de formularios de esta aplicación.</item>
+            </string-array>
 
-    <string-array name="preferred_locations">
-    <item>Seleccione una ubicación preferida</item>
-    <item>Sin preferencias</item>
-    <item>Bloomingdale</item>
-    <item>Cayuga</item>
-    <item>Clinton</item>
-    <item>Crawfordsville</item>
-    <item>Terre Haute</item>
-    <item>MSBHC</item>
-    </string-array>
+            <string-array name="faqs_bill_questions">
+                <item>¿Qué tipos de seguros se aceptan?</item>
+                <item>¿Puedo ser visto por un proveedor, incluso si no tengo seguro de salud?</item>
+                <item>Pueden ayudar a los profesionales del valle me inscribo en la cobertura de seguro de salud?</item>
+                <item>¿Qué necesito llevar para solicitar programa de descuento ?</item>
+                <item>¿Qué pasa si no puedo pagar mi factura?</item>
+                <item>¿Qué pasa si tengo otras preguntas acerca de la facturación?</item>
+            </string-array>
 
-    <string-array name="twitter_feed_tips">
-        <item>Visita nuestra Portal del Paciente donde se puede programar citas , enviar por correo electrónico su proveedor, recargas de petición y más ! Ver uno de nuestros recepcionistas para inscribirse de forma gratuita ahora!</item>
-        <item>Si usted no es capaz de hacer una cita, por favor llame para informarnos</item>
-        <item>Recargas pueden tardar hasta 48 horas de oficina para volver a llenar .</item>
-        <item>¿Necesita recursos en su comunidad? ¿Necesita ayuda para encontrar la cobertura de salud para su familia ? Póngase en contacto con uno de nuestros CHWs!</item>
-    </string-array>
+            <string-array name="faqs_bill_answers">
+                <item>Aceptamos todas las compañías aseguradoras comerciales, Medicare y Medicaid.</item>
+                <item>Sí, Valley Professionals acepta la auto-pago, y también tiene una escala móvil de tarifas para las personas elegibles.</item>
+                <item>Sí, nuestra Comunidad trabajadores de la salud están especialmente entrenados para ayudar a las personas a encontrar cobertura de salud asequible. Para hacer una cita, póngase en contacto con Valley Professionals Community Health Center más cercano.</item>
+                <item>Para solicitar el programa de descuento, los pacientes y sus familias deben presentar la siguiente documentación para verificar los ingresos brutos : más reciente declaración de impuestos con el IRS y / o W2 de de empleador(s) , una copia de la Seguridad Social o Discapacidad Premio Carta(s) o estado de cuenta(s) de desempleo, talones de pago de todas las employerers para el último período de 30 días, Si no está trabajando, sin ingresos, y vivir con los demás, se requiere una carta firmada y fechada por la persona que proporciona el apoyo del paciente, carné de conducir, cualquier otro ingreso que se deposita directa. Para obtener más información sobre la escala de tarifas, visite la sección de recursos del paciente de esta aplicación.</item>
+                <item>Si usted no puede pagar su factura, no dude en ponerse en contacto con nuestro Departamento de Facturación al (765) 828–1000 para establecer un plan de pago que funcione para usted.</item>
+                <item>Para todas las consultas relativas a la facturación, por favor, póngase en contacto con nuestro Departamento de Facturación al (765) 828–1000 .</item>
+            </string-array>
 
-    <string-array name="provider_types">
-        <item>Seleccionar un Tipo de Proveedor</item>
-        <item>Salud del Comportamiento</item>
-        <item>Médico</item>
-    </string-array>
+            <string-array name="faqs_services_questions">
+                <item>¿Qué puedo hacer si no puedo pagar mi receta?</item>
+                <item>¿Cuánto tiempo tomará para que puedo recibir mi receta de recarga después de haber presentado una solicitud?</item>
+                <item>¿Tengo que ser un paciente a utilizar la clínica fuera de horario?</item>
+                <item>¿Necesito una cita para la clínica fuera de horario?</item>
+                <item>¿Qué me pueden atender en la clínica para fuera de horario?</item>
+                <item>Cuando es una clínica fuera de horario?</item>
+                <item>Hace los exámenes físicas escolares móvil Centro de Salud ofrece la escuela?</item>
+                <item>¿Qué tipos de servicios están disponibles en el Centro Móvil de Salud Basado en la Escuela?</item>
+                <item>¿Quién se puede ver en el Centro de Salud Móvil?</item>
+                <item>¿Qué necesito hacer para que mi hijo sea visto por el MSBHC?</item>
+                <item>¿Se cuenta en contra de la asistencia de mi hijo cuando él o ella es vista por el MSBHC?</item>
+                <item>¿Visita la MSBHC mi escuela?</item>
+                <item>¿Cómo sé cuando la MSBHC estará en mi escuela?</item>
+                <item>¿Tengo que ser un paciente para participar en el grupo de apoyo para diabéticos?</item>
+            </string-array>
 
-    <string-array name="locations_options">
-        <item>Seleccione una Opcion</item>
-        <item>Horario de la Clínica</item>
-        <item>Datos de Contacto</item>
-        <item>Obtener las Direcciones</item>
-    </string-array>
+            <string-array name="faqs_services_answers">
+                <item>Valley Professionals cuenta con un Programa 403(b) asistencia con los medicamentos que pueden ayudar a las personas elegibles para pagar sus medicamentos.</item>
+                <item>Pedidos de reposición de la prescripción pueden tardar hasta 48 horas una vez presentadas.</item>
+                <item>No, no es necesario ser una corriente Profesionales Valle paciente a utilizar los servicios posteriores al cierre.</item>
+                <item>No, fuera de horario de oficina es de visitas en un primer llegado, primer servido.</item>
+                <item>La clínica Después de las Horas es por afecciones agudas, tales como, fiebre, vómitos, congestión, dolor de garganta, síntomas de la gripe, tos, erupción cutánea, dolor de oído, u otros síntomas similares.</item>
+                <item>La clínica Abierto por la noche se lleva a cabo de lunes a jueves 17:00-20:00 a tan sólo nuestra ubicación Clinton.</item>
+                <item>Sí.</item>
+                <item>Visita la MSBHC para: inmunizaciones, exámenes físicos, así visitas niño, frío, fiebre, vómitos, congestión, dolor de garganta, síntomas de la gripe, tos, erupción cutánea , dolor de oído, y síntomas similares .</item>
+                <item>Los estudiantes y los empleados de una escuela que aloja el centro de salud móvil puede ser visto. Hay ciertas ocasiones, durante las vacaciones escolares, cuando el centro de salud móvil está abierto a la comunidad. Para obtener más información, o para ver el horario de la MSBHC, vaya a la sección de seguimiento de la aplicación.</item>
+                <item>Para inscribir a su hijo en los servicios MSBHC, debe completar y enviar el formulario de inscripción que se encuentra en la sección de formularios. Después de haber hecho esto, se puede llamar a la unidad móvil y hacer una cita, o su hijo puede ir simplemente a la enfermera de la escuela y ser referido.</item>
+                <item>No, la visita de su hijo al MSBHC no contará en contra de su asistencia; Por otra parte, si su hijo es enviado a casa debido a una enfermedad por un proveedor de MSBHC, sería certificado excusado su ausencia.</item>
+                <item>El MSBHC visita escuelas en el North Vermillion , South Vermillion , Southwest Parke , y corporaciones escolares North Central Parke.</item>
+                <item>Usted puede encontrar un calendario para la MSBHC en la sección de seguimiento de esta aplicación.</item>
+                <item>No, usted no tiene que registrarse, haga una cita, o incluso ser un paciente de Valley Professionals a participar en el grupo de apoyo para diabéticos .</item>
+            </string-array>
 
-    <string-array name="locations_contact_info">
-        <item>201 W. Academy St.</item>
-        <item>Bloomingdale, IN 47832</item>
-        <item>(765) 498-9000</item>
-        <item>(765) 798-9004</item>
-        <item>114 N Division St.</item>
-        <item>Cayuga, IN 47928</item>
-        <item>(765) 492-9042</item>
-        <item>(765) 492-90484</item>
-        <item>777 S. Main Street, Suite 100</item>
-        <item>Clinton, IN 47842</item>
-        <item>(765) 828-1003</item>
-        <item>(765) 828-1030</item>
-        <item>1810 Layfayette Ave.</item>
-        <item>Crawfordsville, IN 47933</item>
-        <item>(765) 362-5100</item>
-        <item>(765) 362-5171</item>
-        <item>1530 North 7th Site, Suite 201</item>
-        <item>Terre Haute, IN 47807</item>
-        <item>(812) 238-7631</item>
-        <item>(812) 238-7003</item>
-    </string-array>
+            <string-array name="faqs_misc_questions">
+                <item>Se Valley contratación de profesionales?</item>
+            </string-array>
 
-    <string-array name="forms_categories">
-        <item>Seleccione un formulario</item>
-        <item>Consentimiento</item>
-        <item>Nuevo Paciente</item>
-        <item>Darse Cuenta</item>
-    </string-array>
-    <string-array name="forms1">
-        <item>Seleccione un formulario</item>
-        <item>Liberación de información</item>
-    </string-array>
-    <string-array name="forms2">
-        <item>Seleccione un formulario</item>
-        <item>Adulto</item>
-        <item>Niño</item>
-        <item>Segun Ingresos</item>
-    </string-array>
-    <string-array name="forms3">
-        <item>Seleccione un Formulario</item>
-        <item>Reconocimiento de la Declaración de Derechos</item>
-        <item>Declaración de Derechos</item>
-        <item>Práctica de Privacidad</item>
-    </string-array>
+            <string-array name="faqs_misc_answers">
+                <item>Visita valleyprohealth.org para ver ofertas de trabajo actuales en Valley profesionales. Puede llegar al sitio pulsando el botón de página web en la pantalla principal.</item>
+            </string-array>
 
-    <string-array name="forms1_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_release_of_information_spanish.pdf</item>
-    </string-array>
 
-    <string-array name="forms2_bloomcayclint_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_bloomcayclint_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_bloomcayclint_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
-    </string-array>
+    <!--**********************************!>
+       #FEEDBACK
+   <!***********************************-->
+        <!--Text-->
+            <string name="title_feedback">Realimentación</string>
+            <string name="menu_feedback"> Déjenos sus comentarios</string>
+            <string name="menu_preferred"> Restablecer ubicación preferida</string>
+            <string name="feedback_hint_message">Mensaje:</string>
+            <string name="feedback_hint_subject">Tema:</string>
+            <string name="feedback_message_dialog_title">Darnos Su Opinión</string>
+            <string name="feedback_message">Si desea salir de los desarrolladores de esta retroalimentación aplicación, por favor envíenos un mensaje</string>
+            <string name="feedback_playstore">Si te gusta nuestra aplicación, por favor puntuar en Play Store</string>
+            <string name="feedback_send_message">Enviar:</string>
+            <string name="feedback_subject">Tema:</string>
+        <!--Toasts-->
+            <string name="toast_feedback_no_clients">No hay clientes de correo electrónico instalados.</string>
+            <string name="toast_feedback_rate"> La apertura de la página de la aplicación en Google Play Store</string>
+            <string name="toast_feedback_send_message"> Enviando mensaje…</string>
 
-    <string-array name="forms2_craw_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_crawfordsville_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_crawfordsville_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
-    </string-array>
 
-    <string-array name="forms2_terre_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_terrehaute_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_terrehaute_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
-    </string-array>
+    <!--**********************************!>
+        #FORMS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_forms">Formas</string>
+            <string name="toast_forms_download">Formulario de descarga…</string>
+        <!--Array-->
+            <string-array name="forms_categories">
+                <item>Seleccione un formulario</item>
+                <item>Consentimiento</item>
+                <item>Nuevo Paciente</item>
+                <item>Darse Cuenta</item>
+            </string-array>
 
-    <string-array name="forms3_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_acknowledgement_receipt_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_patient_bill_of_rights_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_notice_privacy_practices_spanish.pdf</item>
-    </string-array>
+            <string-array name="forms1">
+                <item>Seleccione un formulario</item>
+                <item>Liberación de información</item>
+            </string-array>
 
-    <string-array name="forms4_url">
-        <item>http://valleyprohealth.org/files/forms/es/form_ihsaa_physical_spanish.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/es/form_msbhc_student_enrollment_spanish.pdf</item>
-    </string-array>
+            <string-array name="forms2">
+                <item>Seleccione un formulario</item>
+                <item>Adulto</item>
+                <item>Niño</item>
+                <item>Segun Ingresos</item>
+            </string-array>
 
-    <string-array name="services_categories">
-        <item>Seleccione una Categoría</item>
-        <item>Salud del Comportamiento</item>
-        <item>Dental</item>
-        <item>Apoyo al Paciente</item>
-        <item>Atención Primaria</item>
-    </string-array>
-    <string name="tracker_refresh"> rastreador de actualización</string>
-    <string name="toast_tracker_refresh"> horario refrescante MSBHC...</string>
-    <string name="toast_schedule_outdated"> Su horario MSBHC se ha quedado obsoleto golpeado Actualizar Rastreador</string>
-    <string name="toast_network_error"> Error : Por favor, compruebe su conexión a la red</string>
-    <string name="toast_call_MSBHC">Llamando Ubicación MSBHC...</string>
-    <string name="outdated_secondline">rastreador de actualización</string>
-    <string name="network_error">Por favor, compruebe su red</string>
-    <string name="outdated_firstline"> horario obsoleta</string>
+            <string-array name="forms3">
+                <item>Seleccione un Formulario</item>
+                <item>Reconocimiento de la Declaración de Derechos</item>
+                <item>Declaración de Derechos</item>
+                <item>Práctica de Privacidad</item>
+            </string-array>
 
+            <string-array name="forms1_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_release_of_information_spanish.pdf</item>
+            </string-array>
+
+            <string-array name="forms2_bloomcayclint_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_bloomcayclint_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_bloomcayclint_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
+            </string-array>
+
+            <string-array name="forms2_craw_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_crawfordsville_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_crawfordsville_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
+            </string-array>
+
+            <string-array name="forms2_terre_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_adult_terrehaute_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_new_patient_packet_child_terrehaute_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_sliding_fee_scale_reqs_spanish.pdf</item>
+            </string-array>
+
+            <string-array name="forms3_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_acknowledgement_receipt_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_patient_bill_of_rights_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_notice_privacy_practices_spanish.pdf</item>
+            </string-array>
+
+            <string-array name="forms4_url">
+                <item>http://valleyprohealth.org/files/forms/es/form_ihsaa_physical_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/form_msbhc_student_enrollment_spanish.pdf</item>
+            </string-array>
+
+
+    <!--**********************************!>
+        #LOCATIONS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_locations">Ubicaciones</string>
+            <string name="location_hours_friday">Viernes:</string>
+            <string name="location_hours_monday">Lunes:</string>
+            <string name="location_hours_thursday">Jueves:</string>
+            <string name="location_hours_tuesday">Martes:</string>
+            <string name="location_hours_wednesday">Miércoles:</string>
+            <string name="locations_clinchours_dialog_title">Horario de la Clínica</string>
+            <string name="locations_contactinfo_address">Dirección:</string>
+            <string name="locations_contactinfo_dialog_title"> Datos de contacto</string>
+            <string name="locations_contactinfo_phone">Teléfono:</string>
+        <!--Arrays-->
+            <string-array name="locations_options">
+                <item>Seleccione una Opcion</item>
+                <item>Horario de la Clínica</item>
+                <item>Datos de Contacto</item>
+                <item>Obtener las Direcciones</item>
+            </string-array>
+
+
+    <!--**********************************!>
+        #MAIN
+    <!***********************************-->
+        <!--Text-->
+            <string name="icon_bustracker">Rastreador\nde MSBHC</string>
+            <string name="icon_contact_us">Llamada</string>
+            <string name="icon_forms">Formas</string>
+            <string name="icon_locations">Ubicaciones</string>
+            <string name="icon_providers">Proveedores</string>
+            <string name="icon_services">Servicios</string>
+            <string name="icon_website">Sitio Web</string>
+            <string name="icon_faq">FAQs</string>
+            <string name="icon_patres">Recursos \n para el paciente</string>
+        <!--Toasts-->
+            <string name="toast_twitter_open"> La apertura de la página de twitter VPCHC…</string>
+            <string name="toast_facebook_open"> La apertura VPCHC página de Facebook…</string>
+            <string name="toast_website_open"> Abriendo página web VPCHC…</string>
+            <string name="toast_portal_open"> VPCHC la apertura de la página web Portal del Paciente</string>
+
+
+    <!--**********************************!>
+       #OPTIONS
+    <!***********************************-->
+        <!--Text-->
+            <string name="menu_options">Opciones</string>
+            <string name="title_options">Opciones</string>
+            <string name="options_loc_pref">Ubicaciones Preferencia:</string>
+            <string name="options_loc_pref_no_pref">Sin preferencias</string>
+            <string name="options_lang_en">Inglés</string>
+            <string name="options_lang_es">Español</string>
+            <string name="options_language">Idioma:</string>
+            <string name="options_title">Opciones</string>
+        <!--Toasts-->
+            <string name="toast_options_no_change">No se encontraron cambios.</string>
+            <string name="toast_options_loc_pref_change">Cambio Favorito…</string>
+            <string name="toast_options_both_change">El cambio de ubicación e idioma preferido…</string>
+            <string name="toast_options_lang_change">Cambio del idioma de aplicación…</string>
+            <string name="toast_location_preference_save"> Ahorro de preferencia de ubicación…</string>
+
+
+    <!--**********************************!>
+        #PATIENT RESOURCES
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_patres">Recursos \n para el paciente</string>
+        <!--Array-->
+            <string-array name="patres_categories">
+                <item>Seleccione una categoría</item>
+                <item>Grupo de apoyo para diabéticos</item>
+                <item>Asistencia Rescription</item>
+                <item>Sliding Fee Scale</item>
+            </string-array>
+            <string-array name="patres_categories_diabetes">
+                <item>Valley Professionals mantiene reuniones mensuales del Grupo de Apoyo de Diabetes que son completamente libre y abierto a cualquier persona que se ve afectada por la diabetes , incluso si usted no es un paciente con Valley Professionals. Para más información visite valleyprohealth.org/diabetes</item>
+            </string-array>
+            <string-array name="patres_categories_prescription">
+                <item>Tenemos varias formas de ayudar a los pacientes que están teniendo problemas para pagar su medicación.</item>
+                <item>Programa 340B : Este programa ayuda a cubrir el costo de muchos medicamentos precscription. Sobre la base de sus ingresos y tamaño de la familia determina cuánto tiene que pagar por sus medicamentos. Se requiere la aplicación de la escala de ingresos para este programa. Si reúne los requisitos, los medicamentos pueden ser gratuitos o de bajo costo.</item>
+                <item>Las compañías farmacéuticas: Muchos de los medicamentos comúnmente recetados pueden obtenerse en las compañías farmacéuticas, sin costo o de bajo costo. Nuestros trabajadores de salud comunitaria pueden ayudar en estas aplicaciones.</item>
+                <item>Bueno Rx: El sitio web tiene goodrx.com comparación de compras en las recetas y ofrecen muchos buenos cupones.</item>
+                <item>Los programas adicionales están también disponibles como tarjetas de descuento en medicamentos y el Programa Promise Freestyle.</item>
+            </string-array>
+            <string-array name="patres_categories_scale">
+                <item>Si los pacientes no están cubiertos por ningún tipo de seguro médico para sus necesidades médicas , una escala móvil está disponible para los pacientes que reciben un descuento. Descuentos disponibles se basan en el tamaño de la familia del paciente y de resultados de acuerdo con el más reciente del US Departamento de Salud y Servicios Humanos de nivel federal de pobreza.</item>
+                <item>La escala de precios se basa en los ingresos corrientes de todos los miembros de la familia, y el número de personas en el hogar. Una persona que no tiene trabajo, no tiene ingresos y está siendo apoyado por los demás debe proporcionar documentación que demuestre que no hay impuestos federales sobre la renta se han presentado, y la persona de apoyo al paciente debe proporcionar documentación escrita y firmada que están proporcionando alimento y refugio para el paciente.</item>
+                <item>Con el fin de calificar para la escala de pagos en VPCHC, los pacientes y sus familias deben tener un ingreso combinado que cae dentro de las pautas de pobreza federales de Estados Unidos.</item>
+            </string-array>
+
+    <!--**********************************!>
+        #PROVIDERS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_providers">Proveedores</string>
+            <string name="providers_bhprovider"> Proveedores de salud mental</string>
+            <string name="providers_mprovider"> Los proveedores médicos</string>
+        <!--Arrays-->
+            <string-array name="provider_types">
+                <item>Seleccionar un Tipo de Proveedor</item>
+                <item>Dental</item>
+                <item>Salud del Comportamiento</item>
+                <item>Médico</item>
+            </string-array>
+
+
+    <!--**********************************!>
+           #SERVICES
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_services">Servicios</string>
+        <!--Arrays-->
+            <string-array name="services_categories">
+                <item>Seleccione una Categoría</item>
+                <item>Salud del Comportamiento</item>
+                <item>Dental</item>
+                <item>Apoyo al Paciente</item>
+                <item>Atención Primaria</item>
+            </string-array>
+
+            <string-array name="BehavioralHealth">
+                <item>•Niño/orientación a los adolescentes</item>
+                <item>•La consejería de crisis</item>
+                <item>•asesoramiento familiar</item>
+                <item>•Psiquiatría</item>
+                <item>•Exámenes/evaluación (tras la recomendación)</item>
+            </string-array>
+
+            <string-array name="Dental">
+                <item>•Los servicios preventivos y de restauración</item>
+            </string-array>
+
+            <string-array name="PatientSupport">
+                <item>•Promotores de Salud</item>
+                <item>-Proporcionar asistencia navegación por el mercado de seguros, el Plan de Salud de Indiana , y las solicitudes de Medicaid</item>
+                <item>-Educar a los pacientes sobre los comportamientos de salud preventivos</item>
+                <item>-Ayudan a los pacientes a encontrar artículos de primera necesidad como alimentos , ropa y artículos de higiene</item>
+                <item>•Coordinador de Atención al Paciente</item>
+                <item>-Trabajar con un Coordinador de Atención y aprender cómo manejar los problemas de salud crónicos , y tomar medidas para mejorar su salud</item>
+                <item>-Son defensores de los pacientes y su navegador a través del sistema de salud</item>
+            </string-array>
+
+            <string-array name="PrimaryCare1">
+                <item>•Enfermedad grave</item>
+                <item>•Atención de enfermedades crónicas</item>
+                <item>•Examen de CDL</item>
+                <item>•Planificación familiar</item>
+                <item>•Atención geriátrica</item>
+                <item>•Vacunas</item>
+                <item>•Los servicios de laboratorio</item>
+                <item>•Salud de los hombres</item>
+                <item>•Cirugía menor</item>
+                <item>•Asesoramiento nutricional</item>
+                <item>•Examen físico</item>
+                <item>•Cuidado preventivo</item>
+                <item>•Así visitas de niños</item>
+                <item>•La salud de la mujer</item>
+            </string-array>
+
+            <string-array name="PrimaryCare2">
+                <item>•Enfermedad grave</item>
+                <item>•Atención de enfermedades crónicas</item>
+                <item>•Colposcopia</item>
+                <item>•Examen de CDL</item>
+                <item>•Planificación familiar</item>
+                <item>•Atención geriátrica</item>
+                <item>•Vacunas</item>
+                <item>•Trabajo y entrega</item>
+                <item>•Los servicios de laboratorio</item>
+                <item>•Salud de los hombres</item>
+                <item>•Cirugía menor</item>
+                <item>•Asesoramiento nutricional</item>
+                <item>•Cuidados durante el embarazo</item>
+                <item>•Cuidado preventivo</item>
+                <item>•Examen físico</item>
+                <item>•Así visitas de niños</item>
+                <item>•La salud de la mujer</item>
+                <item>•La vasectomía</item>
+            </string-array>
+
+
+    <!--**********************************!>
+        #TRACKER
+    <!***********************************-->
+        <!--Text-->
+            <string name="trackerDescription">MSBHC Rastreador</string>
+            <string name="trackerLocationText">Ubicación:</string>
+            <string name="tracker_refresh">Rastreador de actualización</string>
+            <string name="trackerScheduleDownload">Descargar Horario de Buses</string>
+            <string name="trackerStatus">Estado:</string>
+            <string name="trackerTimes">Veces:</string>
+            <string name="trackerTitleText"> ¿Dónde está el MSBHC?</string>
+            <string name="tracker_status_close_soon"> Próximas a concluir</string>
+            <string name="tracker_status_closed"> Cerrado</string>
+            <string name="tracker_status_enroute">En Camino</string>
+            <string name="tracker_status_open">Abierto</string>
+            <string name="tracker_status_open_soon"> Próxima apertura</string>
+        <!--Toasts-->
+            <string name="toast_tracker_download_schedule">Descarga de MSBHC Horario…</string>
+            <string name="toast_tracker_refresh"> horario refrescante MSBHC…</string>
+            <string name="toast_schedule_outdated"> Su horario MSBHC se ha quedado obsoleto golpeado Actualizar Rastreador</string>
+            <string name="toast_network_error"> Error : Por favor, compruebe su conexión a la red</string>
+            <string name="toast_call_MSBHC">Llamando Ubicación MSBHC…</string>
+            <string name="outdated_secondline">Rastreador de Actualización</string>
+            <string name="network_error">Por favor, compruebe su red</string>
+            <string name="outdated_firstline">Horario Obsoleta</string>
+
+
+    <!--**********************************!>
+       #TWITTER
+    <!***********************************-->
+        <!--Text-->
+            <string name="main_twitter_feed_initial_tweet"> Consulte aquí las últimas noticias e información en relación con el Valley Professionals Community Health Center.</string>
+        <!--Array-->
+                <string-array name="twitter_feed_tips">
+                    <item>Visita nuestra Portal del Paciente donde se puede programar citas , enviar por correo electrónico su proveedor, recargas de petición y más ! Ver uno de nuestros recepcionistas para inscribirse de forma gratuita ahora!</item>
+                    <item>Si usted no es capaz de hacer una cita, por favor llame para informarnos</item>
+                    <item>Recargas pueden tardar hasta 48 horas de oficina para volver a llenar .</item>
+                    <item>¿Necesita recursos en su comunidad? ¿Necesita ayuda para encontrar la cobertura de salud para su familia ? Póngase en contacto con uno de nuestros CHWs!</item>
+                </string-array>
+
+
+    <!--**********************************!>
+       #VPCHC LOCATIONS
+    <!***********************************-->
+        <!--Arrays-->
+            <string-array name="vpchc_locations">
+                <item>Seleccione una Ubicación</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+                <item>MSBHC</item>
+            </string-array>
+            <string-array name="vpchc_locations2">
+                <item>Seleccione una Ubicación</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+            </string-array>
+
+            <string-array name="preferred_locations">
+                <item>Seleccione una ubicación preferida</item>
+                <item>Sin preferencias</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+                <item>MSBHC</item>
+            </string-array>
 </resources>

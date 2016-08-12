@@ -1,0 +1,28 @@
+<resources>
+    <!-- Small Screens - Around 3.5" -->
+    <dimen name="main_icon_size">60dp</dimen>
+    <dimen name="main_icon_text">15sp</dimen>
+    <dimen name="main_top_margin">75dp</dimen>
+    <dimen name="title_main">15sp</dimen>
+
+    <dimen name="title_bar">70dp</dimen>
+    <dimen name="title_bar_label">22sp</dimen>
+    <dimen name="title_bar_icon">30dp</dimen>
+    <dimen name="title_bar_icon_main_height">55dp</dimen>
+    <dimen name="title_bar_icon_main_width">50dp</dimen>
+    <dimen name="title_bar_label_small">16sp</dimen>
+
+
+    <dimen name="dialog_bar">50dp</dimen>
+    <dimen name="dialog_title">25sp</dimen>
+    <dimen name="dialog_subtitle">20sp</dimen>
+    <dimen name="dialog_close">50dp</dimen>
+    <dimen name="dialog_content">18sp</dimen>
+
+    <dimen name="content_spacing_left_margin">5dp</dimen>
+
+    <dimen name="contact_pic_height">200dp</dimen>
+    <dimen name="contact_pic_width">225dp</dimen>
+
+    <dimen name="tracker_icons">60dp</dimen>
+</resources>

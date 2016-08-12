@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        grid:columnCount="3"
+        grid:rowCount="6"
+        grid:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/faqsButton"
+            android:src="@drawable/faq_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/patresButton"
+            android:src="@drawable/patres_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/locationsButton2"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <TextView
+            android:id="@+id/faqButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_faq"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/patresButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_patres"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/blankSpaceText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <ImageView
+            android:id="@+id/formsButton2"
+            android:src="@drawable/blank_space_icon"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/servicesButton2"
+            android:src="@drawable/blank_space_icon"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/trackerButton2"
+            android:src="@drawable/blank_space_icon"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/blankSpaceText2"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <TextView
+            android:id="@+id/blankSpaceText3"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <TextView
+            android:id="@+id/blankSpaceText4"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <ImageView
+            android:id="@+id/portalButton2"
+            android:src="@drawable/blank_space_icon"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/facebookButton2"
+            android:src="@drawable/blank_space_icon"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/websiteButton2"
+            android:src="@drawable/blank_space_icon"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <TextView
+            android:id="@+id/blankSpaceText5"
+
+            android:gravity="center"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <TextView
+            android:id="@+id/blankSpaceText6"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"/>
+        <TextView
+            android:id="@+id/blankSpaceText7"
+
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"/>
+    </android.support.v7.widget.GridLayout>
+</RelativeLayout>

@@ -21,26 +21,27 @@ public class FeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarFeedback);
         setSupportActionBar(toolbar);
 
-        View buttonBack = findViewById(R.id.feedbackBackButton);
+        //Back button listener
+        View buttonBack = findViewById(R.id.backButtonFeedback);
         buttonBack.setOnClickListener(feedbackListener);
 
+        //Rate button listener
         View buttonRate = findViewById(R.id.feedbackRateButton);
         buttonRate.setOnClickListener(feedbackListener);
 
+        //Message button listener
         View buttonMessage = findViewById(R.id.feedbackMessageButton);
         buttonMessage.setOnClickListener(feedbackListener);
-
-
     }
 
     private boolean feedbackMessagePopup(int choice){
     /*
-	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog for creating a feedback message
-	    Returns: True
+	    Returns:     true
     */
         if(choice == 0) {
             ImageView feedbackMessageButton = (ImageView) findViewById(R.id.feedbackMessageButton);
@@ -56,17 +57,19 @@ public class FeedbackActivity extends AppCompatActivity {
                 feedbackMessageDialog = new Dialog(FeedbackActivity.this, R.style.AppTheme_NoActionBar);
             }
             feedbackMessageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            feedbackMessageDialog.setContentView(R.layout.feedback_message_dialog);
+            feedbackMessageDialog.setContentView(R.layout.dialog_feedback_message);
             feedbackMessageDialog.show();
             feedbackMessageDialog.setCancelable(false);
             feedbackMessageDialog.setCanceledOnTouchOutside(false);
         }
 
+        //Dialog close listener
+        View buttonDialogClose= feedbackMessageDialog.findViewById(R.id.buttonFeedbackDialogClose);
+        buttonDialogClose.setOnClickListener(feedbackListener);
+
+        //Send button listener
         View buttonFeedbackSendMessage= feedbackMessageDialog.findViewById(R.id.feedbackButtonSendMessage);
         buttonFeedbackSendMessage.setOnClickListener(feedbackListener);
-
-        View buttonFeedbackCloseDialog= feedbackMessageDialog.findViewById(R.id.buttonFeedbackDialogClose);
-        buttonFeedbackCloseDialog.setOnClickListener(feedbackListener);
         return true;
     }
 
@@ -74,16 +77,23 @@ public class FeedbackActivity extends AppCompatActivity {
     private View.OnClickListener feedbackListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.feedbackBackButton:
+                case R.id.backButtonFeedback:
                     finish();
                     break;
                 case R.id.feedbackRateButton:
+                    String toastRate = getResources().getString(R.string.toast_feedback_rate);
+                    Toast.makeText(getApplicationContext(), toastRate, Toast.LENGTH_SHORT).show();
+                    String appstoreUrl = "https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName();
+                    Intent appstoreUrlLink = new Intent(Intent.ACTION_VIEW);
+                    appstoreUrlLink.setData(Uri.parse(appstoreUrl));
+                    startActivity(appstoreUrlLink);
                     break;
                 case R.id.feedbackMessageButton:
                     feedbackMessagePopup(1);
                     break;
                 case R.id.feedbackButtonSendMessage:
-                    Toast.makeText(getApplicationContext(), "Sending Message", Toast.LENGTH_SHORT).show();
+                    String toastMessage = getResources().getString(R.string.toast_feedback_send_message);
+                    Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
                     //This will create an email intent and attempt to open it in an email client if available.
                     messageSubject = (EditText) feedbackMessageDialog.findViewById(R.id.feedbackMessageSubjectLine);
                     messageBody = (EditText) feedbackMessageDialog.findViewById(R.id.feedbackMessageBodyLine);
@@ -97,7 +107,8 @@ public class FeedbackActivity extends AppCompatActivity {
                     try {
                         startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                     } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                        String toastNoClients = getResources().getString(R.string.toast_feedback_no_clients);
+                        Toast.makeText(getApplicationContext(), toastNoClients, Toast.LENGTH_SHORT).show();
                     }
                     feedbackMessagePopup(0);
                     break;

@@ -1,0 +1,17 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="icon_width">75dp</dimen>
+    <dimen name="icon_height">75dp</dimen>
+    <dimen name="home_icon">18sp</dimen>
+    <dimen name="call_location">20sp</dimen>
+    <dimen name="location_clinic_hours_dialog">16sp</dimen>
+    <dimen name="trackerFillText">17sp</dimen>
+    <dimen name="trackerContextText">15sp</dimen>
+    <dimen name="options_title">25sp</dimen>
+    <dimen name="options_radio_text">22sp</dimen>
+    <dimen name="option_sections">20sp</dimen>
+
+</resources>

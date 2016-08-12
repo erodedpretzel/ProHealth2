@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/dialogTitleOptions"
+
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dialog_bar"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/buttonOptionsClose"
+            android:src="@drawable/close_dialog_state_list_drawable"
+
+            android:layout_width="@dimen/dialog_close"
+            android:layout_height="@dimen/dialog_close"
+            android:layout_gravity="center"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/callOptionsText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:text="@string/title_options"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dialog_title"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/optionsSave"
+        android:layout_below="@+id/dialogTitleOptions">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/white"
+
+            android:text="@string/options_loc_pref"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dialog_subtitle"/>
+        <RadioGroup
+            android:id="@+id/optionsRadioGroupLocPref"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/optionsRadioButtonNoPref"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/options_loc_pref_no_pref"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonBloom"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Bloomingdale"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonCay"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Cayuga"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonClint"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Clinton"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonCraw"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Crawfordsville"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonTerre"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Terre Haute"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
+                android:id="@+id/optionsRadioButtonMSBHC"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="MSBHC"
+                android:textSize="@dimen/dialog_content"/>
+        </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/white"
+
+            android:text="@string/options_language"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dialog_subtitle"
+            android:textStyle="bold"/>
+        <RadioGroup
+            android:id="@+id/optionsRadioGroupLang"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+            <RadioButton
+                android:id="@+id/optionsRadioButtonLangEn"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/options_lang_en"
+                android:textSize="@dimen/dialog_content" />
+
+            <RadioButton
+                android:id="@+id/optionsRadioButtonLangEs"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/options_lang_es"
+                android:textSize="@dimen/dialog_content" />
+        </RadioGroup>
+    </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/optionsSave"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/buttonOptionsSave"
+            android:src="@drawable/options_save_state_list_drawable"
+
+            android:layout_width="@dimen/options_save_button_width"
+            android:layout_height="@dimen/options_save_button_height"/>
+    </LinearLayout>
+</RelativeLayout>

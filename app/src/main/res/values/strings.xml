@@ -1,315 +1,608 @@
 <resources>
-    <string name="app_name">Valley ProHealth</string>
+    <!-- TABLE OF CONTENTS
+           CALL
+           FAQS
+           FEEBACK
+           FORMS
+           LOCATIONS
+           MAIN
+           OPTIONS
+           PATIENT RESOURCES
+           PROVIDERS
+           SERVICES
+           TRACKER
+           TWITTER
+           VPCHC LOCATIONS
+    -->
+    <string name="app_name" translatable="false">Valley ProHealth</string>
 
-    <string name="title_activity_main" translatable="false">MainActivity</string>
-    <string name="title_activity_feedback" translatable="false">FeedbackActivity</string>
-    <string name="title_activity_providers" translatable="false">ProvidersActivity</string>
-    <string name="title_activity_locations" translatable="false">LocationsActivity</string>
-    <string name="title_activity_forms" translatable="false">FormsActivity</string>
-    <string name="title_activity_programs" translatable="false">ProgramsActivity</string>
-    <string name="title_activity_splash_screen" translatable="false">Valley ProHealth</string>
+    <!--**********************************!>
+        #CALL
+    <!***********************************-->
+        <!--Text-->
+            <string name="call_directions">Call a location</string>
+            <string name="call_location_bloom" translatable="false">Bloomingdale</string>
+            <string name="call_location_cay"   translatable="false">Cayuga</string>
+            <string name="call_location_clint" translatable="false">Clinton</string>
+            <string name="call_location_craw"  translatable="false">Crawfordsville</string>
+            <string name="call_location_terre" translatable="false">Terre Haute</string>
+            <string name="call_location_msbhc" translatable="false">MSBHC</string>
+            <string name="call_location">\@drawable/call_site_off</string>
+        <!--Toasts-->
+            <string name="toast_call_bloom">Calling Bloomingdale Location…</string>
+            <string name="toast_call_cay">Calling Cayuga Location…</string>
+            <string name="toast_call_clint">Calling Clinton Location…</string>
+            <string name="toast_call_craw">Calling Crawfordsville Location…</string>
+            <string name="toast_call_terre">Calling Terre Haute Location…</string>
+            <string name="toast_call_MSBHC">Calling MSBHC…</string>
 
-    <string name="main_title" translatable="false">&#032;Valley Professionals\nCommunity Health Center</string>
-    <string name="icon_providers">Providers</string>
-    <string name="icon_contact_us">Call</string>
-    <string name="icon_locations">Locations</string>
-    <string name="icon_forms">Forms</string>
-    <string name="icon_patient_portal" translatable="false">Portal</string>
-    <string name="icon_bustracker">Tracker</string>
-    <string name="icon_facebook" translatable="false">Facebook</string>
-    <string name="icon_services">Services</string>
-    <string name="icon_website">Website</string>
+    <!--**********************************!>
+       #FAQS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_faqs" translatable="false">FAQs</string>
+        <!--Array-->
+            <string-array name="faqs_categories">
+                <item>Select a category</item>
+                <item>Billing/Insurance</item>
+                <item>Miscellaneous</item>
+                <item>New Patients</item>
+                <item>Services</item>
+            </string-array>
 
-    <string name="menu_feedback">Give Us Feedback</string>
-    <string name="menu_preferred">Reset Preferred Location</string>
+            <string-array name="faqs_newpat_questions">
+                <item>Are you accepting new patients?</item>
+                <item>How soon will I be able to schedule my first appointment?</item>
+                <item>What do I need to bring to my first appointment?</item>
+                <item>Can I make an appointment with a Behavioral Health counselor?</item>
+                <item>Do you offer prenatal services?</item>
+                <item>Can I call and get information about my spouse/parent/adult/child (18+) or their medical records?</item>
+                <item>Can anyone else (i.e. grandparent, family friend, or childcare provider) bring my child to his or her appointment?</item>
+            </string-array>
 
-    <string name="call_directions">Select a location to call</string>
-    <string name="call_location_bloom" translatable="false">Bloomingdale</string>
-    <string name="call_location_cay" translatable="false">Cayuga</string>
-    <string name="call_location_clint" translatable="false">Clinton</string>
-    <string name="call_location_craw" translatable="false">Crawfordsville</string>
-    <string name="call_location_terre" translatable="false">Terre Haute</string>
-    <string name="call_location">\@drawable/call_site_off</string>
+            <string-array name="faqs_newpat_answers">
+                <item>To find out if one of our locations is accepting new patients please give us a call and we will be glad to assist you. The contact information for all of our clinics is available in the locations section of this app.</item>
+                <item>New patient appointments can be scheduled as soon as two weeks. In the mean time we will send you paperwork to be completed and brought in on the day of your appointment.</item>
+                <item>For your first appointment, you should bring your completed new patient paperwork, along with your driver\'s license and insurance information. When you arrive, the front office will make a copy of your medical insurance card and verify that your account information is up-to-date. A nurse will complete your medical history after you have been checked in, but please bring any relevant medical information, including all names and dosages of prescriptions and over-the-counter medications that you are currently taking.</item>
+                <item>If you are an established patient, speak with your Primary Care Provider about referring you to a Valley Professionals Behavioral Health counselor.</item>
+                <item>Prenatal services, as well as, Labor and Delivery are available at our Terre Haute clinic by referral. For more information, or to make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+                <item>The Health Insurance Portability and Accountability Act (HIPAA) prohibits us from sharing confidential patient health information without written authorization from the patient. If a patient would like to grant you permission to make an appointment for them or to access their medical records they must complete a Release of Information form, available in the forms section of this app.</item>
+                <item>Yes, you may grant permission for another person to bring your child to his or her appointment after you have completed and submitted a consent form available in the forms section of this app.</item>
+            </string-array>
 
-    <string name="trackerTitleText">Where is the MSBHC?</string>
-    <string name="trackerDescription">MSBHC Tracker</string>
-    <string name="trackerLocationText">Location:</string>
-    <string name="trackerTimes">Times:</string>
-    <string name="trackerStatus">Status:</string>
-    <string name="trackerScheduleDownload">Download Schedule</string>
+            <string-array name="faqs_bill_questions">
+                <item>What types of insurance do you accept?</item>
+                <item>Can I be seen by a provider even if I do not have health insurance?</item>
+                <item>Can Valley Professionals help me enroll in health insurance coverage?</item>
+                <item>What do I need to bring to apply for sliding fee scale?</item>
+                <item>What if I am unable to pay my bill?</item>
+                <item>What if I have other questions about billing?</item>
+            </string-array>
+
+            <string-array name="faqs_bill_answers">
+                <item>We accept all commercial insurance carriers, Medicare, and Medicaid.</item>
+                <item>Yes, Valley Professionals accepts self-pay, and also has a sliding-fee scale for eligible individuals.</item>
+                <item>Yes, our Community Health Workers are specially trained to help individuals find affordable health coverage. To make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+                <item>To apply for sliding fee scale, patients and their families must provide the following documents to verify gross income: Most recent tax filing with the IRS and/or W2\'s from employer(s), A copy of Social Security or Disability Award Letter(s) or unemployment statement(s),Pay stubs from all employerers for the last 30-day period, If unemployed, no income, and living with others, we require a signed and dated letter from the person providing support of the patient, Driver\'s license, Any other income that is direct deposited. For more information on sliding fee scale, visit the patient resources section of this app.</item>
+                <item>If you unable to pay your bill, feel free to contact our Billing Department at (765) 828–1000 to set up a payment plan that works for you.</item>
+                <item>For all inquiries regarding billing, please contact our Billing Department at (765) 828–1000.</item>
+            </string-array>
+
+            <string-array name="faqs_services_questions">
+                <item>What can I do if I am unable to pay for my prescription?</item>
+                <item>How long will it take for me to receive my prescription refill after I have submitted a request?</item>
+                <item>Do I have to be a patient to use the After-Hours Clinic?</item>
+                <item>Do I need an appointment for the After-Hours clinic?</item>
+                <item>What can I be seen for at the After-Hours clinic?</item>
+                <item>When is After-Hours clinic?</item>
+                <item>Does the Mobile School-Based Health Center offer school physical examinations?</item>
+                <item>What types of services are available on the Mobile School-Based Health Center?</item>
+                <item>Who can be seen on the Mobile Health Center?</item>
+                <item>What do I need to do for my child to be seen by the MSBHC?</item>
+                <item>Does it count against my child\'s attendance when he or she is seen by the MSBHC?</item>
+                <item>Does the MSBHC visit my school?</item>
+                <item>How do I know when the MSBHC will be at my school?</item>
+                <item>Do I have to be a patient to take part in the Diabetic Support Group?</item>
+            </string-array>
+
+            <string-array name="faqs_services_answers">
+                <item>Valley Professionals has a 403(b) Prescription Assistance Program that can help eligible individuals to afford their medication.</item>
+                <item>Prescription refill requests can take up to 48 hours once submitted.</item>
+                <item>No, you are not required to be a current Valley Professionals patient to utilize the After-Hours services.</item>
+                <item>No, After-Hours office visits are on a first-come, first-served basis.</item>
+                <item>The After-Hours clinic is for acute conditions, such as, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, earache, or other similar symptoms.</item>
+                <item>The After-Hours clinic takes place Monday through Thursday from 5:00pm to 8:00pm at our Clinton location only.</item>
+                <item>Yes.</item>
+                <item>Visit the MSBHC for: immunizations, school physicals, well child visits, cold, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, ear ache, and similar symptoms.</item>
+                <item>Students and Employees of a school hosting the Mobile Health Center may be seen. There are certain occasions during school breaks when the Mobile Health Center is open to the community. For more information, or to view the MSBHC\'s schedule, go to the tracker section of the app.</item>
+                <item>To enroll your child in MSBHC services, you must complete and submit the enrollment form found in the forms section. After you have done this, you may call the mobile unit and make an appointment, or your child can simply go to the school nurse and be referred.</item>
+                <item>No, your child\'s visit to the MSBHC will not count against his or her attendance; moreover, if your child is sent home due to illness by an MSBHC provider, this absence would be certified excused.</item>
+                <item>The MSBHC visits schools in the North Vermillion, South Vermillion, Southwest Parke, and North Central Parke school corporations.</item>
+                <item>You can find a schedule for the MSBHC in the tracker section of this app.</item>
+                <item>No, you do not have to register, make an appointment, or even be a patient of Valley Professionals to take part in the Diabetic Support Group.</item>
+            </string-array>
+
+            <string-array name="faqs_misc_questions">
+                <item>Is Valley Professionals hiring?</item>
+            </string-array>
+
+            <string-array name="faqs_misc_answers">
+                <item>Visit valleyprohealth.org to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
+            </string-array>
 
 
-    <string name="toast_call_bloom">Calling Bloomingdale Location...</string>
-    <string name="toast_call_cay">Calling Cayuga Location...</string>
-    <string name="toast_call_clint">Calling Clinton Location...</string>
-    <string name="toast_call_craw">Calling Crawfordsville Location...</string>
-    <string name="toast_call_terre">Calling Terre Haute Location...</string>
-    <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule...</string>
-    <string name="toast_forms_download">Downloading Form...</string>
+    <!--**********************************!>
+       #FEEDBACK
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_feedback">Feedback</string>
+            <string name="menu_feedback">Give Us Feedback</string>
+            <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
+            <string name="feedback_message">If you would like to leave the developers of this app feedback, please send us a message</string>
+            <string name="feedback_subject">Subject:</string>
+            <string name="feedback_hint_subject">Subject:</string>
+            <string name="feedback_hint_message">Message:</string>
+            <string name="feedback_send_message">Send:</string>
+            <string name="feedback_message_dialog_title">Give Us Feedback</string>
+        <!--Toasts-->
+            <string name="toast_feedback_send_message">Sending message…</string>
+            <string name="toast_feedback_no_clients">There are no email clients installed.</string>
+            <string name="toast_feedback_rate">Opening app page in Google Play Store</string>
 
-    <string name="tracker_status_open">Open</string>
-    <string name="tracker_status_open_soon">Opening Soon</string>
-    <string name="tracker_status_close_soon">Closing Soon</string>
-    <string name="tracker_status_closed">Closed</string>
-    <string name="tracker_status_enroute">En Route</string>
 
-    <string name="feedback_title">Feedback</string>
-    <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
-    <string name="feedback_message">If you would like to leave the developers of this app feedback, please send us a message</string>
-    <string name="feedback_subject">Subject:</string>
-    <string name="feedback_hint_subject">Subject:</string>
-    <string name="feedback_hint_message">Message:</string>
-    <string name="feedback_send_message">Send:</string>
-    <string name="feedback_message_dialog_title">Give Us Feedback</string>
+    <!--**********************************!>
+       #FORMS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_forms">Forms</string>
 
-    <string name="services_title">Services</string>
+        <!--Array-->
+            <string-array name="forms_categories">
+                <item>Select a category</item>
+                <item>Consent</item>
+                <item>New Patient</item>
+                <item>Notice</item>
+                <item>Student Forms</item>
+            </string-array>
+            <string-array name="forms1">
+                <item>Select a form</item>
+                <item>Behavioral Health Release</item>
+                <item>Minor Child</item>
+                <item>Release of Information</item>
+                <item>Release of Records</item>
+                <item>Telemedicine</item>
+            </string-array>
+            <string-array name="forms2">
+                <item>Select a form</item>
+                <item>Adult</item>
+                <item>Child</item>
+                <item>Sliding Fee Scale</item>
+            </string-array>
+            <string-array name="forms3">
+                <item>Select a form</item>
+                <item>Acknowledgement of Bill of Rights</item>
+                <item>Bill of Rights</item>
+                <item>Privacy Practice</item>
+            </string-array>
+            <string-array name="forms4">
+                <item>Select a form</item>
+                <item>ISHAA Physical</item>
+                <item>MSBHC Enrollment</item>
+            </string-array>
 
-    <string name="forms_title">Forms</string>
+            <string-array name="forms1_url">
+                <item>http://valleyprohealth.org/files/forms/en/behavioral_health_release.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/minor_child_consent_to_treat.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/release_of_information.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/telemedicine_consent.pdf</item>
+            </string-array>
+            <string-array name="forms1_release_url">
+                <item>http://valleyprohealth.org/files/forms/en/records_release_bloomingdale.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_terre_haute.pdf</item>
+            </string-array>
+            <string-array name="forms2_bloomcayclint_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomcayclint.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomcayclint.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+            </string-array>
+            <string-array name="forms2_craw_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+            </string-array>
+            <string-array name="forms2_terre_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+            </string-array>
 
-    <string name="providers_title">Providers</string>
-    <string name="providers_mprovider">Medical Providers</string>
-    <string name="providers_bhprovider">Behavioral Health Providers</string>
+            <string-array name="forms3_url">
+                <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/notice_privacy_practices.pdf</item>
+            </string-array>
 
-    <string name="location_hours_monday">Monday:</string>
-    <string name="location_hours_tuesday">Tuesday:</string>
-    <string name="location_hours_wednesday">Wednesday:</string>
-    <string name="location_hours_thursday">Thursday:</string>
-    <string name="location_hours_friday">Friday:</string>
-    <string name="locations_clinchours_dialog_title">Clinic Hours</string>
-    <string name="locations_contactinfo_fax" translatable="false">Fax:</string>
-    <string name="locations_contactinfo_phone">Phone:</string>
-    <string name="locations_contactinfo_address">Address:</string>
-    <string name="locations_contactinfo_dialog_title">Contact Info</string>
-    <string name="locations_title">Locations</string>
-    <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
-    <string name="toast_location_preference_save">Saving location preference...</string>
-    <string name="toast_twitter_open">Opening VPCHC Twitter page...</string>
-    <string name="toast_facebook_open">Opening VPCHC Facebook page...</string>
-    <string name="toast_website_open">Opening VPCHC website...</string>
-    <string name="toast_portal_open">Opening VPCHC Patient Portal webpage...</string>
-    <string name="tracker_refresh">Refresh Tracker</string>
-    <string name="outdated_firstline">Schedule outdated</string>
-    <string name="outdated_secondline">Refresh Tracker</string>
-    <string name="outdated_thirdline" translatable="false">&lt;------</string>
-    <string name="network_error">Please check your network</string>
-    <string name="toast_network_error">Error: Please check your network connection</string>
-    <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please hit Refresh Tracker</string>
-    <string name="toast_tracker_refresh">Refreshing MSBHC schedule...</string>
-    <string name="call_location_msbhc" translatable="false">MSBHC</string>
-    <string name="toast_call_MSBHC">Calling MSBHC...</string>
-    <string name="title_activity_services" translatable="false">Services</string>
+            <string-array name="forms4_url">
+                <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
+            </string-array>
+    <!--**********************************!>
+        #LOCATIONS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_locations">Locations</string>
+            <string name="location_hours_monday">Monday:</string>
+            <string name="location_hours_tuesday">Tuesday:</string>
+            <string name="location_hours_wednesday">Wednesday:</string>
+            <string name="location_hours_thursday">Thursday:</string>
+            <string name="location_hours_friday">Friday:</string>
+            <string name="locations_clinchours_dialog_title">Clinic Hours</string>
+            <string name="locations_contactinfo_fax" translatable="false">Fax:</string>
+            <string name="locations_contactinfo_phone">Phone:</string>
+            <string name="locations_contactinfo_address">Address:</string>
+            <string name="locations_contactinfo_dialog_title">Contact Info</string>
+            <string name="locations_title">Locations</string>
+        <!--Array-->
+            <string-array name="locations_contact_info">
+                <item>201 W. Academy St.</item>
+                <item>Bloomingdale, IN 47832</item>
+                <item>(765) 498–9000</item>
+                <item>(765) 798–9004</item>
+                <item>114 N Division St.</item>
+                <item>Cayuga, IN 47928</item>
+                <item>(765) 492–9042</item>
+                <item>(765) 492–90484</item>
+                <item>777 S. Main Street, Suite 100</item>
+                <item>Clinton, IN 47842</item>
+                <item>(765) 828–1003</item>
+                <item>(765) 828–1030</item>
+                <item>1810 Layfayette Ave.</item>
+                <item>Crawfordsville, IN 47933</item>
+                <item>(765) 362–5100</item>
+                <item>(765) 362–5171</item>
+                <item>1530 North 7th Site, Suite 201</item>
+                <item>Terre Haute, IN 47807</item>
+                <item>(812) 238–7631</item>
+                <item>(812) 238–7003</item>
+            </string-array>
 
-    <string-array name="BehavioralHealth">
-        <item>•Child/Adolescent counseling</item>
-        <item>•Crisis counseling</item>
-        <item>•Family counseling</item>
-        <item>•Psychiatry</item>
-        <item>•Testing/assessment(upon referral)</item>
-    </string-array>
+            <string-array name="locations_options">
+                <item>Select an option</item>
+                <item>Clinic Hours</item>
+                <item>Contact Info</item>
+                <item>Get Directions</item>
+            </string-array>
 
-    <string-array name="Dental">
-        <item>•Preventive and restorative services</item>
-    </string-array>
+    <!--**********************************!>
+        #MAIN
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_main" translatable="false">&#160;Valley Professionals \n Community Health Center</string>
+            <string name="icon_providers">Providers</string>
+            <string name="icon_contact_us">Call</string>
+            <string name="icon_locations">Locations</string>
+            <string name="icon_forms">Forms</string>
+            <string name="icon_patient_portal" translatable="false">Portal</string>
+            <string name="icon_bustracker">MSBHC\nTracker</string>
+            <string name="icon_facebook" translatable="false">Facebook</string>
+            <string name="icon_services">Services</string>
+            <string name="icon_website">Website</string>
+            <string name="icon_faq">FAQs</string>
+            <string name="icon_patres">Patient \n Resources</string>
+        <!--Array-->
+            <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
+            <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
+            <string name="toast_website_open">Opening VPCHC website…</string>
+            <string name="toast_portal_open">Opening VPCHC Patient Portal webpage…</string>
+    <!--**********************************!>
+        #OPTIONS
+    <!***********************************-->
+        <!--Text-->
+            <string name="menu_options">Options</string>
+            <string name="title_options">Options</string>
+            <string name="options_language">Language:</string>
+            <string name="options_lang_en">English</string>
+            <string name="options_lang_es">Spanish</string>
+            <string name="options_loc_pref">Locations Preference:</string>
+            <string name="options_loc_pref_no_pref">No Preference</string>
+        <!--Toasts-->
+            <string name="toast_location_preference_save">Saving location preference…</string>
+            <string name="toast_options_no_change">No changes found.</string>
+            <string name="toast_options_loc_pref_change">Changing preferred location…</string>
+            <string name="toast_options_lang_change">Changing language in app…</string>
+            <string name="toast_options_both_change">Changing preferred location and language…</string>
+        <!--Array-->
+            <string-array name="languages">
+                <item>Select a language</item>
+                <item>English</item>
+                <item>Español</item>
+            </string-array>
+    <!--**********************************!>
+        #PATIENT RESOURCES
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_patres">Patient Resources</string>
+        <!--Array-->
+            <string-array name="patres_categories">
+                <item>Select a category</item>
+                <item>Diabetic Support Group</item>
+                <item>Prescription Assistance</item>
+                <item>Sliding Fee Scale</item>
+            </string-array>
+            <string-array name="patres_categories_diabetes">
+                <item>Valley Professionals holds monthly Diabetes Support Group meetings that are completely free and open to anyone who is affected by Diabetes, even if you are not a patient with Valley Professionals. For more information visit valleyprohealth.org/diabetes</item>
+            </string-array>
+            <string-array name="patres_categories_prescription">
+                <item>We have several ways to help patients that are having trouble affording their medication.</item>
+                <item>340B Program: This program helps cover the cost of many precscription medications. Based on your family income and size determines how much you have to pay for your medications. Application for the sliding fee scale is required for this program. If you qualify, medications may be free or low cost.</item>
+                <item>Drug Companies: Many of commonly prescribed drugs can be obtained through drug companies at no cost or low cost. Our Community Health Workers can assist in these applications.</item>
+                <item>Good Rx: The website goodrx.com has comparison shopping on prescriptions and offer many good coupons.</item>
+                <item>Additional programs are also available such as discount drug cards and the Freestyle Promise Program.</item>
+            </string-array>
+            <string-array name="patres_categories_scale">
+                <item>If patients are not covered by any type of medical insurance for their medical needs, a sliding fee scale is available for patients to receive a discounted rate. Discounts available are based on patient family size and income in accordance with the most recent U.S. Department of Health and Human Services Federal Poverty Guidelines.</item>
+                <item>The sliding fee scale is based upon the current income of all family members, and the number of people in the household. An individual who is unemployed, has no income and is being supported by others must provide documentation showing that no federal income taxes have been filed, and the person supporting the patient must provide written and signed documentation that they are providing food and shelter for the patient. </item>
+                <item>In order to qualify for the sliding fee scale at VPCHC, patients and their families must have a combined income that falls within the U.S. Federal Poverty Guidelines.</item>
+            </string-array>
 
-    <string-array name="PatientSupport">
-        <item>•Community Health Workers</item>
-        <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
-        <item>-Educate patients on preventive health care behaviors</item>
-        <item>-Help patients find necessities like food, clothes, and toiletries</item>
-        <item>•Patient Care Coordinator</item>
-        <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
-        <item>-Are patient advocates  and your navigator through the healthcare system</item>
-    </string-array>
 
-    <string-array name="PrimaryCare1">
-        <item>•Acute illness</item>
-        <item>•Chronic disease care</item>
-        <item>•CDL exam</item>
-        <item>•Family planning</item>
-        <item>•Geriatric care</item>
-        <item>•Immunizations</item>
-        <item>•Laboratory services</item>
-        <item>•Men\'s health</item>
-        <item>•Minor surgery</item>
-        <item>•Nutritional counseling</item>
-        <item>•Physical exam</item>
-        <item>•Preventive care</item>
-        <item>•Well child visits</item>
-        <item>•Women\'s health</item>
-    </string-array>
+    <!--**********************************!>
+        #PROVIDERS
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_providers">Providers</string>
+        <!--Arrays-->
+            <string-array name="provider_types">
+                <item>Select a type of Provider</item>
+                <item>Dental</item>
+                <item>Behavioral Health</item>
+                <item>Medical</item>
+            </string-array>
 
-    <string-array name="PrimaryCare2">
-        <item>•Acute illness</item>
-        <item>•Chronic disease care</item>
-        <item>•Colposcopy</item>
-        <item>•CDL exam</item>
-        <item>•Family planning</item>
-        <item>•Geriatric care</item>
-        <item>•Immunizations</item>
-        <item>•Labor and Delivery</item>
-        <item>•Laboratory services</item>
-        <item>•Men\'s health</item>
-        <item>•Minor surgery</item>
-        <item>•Nutritional counseling</item>
-        <item>•Pregnancy care</item>
-        <item>•Preventive care</item>
-        <item>•Physical exam</item>
-        <item>•Well child visits</item>
-        <item>•Women\'s health</item>
-        <item>•Vasectomy</item>
-    </string-array>
+            <string-array name="providers_dental_bloomingdale">
+                <item>Dr. Nels Ewoldsen, DDS</item>
+                <item>Dr. Dane Mishler, DDS</item>
+            </string-array>
+            <string-array name="providers_dental_cayuga">
+                <item>Dr. Nichole Barnett, DDS</item>
+            </string-array>
+            <string-array name="providers_dental_clinton">
+                <item>Currently none at this location</item>
+            </string-array>
+            <string-array name="providers_dental_crawfordsville">
+                <item>Currently none at this location</item>
+            </string-array>
+            <string-array name="providers_dental_terrehaute">
+                <item>Currently none at this location</item>
+            </string-array>
+            <string-array name="providers_dental_msbhc">
+                <item>Currently none at this location</item>
+            </string-array>
 
-    <string-array name="vpchc_locations">
-        <item>Select a location</item>
-        <item>Bloomingdale</item>
-        <item>Cayuga</item>
-        <item>Clinton</item>
-        <item>Crawfordsville</item>
-        <item>Terre Haute</item>
-        <item>MSBHC</item>
-    </string-array>
+            <string-array name="providers_bh_bloomingdale">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Michelle Bond, LMHCA</item>
+            </string-array>
+            <string-array name="providers_bh_cayuga">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Johnathan Detwiler, MS</item>
+            </string-array>
+            <string-array name="providers_bh_clinton">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Dr. Julia Wernz, PhD, HSPP</item>
+                <item>Michelle Bond, LMHCA</item>
+                <item>Linda Lonneman, LCSW</item>
+                <item>David McIntyre, LCAC</item>
+                <item>Heather Woods, LMHCA</item>
+            </string-array>
+            <string-array name="providers_bh_crawfordsville">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Keith Seegers, LCSW, MD</item>
+                <item>Dana Tinkle, LMHCA</item>
+            </string-array>
+            <string-array name="providers_bh_terrehaute">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Sara Ritter, LCSW</item>
+                <item>Lacey Skwortz, LCSW</item>
+            </string-array>
+            <string-array name="providers_bh_msbhc">
+                <item>Dr. Paul Taraska, MD</item>
+                <item>Heather Woods, LMHCA</item>
+            </string-array>
 
-    <string-array name="preferred_locations">
-        <item>Select a preferred location</item>
-        <item>No Preference</item>
-        <item>Bloomingdale</item>
-        <item>Cayuga</item>
-        <item>Clinton</item>
-        <item>Crawfordsville</item>
-        <item>Terre Haute</item>
-        <item>MSBHC</item>
-    </string-array>
+            <string-array name="providers_medical_bloomingdale">
+                <item>Christi Busenbark, FNP-C</item>
+                <item>Tammi Mundy, FNP-C</item>
+                <item>Louwanna Wallace, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_cayuga">
+                <item>Dr. Bing Gale, MD</item>
+                <item>Renae Norman, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_clinton">
+                <item>Dr. Aziz Abed, MD</item>
+                <item>Dr. Bing Gale, MD</item>
+                <item>Dr. Steven Macke, MD</item>
+                <item>Gretchen Blevins, FNP-C</item>
+                <item>Nicole Cook, FNP-C</item>
+                <item>Nicole Hall, FNP-C</item>
+                <item>Tammi Mundy, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_crawfordsville">
+                <item>Dr. James Buechler, MD</item>
+                <item>Dr. Do S. Hwang, MD</item>
+                <item>Gwyndolen Morson, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_terrehaute">
+                <item>Leslie Batty, FNP-C</item>
+                <item>Beth Fields, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_msbhc">
+                <item>Nicole Hall, FNP-C</item>
+                <item>Renae Norman, FNP-C</item>
+            </string-array>
 
-    <string-array name="provider_types">
-        <item>Select a type of Provider</item>
-        <item>Behavioral Health</item>
-        <item>Medical</item>
-    </string-array>
 
-    <string-array name="locations_options">
-        <item>Select an option</item>
-        <item>Clinic Hours</item>
-        <item>Contact Info</item>
-        <item>Get Directions</item>
-    </string-array>
+    <!--**********************************!>
+           #SERVICES
+    <!***********************************-->
+        <!--Text-->
+            <string name="title_services">Services</string>
+        <!--Arrays-->
+            <string-array name="services_categories">
+                <item>Select a services category</item>
+                <item>Behavioral Health</item>
+                <item>Dental</item>
+                <item>Patient Support</item>
+                <item>Primary Care</item>
+            </string-array>
 
-    <string-array name="vpchc_locations2">
-        <item>Select a location</item>
-        <item>Bloomingdale</item>
-        <item>Cayuga</item>
-        <item>Clinton</item>
-        <item>Crawfordsville</item>
-        <item>Terre Haute</item>
-    </string-array>
+            <string-array name="BehavioralHealth">
+                <item>•Child/Adolescent counseling</item>
+                <item>•Crisis counseling</item>
+                <item>•Family counseling</item>
+                <item>•Psychiatry</item>
+                <item>•Testing/assessment(upon referral)</item>
+            </string-array>
 
-    <string-array name="twitter_feed_tips">
-        <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
-        <item>If you are not able to make an appointment, please call to let us know.</item>
-        <item>Refills can take up to 48 business hours to refill.</item>
-        <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
-    </string-array>
+            <string-array name="Dental">
+                <item>•Preventive and restorative services</item>
+            </string-array>
 
-    <string-array name="locations_contact_info">
-        <item>201 W. Academy St.</item>
-        <item>Bloomingdale, IN 47832</item>
-        <item>(765) 498-9000</item>
-        <item>(765) 798-9004</item>
-        <item>114 N Division St.</item>
-        <item>Cayuga, IN 47928</item>
-        <item>(765) 492-9042</item>
-        <item>(765) 492-90484</item>
-        <item>777 S. Main Street, Suite 100</item>
-        <item>Clinton, IN 47842</item>
-        <item>(765) 828-1003</item>
-        <item>(765) 828-1030</item>
-        <item>1810 Layfayette Ave.</item>
-        <item>Crawfordsville, IN 47933</item>
-        <item>(765) 362-5100</item>
-        <item>(765) 362-5171</item>
-        <item>1530 North 7th Site, Suite 201</item>
-        <item>Terre Haute, IN 47807</item>
-        <item>(812) 238-7631</item>
-        <item>(812) 238-7003</item>
-    </string-array>
+            <string-array name="PatientSupport">
+                <item>•Community Health Workers</item>
+                <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
+                <item>-Educate patients on preventive health care behaviors</item>
+                <item>-Help patients find necessities like food, clothes, and toiletries</item>
+                <item>•Patient Care Coordinator</item>
+                <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
+                <item>-Are patient advocates  and your navigator through the healthcare system</item>
+            </string-array>
 
-    <string-array name="forms_categories">
-        <item>Select a category</item>
-        <item>Consent</item>
-        <item>New Patient</item>
-        <item>Notice</item>
-        <item>Student Forms</item>
-    </string-array>
-    <string-array name="forms1">
-        <item>Select a form</item>
-        <item>Behavioral Health Release</item>
-        <item>Release of Information</item>
-        <item>Release of Records</item>
-        <item>Telemedicine</item>
-    </string-array>
-    <string-array name="forms2">
-        <item>Select a form</item>
-        <item>Adult</item>
-        <item>Child</item>
-        <item>Sliding Fee Scale</item>
-    </string-array>
-    <string-array name="forms3">
-        <item>Select a form</item>
-        <item>Acknowledgement of Bill of Rights</item>
-        <item>Bill of Rights</item>
-        <item>Privacy Practice</item>
-    </string-array>
-    <string-array name="forms4">
-        <item>Select a form</item>
-        <item>ISHAA Physical</item>
-        <item>MSBHC Enrollment</item>
-    </string-array>
+            <string-array name="PrimaryCare1">
+                <item>•Acute illness</item>
+                <item>•Chronic disease care</item>
+                <item>•CDL exam</item>
+                <item>•Family planning</item>
+                <item>•Geriatric care</item>
+                <item>•Immunizations</item>
+                <item>•Laboratory services</item>
+                <item>•Men\'s health</item>
+                <item>•Minor surgery</item>
+                <item>•Nutritional counseling</item>
+                <item>•Physical exam</item>
+                <item>•Preventive care</item>
+                <item>•Well child visits</item>
+                <item>•Women\'s health</item>
+            </string-array>
 
-    <string-array name="forms1_url">
-        <item>http://valleyprohealth.org/files/forms/en/behavioral_health_release.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/release_of_information.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/telemedicine_consent.pdf</item>
-    </string-array>
-    <string-array name="forms1_release_url">
-        <item>http://valleyprohealth.org/files/forms/en/records_release_bloomingdale.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/records_release_terre_haute.pdf</item>
-    </string-array>
-    <string-array name="forms2_bloomcayclint_url">
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomcayclint.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomcayclint.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
-    </string-array>
-    <string-array name="forms2_craw_url">
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
-    </string-array>
-    <string-array name="forms2_terre_url">
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
-    </string-array>
+            <string-array name="PrimaryCare2">
+                <item>•Acute illness</item>
+                <item>•Chronic disease care</item>
+                <item>•Colposcopy</item>
+                <item>•CDL exam</item>
+                <item>•Family planning</item>
+                <item>•Geriatric care</item>
+                <item>•Immunizations</item>
+                <item>•Labor and Delivery</item>
+                <item>•Laboratory services</item>
+                <item>•Men\'s health</item>
+                <item>•Minor surgery</item>
+                <item>•Nutritional counseling</item>
+                <item>•Pregnancy care</item>
+                <item>•Preventive care</item>
+                <item>•Physical exam</item>
+                <item>•Well child visits</item>
+                <item>•Women\'s health</item>
+                <item>•Vasectomy</item>
+            </string-array>
 
-    <string-array name="forms3_url">
-        <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/notice_privacy_practices.pdf</item>
-    </string-array>
 
-    <string-array name="forms4_url">
-        <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
-        <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
-    </string-array>
+    <!--**********************************!>
+        #TRACKER
+    <!***********************************-->
+        <!--Text-->
+            <string name="trackerTitleText">Where is the MSBHC?</string>
+            <string name="trackerDescription">MSBHC Tracker</string>
+            <string name="trackerLocationText">Location:</string>
+            <string name="trackerTimes">Times:</string>
+            <string name="trackerStatus">Status:</string>
+            <string name="trackerScheduleDownload">Download Schedule</string>
+            <string name="tracker_status_open">Open</string>
+            <string name="tracker_status_open_soon">Opening Soon</string>
+            <string name="tracker_status_close_soon">Closing Soon</string>
+            <string name="tracker_status_closed">Closed</string>
+            <string name="tracker_status_enroute">En Route</string>
+            <string name="tracker_refresh">Refresh Tracker</string>
+            <string name="outdated_firstline">Schedule outdated</string>
+            <string name="outdated_secondline">Refresh Tracker</string>
+            <string name="outdated_thirdline" translatable="false">&lt;------</string>
+        <!--Toasts-->
+            <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
+            <string name="toast_forms_download">Downloading Form…</string>
+            <string name="toast_network_error">Error: Please check your network connection</string>
+            <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please hit Refresh Tracker</string>
+            <string name="toast_tracker_refresh">Refreshing MSBHC schedule…</string>
 
-    <string-array name="services_categories">
-        <item>Select a services category</item>
-        <item>Behavioral Health</item>
-        <item>Dental</item>
-        <item>Patient Support</item>
-        <item>Primary Care</item>
-    </string-array>
 
+    <!--**********************************!>
+       #TWITTER
+    <!***********************************-->
+        <!--Text-->
+            <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
+        <!--Array-->
+                <string-array name="twitter_feed_tips">
+                    <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
+                    <item>If you are not able to make an appointment, please call to let us know.</item>
+                    <item>Refills can take up to 48 business hours to refill.</item>
+                    <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
+                </string-array>
+
+
+    <!--**********************************!>
+       #VPCHC LOCATIONS
+    <!***********************************-->
+        <!--Arrays-->
+            <string-array name="vpchc_locations">
+                <item>Select a location</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+                <item>MSBHC</item>
+            </string-array>
+
+            <string-array name="vpchc_locations2">
+                <item>Select a location</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+            </string-array>
+
+            <string-array name="preferred_locations">
+                <item>Select a preferred location</item>
+                <item>No Preference</item>
+                <item>Bloomingdale</item>
+                <item>Cayuga</item>
+                <item>Clinton</item>
+                <item>Crawfordsville</item>
+                <item>Terre Haute</item>
+                <item>MSBHC</item>
+            </string-array>
+
+            <string-array name="easy_locations">
+                <item>bloomingdale</item>
+                <item>cayuga</item>
+                <item>clinton</item>
+                <item>crawfordsville</item>
+                <item>terrehaute</item>
+                <item>msbhc</item>
+            </string-array>
 
 </resources>

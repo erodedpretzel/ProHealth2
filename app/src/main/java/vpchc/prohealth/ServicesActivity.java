@@ -2,24 +2,34 @@ package vpchc.prohealth;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ServicesActivity extends AppCompatActivity {
 
-    private Spinner spinnerServicesLocations;
-    private Spinner spinnerServicesCategories;
+    String locations[];
+    String categories[];
+    String availableServices[]={};
+
     private int selectionServicesLocation;
     private int selectionServicesCategory;
+
+    private Spinner spinnerServicesLocations;
+    private Spinner spinnerServicesCategories;
 
     Dialog servicesDialog;
 
@@ -27,14 +37,19 @@ public class ServicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarServices);
         setSupportActionBar(toolbar);
 
-        View buttonBack = findViewById(R.id.servicesBackButton);
+        //Sets company logo text to custom font due to it being unavailable natively
+        String fontPath = "fonts/franklinGothicMedium.ttf";
+        TextView titleText = (TextView) findViewById(R.id.title_services);
+        Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
+        titleText.setTypeface(customTitleText);
+
+        //Back button listener
+        View buttonBack = findViewById(R.id.backButtonServices);
         buttonBack.setOnClickListener(servicesListener);
 
-        String locations[];
-        String categories[];
         locations = getResources().getStringArray(R.array.vpchc_locations2);
         categories = getResources().getStringArray(R.array.services_categories);
 
@@ -67,6 +82,7 @@ public class ServicesActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         spinnerServicesCategories.setSelection(0);
+                        spinnerServicesCategories.setVisibility(View.GONE);
                         break;
                     case 1:
                         spinnerServicesCategories.setSelection(0);
@@ -117,18 +133,26 @@ public class ServicesActivity extends AppCompatActivity {
                         break;
                     case 1:
                         selectionServicesCategory = 1;
+                        availableServices = getResources().getStringArray(R.array.BehavioralHealth);
                         servicesPopup(1);
                         break;
                     case 2:
                         selectionServicesCategory = 2;
+                        availableServices = getResources().getStringArray(R.array.Dental);
                         servicesPopup(1);
                         break;
                     case 3:
                         selectionServicesCategory = 3;
+                        availableServices = getResources().getStringArray(R.array.PatientSupport);
                         servicesPopup(1);
                         break;
                     case 4:
                         selectionServicesCategory = 4;
+                        if(selectionServicesLocation==5) {
+                            availableServices = getResources().getStringArray(R.array.PrimaryCare2);
+                        }else{
+                            availableServices = getResources().getStringArray(R.array.PrimaryCare1);
+                        }
                         servicesPopup(1);
                         break;
                 }
@@ -145,16 +169,10 @@ public class ServicesActivity extends AppCompatActivity {
 
     private boolean servicesPopup(int choice){
     /*
-	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with selected type of services listed
-	    Returns: True
+	    Returns:     true
     */
-        int i;
-        int replaceTextId;
-        String categories[]={};
-        String replaceTextString;
-        String availableServices[]={};
-
         if(choice == 0) {
             servicesDialog.dismiss();
             spinnerServicesCategories.setSelection(0);
@@ -168,72 +186,50 @@ public class ServicesActivity extends AppCompatActivity {
                 servicesDialog = new Dialog(ServicesActivity.this, R.style.AppTheme_NoActionBar);
             }
             servicesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            servicesDialog.setContentView(R.layout.services_dialog);
+            servicesDialog.setContentView(R.layout.dialog_services);
             servicesDialog.show();
             servicesDialog.setCancelable(false);
             servicesDialog.setCanceledOnTouchOutside(false);
         }
 
-        //Sets the preferred location
-        categories = getResources().getStringArray(R.array.services_categories);
-        TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
-        if(selectionServicesCategory == 1){
-            titleText.setText(categories[1]);
-            availableServices = getResources().getStringArray(R.array.BehavioralHealth);
-        }else if(selectionServicesCategory == 2){
-            availableServices = getResources().getStringArray(R.array.Dental);
-            titleText.setText(categories[2]);
-        }else if(selectionServicesCategory == 3){
-            availableServices = getResources().getStringArray(R.array.PatientSupport);
-            titleText.setText(categories[3]);
-        }else if(selectionServicesCategory == 4){
-            if(selectionServicesLocation==5) {
-                availableServices = getResources().getStringArray(R.array.PrimaryCare2);
-            }else{
-                availableServices = getResources().getStringArray(R.array.PrimaryCare1);
-            }
-            titleText.setText(categories[4]);
-        }
-
-        //Sets location displayed
-        TextView locationsText = (TextView) servicesDialog.findViewById(R.id.servicesLocationsText);
-        if(selectionServicesLocation == 1){
-            locationsText.setText("Bloomingdale");
-        }else if(selectionServicesLocation == 2){
-            locationsText.setText("Cayuga");
-        }else if(selectionServicesLocation == 3){
-            locationsText.setText("Clinton");
-        }else if(selectionServicesLocation == 4){
-            locationsText.setText("Crawfordsville");
-        }else if(selectionServicesLocation == 5){
-            locationsText.setText("Terre Haute");
-        }
-
-        //Populate list of services based on type of service chosen
-        for(i=1;i<=availableServices.length;i++){
-            replaceTextString = "servicesText" + i;
-            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-            TextView tempText = (TextView) servicesDialog.findViewById(replaceTextId);
-            tempText.setText(availableServices[i-1]);
-        }
-
-
+        //Back button listener
         View buttonServicesDialogClose = servicesDialog.findViewById(R.id.buttonServicesDialogClose);
         buttonServicesDialogClose.setOnClickListener(servicesListener);
 
+        //Sets the preferred location
+        TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
+        titleText.setText(categories[selectionServicesCategory]);
 
+        //Sets location title
+        TextView locationsTitle = (TextView) servicesDialog.findViewById(R.id.servicesLocationsText);
+        locationsTitle.setText(locations[selectionServicesLocation]);
+
+        //Populate list of services based on type of service chosen
+        LinearLayout servicesContent = (LinearLayout) servicesDialog.findViewById(R.id.servicesContent);
+        for(int i = 0;i < availableServices.length;i++){
+            TextView serviceToAdd = new TextView(this);
+            serviceToAdd.setText(availableServices[i]);
+            serviceToAdd.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.dialog_content));
+            serviceToAdd.setTextColor(Color.parseColor("#000000"));
+            serviceToAdd.setGravity(Gravity.CENTER);
+            servicesContent.addView(serviceToAdd);
+            if(i != 0){
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)serviceToAdd.getLayoutParams();
+                params.setMargins(0, 50, 0, 0);
+                serviceToAdd.setLayoutParams(params);
+            }
+        }
         return true;
     }
 
     private View.OnClickListener servicesListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.servicesBackButton:
+                case R.id.backButtonServices:
                     finish();
+                    v.setSelected(true);
                     break;
                 case R.id.buttonServicesDialogClose:
-                    ImageView closeButton = (ImageView) servicesDialog.findViewById(R.id.buttonServicesDialogClose);
-                    closeButton.setImageResource(R.drawable.dialog_close_on);
                     servicesPopup(0);
                     break;
                 default:

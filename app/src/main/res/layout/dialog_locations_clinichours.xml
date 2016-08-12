@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dialogTitleClinicHours"
+
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dialog_bar"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/buttonLocationsClinicHoursClose"
+            android:src="@drawable/close_dialog_state_list_drawable"
+
+            android:layout_width="@dimen/dialog_close"
+            android:layout_height="@dimen/dialog_close"
+            android:layout_gravity="center"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursTitleText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:text="@string/locations_clinchours_dialog_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dialog_title"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/locationsClinicHoursBar"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_below="@+id/dialogTitleClinicHours">
+        <TextView
+            android:id="@+id/locationsClinicHoursLocationText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dialog_subtitle"/>
+    </LinearLayout>
+    <android.support.v7.widget.GridLayout
+        grid:columnCount="1"
+        grid:rowCount="10"
+        grid:orientation="horizontal"
+        grid:alignmentMode="alignBounds"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/locationsClinicHoursBar"
+        android:layout_marginLeft="@dimen/content_spacing_left_margin"
+        android:layout_marginStart="@dimen/content_spacing_left_margin">
+
+        <TextView
+            android:id="@+id/locationsClinicHoursText1"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left|center"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location_hours_monday"
+            android:textStyle="bold"
+
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText2"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center|top"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=" "
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText3"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/location_hours_tuesday"
+            android:textStyle="bold"
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText4"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center|top"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText5"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/location_hours_wednesday"
+            android:textStyle="bold"
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText6"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center|top"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=" "
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText7"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/location_hours_thursday"
+            android:textStyle="bold"
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText8"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center|top"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=" "
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText9"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="left"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/location_hours_friday"
+            android:textStyle="bold"
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/locationsClinicHoursText10"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center|top"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text=" "
+            android:textSize="@dimen/dialog_content"
+            android:textColor="#000000"/>
+
+    </android.support.v7.widget.GridLayout>
+
+</RelativeLayout>

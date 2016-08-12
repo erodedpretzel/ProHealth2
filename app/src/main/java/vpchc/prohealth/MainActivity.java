@@ -3,15 +3,25 @@ package vpchc.prohealth;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +33,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.content.Intent;
 import android.app.Dialog;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,11 +51,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
-
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences pref;
+    private SharedPreferences currLocale;
     private SharedPreferences currDay;
     private SharedPreferences twolocflag;
     private SharedPreferences mainloc;
@@ -55,17 +68,28 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences subendt;
     private SharedPreferences substartt;
     private SharedPreferences.Editor editor;
-    //Used to easily check network status
-    int networkCheck = 1;
+
+    private static final int NUM_PAGES = 2;
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
 
     Dialog callDialog;
     Dialog prefDialog;
     Dialog trackerDialog;
+    Dialog optionsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //Changes the menu icon
+        Drawable menuIcon = ContextCompat.getDrawable(getApplicationContext(),R.drawable.menu_state_list_drawable);
+        toolbar.setOverflowIcon(menuIcon);
+
 
         //Checks if preference exists and if not, run the location preferences dialog
         pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
@@ -73,15 +97,28 @@ public class MainActivity extends AppCompatActivity {
             locationPreferenceSet(1);
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //Sets up the language for the app depending on the pref choosen if there is one
+        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
+        String currentLocale = currLocale.getString("currLocale", "en");
+        if(!currLocale.contains("currLocale") &
+                !currentLocale.equals(Locale.getDefault().getLanguage()) &
+                (Locale.getDefault().getLanguage().equals("en") || Locale.getDefault().getLanguage().equals("es"))){
+            editor = currLocale.edit();
+            editor.putString("currLocale", Locale.getDefault().getLanguage());
+            editor.apply();
+        }
+        changeLang(currentLocale);
+
+
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        Log.w("Display Metrics:", "metrics" + metrics);
 
         //Sets company logo text to custom font due to it being unavailable natively
         String fontPath = "fonts/franklinGothicHeavyRegular.ttf";
         TextView mainTitleText = (TextView) findViewById(R.id.mainTitleText);
         Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
         mainTitleText.setTypeface(customTitleText);
+
 
         //Checks the text file at valleyprohealth.org/info/ for bus schedule updates
         updateBusTracker();
@@ -91,41 +128,121 @@ public class MainActivity extends AppCompatActivity {
         twitterBird.setOnClickListener(homeListener);
         twitterFeedSetup();
 
-        //Buttons on MainActivity to other activities
-        View callImage = findViewById(R.id.callButton);
-        View providersImage = findViewById(R.id.providerButton);
-        View locationsImage = findViewById(R.id.locationsButton);
-        View formsImage = findViewById(R.id.formsButton);
-        View portalImage = findViewById(R.id.portalButton);
-        View servicesImage = findViewById(R.id.servicesButton);
-        View trackerImage = findViewById(R.id.trackerButton);
-        View websiteImage = findViewById(R.id.websiteButton);
-        View facebookImage = findViewById(R.id.facebookButton);
+        //Sets up the viewpager used to scroll through the pages on the main screen
+        mPager = (ViewPager) findViewById(R.id.mainPager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        final ViewPager.OnPageChangeListener onPageChangeListener;
 
-        callImage.setOnClickListener(homeListener);
-        providersImage.setOnClickListener(homeListener);
-        locationsImage.setOnClickListener(homeListener);
-        formsImage.setOnClickListener(homeListener);
-        portalImage.setOnClickListener(homeListener);
-        servicesImage.setOnClickListener(homeListener);
-        trackerImage.setOnClickListener(homeListener);
-        websiteImage.setOnClickListener(homeListener);
-        facebookImage.setOnClickListener(homeListener);
+        mPager.addOnPageChangeListener(onPageChangeListener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                //Buttons on MainActivity to other activities
+                View callImage      = findViewById(R.id.callButton);
+                View providersImage = findViewById(R.id.providerButton);
+                View locationsImage = findViewById(R.id.locationsButton);
+                View formsImage     = findViewById(R.id.formsButton);
+                View portalImage    = findViewById(R.id.portalButton);
+                View servicesImage  = findViewById(R.id.servicesButton);
+                View trackerImage   = findViewById(R.id.trackerButton);
+                View websiteImage   = findViewById(R.id.websiteButton);
+                View facebookImage  = findViewById(R.id.facebookButton);
+                View faqImage       = findViewById(R.id.faqsButton);
+                View patresImage    = findViewById(R.id.patresButton);
+
+                callImage.setOnClickListener(homeListener);
+                providersImage.setOnClickListener(homeListener);
+                locationsImage.setOnClickListener(homeListener);
+                formsImage.setOnClickListener(homeListener);
+                portalImage.setOnClickListener(homeListener);
+                servicesImage.setOnClickListener(homeListener);
+                trackerImage.setOnClickListener(homeListener);
+                websiteImage.setOnClickListener(homeListener);
+                facebookImage.setOnClickListener(homeListener);
+                faqImage.setOnClickListener(homeListener);
+                patresImage.setOnClickListener(homeListener);
+
+                //Viewpager indicator
+                RadioGroup rGroup = (RadioGroup)findViewById(R.id.pagerIndicator);
+                ((RadioButton)rGroup.getChildAt(position)).setChecked(true);
+
+                //Used to change the indicator when the page changes as well as when the user
+                //taps the radio buttons.
+                rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId)
+                    {
+                        switch(checkedId)
+                        {
+                            case R.id.homeRadioButton:
+                                int pos = mPager.getCurrentItem();
+                                if (pos == 1) {
+                                    mPager.setCurrentItem(0, true);
+                                }
+                                break;
+                            case R.id.homeRadioButton2:
+                                int pos2 = mPager.getCurrentItem();
+                                if (pos2 == 0) {
+                                    mPager.setCurrentItem(1, true);
+                                }
+                                break;
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        //This section is used to initiate the onPageSelected listener after the mpager has
+        //completely loaded. If this wasn't here, the first page wouldn't initiate the
+        //onPageSelected section until the user scrolled to the second page and then came back.
+        //Essentially the user couldn't click most of the buttons without it.
+        mPager.post(new Runnable(){
+            @Override
+            public void run() {
+               onPageChangeListener.onPageSelected(mPager.getCurrentItem());
+            }
+        });
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+        //Creates a new fragment when the user scrolls on the main page.
+        @Override
+        public Fragment getItem(int position) {
+            if (position == 0) {
+                return new ScreenSlidePageFragmentOne();
+            } else {
+                return new ScreenSlidePageFragmentTwo();
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
+        }
+
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menuPref:
-                //This will reset the preferred location and open the locationpreference activity to choose a new one.
-                pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
-                editor = pref.edit();
-                editor.clear();
-                editor.commit();
-                locationPreferenceSet(1);
-                return true;
             case R.id.menuFeedback:
                 Intent openFeedbackIntent = new Intent(MainActivity.this, FeedbackActivity.class);
                 startActivity(openFeedbackIntent);
+                return true;
+            case R.id.menuOptions:
+                optionsSet(1);
                 return true;
             default:
                 return true;
@@ -139,20 +256,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean locationPreferenceSet(int choice){
+        //This is the initial locations preference
+        // dialog that appears when a user first loads the app.
         if(choice == 0) {
             prefDialog.dismiss();
             return true;
         }else{
             prefDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
             prefDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            prefDialog.setContentView(R.layout.locations_preference_dialog);
+            prefDialog.setContentView(R.layout.dialog_first_launch_location_preference);
             prefDialog.show();
             prefDialog.setCancelable(false);
             prefDialog.setCanceledOnTouchOutside(false);
         }
 
         Spinner spinnerPrefSelection;
-        String locations [] = {};
+        String locations [];
         locations = getResources().getStringArray(R.array.preferred_locations);
 
         spinnerPrefSelection = (Spinner)prefDialog.findViewById(R.id.spinnerPrefSelection);
@@ -180,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
                         savingLocationPreference(3);
                         break;
                     case 5:
-                        savingLocationPreference(4);
+                        savingLocationPreference(4);;
                         break;
                     case 6:
                         savingLocationPreference(5);
@@ -190,22 +309,24 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
 
             }
 
         });
+
         return true;
+
+
     }
 
     private void savingLocationPreference(int preferenceChoice){
     /*
-	    Arguments: preferenceChoice(0 - No preference, 1 - Bloomingdale, 2 - Cayuga, 3 - Clinton,
-	               4 - Crawfordsville, 5 - Terre Haute, 6 - MSBHC)
+	    Arguments:   preferenceChoice(0 - No preference, 1 - Bloomingdale, 2 - Cayuga, 3 - Clinton,
+	                 4 - Crawfordsville, 5 - Terre Haute, 6 - MSBHC)
 	    Description: Stores the preferred location
-	    Returns: Nothing
+	    Returns:     Nothing
     */
         String toastText = getResources().getString(R.string.toast_location_preference_save);
         Toast.makeText(getApplicationContext(),toastText, Toast.LENGTH_SHORT).show();
@@ -230,12 +351,11 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     //Check to see if phone has internet connection
                     if (!isConnected()) {
-                        networkCheck = 0;
                         return null;
                     }
 
                     //Reads the locations from an html file into a buffer
-                    URL busScheduleUrl = new URL("http://www.valleyprohealth.org/info/bus_schedule.html");
+                    URL busScheduleUrl = new URL("https://www.valleyprohealth.org/info/bus_app_schedule.html");
                     in = new BufferedReader(new InputStreamReader(busScheduleUrl.openStream()));
                     String str;
                     String fileContents[] = {"value","value"};
@@ -248,15 +368,15 @@ public class MainActivity extends AppCompatActivity {
                     //schedule
                     getCurrDay(1);
 
-                    //Stores locations from buffer into corresponding shared preference to be accessed
-                    //when opening the tracker dialog
+                    //Stores locations from buffer into corresponding shared preference to be
+                    // accessed when opening the tracker dialog
                     int count = 0;
                     for (int j = 1; j < fileContents.length; j++) {
-                        String[] parseText = fileContents[count].toString().split(",");
-                        String locationText = parseText[0];
-                        String hoursText = parseText[1];
+                        String[] parseText   = fileContents[count].split(",");
+                        String locationText  = parseText[0];
+                        String hoursText     = parseText[1];
                         String startTimeText = parseText[2];
-                        String endTimeText = parseText[3];
+                        String endTimeText   = parseText[3];
                         if (count == 0) {
                             twolocflag = getSharedPreferences("twolocflag", MODE_PRIVATE);
                             editor = twolocflag.edit();
@@ -268,17 +388,17 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
 
                             mainhours = getSharedPreferences("mainhours", MODE_PRIVATE);
-                            editor = mainhours.edit();
+                            editor    = mainhours.edit();
                             editor.putString("mainhours", hoursText);
                             editor.apply();
 
                             mainstartt = getSharedPreferences("mainstartt", MODE_PRIVATE);
-                            editor = mainstartt.edit();
+                            editor     = mainstartt.edit();
                             editor.putString("mainstartt", startTimeText);
                             editor.apply();
 
                             mainendt = getSharedPreferences("mainendt", MODE_PRIVATE);
-                            editor = mainendt.edit();
+                            editor   = mainendt.edit();
                             editor.putString("mainendt", endTimeText);
                             editor.apply();
                             count++;
@@ -293,27 +413,25 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
 
                             subhours = getSharedPreferences("subhours", MODE_PRIVATE);
-                            editor = subhours.edit();
+                            editor   = subhours.edit();
                             editor.putString("subhours", hoursText);
                             editor.apply();
 
                             substartt = getSharedPreferences("substartt", MODE_PRIVATE);
-                            editor = substartt.edit();
+                            editor    = substartt.edit();
                             editor.putString("substartt", startTimeText);
                             editor.apply();
 
                             subendt = getSharedPreferences("subendt", MODE_PRIVATE);
-                            editor = subendt.edit();
+                            editor  = subendt.edit();
                             editor.putString("subendt", endTimeText);
                             editor.apply();
                         }
                     }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
-                    networkCheck = 0;
                 } catch (IOException e) {
                     e.printStackTrace();
-                    networkCheck = 0;
                 } finally {
                     if(in != null){
                         try{
@@ -331,15 +449,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean isConnected(){
     /*
 	    Arguments:   None
-	    Description: Gets the current day of the year and depending on the choice, may set
-	                 the currDay shared preference.
-	                 (ex. Nov 11 is day 308 out of 365).
-	    Returns:     The current day of the year
+	    Description: Checks if there is a wifi or mobile connection.
+	    Returns:     True - There is a connection, False - These is not a connection
     */
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
+        NetworkInfo activeNetwork = connMgr.getActiveNetworkInfo();
+        if (activeNetwork != null)
             return true;
         else
             return false;
@@ -368,9 +484,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void twitterFeedSetup() {
     /*
-	    Arguments: None
+	    Arguments:   None
 	    Description: Finds the latest tweet for #ValleyProHealth and sets the feed up.
-	    Returns: Nothing
+	    Returns:     Nothing
     */
         //This is needed in order for the feed to scroll.
         final TextView twitterFeed =(TextView)findViewById(R.id.twitterFeed);
@@ -390,6 +506,9 @@ public class MainActivity extends AppCompatActivity {
                 TwitterFactory tf = new TwitterFactory(cb.build());
                 Twitter twitter = tf.getInstance();
                 try {
+                    if(!isConnected()){
+                        return null;
+                    }
                     final List<twitter4j.Status> status;
                     String user;
                     user = "@ValleyProHealth";
@@ -405,7 +524,7 @@ public class MainActivity extends AppCompatActivity {
                             String[] parseText1 = status.toString().split("text=");
                             String[] parseText2 = parseText1[1].split("'");
                             String[] parseTextFinal = parseText2[1].split("'");
-                            twitterFeed.setText(initialTweet +"          " + parseTextFinal[0] + "          " + tipsArray[twitterFeedTips()]);
+                            twitterFeed.setText(parseTextFinal[0] +  "          " + tipsArray[twitterFeedTips()] +  "          " + initialTweet);
                         }
                     });
 
@@ -429,26 +548,189 @@ public class MainActivity extends AppCompatActivity {
 
     private int twitterFeedTips(){
     /*
-	    Arguments: None
+	    Arguments:   None
 	    Description: Gets a random tip from the tipsArray in the string.xml file
-	    Returns: A random tip
+	    Returns:     A random tip
     */
         Random r = new Random();
-        String tipsArray[]={};
+        String tipsArray[];
         tipsArray = getResources().getStringArray(R.array.twitter_feed_tips);
-        int randomTip = (r.nextInt(tipsArray.length));
-        return randomTip;
+        return (r.nextInt(tipsArray.length));
+    }
+
+    private boolean optionsSet(int optionChoice){
+        if(optionChoice == 0) {
+            optionsDialog.dismiss();
+            return true;
+        }else{
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                optionsDialog = new Dialog(MainActivity.this);
+            }else{
+                optionsDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
+            }
+            optionsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            optionsDialog.setContentView(R.layout.dialog_options);
+            optionsDialog.show();
+            optionsDialog.setCancelable(false);
+            optionsDialog.setCanceledOnTouchOutside(false);
+        }
+
+        //Listeners for the close and save buttons
+        View buttonOptionsDialogCloseImage = optionsDialog.findViewById(R.id.buttonOptionsClose);
+        View buttonSaveImage = optionsDialog.findViewById(R.id.buttonOptionsSave);
+        buttonOptionsDialogCloseImage.setOnClickListener(optionsListener);
+        buttonSaveImage.setOnClickListener(optionsListener);
+
+        RadioButton radioButtonLocPref;
+        RadioButton radioButtonLang;
+
+        //Presets the location preference radio button to current location preference
+        pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+        int locationPref = pref.getInt("prefLocation", 0);
+        if(locationPref == 0){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonNoPref);
+        }else if(locationPref == 1){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonBloom);
+        }else if(locationPref == 2){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonCay);
+        }else if(locationPref == 3){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonClint);
+        }else if (locationPref == 4){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonCraw);
+        }else if(locationPref == 5){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonTerre);
+        }else{
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonMSBHC);
+        }
+        radioButtonLocPref.setChecked(true);
+
+        //Presets the language radio button to spanish if set or english by default
+        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
+        String currentLocale = currLocale.getString("currLocale", "en");
+        if(currentLocale.equals("es")){
+            radioButtonLang = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonLangEs);
+        }else{
+            radioButtonLang = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonLangEn);
+        }
+        radioButtonLang.setChecked(true);
+
+        return true;
+    }
+
+    private void optionsSave() {
+    /*
+	    Arguments:   None
+	    Description: Performs actions, depending on what the user chooses, when they tap
+	                 the save button in the options dialog
+	    Returns:     Nothing
+    */
+
+        int selectionLocPref;
+        int selectionLang;
+        int currLocaleToInt;
+        String selectionLangToString;
+
+        //Get the index of the selected radio button from the location pref section
+        RadioGroup radioGroupLocPref = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLocPref);
+        int selectedLocPrefId = radioGroupLocPref.getCheckedRadioButtonId();
+        RadioButton radioButtonLocPref = (RadioButton)optionsDialog.findViewById(selectedLocPrefId);
+        selectionLocPref = radioGroupLocPref.indexOfChild(radioButtonLocPref);
+
+        //Get the index of the selected radio button from the language section
+        RadioGroup radioGroupLang = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLang);
+        int selectedLangId = radioGroupLang.getCheckedRadioButtonId();
+        RadioButton radioButtonLang = (RadioButton)optionsDialog.findViewById(selectedLangId);
+        selectionLang = radioGroupLang.indexOfChild(radioButtonLang);
+
+        //Gets the current locale
+        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
+        String currentLocale = currLocale.getString("currLocale", "en");
+
+        //Converts the current locale to any easy to use number
+        if(currentLocale.equals("en")){
+            currLocaleToInt = 0;
+        }else{
+            currLocaleToInt = 1;
+        }
+
+        //Converts the selected language to an easy to use string
+        if(selectionLang == 0){
+            selectionLangToString = "en";
+        }else{
+            selectionLangToString = "es";
+        }
+
+        //Gets the current location preference
+        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
+        int locationPref = pref.getInt("prefLocation", -1);
+
+        if(selectionLocPref == locationPref && selectionLang == currLocaleToInt){
+            //This condition is when there have been no changes to either the location preference
+            //or the selected language
+            String toastNoChange = getResources().getString(R.string.toast_options_no_change);
+            Toast.makeText(getApplicationContext(),toastNoChange,Toast.LENGTH_SHORT).show();
+        }else if(selectionLocPref != locationPref && selectionLang == currLocaleToInt){
+            //This condition is when there has been a change to the location preference but not
+            //the selected language
+            String toastLocPrefChange = getResources().getString(R.string.toast_options_loc_pref_change);
+            Toast.makeText(getApplicationContext(),toastLocPrefChange,Toast.LENGTH_SHORT).show();
+            editor = pref.edit();
+            editor.putInt("prefLocation", selectionLocPref);
+            editor.apply();
+            optionsSet(0);
+        }else if(selectionLocPref == locationPref && selectionLang != currLocaleToInt){
+            //This condition is when there has been a change to the selected language but not
+            //the location preference
+            String toastLangChange = getResources().getString(R.string.toast_options_lang_change);
+            Toast.makeText(getApplicationContext(),toastLangChange,Toast.LENGTH_SHORT).show();
+            editor = currLocale.edit();
+            editor.putString("currLocale", selectionLangToString);
+            editor.apply();
+            optionsSet(0);
+            changeLang(selectionLangToString);
+            finish();
+            startActivity(getIntent());
+        }else{
+            //This condition is when there has been a change to both the location preference and
+            //the selected language
+            String toastBothChange = getResources().getString(R.string.toast_options_both_change);
+            Toast.makeText(getApplicationContext(),toastBothChange,Toast.LENGTH_SHORT).show();
+            editor = pref.edit();
+            editor.putInt("prefLocation", selectionLocPref);
+            editor.apply();
+            editor = currLocale.edit();
+            editor.putString("currLocale", selectionLangToString);
+            editor.apply();
+            optionsSet(0);
+            changeLang(selectionLangToString);
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
+    private void changeLang(String langChoice){
+    /*
+        Arguments:   langChoice(Either en for english or es for spanish)
+	    Description: Changes the language to either English or Spanish depending on the argument.
+	    Returns:     Nothing
+    */
+        Locale myLocale = new Locale(langChoice);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
     }
 
     private void busTrackerMain(int choice){
     /*
-	    Arguments: Choice (0 - dismiss dialog, 1 - create dialog)
+	    Arguments:   choice (0 - dismiss dialog, 1 - create dialog)
 	    Description: Main function for the bus tracker.
-	    Returns: Nothing
+	    Returns:     Nothing
     */
-        int r = 0;
+        int r;
         int twoAreas = 0;
-        int twolocations = 0;
+        int twolocations;
         String busStatus;
         String location;
         String hours;
@@ -460,7 +742,7 @@ public class MainActivity extends AppCompatActivity {
             //Below if statement will only run if there is no network & there is no stored shared
             //bus preferences. Mainloc was chosen arbitrarily.
             mainloc = getSharedPreferences("mainloc", MODE_PRIVATE);
-            if(networkCheck == 0 & !(mainloc.contains("mainloc"))){
+            if(!isConnected() & !(mainloc.contains("mainloc"))){
                 String toastNetworkText = getResources().getString(R.string.toast_network_error);
                 Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
                 return;
@@ -473,18 +755,26 @@ public class MainActivity extends AppCompatActivity {
                 trackerDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
             }
             trackerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            trackerDialog.setContentView(R.layout.tracker_dialog);
+            trackerDialog.setContentView(R.layout.dialog_tracker);
             trackerDialog.show();
             trackerDialog.setCancelable(false);
             trackerDialog.setCanceledOnTouchOutside(false);
         }
 
+        //Listeners for Close, Download and Refresh buttons
+        View buttonTrackerClose = trackerDialog.findViewById(R.id.buttonTrackerCallClose);
+        buttonTrackerClose.setOnClickListener(trackerListener);
+        View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
+        buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
+        View buttonTrackerRefresh = trackerDialog.findViewById(R.id.buttonTrackerRefresh);
+        buttonTrackerRefresh.setOnClickListener(trackerListener);
+
         //Gets current date and displays it in xx/xx/20xx form
-        Calendar currDate = Calendar.getInstance();
-        String todaysYear = Integer.toString(currDate.get(Calendar.YEAR));
-        String todaysMonth = Integer.toString(currDate.get(Calendar.MONTH) + 1);
-        String todaysDay = Integer.toString(currDate.get(Calendar.DATE));
-        String todaysDate = todaysMonth + "/" + todaysDay + "/" + todaysYear;
+        Calendar currDate       = Calendar.getInstance();
+        String todaysYear       = Integer.toString(currDate.get(Calendar.YEAR));
+        String todaysMonth      = Integer.toString(currDate.get(Calendar.MONTH) + 1);
+        String todaysDay        = Integer.toString(currDate.get(Calendar.DATE));
+        String todaysDate       = todaysMonth + "/" + todaysDay + "/" + todaysYear;
         TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
         todaysDateText.setText(todaysDate);
 
@@ -505,33 +795,36 @@ public class MainActivity extends AppCompatActivity {
             twoAreas = 1;
         }
 
+        //Gets the text areas where the bus information will be displayed
         TextView locationText = (TextView) trackerDialog.findViewById(R.id.trackerLocationText);
-        TextView timesText = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
-        TextView statusText = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
+        TextView timesText    = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
+        TextView statusText   = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
 
         //Setup the locations, hours, & status to be displayed
         currDay = getSharedPreferences("currDay", MODE_PRIVATE);
         int busDay = currDay.getInt("currDay", -1);
         if(busDay < getCurrDay(0)){
+            //This condition is a check if the current schedule the user has is outdated.
+            //If so it lets the user know so that they can refresh the tracker.
             String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
             Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
             String outdatedText1 = getResources().getString(R.string.outdated_firstline);
             String outdatedText2 = getResources().getString(R.string.outdated_secondline);
             String outdatedText3 = getResources().getString(R.string.outdated_thirdline);
-            location = outdatedText1;
-            hours = outdatedText2;
+            location  = outdatedText1;
+            hours     = outdatedText2;
             busStatus = outdatedText3;
         }else{
             if(twoAreas == 0){
-                mainloc = getSharedPreferences("mainloc", MODE_PRIVATE);
+                mainloc   = getSharedPreferences("mainloc", MODE_PRIVATE);
                 mainhours = getSharedPreferences("mainhours", MODE_PRIVATE);
-                location = mainloc.getString("mainloc", "default");
-                hours = mainhours.getString("mainhours", "default");
+                location  = mainloc.getString("mainloc", "default");
+                hours     = mainhours.getString("mainhours", "default");
             }else{
-                subloc = getSharedPreferences("subloc", MODE_PRIVATE);
+                subloc   = getSharedPreferences("subloc", MODE_PRIVATE);
                 subhours = getSharedPreferences("subhours", MODE_PRIVATE);
                 location = subloc.getString("subloc", "default");
-                hours = subhours.getString("subhours", "default");
+                hours    = subhours.getString("subhours", "default");
             }
             if(r == 1){
                 busStatus = getResources().getString(R.string.tracker_status_open);
@@ -545,41 +838,35 @@ public class MainActivity extends AppCompatActivity {
                 busStatus = getResources().getString(R.string.tracker_status_closed);
             }
         }
+
+        //Displays the current bus information on the screen
         locationText.setText(location);
         timesText.setText(hours);
         statusText.setText(busStatus);
-
-        //Listeners for Close, Download and Refresh buttons
-        View buttonTrackerClose = trackerDialog.findViewById(R.id.buttonTrackerCallClose);
-        buttonTrackerClose.setOnClickListener(trackerListener);
-        View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
-        buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
-        View buttonTrackerRefresh = trackerDialog.findViewById(R.id.buttonTrackerRefresh);
-        buttonTrackerRefresh.setOnClickListener(trackerListener);
     }
 
     private int busTrackerTimeCheck(int choice, int twoLocationsFlag){
     /*
 	    Arguments:   choice (0 - main schedule, 1 - sub schedule)
 			         twolocationsFlag (0 - one location; 1 - two locations)
-	    Description: Looks at the start and end times of the bus and compares to
+	    Description: Looks at the start and end times of the bus location and compares to
 	                 the current time.
 	    Returns:     0 - Closed, 1 - Open, 2 - Opening Soon, 3 - En route,
 	                 4 - Closing Soon
     */
         String busSchedule [] ={"value","value"};
-        double  busStartHour = 0, busStartMin = 0, busStartTime = 0,
-                busEndHour = 0 , busEndMin = 0, busEndTime = 0,
-                currentHour = 0, currentMin = 0, currentTime = 0, compareStart = 0,
-                compareEnd = 0, currentMil = 0;
         String[] splitStartTime;
         String[] splitEndTime;
+        double  busStartHour, busStartMin, busStartTime,
+                busEndHour, busEndMin, busEndTime,
+                currentHour, currentMin, currentTime, compareStart,
+                compareEnd, currentMil;
 
         //Gets current time in milliseconds
         Calendar splitCurrentTime = Calendar.getInstance();
         currentHour = (splitCurrentTime.get(Calendar.HOUR_OF_DAY))*3.6e6;
-        currentMin = (splitCurrentTime.get(Calendar.MINUTE))*6e4;
-        currentMil = splitCurrentTime.get(Calendar.MILLISECOND);
+        currentMin  = (splitCurrentTime.get(Calendar.MINUTE))*6e4;
+        currentMil  = splitCurrentTime.get(Calendar.MILLISECOND);
         currentTime =  currentHour + currentMin + currentMil;
 
         //Bus start time in milliseconds
@@ -591,9 +878,9 @@ public class MainActivity extends AppCompatActivity {
             busSchedule[0] = subStartt.getString("substartt", "default");
         }
         splitStartTime = busSchedule[0].split(":");
-        busStartHour = (Double.parseDouble(splitStartTime[0]))*3.6e6;
-        busStartMin = (Double.parseDouble(splitStartTime[1]))*6e4;
-        busStartTime = busStartHour + busStartMin;
+        busStartHour   = (Double.parseDouble(splitStartTime[0]))*3.6e6;
+        busStartMin    = (Double.parseDouble(splitStartTime[1]))*6e4;
+        busStartTime   = busStartHour + busStartMin;
 
         //Bus end time in milliseconds
         if(choice == 0) {
@@ -604,13 +891,13 @@ public class MainActivity extends AppCompatActivity {
             busSchedule[1] = subEndt.getString("subendt", "default");
         }
         splitEndTime = busSchedule[1].split(":");
-        busEndHour = (Double.parseDouble(splitEndTime[0]))*3.6e6;
-        busEndMin = (Double.parseDouble(splitEndTime[1]))*6e4;
-        busEndTime = busEndHour + busEndMin;
+        busEndHour   = (Double.parseDouble(splitEndTime[0]))*3.6e6;
+        busEndMin    = (Double.parseDouble(splitEndTime[1]))*6e4;
+        busEndTime   = busEndHour + busEndMin;
 
         //Where the comparing happens
         compareStart = busStartTime - currentTime;
-        compareEnd = busEndTime - currentTime;
+        compareEnd   = busEndTime - currentTime;
         if(compareEnd <= 1.8e6 && compareEnd > 0){
             return 4;
         }else if(compareStart <= 1.8e6 && compareStart > 0){
@@ -628,9 +915,9 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean callPopup(int choice){
     /*
-	    Arguments: Choice to dismiss or make a new dialog
+	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog
 	    Description: Either creates a callDialog or dismisses it
-	    Returns: true
+	    Returns:     true
     */
         if(choice == 0) {
             callDialog.dismiss();
@@ -642,21 +929,20 @@ public class MainActivity extends AppCompatActivity {
                 callDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
             }
             callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            callDialog.setContentView(R.layout.call_dialog);
+            callDialog.setContentView(R.layout.dialog_call);
             callDialog.show();
             callDialog.setCancelable(false);
             callDialog.setCanceledOnTouchOutside(false);
         }
 
-        //Buttons for calling each location
+        //Listeners for the call dialog buttons
         View buttonCallCloseImage = callDialog.findViewById(R.id.buttonCallClose);
         View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
-        View buttonCallCayImage = callDialog.findViewById(R.id.buttonCallCay);
+        View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
         View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
-        View buttonCallCrawImage = callDialog.findViewById(R.id.buttonCallCraw);
+        View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
         View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
         View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
-
         buttonCallCloseImage.setOnClickListener(callListener);
         buttonCallBloomImage.setOnClickListener(callListener);
         buttonCallCayImage.setOnClickListener(callListener);
@@ -671,7 +957,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener homeListener = new View.OnClickListener() {
         String toastText;
         public void onClick(View v) {
-            //Each button, except twitter/call, will open either a dialog,activity, or page and change its drawable to 'light up'
+            //Each button, except twitter/call, will open either a dialog, activity, or webpage
             switch (v.getId()) {
                 case R.id.callButton:
                     callPopup(1);
@@ -685,16 +971,17 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(openLocationsIntent);
                     break;
                 case R.id.formsButton:
+                    v.setSelected(true);
                     Intent openFormsIntent = new Intent(MainActivity.this, FormsActivity.class);
                     startActivity(openFormsIntent);
                     break;
                 case R.id.portalButton:
-                    String portalUrl = "https://secure2.myunionportal.org/vpchc/default.aspx";
+                    toastText = getResources().getString(R.string.toast_portal_open);
+                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    String portalUrl  = "https://secure2.myunionportal.org/vpchc/default.aspx";
                     Intent portalLink = new Intent(Intent.ACTION_VIEW);
                     portalLink.setData(Uri.parse(portalUrl));
                     startActivity(portalLink);
-                    toastText = getResources().getString(R.string.toast_portal_open);
-                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.servicesButton:
                     Intent openservicesIntent = new Intent(MainActivity.this, ServicesActivity.class);
@@ -704,12 +991,12 @@ public class MainActivity extends AppCompatActivity {
                     busTrackerMain(1);
                     break;
                 case R.id.websiteButton:
-                    String websiteUrl = "http://www.valleyprohealth.org";
+                    toastText = getResources().getString(R.string.toast_website_open);
+                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    String websiteUrl  = "https://www.valleyprohealth.org";
                     Intent websiteLink = new Intent(Intent.ACTION_VIEW);
                     websiteLink.setData(Uri.parse(websiteUrl));
                     startActivity(websiteLink);
-                    toastText = getResources().getString(R.string.toast_website_open);
-                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.facebookButton:
                     //Goes to the vpchc page in the facebook app or in the browser if the app isn't present.
@@ -722,6 +1009,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                     toastText = getResources().getString(R.string.toast_facebook_open);
                     Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.faqsButton:
+                    Intent openFAQsIntent = new Intent(MainActivity.this, FAQsActivity.class);
+                    startActivity(openFAQsIntent);
+                    break;
+                case R.id.patresButton:
+                    Intent openPatResIntent = new Intent(MainActivity.this, PatResActivity.class);
+                    startActivity(openPatResIntent);
                     break;
                 case R.id.twitterBird:
                     //Goes to the handle #ValleyProHealth in the twitter app or in the browser if the app isn't present.
@@ -805,7 +1100,6 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener trackerListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                //
                 case R.id.buttonTrackerScheduleDownload:
                     String toastDownloadText = getResources().getString(R.string.toast_tracker_download_schedule);
                     Toast.makeText(getApplicationContext(),toastDownloadText,Toast.LENGTH_SHORT).show();
@@ -822,6 +1116,21 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.buttonTrackerCallClose:
                     //Dismisses the dialog when the 'x' is hit
                     busTrackerMain(0);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    private View.OnClickListener optionsListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.buttonOptionsClose:
+                    optionsSet(0);
+                    break;
+                case R.id.buttonOptionsSave:
+                    optionsSave();
                     break;
                 default:
                     break;

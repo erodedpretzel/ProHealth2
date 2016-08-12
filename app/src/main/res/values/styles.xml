@@ -13,8 +13,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
 
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -42,6 +42,13 @@
 
     <style name="SplashTheme" parent="Theme.AppCompat">
         <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:maxWidth">1000dip</item>
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:paddingRight">20dip</item>
     </style>
 
 </resources>

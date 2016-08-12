@@ -2,6 +2,7 @@ package vpchc.prohealth;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,32 +12,40 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
 
 public class FormsActivity extends AppCompatActivity {
 
-    private Spinner spinnerFormsLocations;
-    private Spinner spinnerFormsCategories;
-    private Spinner spinnerFormsSelection;
     private String[]finalForms={"Select a form"};
 
     int selectionLocation=0;
     int selectionCategory=0;
 
+    private Spinner spinnerFormsLocations;
+    private Spinner spinnerFormsCategories;
+    private Spinner spinnerFormsSelection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarForms);
         setSupportActionBar(toolbar);
 
-        View buttonBack = findViewById(R.id.formsBackButton);
+        //Sets company logo text to custom font due to it being unavailable natively
+        String fontPath = "fonts/franklinGothicMedium.ttf";
+        TextView titleText = (TextView) findViewById(R.id.title_forms);
+        Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
+        titleText.setTypeface(customTitleText);
+
+        //Back button listener
+        View buttonBack = findViewById(R.id.backButtonForms);
         buttonBack.setOnClickListener(formsListener);
 
-        String locations[] = {};
+        String locations[]  = {};
         String categories[] = {};
 
         locations = getResources().getStringArray(R.array.vpchc_locations2);
@@ -65,7 +74,7 @@ public class FormsActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
         if (locationPref == 6) {
-            locationPref = 0;//This sets MSBHC to no preference due to no location section for it
+            locationPref = 0;//This sets MSBHC to no preference due to no specific options for it
         }
         spinnerFormsLocations.setSelection(locationPref);
         if (locationPref == 0) {
@@ -79,6 +88,8 @@ public class FormsActivity extends AppCompatActivity {
                     case 0:
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
+                        spinnerFormsCategories.setVisibility(View.GONE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         break;
                     case 1:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
@@ -192,6 +203,9 @@ public class FormsActivity extends AppCompatActivity {
                             case 4:
                                 formsDownload(3);
                                 break;
+                            case 5:
+                                formsDownload(4);
+                                break;
                         }
                     }
                 } else if (selectionCategory == 2) {
@@ -245,9 +259,9 @@ public class FormsActivity extends AppCompatActivity {
 
     private void formsSetup(int formChoice){
     /*
-	    Arguments: formChoice(1 - forms1, 2 - form2, 3 - forms3, 4 - forms4) all arrays found in strings.xml
+	    Arguments:   formChoice(1 - forms1, 2 - form2, 3 - forms3, 4 - forms4) all arrays found in strings.xml
 	    Description: Populates the forms selection based on the category chosen
-	    Returns: Nothing
+	    Returns:     Nothing
     */
         //Gets correct forms array
         String replaceTextString = "forms" + formChoice;
@@ -268,22 +282,25 @@ public class FormsActivity extends AppCompatActivity {
 
     private void formsDownload(int selectForm){
     /*
-	    Arguments: selectForm(index of array of URLs)
+	    Arguments:   selectForm(index of array of URLs)
 	    Description: Gets URL from an array based on selection and opens that URL to download form
-	    Returns: Nothing
+	    Returns:     Nothing
     */
         Intent downloadFormIntent;
         Uri formUri = Uri.EMPTY;
         String urlArray[]={};
 
+        //Lets the user know that they are downloading the form.
         String toastText = getResources().getString(R.string.toast_forms_download);
         Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
 
         //Selects appropriate URL based on selection
         if(selectionCategory == 1){
-            if(selectForm == 2){
+            if(selectForm == 3){
                 urlArray = getResources().getStringArray(R.array.forms1_release_url);
-                selectForm = selectionLocation;
+                selectForm = selectionLocation - 1;
+            }else if(selectForm == 4){
+                selectForm = 3;
             }else{
                 urlArray = getResources().getStringArray(R.array.forms1_url);
             }
@@ -311,10 +328,9 @@ public class FormsActivity extends AppCompatActivity {
     private View.OnClickListener formsListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.formsBackButton:
+                case R.id.backButtonForms:
                     finish();
-                    ImageView backButton = (ImageView) findViewById(R.id.formsBackButton);
-                    backButton.setImageResource(R.drawable.back_arrow_on);
+                    v.setSelected(true);
                     break;
                 default:
                     break;

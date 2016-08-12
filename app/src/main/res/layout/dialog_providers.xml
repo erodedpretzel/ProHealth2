@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/dialogTitleProviders"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:id="@+id/buttonProvidersClose"
+            android:src="@drawable/close_dialog_state_list_drawable"
+
+            android:layout_width="@dimen/dialog_close"
+            android:layout_height="@dimen/dialog_close"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/providersTypeText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/dialog_title"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dialogSubTitleProviders"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialogTitleProviders"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/providersLocationsText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dialog_subtitle"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/dialogSubTitleProviders"
+        android:layout_marginTop="@dimen/content_spacing_top_margin">
+    <LinearLayout
+        android:id="@+id/providersContent"
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+    </ScrollView>
+</RelativeLayout>

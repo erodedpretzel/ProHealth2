@@ -3,6 +3,7 @@ package vpchc.prohealth;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,14 +14,18 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class LocationsActivity extends AppCompatActivity {
 
+    String locations[]={};
+    private int selectionLocation;
+
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
-    private int selectionLocation;;
+
     Dialog locationsClinicHoursDialog;
     Dialog locationsContactInfoDialog;
 
@@ -29,10 +34,19 @@ public class LocationsActivity extends AppCompatActivity {
         final String[] locationCoordinates = new String[1];
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarLocations);
         setSupportActionBar(toolbar);
 
-        String locations[]={};
+        //Sets company logo text to custom font due to it being unavailable natively
+        String fontPath = "fonts/franklinGothicMedium.ttf";
+        TextView titleText = (TextView) findViewById(R.id.title_locations);
+        Typeface customTitleText = Typeface.createFromAsset(getAssets(), fontPath);
+        titleText.setTypeface(customTitleText);
+
+        //Back button listener
+        View buttonBack = findViewById(R.id.backButtonLocations);
+        buttonBack.setOnClickListener(locationsListener);
+
         String locationsOptions[]={};
 
         locations = getResources().getStringArray(R.array.vpchc_locations2);
@@ -61,8 +75,7 @@ public class LocationsActivity extends AppCompatActivity {
             spinnerLocationsOptions.setVisibility(View.GONE);
         }
 
-        View buttonBack = findViewById(R.id.locationsBackButton);
-        buttonBack.setOnClickListener(locationsListener);
+
 
         spinnerLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -70,6 +83,7 @@ public class LocationsActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         spinnerLocationsOptions.setSelection(0);
+                        spinnerLocationsOptions.setVisibility(View.GONE);
                         break;
                     case 1:
                         spinnerLocationsOptions.setVisibility(View.VISIBLE);
@@ -149,9 +163,9 @@ public class LocationsActivity extends AppCompatActivity {
 
     private boolean locationsClinicHoursPopup(int choice){
     /*
-	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with the chosen location's clinic hours listed.
-	    Returns: True
+	    Returns:     true
     */
         int i;
         int replaceTextId;
@@ -167,28 +181,22 @@ public class LocationsActivity extends AppCompatActivity {
                 locationsClinicHoursDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
             }
             locationsClinicHoursDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            locationsClinicHoursDialog.setContentView(R.layout.locations_clinichours_dialog);
+            locationsClinicHoursDialog.setContentView(R.layout.dialog_locations_clinichours);
             locationsClinicHoursDialog.show();
             locationsClinicHoursDialog.setCancelable(false);
             locationsClinicHoursDialog.setCanceledOnTouchOutside(false);
         }
 
-        //Sets location displayed
-        TextView locationsText = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
-        if(selectionLocation == 1){
-            locationsText.setText("Bloomingdale");
-        }else if(selectionLocation == 2){
-            locationsText.setText("Cayuga");
-        }else if(selectionLocation == 3){
-            locationsText.setText("Clinton");
-        }else if(selectionLocation == 4){
-            locationsText.setText("Crawfordsville");
-        }else if(selectionLocation == 5){
-            locationsText.setText("Terre Haute");
-        }
+        //Dialog close listener
+        View buttonDialogClose = locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
+        buttonDialogClose.setOnClickListener(locationsListener);
+
+        //Sets location title
+        TextView locationsTitle = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
+        locationsTitle.setText(locations[selectionLocation]);
 
         //Populate list of clinic hours depending on location chosen
-        for(i=2;i<=10;i+=2){
+        for(i = 2;i <= 10;i += 2){
             replaceTextString = "locationsClinicHoursText" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView tempText = (TextView) locationsClinicHoursDialog.findViewById(replaceTextId);
@@ -210,18 +218,14 @@ public class LocationsActivity extends AppCompatActivity {
                 }
             }
         }
-
-        View buttonLocationsClinicHoursCloseImage = locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
-        buttonLocationsClinicHoursCloseImage.setOnClickListener(locationsListener);
-
         return true;
     }
 
     private boolean locationsContactInfoPopup(int choice) {
     /*
-	    Arguments: choice(0 - dismiss dialog, 1 - create a dialog)
+	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with the chosen location's contact info listed.
-	    Returns: True
+	    Returns:     true
     */
         int i;
         int contactInfoIndex;
@@ -241,64 +245,60 @@ public class LocationsActivity extends AppCompatActivity {
                 locationsContactInfoDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
             }
             locationsContactInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            locationsContactInfoDialog.setContentView(R.layout.locations_contactinfo_dialog);
+            locationsContactInfoDialog.setContentView(R.layout.dialog_locations_contactinfo);
             locationsContactInfoDialog.show();
             locationsContactInfoDialog.setCancelable(false);
             locationsContactInfoDialog.setCanceledOnTouchOutside(false);
         }
 
-        //Sets location displayed
+        //Dialog close listener
+        View buttonDialogClose = locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
+        buttonDialogClose.setOnClickListener(locationsListener);
+
+        //Sets location title
+        TextView locationsTitle = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
+        locationsTitle.setText(locations[selectionLocation]);
+
+        //Sets location picture displayed
         ImageView locationsPic = (ImageView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoPic);
-        TextView locationsText = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
         if(selectionLocation == 1){
-            locationsText.setText("Bloomingdale");
             locationsPic.setImageResource(R.drawable.bloomingdale_location);
         }else if(selectionLocation == 2){
-            locationsText.setText("Cayuga");
             locationsPic.setImageResource(R.drawable.cayuga_location);
         }else if(selectionLocation == 3){
-            locationsText.setText("Clinton");
             locationsPic.setImageResource(R.drawable.clinton_location);
         }else if(selectionLocation == 4){
-            locationsText.setText("Crawfordsville");
             locationsPic.setImageResource(R.drawable.crawfordsville_location);
         }else if(selectionLocation == 5){
-            locationsText.setText("Terre Haute");
             locationsPic.setImageResource(R.drawable.terrehaute_location);
         }
 
         //Populate list of contact info depending on location chosen
         locationsContactInfo = getResources().getStringArray(R.array.locations_contact_info);
         contactInfoIndex = (selectionLocation - 1) * 4;
-        for(i=2;i<=7;i++){
+        for(i = 2;i <= 7;i++){
             replaceTextString = "locationsContactInfoText" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView tempText = (TextView) locationsContactInfoDialog.findViewById(replaceTextId);
             tempText.setText(locationsContactInfo[contactInfoIndex + count++]);
-            if(i>2){
+            if(i > 2){
                 i++;
             }
         }
-
-        View buttonLocationsContactInfoCloseImage = locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
-        buttonLocationsContactInfoCloseImage.setOnClickListener(locationsListener);
         return true;
     }
 
     private View.OnClickListener locationsListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.locationsBackButton:
+                case R.id.backButtonLocations:
                     finish();
+                    v.setSelected(true);
                     break;
                 case R.id.buttonLocationsClinicHoursClose:
-                    ImageView closeClinicHoursButton = (ImageView) locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
-                    closeClinicHoursButton.setImageResource(R.drawable.dialog_close_on);
                     locationsClinicHoursPopup(0);
                     break;
                 case R.id.buttonLocationsContactInfoClose:
-                    ImageView closeContactInfoButton = (ImageView) locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
-                    closeContactInfoButton.setImageResource(R.drawable.dialog_close_on);
                     locationsContactInfoPopup(0);
                     break;
                 default:

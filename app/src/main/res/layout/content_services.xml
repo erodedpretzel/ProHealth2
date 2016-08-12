@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:grid="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="vpchc.prohealth.ServicesActivity"
+    tools:showIn="@layout/activity_services"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/content_spacing_top_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="vpchc.prohealth.ServicesActivity"
-    tools:showIn="@layout/activity_services">
+    android:paddingTop="@dimen/title_bar">
 
-        <Spinner
-            android:id="@+id/spinnerServicesLocations"
-            style="@style/fancySpinnerDropDown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp"/>
+    <Spinner
+        android:id="@+id/spinnerServicesLocations"
+        style="@style/fancySpinnerDropDown"
 
-        <Spinner
-            android:id="@+id/spinnerServicesCategories"
-            style="@style/fancySpinnerDropDown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinner_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <Spinner
+        android:id="@+id/spinnerServicesCategories"
+        style="@style/fancySpinnerDropDown"
 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinner_height"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

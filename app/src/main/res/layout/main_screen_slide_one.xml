@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.GridLayout
+        grid:columnCount="3"
+        grid:rowCount="6"
+        grid:orientation="horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/callButton"
+            android:src="@drawable/call_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/providerButton"
+            android:src="@drawable/providers_state_list_drawable"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/locationsButton"
+            android:src="@drawable/locations_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <TextView
+            android:id="@+id/callButtonText"
+
+            android:gravity="center"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:text="@string/icon_contact_us"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/providersButtonText"
+
+            android:gravity="center"
+
+            android:text="@string/icon_providers"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"/>
+        <TextView
+            android:id="@+id/locationsButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_locations"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/formsButton"
+            android:src="@drawable/forms_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/servicesButton"
+            android:src="@drawable/services_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/trackerButton"
+            android:src="@drawable/tracker_state_list_drawable"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/formsButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_forms"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/servicesButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_services"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/trackerButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_bustracker"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/portalButton"
+            android:src="@drawable/portal_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/facebookButton"
+            android:src="@drawable/facebook_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/websiteButton"
+            android:src="@drawable/website_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <TextView
+            android:id="@+id/portalButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_patient_portal"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/jobsButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_facebook"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/websiteButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_website"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.GridLayout>
+
+</RelativeLayout>
