@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "org.vpchc.valleyprohealth"
         minSdkVersion 10
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -32,5 +32,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:gridlayout-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile files('C:/Users/brwebster/StudioProjects/ProHealth2/libs/twitter4j-core-4.0.4.jar')
+    compile files('/home/brwebster/AndroidStudioProjects/ProHealth2/libs/twitter4j-core-4.0.4.jar')
 }

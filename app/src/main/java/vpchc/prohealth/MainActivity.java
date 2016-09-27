@@ -49,6 +49,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -58,15 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences pref;
     private SharedPreferences currLocale;
     private SharedPreferences currDay;
-    private SharedPreferences twolocflag;
-    private SharedPreferences mainloc;
-    private SharedPreferences mainhours;
-    private SharedPreferences mainendt;
-    private SharedPreferences mainstartt;
-    private SharedPreferences subloc;
-    private SharedPreferences subhours;
-    private SharedPreferences subendt;
-    private SharedPreferences substartt;
+    private SharedPreferences locations;
     private SharedPreferences.Editor editor;
 
     private static final int NUM_PAGES = 2;
@@ -108,10 +102,6 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
         changeLang(currentLocale);
-
-
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        Log.w("Display Metrics:", "metrics" + metrics);
 
         //Sets company logo text to custom font due to it being unavailable natively
         String fontPath = "fonts/franklinGothicHeavyRegular.ttf";
@@ -354,80 +344,23 @@ public class MainActivity extends AppCompatActivity {
                         return null;
                     }
 
-                    //Reads the locations from an html file into a buffer
+                    //Reads the locations from an html file into a buffer and then stores them in a
+                    //locations preference.
                     URL busScheduleUrl = new URL("https://www.valleyprohealth.org/info/bus_app_schedule.html");
                     in = new BufferedReader(new InputStreamReader(busScheduleUrl.openStream()));
                     String str;
-                    String fileContents[] = {"value","value"};
                     int i = 0;
                     while ((str = in.readLine()) != null) {
-                        fileContents[i++] = str;
+                        locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
+                        editor = locations.edit();
+                        editor.putString("locations_" + i++, str);
+                        editor.apply();
                     }
 
                     //Stores day when update is ran to compare against current date for outdated
                     //schedule
                     getCurrDay(1);
 
-                    //Stores locations from buffer into corresponding shared preference to be
-                    // accessed when opening the tracker dialog
-                    int count = 0;
-                    for (int j = 1; j < fileContents.length; j++) {
-                        String[] parseText   = fileContents[count].split(",");
-                        String locationText  = parseText[0];
-                        String hoursText     = parseText[1];
-                        String startTimeText = parseText[2];
-                        String endTimeText   = parseText[3];
-                        if (count == 0) {
-                            twolocflag = getSharedPreferences("twolocflag", MODE_PRIVATE);
-                            editor = twolocflag.edit();
-                            editor.clear();
-                            editor.apply();
-                            mainloc = getSharedPreferences("mainloc", MODE_PRIVATE);
-                            editor = mainloc.edit();
-                            editor.putString("mainloc", locationText);
-                            editor.apply();
-
-                            mainhours = getSharedPreferences("mainhours", MODE_PRIVATE);
-                            editor    = mainhours.edit();
-                            editor.putString("mainhours", hoursText);
-                            editor.apply();
-
-                            mainstartt = getSharedPreferences("mainstartt", MODE_PRIVATE);
-                            editor     = mainstartt.edit();
-                            editor.putString("mainstartt", startTimeText);
-                            editor.apply();
-
-                            mainendt = getSharedPreferences("mainendt", MODE_PRIVATE);
-                            editor   = mainendt.edit();
-                            editor.putString("mainendt", endTimeText);
-                            editor.apply();
-                            count++;
-                        } else {
-                            twolocflag = getSharedPreferences("twolocflag", MODE_PRIVATE);
-                            editor = twolocflag.edit();
-                            editor.putInt("twolocflag", 1);
-                            editor.apply();
-                            subloc = getSharedPreferences("subloc", MODE_PRIVATE);
-                            editor = subloc.edit();
-                            editor.putString("subloc", locationText);
-                            editor.apply();
-
-                            subhours = getSharedPreferences("subhours", MODE_PRIVATE);
-                            editor   = subhours.edit();
-                            editor.putString("subhours", hoursText);
-                            editor.apply();
-
-                            substartt = getSharedPreferences("substartt", MODE_PRIVATE);
-                            editor    = substartt.edit();
-                            editor.putString("substartt", startTimeText);
-                            editor.apply();
-
-                            subendt = getSharedPreferences("subendt", MODE_PRIVATE);
-                            editor  = subendt.edit();
-                            editor.putString("subendt", endTimeText);
-                            editor.apply();
-                        }
-                    }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -455,10 +388,7 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = connMgr.getActiveNetworkInfo();
-        if (activeNetwork != null)
-            return true;
-        else
-            return false;
+        return (activeNetwork != null) ? true : false;
     }
 
     private int getCurrDay(int choice){
@@ -728,21 +658,23 @@ public class MainActivity extends AppCompatActivity {
 	    Description: Main function for the bus tracker.
 	    Returns:     Nothing
     */
+        int i = 0;
         int r;
-        int twoAreas = 0;
-        int twolocations;
         String busStatus;
         String location;
         String hours;
+        String[] parseText;
+        //0 - Location, 1 - Hours, 2 - Start Time, 3 - End Time, 4 - Flag
+        String[] locationsArray = new String[5];
 
         if(choice == 0) {
             trackerDialog.dismiss();
             return;
         }else{
             //Below if statement will only run if there is no network & there is no stored shared
-            //bus preferences. Mainloc was chosen arbitrarily.
-            mainloc = getSharedPreferences("mainloc", MODE_PRIVATE);
-            if(!isConnected() & !(mainloc.contains("mainloc"))){
+            //bus preferences.
+            locations = getSharedPreferences("locations_0", MODE_PRIVATE);
+            if(!isConnected() & !(locations.contains("DEFAULT"))){
                 String toastNetworkText = getResources().getString(R.string.toast_network_error);
                 Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
                 return;
@@ -778,23 +710,23 @@ public class MainActivity extends AppCompatActivity {
         TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
         todaysDateText.setText(todaysDate);
 
-        //Look up the twolocations flag and sets a variable for easy use
-        twolocflag = getSharedPreferences("twolocflag", MODE_PRIVATE);
-        if(twolocflag.contains("twolocflag")){
-            twolocations = 1;
-        }else{
-            twolocations = 0;
+        //Checks the times of each location until it finds one that is open, opening soon,
+        //closing soon or en route or there are no other locations left.
+        while(true){
+            locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
+            String loc = locations.getString("locations_" + i,"DEFAULT");
+            parseText = loc.split(",");
+            locationsArray[0] = (parseText[0]);
+            locationsArray[1] = (parseText[1]);
+            locationsArray[2] = (parseText[2]);
+            locationsArray[3] = (parseText[3]);
+            locationsArray[4] = (parseText[4]);
+            r = busTrackerTimeCheck(locationsArray);
+            if (r != 0 || locationsArray[4].equals("0")){
+                break;
+            }
+            i++;
         }
-
-        // Check the times for current day location 1
-        r = busTrackerTimeCheck(0, twolocations);
-
-        // If there are two locations and location 1 is closed, check times for location 2
-        if(r == 0 && twolocations == 1){
-            r = busTrackerTimeCheck(1, twolocations);
-            twoAreas = 1;
-        }
-
         //Gets the text areas where the bus information will be displayed
         TextView locationText = (TextView) trackerDialog.findViewById(R.id.trackerLocationText);
         TextView timesText    = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
@@ -815,17 +747,8 @@ public class MainActivity extends AppCompatActivity {
             hours     = outdatedText2;
             busStatus = outdatedText3;
         }else{
-            if(twoAreas == 0){
-                mainloc   = getSharedPreferences("mainloc", MODE_PRIVATE);
-                mainhours = getSharedPreferences("mainhours", MODE_PRIVATE);
-                location  = mainloc.getString("mainloc", "default");
-                hours     = mainhours.getString("mainhours", "default");
-            }else{
-                subloc   = getSharedPreferences("subloc", MODE_PRIVATE);
-                subhours = getSharedPreferences("subhours", MODE_PRIVATE);
-                location = subloc.getString("subloc", "default");
-                hours    = subhours.getString("subhours", "default");
-            }
+            location  = locationsArray[0];
+            hours     = locationsArray[1];
             if(r == 1){
                 busStatus = getResources().getString(R.string.tracker_status_open);
             }else if(r == 2){
@@ -845,16 +768,14 @@ public class MainActivity extends AppCompatActivity {
         statusText.setText(busStatus);
     }
 
-    private int busTrackerTimeCheck(int choice, int twoLocationsFlag){
+    private int busTrackerTimeCheck(String[] locationsArray){
     /*
-	    Arguments:   choice (0 - main schedule, 1 - sub schedule)
-			         twolocationsFlag (0 - one location; 1 - two locations)
+	    Arguments:   Array with locations info
 	    Description: Looks at the start and end times of the bus location and compares to
 	                 the current time.
 	    Returns:     0 - Closed, 1 - Open, 2 - Opening Soon, 3 - En route,
 	                 4 - Closing Soon
     */
-        String busSchedule [] ={"value","value"};
         String[] splitStartTime;
         String[] splitEndTime;
         double  busStartHour, busStartMin, busStartTime,
@@ -870,27 +791,13 @@ public class MainActivity extends AppCompatActivity {
         currentTime =  currentHour + currentMin + currentMil;
 
         //Bus start time in milliseconds
-        if(choice == 0) {
-            SharedPreferences mainStartt= getSharedPreferences("mainstartt", MODE_PRIVATE);
-            busSchedule[0] = mainStartt.getString("mainstartt", "default");
-        }else{
-            SharedPreferences subStartt= getSharedPreferences("substartt", MODE_PRIVATE);
-            busSchedule[0] = subStartt.getString("substartt", "default");
-        }
-        splitStartTime = busSchedule[0].split(":");
+        splitStartTime = locationsArray[2].split(":");
         busStartHour   = (Double.parseDouble(splitStartTime[0]))*3.6e6;
         busStartMin    = (Double.parseDouble(splitStartTime[1]))*6e4;
         busStartTime   = busStartHour + busStartMin;
 
         //Bus end time in milliseconds
-        if(choice == 0) {
-            SharedPreferences mainEndt= getSharedPreferences("mainendt", MODE_PRIVATE);
-            busSchedule[1] = mainEndt.getString("mainendt", "default");
-        }else{
-            SharedPreferences subEndt= getSharedPreferences("subendt", MODE_PRIVATE);
-            busSchedule[1] = subEndt.getString("subendt", "default");
-        }
-        splitEndTime = busSchedule[1].split(":");
+        splitEndTime = locationsArray[3].split(":");
         busEndHour   = (Double.parseDouble(splitEndTime[0]))*3.6e6;
         busEndMin    = (Double.parseDouble(splitEndTime[1]))*6e4;
         busEndTime   = busEndHour + busEndMin;
@@ -901,7 +808,7 @@ public class MainActivity extends AppCompatActivity {
         if(compareEnd <= 1.8e6 && compareEnd > 0){
             return 4;
         }else if(compareStart <= 1.8e6 && compareStart > 0){
-            if(twoLocationsFlag == 1){
+            if(locationsArray[4].equals("1")){
                 return 3;
             }else{
                 return 2;
@@ -984,8 +891,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(portalLink);
                     break;
                 case R.id.servicesButton:
-                    Intent openservicesIntent = new Intent(MainActivity.this, ServicesActivity.class);
-                    startActivity(openservicesIntent);
+                    Intent openServicesIntent = new Intent(MainActivity.this, ServicesActivity.class);
+                    startActivity(openServicesIntent);
                     break;
                 case R.id.trackerButton:
                     busTrackerMain(1);
@@ -1041,50 +948,80 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.buttonCallBloom:
                     Intent callBloomIntent = new Intent(Intent.ACTION_CALL);
-                    callBloomIntent.setData(Uri.parse("tel:7654989000"));
-                    startActivity(callBloomIntent);
-                    toastText = getResources().getString(R.string.toast_call_bloom);
-                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    try {
+                        callBloomIntent.setData(Uri.parse("tel:7654989000"));
+                        startActivity(callBloomIntent);
+                        toastText = getResources().getString(R.string.toast_call_bloom);
+                        Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex) {
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallCay:
                     Intent callCayIntent = new Intent(Intent.ACTION_CALL);
-                    callCayIntent.setData(Uri.parse("tel:7654929042"));
-                    startActivity(callCayIntent);
-                    toastText = getResources().getString(R.string.toast_call_cay);
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    try{
+                        callCayIntent.setData(Uri.parse("tel:7654929042"));
+                        startActivity(callCayIntent);
+                        toastText = getResources().getString(R.string.toast_call_cay);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex) {
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallClint:
                     Intent callClintIntent = new Intent(Intent.ACTION_CALL);
-                    callClintIntent.setData(Uri.parse("tel:7658281003"));
-                    startActivity(callClintIntent);
-                    toastText = getResources().getString(R.string.toast_call_clint);
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    try {
+                        callClintIntent.setData(Uri.parse("tel:7658281003"));
+                        startActivity(callClintIntent);
+                        toastText = getResources().getString(R.string.toast_call_clint);
+                        Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex) {
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallCraw:
                     Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
-                    callCrawIntent.setData(Uri.parse("tel:7653625100"));
-                    startActivity(callCrawIntent);
-                    toastText = getResources().getString(R.string.toast_call_craw);
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    try{
+                        callCrawIntent.setData(Uri.parse("tel:7653625100"));
+                        startActivity(callCrawIntent);
+                        toastText = getResources().getString(R.string.toast_call_craw);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex){
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallTerre:
                     Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
-                    callTerreIntent.setData(Uri.parse("tel:8122387631"));
-                    startActivity(callTerreIntent);
-                    toastText = getResources().getString(R.string.toast_call_terre);
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    try{
+                        callTerreIntent.setData(Uri.parse("tel:8122387631"));
+                        startActivity(callTerreIntent);
+                        toastText = getResources().getString(R.string.toast_call_terre);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex){
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallMSBHC:
                     Intent callMSBHCIntent = new Intent(Intent.ACTION_CALL);
-                    callMSBHCIntent.setData(Uri.parse("tel:7655926164"));
-                    startActivity(callMSBHCIntent);
-                    toastText = getResources().getString(R.string.toast_call_MSBHC);
-                    Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    try {
+                        callMSBHCIntent.setData(Uri.parse("tel:7655926164"));
+                        startActivity(callMSBHCIntent);
+                        toastText = getResources().getString(R.string.toast_call_MSBHC);
+                        Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT).show();
+                    }catch(SecurityException ex){
+                        toastText = getResources().getString(R.string.toast_call_perm);
+                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
+                    }
                     callPopup(0);
                     break;
                 case R.id.buttonCallClose:

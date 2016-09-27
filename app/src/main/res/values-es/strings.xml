@@ -465,4 +465,6 @@
                 <item>Terre Haute</item>
                 <item>MSBHC</item>
             </string-array>
+    <string name="locations_title">Ubicaciones</string>
+    <string name="toast_call_perm">Permisos de Llamada No Está Activado</string>
 </resources>

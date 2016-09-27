@@ -553,7 +553,8 @@
     <!***********************************-->
         <!--Text-->
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
-        <!--Array-->
+    <string name="toast_call_perm">Call permissions not enabled</string>
+    <!--Array-->
                 <string-array name="twitter_feed_tips">
                     <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
                     <item>If you are not able to make an appointment, please call to let us know.</item>
