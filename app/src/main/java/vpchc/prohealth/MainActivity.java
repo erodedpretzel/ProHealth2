@@ -455,12 +455,9 @@ public class MainActivity extends AppCompatActivity {
                             tipsArray = getResources().getStringArray(R.array.twitter_feed_tips);
                             String initialTweet = getResources().getString(R.string.main_twitter_feed_initial_tweet);
                             final TextView twitterFeed =(TextView)findViewById(R.id.twitterFeed);
-                            String[] parseText1 = status.toString().split("text=");
-                            String[] parseText2 = parseText1[1].split("',");
-                            String[] parseTextFinal = parseText2[1].split("'");
-                            Log.d(parseText2[0], "status");
-                            Log.d(parseText2[1], "tweet");
-                            twitterFeed.setText(Html.fromHtml(parseTextFinal[0]).toString() +  "          " + tipsArray[twitterFeedTips()] +  "          " + initialTweet);
+                            String[] parseText1 = status.toString().split("text='");
+                            String[] parseTextFinal = parseText1[1].split("',");
+                            twitterFeed.setText("          " + parseTextFinal[0] +  "          " + tipsArray[twitterFeedTips()] +  "          " + initialTweet);
                         }
                     });
 
@@ -473,7 +470,7 @@ public class MainActivity extends AppCompatActivity {
                             String tipsArray[]={};
                             String initialTweet = getResources().getString(R.string.main_twitter_feed_initial_tweet);
                             tipsArray = getResources().getStringArray(R.array.twitter_feed_tips);
-                            twitterFeed.setText(initialTweet + "          " + tipsArray[twitterFeedTips()]);
+                            twitterFeed.setText("          " + initialTweet + "          " + tipsArray[twitterFeedTips()]);
                         }
                     });
                 }
@@ -664,12 +661,7 @@ public class MainActivity extends AppCompatActivity {
 	    Description: Main function for the bus tracker.
 	    Returns:     Nothing
     */
-        int i = 0;
-        int r;
-        String busStatus;
-        String location;
-        String hours;
-        String[] parseText;
+        int busCheckStatus = 0;
         //0 - Location, 1 - Hours, 2 - Start Time, 3 - End Time, 4 - Flag
         String[] locationsArray = new String[5];
 
@@ -704,8 +696,6 @@ public class MainActivity extends AppCompatActivity {
         buttonTrackerClose.setOnClickListener(trackerListener);
         View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
         buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
-        View buttonTrackerRefresh = trackerDialog.findViewById(R.id.buttonTrackerRefresh);
-        buttonTrackerRefresh.setOnClickListener(trackerListener);
 
         //Gets current date and displays it in xx/xx/20xx form
         Calendar currDate       = Calendar.getInstance();
@@ -716,8 +706,19 @@ public class MainActivity extends AppCompatActivity {
         TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
         todaysDateText.setText(todaysDate);
 
+
         //Checks the times of each location until it finds one that is open, opening soon,
         //closing soon or en route or there are no other locations left.
+        busCheckStatus = busLocationCheck(locationsArray);
+
+        //Sets the bus information displayed on the screen.
+        busInfoSet(busCheckStatus, locationsArray);
+    }
+
+    private int busLocationCheck(String[] locationsArray){
+        int i = 0;
+        int r;
+        String[] parseText;
         while(true){
             locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
             String loc = locations.getString("locations_" + i,"DEFAULT");
@@ -727,54 +728,16 @@ public class MainActivity extends AppCompatActivity {
             locationsArray[2] = (parseText[2]);
             locationsArray[3] = (parseText[3]);
             locationsArray[4] = (parseText[4]);
-            r = busTrackerTimeCheck(locationsArray);
+            r = busTimeCheck(i,locationsArray);
             if (r != 0 || locationsArray[4].equals("0")){
                 break;
             }
             i++;
         }
-        //Gets the text areas where the bus information will be displayed
-        TextView locationText = (TextView) trackerDialog.findViewById(R.id.trackerLocationText);
-        TextView timesText    = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
-        TextView statusText   = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
-
-        //Setup the locations, hours, & status to be displayed
-        currDay = getSharedPreferences("currDay", MODE_PRIVATE);
-        int busDay = currDay.getInt("currDay", -1);
-        if(busDay < getCurrDay(0)){
-            //This condition is a check if the current schedule the user has is outdated.
-            //If so it lets the user know so that they can refresh the tracker.
-            String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
-            Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
-            String outdatedText1 = getResources().getString(R.string.outdated_firstline);
-            String outdatedText2 = getResources().getString(R.string.outdated_secondline);
-            String outdatedText3 = getResources().getString(R.string.outdated_thirdline);
-            location  = outdatedText1;
-            hours     = outdatedText2;
-            busStatus = outdatedText3;
-        }else{
-            location  = locationsArray[0];
-            hours     = locationsArray[1];
-            if(r == 1){
-                busStatus = getResources().getString(R.string.tracker_status_open);
-            }else if(r == 2){
-                busStatus = getResources().getString(R.string.tracker_status_open_soon);
-            }else if(r == 3){
-                busStatus = getResources().getString(R.string.tracker_status_enroute);
-            }else if(r == 4){
-                busStatus = getResources().getString(R.string.tracker_status_close_soon);
-            }else{
-                busStatus = getResources().getString(R.string.tracker_status_closed);
-            }
-        }
-
-        //Displays the current bus information on the screen
-        locationText.setText(location);
-        timesText.setText(hours);
-        statusText.setText(busStatus);
+        return r;
     }
 
-    private int busTrackerTimeCheck(String[] locationsArray){
+    private int busTimeCheck(Integer count, String[] locationsArray){
     /*
 	    Arguments:   Array with locations info
 	    Description: Looks at the start and end times of the bus location and compares to
@@ -813,12 +776,10 @@ public class MainActivity extends AppCompatActivity {
         compareEnd   = busEndTime - currentTime;
         if(compareEnd <= 1.8e6 && compareEnd > 0){
             return 4;
-        }else if(compareStart <= 1.8e6 && compareStart > 0){
-            if(locationsArray[4].equals("1")){
-                return 3;
-            }else{
-                return 2;
-            }
+        }else if(count > 0 && compareStart > 1.8e6) {
+            return 3;
+        }else if(compareStart < 1.8e6 && compareStart > 0){
+            return 2;
         }else if(compareStart <= 0 && compareEnd > 0){
             return 1;
         }else{
@@ -865,6 +826,54 @@ public class MainActivity extends AppCompatActivity {
         buttonCallMSBHCImage.setOnClickListener(callListener);
 
         return true;
+    }
+
+    private int busInfoSet(Integer status, String[] locationsArray){
+        String busStatus;
+        String location;
+        String hours;
+        //Setup the locations, hours, & status to be displayed
+        currDay = getSharedPreferences("currDay", MODE_PRIVATE);
+        int busDay = currDay.getInt("currDay", -1);
+        if(busDay < getCurrDay(0)){
+            //This condition is a check if the current schedule the user has is outdated.
+            //If so it lets the user know so that they can refresh the tracker.
+            String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
+            Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
+            String outdatedText1 = getResources().getString(R.string.outdated_firstline);
+            String outdatedText2 = getResources().getString(R.string.outdated_secondline);
+            String outdatedText3 = getResources().getString(R.string.outdated_thirdline);
+            location  = outdatedText1;
+            hours     = outdatedText2;
+            busStatus = outdatedText3;
+        }else{
+            location  = locationsArray[0];
+            hours     = locationsArray[1];
+            if(status == 1){
+                busStatus = getResources().getString(R.string.tracker_status_open);
+            }else if(status == 2){
+                busStatus = getResources().getString(R.string.tracker_status_open_soon);
+            }else if(status == 3){
+                busStatus = getResources().getString(R.string.tracker_status_enroute);
+            }else if(status == 4){
+                busStatus = getResources().getString(R.string.tracker_status_close_soon);
+            }else{
+                busStatus = getResources().getString(R.string.tracker_status_closed);
+            }
+        }
+
+        //Gets the text areas where the bus information will be displayed
+        TextView locationText = (TextView) trackerDialog.findViewById(R.id.trackerLocationText);
+        TextView timesText    = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
+        TextView statusText   = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
+
+
+        //Displays the current bus information on the screen
+        locationText.setText(location);
+        timesText.setText(hours);
+        statusText.setText(busStatus);
+
+        return 1;
     }
 
     private View.OnClickListener homeListener = new View.OnClickListener() {
@@ -1049,12 +1058,6 @@ public class MainActivity extends AppCompatActivity {
                     Uri scheduleUri = Uri.parse("http://vpchc.org/files/MSBHC_2016_Jan_May.pdf?");
                     Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
                     startActivity(scheduleIntent);
-                    break;
-                case R.id.buttonTrackerRefresh:
-                    String toastRefreshText = getResources().getString(R.string.toast_tracker_refresh);
-                    Toast.makeText(getApplicationContext(),toastRefreshText,Toast.LENGTH_LONG).show();
-                    updateBusTracker();
-                    busTrackerMain(0);
                     break;
                 case R.id.buttonTrackerCallClose:
                     //Dismisses the dialog when the 'x' is hit

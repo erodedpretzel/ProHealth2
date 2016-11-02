@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/pagerIndicator"/>
+        android:layout_above="@+id/pagerIndicator"
+        android:layout_alignParentTop="true" />
         <RadioGroup
             android:id="@+id/pagerIndicator"
             android:orientation="horizontal"
@@ -54,12 +55,13 @@
                 android:layout_gravity="center">
                 <TextView
                     android:id="@+id/twitterFeed"
-                    android:maxLines="1"
+                    android:singleLine="true"
                     android:ellipsize="marquee"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:scrollHorizontally="true"
+
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

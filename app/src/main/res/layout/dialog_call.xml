@@ -9,6 +9,7 @@
     <LinearLayout
         android:id="@+id/dialogTitleCall"
 
+
         android:layout_width="fill_parent"
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
@@ -33,145 +34,68 @@
             android:textSize="@dimen/dialog_title"
             />
     </LinearLayout>
-    <android.support.v7.widget.GridLayout
-        android:id="@+id/homeGrid"
-
-        grid:columnCount="2"
-        grid:rowCount="5"
-        grid:orientation="horizontal"
-        grid:alignmentMode="alignBounds"
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="vertical"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/dialogTitleCall">
 
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_bloom"
-            android:textSize="@dimen/dialog_content"
-            android:textColor="#000000" />
-
         <ImageView
             android:id="@+id/buttonCallBloom"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_bloom_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_cay"
-            android:textColor="#000000"
-            android:textSize="@dimen/dialog_content"/>
         <ImageView
             android:id="@+id/buttonCallCay"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_cay_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_clint"
-            android:textColor="#000000"
-            android:textSize="@dimen/dialog_content"/>
         <ImageView
             android:id="@+id/buttonCallClint"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_clint_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_craw"
-            android:textColor="#000000"
-            android:textSize="@dimen/dialog_content" />
         <ImageView
             android:id="@+id/buttonCallCraw"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_craw_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_terre"
-            android:textColor="#000000"
-            android:textSize="@dimen/dialog_content" />
         <ImageView
             android:id="@+id/buttonCallTerre"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_terre_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
-        <TextView
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="@string/call_location_msbhc"
-            android:textColor="#000000"
-            android:textSize="@dimen/dialog_content"/>
         <ImageView
             android:id="@+id/buttonCallMSBHC"
-            android:src="@drawable/dial_state_list_drawable"
+            android:src="@drawable/call_msbhc_state_list_drawable"
 
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight=".166667"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
 
-        </android.support.v7.widget.GridLayout>
+    </LinearLayout>
 </RelativeLayout>

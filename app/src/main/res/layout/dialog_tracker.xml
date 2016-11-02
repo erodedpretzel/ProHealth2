@@ -131,31 +131,29 @@
             android:textSize="@dimen/dialog_content"
             android:textColor="#000000"/>
     </LinearLayout>
-        <android.support.v7.widget.GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <LinearLayout
+            android:weightSum="1"
             android:layout_weight="1"
+            android:orientation="vertical"
 
-            grid:columnCount="2"
-            grid:rowCount="2"
-            grid:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/buttonTrackerScheduleDownload"
                 android:src="@drawable/download_button_state_list_drawable"
 
-                grid:layout_columnWeight="1"
-                grid:layout_rowWeight="1"
-                grid:layout_gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight=".75"
 
-                android:layout_width="@dimen/tracker_icons"
-                android:layout_height="@dimen/tracker_icons"/>
+                android:layout_width="@dimen/main_icon_size"
+                android:layout_height="@dimen/main_icon_size"/>
             <TextView
                 android:id="@+id/textView2"
 
-                grid:layout_columnWeight="1"
-                grid:layout_rowWeight="1"
-                grid:layout_gravity="center"
+
+                android:layout_gravity="top|center"
+                android:layout_weight=".25"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,30 +161,6 @@
                 android:text="@string/trackerScheduleDownload"
                 android:textSize="@dimen/dialog_content"
                 android:textColor="#000000"/>
-
-            <ImageView
-                android:id="@+id/buttonTrackerRefresh"
-                android:src="@drawable/update_button_state_list_drawable"
-
-                android:layout_width="@dimen/tracker_icons"
-                android:layout_height="@dimen/tracker_icons"
-
-                grid:layout_columnWeight="1"
-                grid:layout_rowWeight="1"
-                grid:layout_gravity="center"
-
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                grid:layout_columnWeight="1"
-                grid:layout_rowWeight="1"
-                grid:layout_gravity="center"
-
-                android:text="@string/tracker_refresh"
-                android:textSize="@dimen/dialog_content"
-                android:textColor="#000000" />
-        </android.support.v7.widget.GridLayout>
+    </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

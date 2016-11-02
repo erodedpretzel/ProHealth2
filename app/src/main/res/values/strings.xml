@@ -525,10 +525,9 @@
         #TRACKER
     <!***********************************-->
         <!--Text-->
-            <string name="trackerTitleText">Where is the MSBHC?</string>
             <string name="trackerDescription">MSBHC Tracker</string>
             <string name="trackerLocationText">Location:</string>
-            <string name="trackerTimes">Times:</string>
+            <string name="trackerTimes">Hours:</string>
             <string name="trackerStatus">Status:</string>
             <string name="trackerScheduleDownload">Download Schedule</string>
             <string name="tracker_status_open">Open</string>
@@ -538,14 +537,13 @@
             <string name="tracker_status_enroute">En Route</string>
             <string name="tracker_refresh">Refresh Tracker</string>
             <string name="outdated_firstline">Schedule outdated</string>
-            <string name="outdated_secondline">Refresh Tracker</string>
-            <string name="outdated_thirdline" translatable="false">&lt;------</string>
+            <string name="outdated_secondline">Restart App</string>
+            <string name="outdated_thirdline" translatable="false">to update</string>
         <!--Toasts-->
             <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
             <string name="toast_forms_download">Downloading Form…</string>
             <string name="toast_network_error">Error: Please check your network connection</string>
-            <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please hit Refresh Tracker</string>
-            <string name="toast_tracker_refresh">Refreshing MSBHC schedule…</string>
+            <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
 
 
     <!--**********************************!>
