@@ -46,21 +46,15 @@
             style="@style/twitterFeed"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true">
-            <ImageView
-                android:id="@+id/twitterBird"
-                android:src="@drawable/twitter_bird"
-
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="bottom">
+                android:layout_gravity="center">
                 <TextView
                     android:id="@+id/twitterFeed"
-                    android:singleLine="true"
+                    android:maxLines="1"
                     android:ellipsize="marquee"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:focusable="true"

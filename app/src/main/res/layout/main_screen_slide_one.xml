@@ -154,6 +154,26 @@
             android:textSize="@dimen/main_icon_text"
             android:textStyle="bold"/>
         <ImageView
+            android:id="@+id/faqsButton"
+            android:src="@drawable/faq_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
+            android:id="@+id/patresButton"
+            android:src="@drawable/patres_state_list_drawable"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="center"
+
+            android:layout_width="@dimen/main_icon_size"
+            android:layout_height="@dimen/main_icon_size"/>
+        <ImageView
             android:id="@+id/portalButton"
             android:src="@drawable/portal_state_list_drawable"
 
@@ -163,28 +183,34 @@
 
             android:layout_width="@dimen/main_icon_size"
             android:layout_height="@dimen/main_icon_size"/>
-        <ImageView
-            android:id="@+id/facebookButton"
-            android:src="@drawable/facebook_state_list_drawable"
-
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="@dimen/main_icon_size"
-            android:layout_height="@dimen/main_icon_size"/>
-        <ImageView
-            android:id="@+id/websiteButton"
-            android:src="@drawable/website_state_list_drawable"
-
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="center"
-
-            android:layout_width="@dimen/main_icon_size"
-            android:layout_height="@dimen/main_icon_size"/>
         <TextView
-            android:id="@+id/portalButtonText"
+            android:id="@+id/faqButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_faq"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/patresButtonText"
+
+            grid:layout_columnWeight="1"
+            grid:layout_rowWeight="1"
+            grid:layout_gravity="top"
+
+            android:gravity="center"
+
+            android:text="@string/icon_patres"
+            android:textColor='#000000'
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/patportalButtonText"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -193,32 +219,6 @@
             android:gravity="center"
 
             android:text="@string/icon_patient_portal"
-            android:textColor='#000000'
-            android:textSize="@dimen/main_icon_text"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/jobsButtonText"
-
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="top"
-
-            android:gravity="center"
-
-            android:text="@string/icon_facebook"
-            android:textColor='#000000'
-            android:textSize="@dimen/main_icon_text"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/websiteButtonText"
-
-            grid:layout_columnWeight="1"
-            grid:layout_rowWeight="1"
-            grid:layout_gravity="top"
-
-            android:gravity="center"
-
-            android:text="@string/icon_website"
             android:textColor='#000000'
             android:textSize="@dimen/main_icon_text"
             android:textStyle="bold"/>

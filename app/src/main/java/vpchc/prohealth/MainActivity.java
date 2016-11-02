@@ -21,6 +21,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -39,6 +40,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -114,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
         updateBusTracker();
 
         //Checks the handle #ValleyProHealth for latest tweet and setups the feed at the bottom
-        ImageView twitterBird =(ImageView)findViewById(R.id.twitterBird);
-        twitterBird.setOnClickListener(homeListener);
+        //ImageView twitterBird =(ImageView)findViewById(R.id.twitterBird);
+        //twitterBird.setOnClickListener(homeListener);
         twitterFeedSetup();
 
         //Sets up the viewpager used to scroll through the pages on the main screen
@@ -144,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 View facebookImage  = findViewById(R.id.facebookButton);
                 View faqImage       = findViewById(R.id.faqsButton);
                 View patresImage    = findViewById(R.id.patresButton);
+                View twitterImage   = findViewById(R.id.twitterButton);
 
                 callImage.setOnClickListener(homeListener);
                 providersImage.setOnClickListener(homeListener);
@@ -156,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 facebookImage.setOnClickListener(homeListener);
                 faqImage.setOnClickListener(homeListener);
                 patresImage.setOnClickListener(homeListener);
+                twitterImage.setOnClickListener(homeListener);
 
                 //Viewpager indicator
                 RadioGroup rGroup = (RadioGroup)findViewById(R.id.pagerIndicator);
@@ -452,9 +456,11 @@ public class MainActivity extends AppCompatActivity {
                             String initialTweet = getResources().getString(R.string.main_twitter_feed_initial_tweet);
                             final TextView twitterFeed =(TextView)findViewById(R.id.twitterFeed);
                             String[] parseText1 = status.toString().split("text=");
-                            String[] parseText2 = parseText1[1].split("'");
+                            String[] parseText2 = parseText1[1].split("',");
                             String[] parseTextFinal = parseText2[1].split("'");
-                            twitterFeed.setText(parseTextFinal[0] +  "          " + tipsArray[twitterFeedTips()] +  "          " + initialTweet);
+                            Log.d(parseText2[0], "status");
+                            Log.d(parseText2[1], "tweet");
+                            twitterFeed.setText(Html.fromHtml(parseTextFinal[0]).toString() +  "          " + tipsArray[twitterFeedTips()] +  "          " + initialTweet);
                         }
                     });
 
@@ -925,7 +931,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent openPatResIntent = new Intent(MainActivity.this, PatResActivity.class);
                     startActivity(openPatResIntent);
                     break;
-                case R.id.twitterBird:
+                case R.id.twitterButton:
                     //Goes to the handle #ValleyProHealth in the twitter app or in the browser if the app isn't present.
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + "ValleyProHealth")));

@@ -32,5 +32,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:gridlayout-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile files('/home/brwebster/AndroidStudioProjects/ProHealth2/libs/twitter4j-core-4.0.4.jar')
+    compile 'org.twitter4j:twitter4j-core:4.0.4'
 }

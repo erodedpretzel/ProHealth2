@@ -136,7 +136,7 @@
     <!***********************************-->
         <!--Text-->
             <string name="title_feedback">Feedback</string>
-            <string name="menu_feedback">Give Us Feedback</string>
+            <string name="menu_feedback">Feedback</string>
             <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
             <string name="feedback_message">If you would like to leave the developers of this app feedback, please send us a message</string>
             <string name="feedback_subject">Subject:</string>
@@ -285,13 +285,13 @@
             <string name="icon_contact_us">Call</string>
             <string name="icon_locations">Locations</string>
             <string name="icon_forms">Forms</string>
-            <string name="icon_patient_portal" translatable="false">Portal</string>
+            <string name="icon_patient_portal" translatable="false">Patient\nPortal</string>
             <string name="icon_bustracker">MSBHC\nTracker</string>
             <string name="icon_facebook" translatable="false">Facebook</string>
             <string name="icon_services">Services</string>
             <string name="icon_website">Website</string>
             <string name="icon_faq">FAQs</string>
-            <string name="icon_patres">Patient \n Resources</string>
+            <string name="icon_patres">Patient\nResources</string>
         <!--Array-->
             <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
             <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
@@ -554,6 +554,7 @@
         <!--Text-->
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
     <string name="toast_call_perm">Call permissions not enabled</string>
+    <string name="icon_twitter">Twitter</string>
     <!--Array-->
                 <string-array name="twitter_feed_tips">
                     <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
