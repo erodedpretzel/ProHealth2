@@ -21,6 +21,8 @@ import android.widget.Spinner;
 import android.view.View;
 import android.widget.TextView;
 
+import static vpchc.prohealth.R.id.spinnerFormsSelection;
+
 public class ProvidersActivity extends AppCompatActivity {
     String providerTypes[]={};
     String locations[]={};
@@ -31,6 +33,7 @@ public class ProvidersActivity extends AppCompatActivity {
     private int selectionProviderType;
     private int selectionProviderLocation;
     int arraySearchID;
+    private int dentalCheck = 0;
 
     private Spinner spinnerProviderType;
     private Spinner spinnerProviderLocations;
@@ -87,13 +90,11 @@ public class ProvidersActivity extends AppCompatActivity {
                         spinnerProviderType.setVisibility(View.GONE);
                         break;
                     case 1:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange();
                         selectionProviderLocation = 1;
                         break;
                     case 2:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange();
                         selectionProviderLocation = 2;
                         break;
                     case 3:
@@ -134,17 +135,23 @@ public class ProvidersActivity extends AppCompatActivity {
                         break;
                     case 1:
                         selectionProviderType = 0;
-                        arraySearchString = "providers_dental_" + easy_locations[selectionProviderLocation - 1];
-                        arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
-                        providersList = getResources().getStringArray(arraySearchID);
-                        providersPopup(1);
-                        break;
-                    case 2:
-                        selectionProviderType = 1;
                         arraySearchString = "providers_bh_" + easy_locations[selectionProviderLocation - 1];
                         arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
                         providersList = getResources().getStringArray(arraySearchID);
                         providersPopup(1);
+                        spinnerProviderType.setSelection(0);
+                        break;
+                    case 2:
+                        selectionProviderType = 1;
+                        if(dentalCheck == 1){
+                            arraySearchString = "providers_dental_" + easy_locations[selectionProviderLocation - 1];
+                        }else{
+                            arraySearchString = "providers_medical_" + easy_locations[selectionProviderLocation - 1];
+                        }
+                        arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
+                        providersList = getResources().getStringArray(arraySearchID);
+                        providersPopup(1);
+                        spinnerProviderType.setSelection(0);
                         break;
                     case 3:
                         selectionProviderType = 2;
@@ -152,6 +159,7 @@ public class ProvidersActivity extends AppCompatActivity {
                         arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
                         providersList = getResources().getStringArray(arraySearchID);
                         providersPopup(1);
+                        spinnerProviderType.setSelection(0);
                         break;
                 }
             }
@@ -165,15 +173,33 @@ public class ProvidersActivity extends AppCompatActivity {
 
     }
 
+    private void providerTypeChange(){
+    /*
+	    Arguments:   None
+	    Description: Changes the provider type listing if a site with dental is chosen.
+	    Returns:     Nothing
+    */
+
+        dentalCheck = 1;
+
+        providerTypes = getResources().getStringArray(R.array.provider_types2);
+        spinnerProviderType = (Spinner) findViewById(R.id.spinnerProviderType);
+        final ArrayAdapter<String> adapterProviderType = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.fancy_spinner_item, providerTypes);
+        adapterProviderType.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
+        spinnerProviderType.setAdapter(adapterProviderType);
+        spinnerProviderType.setVisibility(View.VISIBLE);
+        spinnerProviderType.setSelection(0);
+    }
+
     private boolean providersPopup(int choice){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with bh or medical providers listed.
-	    Returns:    true
+	    Returns:     true
     */
-        if(choice == 0) {
+        if(choice == 0){
             providersDialog.dismiss();
-            spinnerProviderType.setSelection(0);
             return true;
         }else{
             //This cond. statement is to make the styling of the dialog look more modern on devices
@@ -186,7 +212,6 @@ public class ProvidersActivity extends AppCompatActivity {
             providersDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             providersDialog.setContentView(R.layout.dialog_providers);
             providersDialog.show();
-            providersDialog.setCancelable(false);
             providersDialog.setCanceledOnTouchOutside(false);
         }
 
@@ -216,7 +241,6 @@ public class ProvidersActivity extends AppCompatActivity {
                 params.setMargins(0, 50, 0, 0);
                 providerToAdd.setLayoutParams(params);
             }
-
         }
 
         return true;

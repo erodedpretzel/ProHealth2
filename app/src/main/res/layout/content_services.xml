@@ -16,20 +16,37 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/title_bar">
 
-    <Spinner
-        android:id="@+id/spinnerServicesLocations"
-        style="@style/fancySpinnerDropDown"
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="1"
 
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spinner_height"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-    <Spinner
-        android:id="@+id/spinnerServicesCategories"
-        style="@style/fancySpinnerDropDown"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinnerServicesLocations"
+                style="@style/fancySpinnerDropDown"
 
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spinner_height"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+                android:layout_gravity="center"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinnerServicesCategories"
+                style="@style/fancySpinnerDropDown"
+
+                android:layout_gravity="center"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

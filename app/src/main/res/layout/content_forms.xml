@@ -16,29 +16,55 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/title_bar">
 
-    <Spinner
-        android:id="@+id/spinnerFormsLocations"
-        style="@style/fancySpinnerDropDown"
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="1"
 
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spinner_height"
-        android:layout_marginBottom="50dp"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight=".33333"
 
-    <Spinner
-        android:id="@+id/spinnerFormsCategories"
-        style="@style/fancySpinnerDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spinner_height"
-        android:layout_below="@+id/spinnerFormsLocations"
-        android:layout_marginBottom="50dp"/>
+            <Spinner
+                android:id="@+id/spinnerFormsLocations"
+                style="@style/fancySpinnerDropDown"
 
-    <Spinner
-        android:id="@+id/spinnerFormsSelection"
-        style="@style/fancySpinnerDropDown"
+                android:layout_gravity="center"
 
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spinner_height"
-        android:layout_below="@+id/spinnerFormsCategories"/>
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight=".33333"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinnerFormsCategories"
+                style="@style/fancySpinnerDropDown"
+
+                android:layout_gravity="center"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight=".33333"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinnerFormsSelection"
+                style="@style/fancySpinnerDropDown"
+
+                android:layout_gravity="center"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

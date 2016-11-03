@@ -23,7 +23,7 @@
     <dimen name="dialog_content">18sp</dimen>
 
     <dimen name="call_button_height">75dp</dimen>
-    <dimen name="call_button_width">125dp</dimen>
+    <dimen name="call_button_width">155dp</dimen>
 
     <dimen name="content_spacing_top_margin">16dp</dimen>
 

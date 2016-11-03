@@ -30,6 +30,7 @@
             android:textSize="@dimen/dialog_title"/>
     </LinearLayout>
     <ScrollView
+        android:id="@+id/optionsScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/optionsSave"
@@ -125,8 +126,7 @@
             android:id="@+id/optionsRadioGroupLang"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_height="wrap_content">
             <RadioButton
                 android:id="@+id/optionsRadioButtonLangEn"
 

@@ -14,7 +14,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,8 +25,7 @@ public class LocationsActivity extends AppCompatActivity {
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
 
-    Dialog locationsClinicHoursDialog;
-    Dialog locationsContactInfoDialog;
+    Dialog locationsClinicInfoDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,12 +126,10 @@ public class LocationsActivity extends AppCompatActivity {
                     case 0:
                         break;
                     case 1:
-                        locationsClinicHoursPopup(1);
+                        locationsClinicInfoPopup(1);
+                        spinnerLocationsOptions.setSelection(0);
                         break;
                     case 2:
-                        locationsContactInfoPopup(1);
-                        break;
-                    case 3:
                         //Opens the Google Maps app with the locations address already entered in
                         if(selectionLocation == 1){
                             locationCoordinates[0] = "201 W. Academy St., Bloomingdale,IN 47832";
@@ -150,6 +146,7 @@ public class LocationsActivity extends AppCompatActivity {
                         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                         mapIntent.setPackage("com.google.android.apps.maps");
                         startActivity(mapIntent);
+                        spinnerLocationsOptions.setSelection(0);
                         break;
                 }
             }
@@ -161,7 +158,7 @@ public class LocationsActivity extends AppCompatActivity {
         });
     }
 
-    private boolean locationsClinicHoursPopup(int choice){
+    private boolean locationsClinicInfoPopup(int choice){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with the chosen location's clinic hours listed.
@@ -171,96 +168,34 @@ public class LocationsActivity extends AppCompatActivity {
         int replaceTextId;
         String replaceTextString;
         if(choice == 0) {
-            locationsClinicHoursDialog.dismiss();
-            spinnerLocationsOptions.setSelection(0);
+            locationsClinicInfoDialog.dismiss();
             return true;
         }else{
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                locationsClinicHoursDialog = new Dialog(LocationsActivity.this);
+                locationsClinicInfoDialog = new Dialog(LocationsActivity.this);
             }else{
-                locationsClinicHoursDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
+                locationsClinicInfoDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
             }
-            locationsClinicHoursDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            locationsClinicHoursDialog.setContentView(R.layout.dialog_locations_clinichours);
-            locationsClinicHoursDialog.show();
-            locationsClinicHoursDialog.setCancelable(false);
-            locationsClinicHoursDialog.setCanceledOnTouchOutside(false);
+            locationsClinicInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            if(selectionLocation == 3){//Clinton Location
+                locationsClinicInfoDialog.setContentView(R.layout.dialog_locations_clinicinfo2);
+            }else{//All other locations
+                locationsClinicInfoDialog.setContentView(R.layout.dialog_locations_clinicinfo1);
+            }
+            locationsClinicInfoDialog.show();
+            locationsClinicInfoDialog.setCanceledOnTouchOutside(false);
         }
 
         //Dialog close listener
-        View buttonDialogClose = locationsClinicHoursDialog.findViewById(R.id.buttonLocationsClinicHoursClose);
+        View buttonDialogClose = locationsClinicInfoDialog.findViewById(R.id.buttonLocationsClinicInfoClose);
         buttonDialogClose.setOnClickListener(locationsListener);
 
         //Sets location title
-        TextView locationsTitle = (TextView) locationsClinicHoursDialog.findViewById(R.id.locationsClinicHoursLocationText);
-        locationsTitle.setText(locations[selectionLocation]);
-
-        //Populate list of clinic hours depending on location chosen
-        for(i = 2;i <= 10;i += 2){
-            replaceTextString = "locationsClinicHoursText" + i;
-            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-            TextView tempText = (TextView) locationsClinicHoursDialog.findViewById(replaceTextId);
-            if(selectionLocation!=3 & selectionLocation!=5){
-                tempText.setText("8:00 a.m. - 5:00 p.m.");
-            }else if(selectionLocation == 3) {
-                if(i==10){
-                    tempText.setText("8:00 a.m. - 5:00 p.m.");
-                }else{
-                    tempText.setText("8:00 a.m. - 8:00 p.m.");
-                }
-            }else if(selectionLocation == 5) {
-                if (i == 8) {
-                    tempText.setText("8:30 a.m. - 5:00 p.m.");
-                } else if (i == 10) {
-                    tempText.setText("8:00 a.m. - 4:30 p.m.");
-                } else {
-                    tempText.setText("8:00 a.m. - 5:00 p.m.");
-                }
-            }
-        }
-        return true;
-    }
-
-    private boolean locationsContactInfoPopup(int choice) {
-    /*
-	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
-	    Description: Displays or dismisses a dialog with the chosen location's contact info listed.
-	    Returns:     true
-    */
-        int i;
-        int contactInfoIndex;
-        int count=0;
-        int replaceTextId;
-        String replaceTextString;
-        String locationsContactInfo[]={};
-
-        if(choice == 0){
-            locationsContactInfoDialog.dismiss();
-            spinnerLocationsOptions.setSelection(0);
-            return true;
-        }else{
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                locationsContactInfoDialog = new Dialog(LocationsActivity.this);
-            }else{
-                locationsContactInfoDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            locationsContactInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            locationsContactInfoDialog.setContentView(R.layout.dialog_locations_contactinfo);
-            locationsContactInfoDialog.show();
-            locationsContactInfoDialog.setCancelable(false);
-            locationsContactInfoDialog.setCanceledOnTouchOutside(false);
-        }
-
-        //Dialog close listener
-        View buttonDialogClose = locationsContactInfoDialog.findViewById(R.id.buttonLocationsContactInfoClose);
-        buttonDialogClose.setOnClickListener(locationsListener);
-
-        //Sets location title
-        TextView locationsTitle = (TextView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoLocationText);
+        TextView locationsTitle = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoLocationText);
         locationsTitle.setText(locations[selectionLocation]);
 
         //Sets location picture displayed
-        ImageView locationsPic = (ImageView) locationsContactInfoDialog.findViewById(R.id.locationsContactInfoPic);
+        ImageView locationsPic = (ImageView) locationsClinicInfoDialog.findViewById(R.id.locationsPic);
         if(selectionLocation == 1){
             locationsPic.setImageResource(R.drawable.bloomingdale_location);
         }else if(selectionLocation == 2){
@@ -273,16 +208,24 @@ public class LocationsActivity extends AppCompatActivity {
             locationsPic.setImageResource(R.drawable.terrehaute_location);
         }
 
-        //Populate list of contact info depending on location chosen
-        locationsContactInfo = getResources().getStringArray(R.array.locations_contact_info);
-        contactInfoIndex = (selectionLocation - 1) * 4;
-        for(i = 2;i <= 7;i++){
-            replaceTextString = "locationsContactInfoText" + i;
-            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-            TextView tempText = (TextView) locationsContactInfoDialog.findViewById(replaceTextId);
-            tempText.setText(locationsContactInfo[contactInfoIndex + count++]);
-            if(i > 2){
-                i++;
+        //Don't run this for clinton location which already has hours populated
+        if(selectionLocation != 3) {
+            //Populate list of clinic hours depending on location chosen
+            for (i = 2; i <= 10; i += 2) {
+                replaceTextString = "locationsClinicInfoText" + i;
+                replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
+                TextView tempText = (TextView) locationsClinicInfoDialog.findViewById(replaceTextId);
+                if (selectionLocation != 3 & selectionLocation != 5) {
+                    tempText.setText("8:00 a.m. - 5:00 p.m.");
+                }else {
+                    if (i == 8) {
+                        tempText.setText("8:30 a.m. - 5:00 p.m.");
+                    } else if (i == 10) {
+                        tempText.setText("8:00 a.m. - 4:30 p.m.");
+                    } else {
+                        tempText.setText("8:00 a.m. - 5:00 p.m.");
+                    }
+                }
             }
         }
         return true;
@@ -295,11 +238,8 @@ public class LocationsActivity extends AppCompatActivity {
                     finish();
                     v.setSelected(true);
                     break;
-                case R.id.buttonLocationsClinicHoursClose:
-                    locationsClinicHoursPopup(0);
-                    break;
-                case R.id.buttonLocationsContactInfoClose:
-                    locationsContactInfoPopup(0);
+                case R.id.buttonLocationsClinicInfoClose:
+                    locationsClinicInfoPopup(0);
                     break;
                 default:
                     break;

@@ -362,8 +362,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     //Stores day when update is ran to compare against current date for outdated
-                    //schedule
+                    //schedule and stores date to be displayed so that the user can understand the outdated
+                    //schedule better.
                     getCurrDay(1);
+                    getCurrDate(1);
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -392,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = connMgr.getActiveNetworkInfo();
-        return (activeNetwork != null) ? true : false;
+        return activeNetwork != null;
     }
 
     private int getCurrDay(int choice){
@@ -413,6 +415,30 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
         return dayOfYear;
+    }
+
+    private String getCurrDate(int choice){
+    /*
+	    Arguments:   Choice(0 - load preference, 1 - set preference)
+	    Description: Gets  current date formats it in xx/xx/20xx
+	    Returns:     todaysDate - The current date
+    */
+        String todaysDate = "";
+        if(choice == 1){
+            Calendar currDate       = Calendar.getInstance();
+            String todaysYear       = Integer.toString(currDate.get(Calendar.YEAR));
+            String todaysMonth      = Integer.toString(currDate.get(Calendar.MONTH) + 1);
+            String todaysDay        = Integer.toString(currDate.get(Calendar.DATE));
+            todaysDate       = todaysMonth + "/" + todaysDay + "/" + todaysYear;
+            currDay = getSharedPreferences("currDate", MODE_PRIVATE);
+            editor = currDay.edit();
+            editor.putString("currDate", todaysDate);
+            editor.apply();
+        }else{
+            SharedPreferences dateOfDay = getSharedPreferences("currDate", MODE_PRIVATE);
+            todaysDate = dateOfDay.getString("currDate", " ");
+        }
+        return todaysDate;
     }
 
 
@@ -504,7 +530,6 @@ public class MainActivity extends AppCompatActivity {
             optionsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             optionsDialog.setContentView(R.layout.dialog_options);
             optionsDialog.show();
-            optionsDialog.setCancelable(false);
             optionsDialog.setCanceledOnTouchOutside(false);
         }
 
@@ -687,7 +712,6 @@ public class MainActivity extends AppCompatActivity {
             trackerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             trackerDialog.setContentView(R.layout.dialog_tracker);
             trackerDialog.show();
-            trackerDialog.setCancelable(false);
             trackerDialog.setCanceledOnTouchOutside(false);
         }
 
@@ -697,12 +721,8 @@ public class MainActivity extends AppCompatActivity {
         View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
         buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
 
-        //Gets current date and displays it in xx/xx/20xx form
-        Calendar currDate       = Calendar.getInstance();
-        String todaysYear       = Integer.toString(currDate.get(Calendar.YEAR));
-        String todaysMonth      = Integer.toString(currDate.get(Calendar.MONTH) + 1);
-        String todaysDay        = Integer.toString(currDate.get(Calendar.DATE));
-        String todaysDate       = todaysMonth + "/" + todaysDay + "/" + todaysYear;
+        String todaysDate = getCurrDate(0);
+
         TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
         todaysDateText.setText(todaysDate);
 
@@ -712,10 +732,15 @@ public class MainActivity extends AppCompatActivity {
         busCheckStatus = busLocationCheck(locationsArray);
 
         //Sets the bus information displayed on the screen.
-        busInfoSet(busCheckStatus, locationsArray);
+        busInfoDisplay(busCheckStatus, locationsArray);
     }
 
     private int busLocationCheck(String[] locationsArray){
+    /*
+	    Arguments:   locationsArray - Bus information
+	    Description: Checks each location of the bus unless a condition is met.
+	    Returns:     r - status of the bus
+    */
         int i = 0;
         int r;
         String[] parseText;
@@ -787,48 +812,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean callPopup(int choice){
+    private int busInfoDisplay(Integer status, String[] locationsArray){
     /*
-	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog
-	    Description: Either creates a callDialog or dismisses it
-	    Returns:     true
+	    Arguments:   Status - Status of the bus, locationsArray - Bus information
+	    Description: Displays the bus information on the screen.
+	    Returns:     True
     */
-        if(choice == 0) {
-            callDialog.dismiss();
-            return true;
-        }else{
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                callDialog = new Dialog(MainActivity.this);
-            }else{
-                callDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            callDialog.setContentView(R.layout.dialog_call);
-            callDialog.show();
-            callDialog.setCancelable(false);
-            callDialog.setCanceledOnTouchOutside(false);
-        }
-
-        //Listeners for the call dialog buttons
-        View buttonCallCloseImage = callDialog.findViewById(R.id.buttonCallClose);
-        View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
-        View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
-        View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
-        View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
-        View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
-        View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
-        buttonCallCloseImage.setOnClickListener(callListener);
-        buttonCallBloomImage.setOnClickListener(callListener);
-        buttonCallCayImage.setOnClickListener(callListener);
-        buttonCallClintImage.setOnClickListener(callListener);
-        buttonCallCrawImage.setOnClickListener(callListener);
-        buttonCallTerreImage.setOnClickListener(callListener);
-        buttonCallMSBHCImage.setOnClickListener(callListener);
-
-        return true;
-    }
-
-    private int busInfoSet(Integer status, String[] locationsArray){
         String busStatus;
         String location;
         String hours;
@@ -837,7 +826,7 @@ public class MainActivity extends AppCompatActivity {
         int busDay = currDay.getInt("currDay", -1);
         if(busDay < getCurrDay(0)){
             //This condition is a check if the current schedule the user has is outdated.
-            //If so it lets the user know so that they can refresh the tracker.
+            //If so it lets the user know.
             String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
             Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
             String outdatedText1 = getResources().getString(R.string.outdated_firstline);
@@ -874,6 +863,46 @@ public class MainActivity extends AppCompatActivity {
         statusText.setText(busStatus);
 
         return 1;
+    }
+
+    private boolean callPopup(int choice){
+    /*
+	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog
+	    Description: Either creates a callDialog or dismisses it
+	    Returns:     true
+    */
+        if(choice == 0) {
+            callDialog.dismiss();
+            return true;
+        }else{
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                callDialog = new Dialog(MainActivity.this);
+            }else{
+                callDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
+            }
+            callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            callDialog.setContentView(R.layout.dialog_call);
+            callDialog.show();
+            callDialog.setCanceledOnTouchOutside(false);
+        }
+
+        //Listeners for the call dialog buttons
+        View buttonCallCloseImage = callDialog.findViewById(R.id.buttonCallClose);
+        View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
+        View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
+        View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
+        View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
+        View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
+        View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
+        buttonCallCloseImage.setOnClickListener(callListener);
+        buttonCallBloomImage.setOnClickListener(callListener);
+        buttonCallCayImage.setOnClickListener(callListener);
+        buttonCallClintImage.setOnClickListener(callListener);
+        buttonCallCrawImage.setOnClickListener(callListener);
+        buttonCallTerreImage.setOnClickListener(callListener);
+        buttonCallMSBHCImage.setOnClickListener(callListener);
+
+        return true;
     }
 
     private View.OnClickListener homeListener = new View.OnClickListener() {

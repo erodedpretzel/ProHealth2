@@ -138,7 +138,7 @@
             <string name="title_feedback">Feedback</string>
             <string name="menu_feedback">Feedback</string>
             <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
-            <string name="feedback_message">If you would like to leave the developers of this app feedback, please send us a message</string>
+            <string name="feedback_message">If you would us feedback, please send a message</string>
             <string name="feedback_subject">Subject:</string>
             <string name="feedback_hint_subject">Subject:</string>
             <string name="feedback_hint_message">Message:</string>
@@ -239,7 +239,7 @@
             <string name="location_hours_wednesday">Wednesday:</string>
             <string name="location_hours_thursday">Thursday:</string>
             <string name="location_hours_friday">Friday:</string>
-            <string name="locations_clinchours_dialog_title">Clinic Hours</string>
+            <string name="locations_clinchours_dialog_title">Clinic Info</string>
             <string name="locations_contactinfo_fax" translatable="false">Fax:</string>
             <string name="locations_contactinfo_phone">Phone:</string>
             <string name="locations_contactinfo_address">Address:</string>
@@ -271,8 +271,7 @@
 
             <string-array name="locations_options">
                 <item>Select an option</item>
-                <item>Clinic Hours</item>
-                <item>Contact Info</item>
+                <item>Clinic Info</item>
                 <item>Get Directions</item>
             </string-array>
 
@@ -357,8 +356,13 @@
         <!--Arrays-->
             <string-array name="provider_types">
                 <item>Select a type of Provider</item>
-                <item>Dental</item>
                 <item>Behavioral Health</item>
+                <item>Medical</item>
+            </string-array>
+            <string-array name="provider_types2">
+                <item>Select a type of Provider</item>
+                <item>Behavioral Health</item>
+                <item>Dental</item>
                 <item>Medical</item>
             </string-array>
 
@@ -453,7 +457,7 @@
             <string name="title_services">Services</string>
         <!--Arrays-->
             <string-array name="services_categories">
-                <item>Select a services category</item>
+                <item>Select a category</item>
                 <item>Behavioral Health</item>
                 <item>Dental</item>
                 <item>Patient Support</item>
@@ -551,15 +555,17 @@
     <!***********************************-->
         <!--Text-->
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
-    <string name="toast_call_perm">Call permissions not enabled</string>
-    <string name="icon_twitter">Twitter</string>
-    <!--Array-->
-                <string-array name="twitter_feed_tips">
-                    <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
-                    <item>If you are not able to make an appointment, please call to let us know.</item>
-                    <item>Refills can take up to 48 business hours to refill.</item>
-                    <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
-                </string-array>
+            <string name="toast_call_perm">Call permissions not enabled</string>
+            <string name="icon_twitter">Twitter</string>
+            <string name="location_afterhours">After-Hours Clinic:</string>
+            <string name="location_hours_saturday">Saturday:</string>
+        <!--Array-->
+            <string-array name="twitter_feed_tips">
+                <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
+                <item>If you are not able to make an appointment, please call to let us know.</item>
+                <item>Refills can take up to 48 business hours to refill.</item>
+                <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
+            </string-array>
 
 
     <!--**********************************!>

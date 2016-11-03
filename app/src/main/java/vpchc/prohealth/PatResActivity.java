@@ -58,16 +58,19 @@ public class PatResActivity extends AppCompatActivity {
                         selectionCategory = 0;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_diabetes);
                         patresPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                     case 2:
                         selectionCategory = 1;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_prescription);
                         patresPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                     case 3:
                         selectionCategory = 2;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_scale);
                         patresPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                 }
             }
@@ -88,7 +91,6 @@ public class PatResActivity extends AppCompatActivity {
     */
         if(choice == 0) {
             patresDialog.dismiss();
-            spinnerCategories.setSelection(0);
             return true;
         }else{
             //This cond. statement is to make the styling of the dialog look more modern on devices
@@ -101,7 +103,6 @@ public class PatResActivity extends AppCompatActivity {
             patresDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             patresDialog.setContentView(R.layout.dialog_patres);
             patresDialog.show();
-            patresDialog.setCancelable(false);
             patresDialog.setCanceledOnTouchOutside(false);
         }
         //Sets title

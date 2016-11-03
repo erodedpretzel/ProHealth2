@@ -62,24 +62,28 @@ public class FAQsActivity extends AppCompatActivity {
                         categoryQuestions = getResources().getStringArray(R.array.faqs_bill_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_bill_answers);
                         faqsPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                     case 2:
                         selectionCategory = 1;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_misc_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_misc_answers);
                         faqsPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                     case 3:
                         selectionCategory = 2;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_newpat_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_newpat_answers);
                         faqsPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                     case 4:
                         selectionCategory = 3;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_services_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_services_answers);
                         faqsPopup(1);
+                        spinnerCategories.setSelection(0);
                         break;
                 }
             }
@@ -101,7 +105,6 @@ public class FAQsActivity extends AppCompatActivity {
     */
         if(choice == 0) {
             faqsDialog.dismiss();
-            spinnerCategories.setSelection(0);
             return true;
         }else{
             //This cond. statement is to make the styling of the dialog look more modern on devices
@@ -114,7 +117,6 @@ public class FAQsActivity extends AppCompatActivity {
             faqsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             faqsDialog.setContentView(R.layout.dialog_faqs);
             faqsDialog.show();
-            faqsDialog.setCancelable(false);
             faqsDialog.setCanceledOnTouchOutside(false);
         }
         //Dialog Close Button Listener

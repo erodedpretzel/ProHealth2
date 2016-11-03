@@ -135,16 +135,19 @@ public class ServicesActivity extends AppCompatActivity {
                         selectionServicesCategory = 1;
                         availableServices = getResources().getStringArray(R.array.BehavioralHealth);
                         servicesPopup(1);
+                        spinnerServicesCategories.setSelection(0);
                         break;
                     case 2:
                         selectionServicesCategory = 2;
                         availableServices = getResources().getStringArray(R.array.Dental);
                         servicesPopup(1);
+                        spinnerServicesCategories.setSelection(0);
                         break;
                     case 3:
                         selectionServicesCategory = 3;
                         availableServices = getResources().getStringArray(R.array.PatientSupport);
                         servicesPopup(1);
+                        spinnerServicesCategories.setSelection(0);
                         break;
                     case 4:
                         selectionServicesCategory = 4;
@@ -154,6 +157,7 @@ public class ServicesActivity extends AppCompatActivity {
                             availableServices = getResources().getStringArray(R.array.PrimaryCare1);
                         }
                         servicesPopup(1);
+                        spinnerServicesCategories.setSelection(0);
                         break;
                 }
             }
@@ -175,7 +179,6 @@ public class ServicesActivity extends AppCompatActivity {
     */
         if(choice == 0) {
             servicesDialog.dismiss();
-            spinnerServicesCategories.setSelection(0);
             return true;
         }else{
             //This cond. statement is to make the styling of the dialog look more modern on devices
@@ -188,7 +191,6 @@ public class ServicesActivity extends AppCompatActivity {
             servicesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             servicesDialog.setContentView(R.layout.dialog_services);
             servicesDialog.show();
-            servicesDialog.setCancelable(false);
             servicesDialog.setCanceledOnTouchOutside(false);
         }
 
@@ -211,7 +213,6 @@ public class ServicesActivity extends AppCompatActivity {
             serviceToAdd.setText(availableServices[i]);
             serviceToAdd.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.dialog_content));
             serviceToAdd.setTextColor(Color.parseColor("#000000"));
-            serviceToAdd.setGravity(Gravity.CENTER);
             servicesContent.addView(serviceToAdd);
             if(i != 0){
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)serviceToAdd.getLayoutParams();
