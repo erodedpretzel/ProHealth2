@@ -1,4 +1,6 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
+
+import org.vpchc.valleyprohealth.R;
 
 import android.app.Dialog;
 import android.content.Intent;

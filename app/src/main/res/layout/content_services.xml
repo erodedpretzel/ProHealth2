@@ -4,7 +4,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="vpchc.prohealth.ServicesActivity"
+    tools:context="vpchc.valleyprohealth.ServicesActivity"
     tools:showIn="@layout/activity_services"
 
     xmlns:android="http://schemas.android.com/apk/res/android"

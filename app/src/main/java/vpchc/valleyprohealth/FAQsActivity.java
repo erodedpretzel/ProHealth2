@@ -1,4 +1,4 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.vpchc.valleyprohealth.R;
 
 public class FAQsActivity extends AppCompatActivity {
     String categories[]={};

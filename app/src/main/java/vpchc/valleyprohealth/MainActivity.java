@@ -1,8 +1,10 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -13,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -21,9 +24,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +32,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.content.Intent;
 import android.app.Dialog;
 import android.widget.RadioButton;
@@ -39,8 +39,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.vpchc.valleyprohealth.R;
 
-import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -51,8 +51,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -694,10 +692,9 @@ public class MainActivity extends AppCompatActivity {
             trackerDialog.dismiss();
             return;
         }else{
-            //Below if statement will only run if there is no network & there is no stored shared
-            //bus preferences.
+            //Below if statement there is no stored bus preferences.
             locations = getSharedPreferences("locations_0", MODE_PRIVATE);
-            if(!isConnected() & !(locations.contains("DEFAULT"))){
+            if(!(locations.contains("DEFAULT"))){
                 String toastNetworkText = getResources().getString(R.string.toast_network_error);
                 Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
                 return;
@@ -884,6 +881,16 @@ public class MainActivity extends AppCompatActivity {
             callDialog.setContentView(R.layout.dialog_call);
             callDialog.show();
             callDialog.setCanceledOnTouchOutside(false);
+        }
+
+        // Check call permissions and ask user to grant them
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        0);
         }
 
         //Listeners for the call dialog buttons

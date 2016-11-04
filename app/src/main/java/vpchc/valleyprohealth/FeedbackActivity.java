@@ -1,19 +1,18 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.vpchc.valleyprohealth.R;
 
 public class FeedbackActivity extends AppCompatActivity {
     Dialog feedbackMessageDialog;
@@ -54,10 +53,13 @@ public class FeedbackActivity extends AppCompatActivity {
                 case R.id.feedbackRateButton:
                     String toastRate = getResources().getString(R.string.toast_feedback_rate);
                     Toast.makeText(getApplicationContext(), toastRate, Toast.LENGTH_SHORT).show();
-                    String appstoreUrl = "https://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName();
-                    Intent appstoreUrlLink = new Intent(Intent.ACTION_VIEW);
-                    appstoreUrlLink.setData(Uri.parse(appstoreUrl));
-                    startActivity(appstoreUrlLink);
+                    //Opens valleyprohealth play store page if playstore is installed or playstore website if not.
+                    final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    }
                     break;
                 case R.id.feedbackMessageButton:
                     //This will create an email intent and attempt to open it in an email client if available.

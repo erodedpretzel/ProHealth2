@@ -1,4 +1,6 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
+
+import org.vpchc.valleyprohealth.R;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
@@ -20,8 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.TextView;
-
-import static vpchc.prohealth.R.id.spinnerFormsSelection;
 
 public class ProvidersActivity extends AppCompatActivity {
     String providerTypes[]={};

@@ -1,4 +1,4 @@
-package vpchc.prohealth;
+package vpchc.valleyprohealth;
 
 import org.junit.Test;
 
