@@ -38,7 +38,7 @@
 
                     android:text="@string/title_main"
                     android:textSize="@dimen/title_main"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>

@@ -14,7 +14,7 @@
             android:allowBackup="true"
             android:configChanges="locale|orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar.Main" />
         <activity
             android:name="vpchc.valleyprohealth.ProvidersActivity"
             android:noHistory="true"
