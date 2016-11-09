@@ -56,13 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:background="@color/white"
+
         android:layout_below="@+id/locationsClinicInfoBar"/>
     <ScrollView
         android:requiresFadingEdge="vertical"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/locationsPic">
+        android:layout_below="@+id/locationsPic"
+
+        android:background="@color/white">
         <LinearLayout
             android:orientation="vertical"
 

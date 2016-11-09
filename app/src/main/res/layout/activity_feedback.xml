@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="vpchc.valleyprohealth.FeedbackActivity"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:fitsSystemWindows="true">
 
     <android.support.v7.widget.Toolbar
@@ -45,6 +46,54 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <include layout="@layout/content_feedback" />
+    <android.support.v7.widget.GridLayout
+        app:columnCount="1"
+        app:rowCount="4"
+        app:orientation="vertical"
 
-</android.support.design.widget.CoordinatorLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            app:layout_rowWeight=".5"
+            app:layout_gravity="center"
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+
+            android:text="@string/feedback_playstore"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/feedbackRateButton"
+            android:src="@drawable/rate_state_list_drawable"
+
+            app:layout_gravity="center"
+            app:layout_rowWeight=".5"
+
+            android:layout_height="@dimen/main_icon_size"
+            android:layout_width="@dimen/main_icon_size"/>
+        <TextView
+            app:layout_rowWeight=".5"
+            app:layout_gravity="center"
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+
+            android:text="@string/feedback_message"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/feedbackMessageButton"
+            android:src="@drawable/message_state_list_drawable"
+
+            app:layout_gravity="center"
+            app:layout_rowWeight=".5"
+
+            android:layout_height="@dimen/main_icon_size"
+            android:layout_width="@dimen/main_icon_size"/>
+    </android.support.v7.widget.GridLayout>
+
+</LinearLayout>

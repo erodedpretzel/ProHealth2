@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="vpchc.valleyprohealth.MainActivity"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:fitsSystemWindows="true">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarMain"
 
@@ -19,15 +18,15 @@
 
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-                    <ImageView
-                        android:src="@drawable/main_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+                <ImageView
+                    android:src="@drawable/main_logo"
 
-                        android:layout_height="@dimen/title_bar_icon_main_height"
-                        android:layout_width="@dimen/title_bar_icon_main_width"
-                        android:layout_gravity="center"/>
+                    android:layout_height="@dimen/title_bar_icon_main_height"
+                    android:layout_width="@dimen/title_bar_icon_main_width"
+                    android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/mainTitleText"
 
@@ -38,11 +37,80 @@
 
                     android:text="@string/title_main"
                     android:textSize="@dimen/title_main"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black"/>
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
-    <include layout="@layout/content_main"/>
+        <LinearLayout
+            android:id="@+id/mainBlueBar"
+            android:orientation="horizontal"
 
-</android.support.design.widget.CoordinatorLayout>
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_blue_bar"
+
+            android:background="@color/colorPrimary">
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/mainPager"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/pagerIndicator"/>
+            <RadioGroup
+                android:id="@+id/pagerIndicator"
+                android:orientation="horizontal"
+
+                android:gravity="center"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/twitterBox">
+                <RadioButton
+                    android:id="@+id/homeRadioButton"
+                    android:checked="true"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/homeRadioButton2"
+                    android:checked="false"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+            <LinearLayout
+                android:id="@+id/twitterBox"
+                style="@style/twitterFeed"
+
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/twitterFeed"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:scrollHorizontally="true"
+
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+
+                        android:text="@string/main_twitter_feed_initial_tweet"
+                        android:textColor="#70B244"
+                        android:textSize="18sp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+</LinearLayout>

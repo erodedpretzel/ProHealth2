@@ -5,7 +5,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
@@ -85,8 +86,8 @@
             android:textSize="@dimen/main_icon_text"
             android:textStyle="bold"/>
         <ImageView
-            android:id="@+id/formsButton2"
-            android:src="@drawable/blank_space_icon"
+            android:id="@+id/memoryButton"
+            android:src="@drawable/memory_state_list_drawable"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -95,8 +96,8 @@
             android:layout_width="@dimen/main_icon_size"
             android:layout_height="@dimen/main_icon_size"/>
         <ImageView
-            android:id="@+id/servicesButton2"
-            android:src="@drawable/blank_space_icon"
+            android:id="@+id/residencyButton"
+            android:src="@drawable/residency_state_list_drawable"
 
             android:layout_width="@dimen/main_icon_size"
             android:layout_height="@dimen/main_icon_size"
@@ -115,7 +116,7 @@
             grid:layout_rowWeight="1"
             grid:layout_gravity="center"/>
         <TextView
-            android:id="@+id/blankSpaceText2"
+            android:id="@+id/memoryButtonText"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -123,11 +124,12 @@
 
             android:gravity="center"
 
-            android:text=" "
+            android:text="@string/icon_memory"
             android:textColor='#000000'
-            android:textSize="@dimen/main_icon_text"/>
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
         <TextView
-            android:id="@+id/blankSpaceText3"
+            android:id="@+id/residencyButtonText"
 
             grid:layout_columnWeight="1"
             grid:layout_rowWeight="1"
@@ -135,9 +137,10 @@
 
             android:gravity="center"
 
-            android:text=" "
+            android:text="@string/icon_residency"
             android:textColor='#000000'
-            android:textSize="@dimen/main_icon_text"/>
+            android:textSize="@dimen/main_icon_text"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/blankSpaceText4"
 

@@ -145,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                 View faqImage       = findViewById(R.id.faqsButton);
                 View patresImage    = findViewById(R.id.patresButton);
                 View twitterImage   = findViewById(R.id.twitterButton);
+                View memoryImage    = findViewById(R.id.memoryButton);
+                View residencyImage = findViewById(R.id.residencyButton);
 
                 callImage.setOnClickListener(homeListener);
                 providersImage.setOnClickListener(homeListener);
@@ -158,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 faqImage.setOnClickListener(homeListener);
                 patresImage.setOnClickListener(homeListener);
                 twitterImage.setOnClickListener(homeListener);
+                memoryImage.setOnClickListener(homeListener);
+                residencyImage.setOnClickListener(homeListener);
 
                 //Viewpager indicator
                 RadioGroup rGroup = (RadioGroup)findViewById(R.id.pagerIndicator);
@@ -985,6 +989,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                     toastText = getResources().getString(R.string.toast_twitter_open);
                     Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.memoryButton:
+                    toastText = getResources().getString(R.string.toast_memwebsite_open);
+                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    String websiteMemUrl  = "http://www.memoryandagingcenter.org";
+                    Intent websiteMemLink = new Intent(Intent.ACTION_VIEW);
+                    websiteMemLink.setData(Uri.parse(websiteMemUrl));
+                    startActivity(websiteMemLink);
+                    break;
+                case R.id.residencyButton:
+                    toastText = getResources().getString(R.string.toast_reswebsite_open);
+                    Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
+                    String websiteResUrl  = "http://www.uhfmr.org";
+                    Intent websiteResLink = new Intent(Intent.ACTION_VIEW);
+                    websiteResLink.setData(Uri.parse(websiteResUrl));
+                    startActivity(websiteResLink);
                     break;
                 default:
                     break;

@@ -58,7 +58,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dialogSubTitleTracker">
+        android:layout_below="@+id/dialogSubTitleTracker"
+        android:background="@color/white">
     <LinearLayout
         android:id="@+id/trackerData"
         android:weightSum="1"
@@ -137,7 +138,8 @@
             android:orientation="vertical"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <ImageView
                 android:id="@+id/buttonTrackerScheduleDownload"

@@ -49,7 +49,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dialogSubTitlePatRes">
+        android:layout_below="@+id/dialogSubTitlePatRes"
+        android:background="@color/white">
         <LinearLayout
             android:id="@+id/patresContent"
             android:orientation="vertical"

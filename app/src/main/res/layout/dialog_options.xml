@@ -34,7 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/optionsSave"
-        android:layout_below="@+id/dialogTitleOptions">
+        android:layout_below="@+id/dialogTitleOptions"
+
+        android:background="@color/white">
         <LinearLayout
             android:orientation="vertical"
 
@@ -54,7 +56,9 @@
             android:id="@+id/optionsRadioGroupLocPref"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            android:background="@color/white">
             <RadioButton
                 android:id="@+id/optionsRadioButtonNoPref"
 
@@ -126,7 +130,9 @@
             android:id="@+id/optionsRadioGroupLang"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            android:background="@color/white">
             <RadioButton
                 android:id="@+id/optionsRadioButtonLangEn"
 
@@ -153,7 +159,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+
+        android:background="@color/white">
         <ImageView
             android:id="@+id/buttonOptionsSave"
             android:src="@drawable/options_save_state_list_drawable"
