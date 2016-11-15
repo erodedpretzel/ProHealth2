@@ -48,4 +48,5 @@
     <dimen name="contact_pic_height">150dp</dimen>
     <dimen name="contact_pic_width">250dp</dimen>
     <dimen name="main_blue_bar">15dp</dimen>
+    <dimen name="dialog_content_tracker">32sp</dimen>
 </resources>

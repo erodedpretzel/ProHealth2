@@ -23,4 +23,5 @@
     <dimen name="contact_pic_width">225dp</dimen>
 
     <dimen name="tracker_icons">60dp</dimen>
+    <dimen name="dialog_content_tracker">18sp</dimen>
 </resources>

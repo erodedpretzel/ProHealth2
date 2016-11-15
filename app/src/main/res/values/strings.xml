@@ -14,7 +14,7 @@
            TWITTER
            VPCHC LOCATIONS
     -->
-    <string name="app_name" translatable="false">Valley ProHealth</string>
+    <string name="app_name" translatable="false">ValleyProHealth</string>
 
     <!--**********************************!>
         #CALL
@@ -139,10 +139,6 @@
             <string name="menu_feedback">Feedback</string>
             <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
             <string name="feedback_message">If you would us feedback, please send a message</string>
-            <string name="feedback_subject">Subject:</string>
-            <string name="feedback_hint_subject">Subject:</string>
-            <string name="feedback_hint_message">Message:</string>
-            <string name="feedback_send_message">Send:</string>
             <string name="feedback_message_dialog_title">Give Us Feedback</string>
         <!--Toasts-->
             <string name="toast_feedback_send_message">Sending message…</string>
@@ -162,7 +158,8 @@
                 <item>Consent</item>
                 <item>New Patient</item>
                 <item>Notice</item>
-                <item>Student Forms</item>
+                <item>Sliding Fee Scale</item>
+                <item>Student</item>
             </string-array>
             <string-array name="forms1">
                 <item>Select a form</item>
@@ -176,7 +173,6 @@
                 <item>Select a form</item>
                 <item>Adult</item>
                 <item>Child</item>
-                <item>Sliding Fee Scale</item>
             </string-array>
             <string-array name="forms3">
                 <item>Select a form</item>
@@ -185,6 +181,10 @@
                 <item>Privacy Practice</item>
             </string-array>
             <string-array name="forms4">
+                <item>Select a form</item>
+                <item>Sliding Fee Scale</item>
+            </string-array>
+            <string-array name="forms5">
                 <item>Select a form</item>
                 <item>ISHAA Physical</item>
                 <item>MSBHC Enrollment</item>
@@ -203,22 +203,26 @@
                 <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/records_release_terre_haute.pdf</item>
             </string-array>
-            <string-array name="forms2_bloomcayclint_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomcayclint.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomcayclint.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+            <string-array name="forms2_bloom_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloom.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloom.pdf</item>
+            </string-array>
+            <string-array name="forms2_cay_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_cay.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_cay.pdf</item>
+            </string-array>
+            <string-array name="forms2_clint_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_clint.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_clint.pdf</item>
             </string-array>
             <string-array name="forms2_craw_url">
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
             </string-array>
             <string-array name="forms2_terre_url">
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
             </string-array>
-
             <string-array name="forms3_url">
                 <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
@@ -226,6 +230,10 @@
             </string-array>
 
             <string-array name="forms4_url">
+                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+            </string-array>
+
+            <string-array name="forms5_url">
                 <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
             </string-array>
@@ -266,8 +274,8 @@
             <string name="icon_website">Website</string>
             <string name="icon_faq">FAQs</string>
             <string name="icon_patres">Patient\nResources</string>
-            <string name="icon_memory">Memory &amp;\nAging Center</string>
-            <string name="icon_residency">UH\nResidency</string>
+            <string name="icon_memory" translatable="false">Memory &amp;\nAging Center</string>
+            <string name="icon_residency" translatable="false">UH\nResidency</string>
         <!--Array-->
             <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
             <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
@@ -292,12 +300,7 @@
             <string name="toast_options_loc_pref_change">Changing preferred location…</string>
             <string name="toast_options_lang_change">Changing language in app…</string>
             <string name="toast_options_both_change">Changing preferred location and language…</string>
-        <!--Array-->
-            <string-array name="languages">
-                <item>Select a language</item>
-                <item>English</item>
-                <item>Español</item>
-            </string-array>
+
     <!--**********************************!>
         #PATIENT RESOURCES
     <!***********************************-->
@@ -334,12 +337,12 @@
             <string name="title_providers">Providers</string>
         <!--Arrays-->
             <string-array name="provider_types">
-                <item>Select a type of Provider</item>
+                <item>Select a type of provider</item>
                 <item>Behavioral Health</item>
                 <item>Primary Care</item>
             </string-array>
             <string-array name="provider_types2">
-                <item>Select a type of Provider</item>
+                <item>Select a type of provider</item>
                 <item>Behavioral Health</item>
                 <item>Dental</item>
                 <item>Primary Care</item>
@@ -517,7 +520,7 @@
             <string name="tracker_refresh">Refresh Tracker</string>
             <string name="outdated_firstline">Schedule outdated</string>
             <string name="outdated_secondline">Restart App</string>
-            <string name="outdated_thirdline" translatable="false">to update</string>
+            <string name="outdated_thirdline">to update</string>
         <!--Toasts-->
             <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
             <string name="toast_forms_download">Downloading Form…</string>
@@ -531,7 +534,7 @@
         <!--Text-->
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
             <string name="toast_call_perm">Call permissions not enabled</string>
-            <string name="icon_twitter">Twitter</string>
+            <string name="icon_twitter" translatable="false">Twitter</string>
     <!--Array-->
             <string-array name="twitter_feed_tips">
                 <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>

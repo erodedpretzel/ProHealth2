@@ -29,32 +29,31 @@
                 android:layout_width="@dimen/back_button"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-                <LinearLayout
+
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/backButtonLocations">
+                <ImageView
+                    android:src="@drawable/locations_logo"
+
+                    android:layout_width="@dimen/title_bar_icon_width"
+                    android:layout_height="@dimen/title_bar_icon_height"/>
+                <TextView
+                    android:id="@+id/title_locations"
+
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:src="@drawable/locations_logo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
 
-                        android:layout_width="@dimen/title_bar_icon_width"
-                        android:layout_height="@dimen/title_bar_icon_height"/>
-                    <TextView
-                        android:id="@+id/title_locations"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="center"
-
-                        android:text="@string/title_locations"
-                        android:textSize="@dimen/title_bar_label"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-            </RelativeLayout>
+                    android:text="@string/title_locations"
+                    android:textSize="@dimen/title_bar_label"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -63,7 +62,9 @@
         android:weightSum="1"
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        android:background="@color/white">
         <LinearLayout
             android:layout_weight=".5"
             android:layout_width="match_parent"

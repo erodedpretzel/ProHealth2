@@ -29,20 +29,18 @@
                 android:layout_width="@dimen/back_button"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
                 <TextView
                     android:id="@+id/title_feedback"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/backButtonFeedback"
 
                     android:text="@string/title_feedback"
                     android:textSize="@dimen/title_bar_label"
                     android:textColor="@color/white"/>
-            </RelativeLayout>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -52,7 +50,9 @@
         app:orientation="vertical"
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        android:background="@color/white">
 
         <TextView
             app:layout_rowWeight=".5"

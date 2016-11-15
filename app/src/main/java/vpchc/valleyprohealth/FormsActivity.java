@@ -94,30 +94,35 @@ public class FormsActivity extends AppCompatActivity {
                         break;
                     case 1:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
                         selectionLocation = 1;
                         break;
                     case 2:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
                         selectionLocation = 2;
                         break;
                     case 3:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
                         selectionLocation = 3;
                         break;
                     case 4:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
                         selectionLocation = 4;
                         break;
                     case 5:
                         spinnerFormsCategories.setVisibility(View.VISIBLE);
+                        spinnerFormsSelection.setVisibility(View.GONE);
                         spinnerFormsCategories.setSelection(0);
                         spinnerFormsSelection.setSelection(0);
                         selectionLocation = 5;
@@ -136,7 +141,7 @@ public class FormsActivity extends AppCompatActivity {
         spinnerFormsCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (Locale.getDefault().getLanguage() == "es") {
+                if (Locale.getDefault().getLanguage().equals("es")) {//Spanish Forms don't have student category
                     switch (position) {
                         case 0:
                             break;
@@ -148,6 +153,9 @@ public class FormsActivity extends AppCompatActivity {
                             break;
                         case 3:
                             formsSetup(3);
+                            break;
+                        case 4:
+                            formsSetup(4);
                             break;
                     }
                 } else {
@@ -166,6 +174,9 @@ public class FormsActivity extends AppCompatActivity {
                         case 4:
                             formsSetup(4);
                             break;
+                        case 5:
+                            formsSetup(5);
+                            break;
                     }
                 }
             }
@@ -180,7 +191,7 @@ public class FormsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (selectionCategory == 1) {
-                    if(Locale.getDefault().getLanguage() == "es"){
+                    if(Locale.getDefault().getLanguage().equals("es")){
                         switch (position) {
                             case 0:
                                 break;
@@ -188,7 +199,7 @@ public class FormsActivity extends AppCompatActivity {
                                 formsDownload(0);
                                 break;
                         }
-                    }else {
+                    } else {
                         switch (position) {
                             case 0:
                                 break;
@@ -237,7 +248,15 @@ public class FormsActivity extends AppCompatActivity {
                             formsDownload(2);
                             break;
                     }
-                } else if (selectionCategory == 4 & Locale.getDefault().getLanguage() != "es" ) {
+                } else if (selectionCategory == 4) {
+                    switch (position) {
+                        case 0:
+                            break;
+                        case 1:
+                            formsDownload(0);
+                            break;
+                    }
+                } else{
                     switch (position) {
                         case 0:
                             break;
@@ -245,7 +264,7 @@ public class FormsActivity extends AppCompatActivity {
                             formsDownload(0);
                             break;
                         case 2:
-                            formsDownload(1);;
+                            formsDownload(1);
                             break;
                     }
                 }
@@ -305,9 +324,13 @@ public class FormsActivity extends AppCompatActivity {
             }else{
                 urlArray = getResources().getStringArray(R.array.forms1_url);
             }
-        }else if(selectionCategory == 2){
-            if((selectionLocation >= 1 && selectionLocation <= 3)) {
-                urlArray = getResources().getStringArray(R.array.forms2_bloomcayclint_url);
+        }else if(selectionCategory == 2) {
+            if ((selectionLocation == 1)) {
+                urlArray = getResources().getStringArray(R.array.forms2_bloom_url);
+            }else if (selectionLocation == 2) {
+                urlArray = getResources().getStringArray(R.array.forms2_cay_url);
+            }else if (selectionLocation == 3){
+                urlArray = getResources().getStringArray(R.array.forms2_clint_url);
             }else if (selectionLocation == 4 ) {
                 urlArray = getResources().getStringArray(R.array.forms2_craw_url);
             } else if (selectionLocation == 5) {
@@ -317,6 +340,8 @@ public class FormsActivity extends AppCompatActivity {
             urlArray = getResources().getStringArray(R.array.forms3_url);
         }else if(selectionCategory == 4){
             urlArray = getResources().getStringArray(R.array.forms4_url);
+        }else{
+            urlArray = getResources().getStringArray(R.array.forms5_url);
         }
 
         //Opens the URL

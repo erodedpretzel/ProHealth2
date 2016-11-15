@@ -51,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/dialogSubTitleProviders"
-        android:layout_marginTop="@dimen/content_spacing_top_margin"
         android:background="@color/white">
         <LinearLayout
             android:id="@+id/providersContent"

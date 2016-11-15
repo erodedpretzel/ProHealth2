@@ -28,5 +28,6 @@
     <dimen name="contact_pic_width">350dp</dimen>
 
     <dimen name="locations_contactinfo_content">20sp</dimen>
+    <dimen name="dialog_content_tracker">22sp</dimen>
 </resources>
 

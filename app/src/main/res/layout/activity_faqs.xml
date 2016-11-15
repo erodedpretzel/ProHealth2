@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:orientation="vertical"
-    
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -29,40 +29,39 @@
                 android:layout_width="@dimen/back_button"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"/>
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-                <LinearLayout
+
+                android:gravity="center"
+
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/faqsBackButton">
+                <ImageView
+                    android:src="@drawable/faqs_logo"
+
+                    android:layout_width="@dimen/title_bar_icon_width"
+                    android:layout_height="@dimen/title_bar_icon_height" />
+                <TextView
+                    android:id="@+id/title_faqs"
+
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:src="@drawable/faqs_logo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
 
-                        android:layout_width="@dimen/title_bar_icon_width"
-                        android:layout_height="@dimen/title_bar_icon_height" />
-                    <TextView
-                        android:id="@+id/title_faqs"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="center"
-
-                        android:text="@string/title_faqs"
-                        android:textSize="@dimen/title_bar_label"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-            </RelativeLayout>
+                    android:text="@string/title_faqs"
+                    android:textSize="@dimen/title_bar_label"
+                    android:textColor="@color/white" />
+            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_below="@+id/toolbarFAQs">
+        android:background="@color/white">
         <Spinner
             android:id="@+id/spinnerFAQsCategories"
             style="@style/fancySpinnerDropDown"
