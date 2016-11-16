@@ -24,6 +24,7 @@ public class ServicesActivity extends AppCompatActivity {
     String categories[];
     String availableServices[]={};
 
+    private boolean dentalCheck = false;
     private int selectionServicesLocation;
     private int selectionServicesCategory;
 
@@ -84,33 +85,27 @@ public class ServicesActivity extends AppCompatActivity {
                         spinnerServicesCategories.setVisibility(View.GONE);
                         break;
                     case 1:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(1);
                         selectionServicesLocation = 1;
                         break;
                     case 2:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(1);
                         selectionServicesLocation = 2;
                         break;
                     case 3:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(0);
                         selectionServicesLocation = 3;
                         break;
                     case 4:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(0);
                         selectionServicesLocation = 4;
                         break;
                     case 5:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(0);
                         selectionServicesLocation = 5;
                         break;
                     case 6:
-                        spinnerServicesCategories.setSelection(0);
-                        spinnerServicesCategories.setVisibility(View.VISIBLE);
+                        servicesCategoriesChange(0);
                         selectionServicesLocation = 6;
                         break;
                 }
@@ -137,14 +132,28 @@ public class ServicesActivity extends AppCompatActivity {
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 2:
-                        selectionServicesCategory = 2;
-                        availableServices = getResources().getStringArray(R.array.Dental);
+                        if(dentalCheck){
+                            selectionServicesCategory = 2;
+                            availableServices = getResources().getStringArray(R.array.Dental);
+                        }else{
+                            selectionServicesCategory = 2;
+                            availableServices = getResources().getStringArray(R.array.PatientSupport);
+                        }
                         servicesPopup(1);
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 3:
-                        selectionServicesCategory = 3;
-                        availableServices = getResources().getStringArray(R.array.PatientSupport);
+                        if(dentalCheck){
+                            selectionServicesCategory = 3;
+                            availableServices = getResources().getStringArray(R.array.PatientSupport);
+                        }else{
+                            selectionServicesCategory = 3;
+                            if(selectionServicesLocation==5) {
+                                availableServices = getResources().getStringArray(R.array.PrimaryCare2);
+                            }else{
+                                availableServices = getResources().getStringArray(R.array.PrimaryCare1);
+                            }
+                        }
                         servicesPopup(1);
                         spinnerServicesCategories.setSelection(0);
                         break;
@@ -168,6 +177,31 @@ public class ServicesActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    private void servicesCategoriesChange(int choice){
+    /*
+	    Arguments:   None
+	    Description: Changes the services category listing to show or remove dental depending on
+	                 the location.
+	    Returns:     Nothing
+    */
+
+        if(choice == 0){
+            categories  = getResources().getStringArray(R.array.services_categories);
+            dentalCheck = false;
+        }else{
+            categories  = getResources().getStringArray(R.array.services_categories2);
+            dentalCheck = true;
+        }
+
+        spinnerServicesCategories = (Spinner) findViewById(R.id.spinnerServicesCategories);
+        final ArrayAdapter<String> adapterServicesCategories = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.fancy_spinner_item, categories);
+        adapterServicesCategories.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
+        spinnerServicesCategories.setAdapter(adapterServicesCategories);
+        spinnerServicesCategories.setVisibility(View.VISIBLE);
+        spinnerServicesCategories.setSelection(0);
     }
 
     private boolean servicesPopup(int choice){
@@ -197,7 +231,7 @@ public class ServicesActivity extends AppCompatActivity {
         View buttonServicesDialogClose = servicesDialog.findViewById(R.id.buttonServicesDialogClose);
         buttonServicesDialogClose.setOnClickListener(servicesListener);
 
-        //Sets the preferred location
+        //Sets the services title
         TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
         titleText.setText(categories[selectionServicesCategory]);
 

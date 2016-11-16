@@ -252,6 +252,28 @@
             <string name="location_afterhours">After-Hours Clinic:</string>
             <string name="location_hours_saturday">Saturday Clinic:</string>
         <!--Array-->
+            <string-array name="locations_contact_info">
+                <item>201 W. Academy St.</item>
+                <item>Bloomingdale, IN 47832</item>
+                <item>(765) 498–9000</item>
+                <item>Fax: (765) 498–9004</item>
+                <item>703 W. Park Street</item>
+                <item>Cayuga, IN 47928</item>
+                <item>(765) 492–9042</item>
+                <item>Fax: (765) 492–9048</item>
+                <item>777 S. Main Street, Suite 100</item>
+                <item>Clinton, IN 47842</item>
+                <item>(765) 828–1003</item>
+                <item>Fax: (765) 828–1030</item>
+                <item>1810 Layfayette Ave.</item>
+                <item>Crawfordsville, IN 47933</item>
+                <item>(765) 362–5100</item>
+                <item>Fax: (765) 362–5171</item>
+                <item>1530 North 7th Site, Suite 201</item>
+                <item>Terre Haute, IN 47807</item>
+                <item>(812) 238–7631</item>
+                <item>Fax: (812) 238–7003</item>
+            </string-array>
             <string-array name="locations_options">
                 <item>Select an option</item>
                 <item>Clinic Info</item>
@@ -378,7 +400,6 @@
             <string-array name="providers_bh_clinton">
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Dr. Julia Wernz, PhD, HSPP</item>
-                <item>Michelle Bond, LMHCA</item>
                 <item>Linda Lonneman, LCSW</item>
                 <item>David McIntyre, LCAC</item>
                 <item>Lisa Tincher, PMHNP</item>
@@ -435,6 +456,14 @@
             <string name="title_services">Services</string>
         <!--Arrays-->
             <string-array name="services_categories">
+                <item>Select a category</item>
+                <item>Behavioral Health</item>
+
+                <item>Patient Support</item>
+                <item>Primary Care</item>
+            </string-array>
+
+            <string-array name="services_categories2">
                 <item>Select a category</item>
                 <item>Behavioral Health</item>
                 <item>Dental</item>
@@ -535,6 +564,7 @@
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
             <string name="toast_call_perm">Call permissions not enabled</string>
             <string name="icon_twitter" translatable="false">Twitter</string>
+    <string name="clinicInfoAddress">Address:</string>
     <!--Array-->
             <string-array name="twitter_feed_tips">
                 <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>

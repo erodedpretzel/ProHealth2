@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 
 public class LocationsActivity extends AppCompatActivity {
 
-    String locations[]={};
+    String locations[] = {};
     private int selectionLocation;
 
     private Spinner spinnerLocations;
@@ -212,6 +213,19 @@ public class LocationsActivity extends AppCompatActivity {
 
         //Don't run this for clinton location which already has hours populated
         if(selectionLocation != 3) {
+            //Sets address, phone and fax
+            TextView addressText1 = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoAddress1);
+            TextView addressText2 = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoAddress2);
+            TextView phoneText = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoPhone);
+            TextView faxText = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoFax);
+            String contactInfo[]  = getResources().getStringArray(R.array.locations_contact_info);
+            int contactInfoIndex = (selectionLocation - 1) * 4;
+            Log.d("clinicInfo", "locationsClinicInfoPopup: " + contactInfo[contactInfoIndex]);
+            addressText1.setText(contactInfo[contactInfoIndex++]);
+            addressText2.setText(contactInfo[contactInfoIndex++]);
+            phoneText.setText(contactInfo[contactInfoIndex++]);
+            faxText.setText(contactInfo[contactInfoIndex]);
+
             //Populate list of clinic hours depending on location chosen
             for (i = 2; i <= 10; i += 2) {
                 replaceTextString = "locationsClinicInfoText" + i;

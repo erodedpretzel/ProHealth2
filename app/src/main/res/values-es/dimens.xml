@@ -1,12 +1,12 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
-    <dimen name="home_icon">15sp</dimen>
-    <dimen name="dialog_title">18sp</dimen>
-    <dimen name="dialog_content">16sp</dimen>
-    <dimen name="call_location">20sp</dimen>
-    <dimen name="location_clinic_hours_dialog">16sp</dimen>
-    <dimen name="trackerFillText">17sp</dimen>
-    <dimen name="trackerContextText">12sp</dimen>
+    <dimen name="home_icon">15dp</dimen>
+    <dimen name="dialog_title">18dp</dimen>
+    <dimen name="dialog_content">16dp</dimen>
+    <dimen name="call_location">20dp</dimen>
+    <dimen name="location_clinic_hours_dialog">16dp</dimen>
+    <dimen name="trackerFillText">17dp</dimen>
+    <dimen name="trackerContextText">12dp</dimen>
 
 </resources>

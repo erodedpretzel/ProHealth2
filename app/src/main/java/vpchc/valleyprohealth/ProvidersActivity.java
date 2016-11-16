@@ -33,7 +33,7 @@ public class ProvidersActivity extends AppCompatActivity {
     private int selectionProviderType;
     private int selectionProviderLocation;
     int arraySearchID;
-    private int dentalCheck = 0;
+    private boolean dentalCheck = false;
 
     private Spinner spinnerProviderType;
     private Spinner spinnerProviderLocations;
@@ -90,31 +90,27 @@ public class ProvidersActivity extends AppCompatActivity {
                         spinnerProviderType.setVisibility(View.GONE);
                         break;
                     case 1:
-                        providerTypeChange();
+                        providerTypeChange(1);
                         selectionProviderLocation = 1;
                         break;
                     case 2:
-                        providerTypeChange();
+                        providerTypeChange(1);
                         selectionProviderLocation = 2;
                         break;
                     case 3:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange(0);
                         selectionProviderLocation = 3;
                         break;
                     case 4:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange(0);
                         selectionProviderLocation = 4;
                         break;
                     case 5:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange(0);
                         selectionProviderLocation = 5;
                         break;
                     case 6:
-                        spinnerProviderType.setSelection(0);
-                        spinnerProviderType.setVisibility(View.VISIBLE);
+                        providerTypeChange(0);
                         selectionProviderLocation = 6;
                         break;
                 }
@@ -143,7 +139,7 @@ public class ProvidersActivity extends AppCompatActivity {
                         break;
                     case 2:
                         selectionProviderType = 1;
-                        if(dentalCheck == 1){
+                        if(dentalCheck){
                             arraySearchString = "providers_dental_" + easy_locations[selectionProviderLocation - 1];
                         }else{
                             arraySearchString = "providers_medical_" + easy_locations[selectionProviderLocation - 1];
@@ -173,16 +169,20 @@ public class ProvidersActivity extends AppCompatActivity {
 
     }
 
-    private void providerTypeChange(){
+    private void providerTypeChange(int choice){
     /*
 	    Arguments:   None
 	    Description: Changes the provider type listing if a site with dental is chosen.
 	    Returns:     Nothing
     */
+        if(choice == 0){
+            providerTypes = getResources().getStringArray(R.array.provider_types);
+            dentalCheck = false;
+        }else{
+            providerTypes = getResources().getStringArray(R.array.provider_types2);
+            dentalCheck = true;
+        }
 
-        dentalCheck = 1;
-
-        providerTypes = getResources().getStringArray(R.array.provider_types2);
         spinnerProviderType = (Spinner) findViewById(R.id.spinnerProviderType);
         final ArrayAdapter<String> adapterProviderType = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item, providerTypes);
