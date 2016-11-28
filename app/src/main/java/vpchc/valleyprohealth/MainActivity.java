@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
         }.execute();
     }
 
-    private void busTrackerMain(int choice){
+    private void busTrackerMain(){
     /*
 	    Arguments:   choice (0 - dismiss dialog, 1 - create dialog)
 	    Description: Main function for the bus tracker.
@@ -293,41 +293,27 @@ public class MainActivity extends AppCompatActivity {
         //0 - Location, 1 - Hours, 2 - Start Time, 3 - End Time, 4 - Flag
         String[] locationsArray = new String[5];
 
-        if(choice == 0) {
-            trackerDialog.dismiss();
+        //Below if statement there is no stored bus preferences.
+        locations = getSharedPreferences("locations_0", MODE_PRIVATE);
+        if(!(locations.contains("locations_0"))){
+            String toastNetworkText = getResources().getString(R.string.toast_network_error);
+            Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
             return;
-        }else{
-            //Below if statement there is no stored bus preferences.
-            locations = getSharedPreferences("locations_0", MODE_PRIVATE);
-            if(!(locations.contains("locations_0"))){
-                String toastNetworkText = getResources().getString(R.string.toast_network_error);
-                Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
-                return;
-            }
-            //This cond. statement is to make the styling of the dialog look more modern on devices
-            //that support it which are API's >= 14
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                trackerDialog = new Dialog(MainActivity.this);
-            }else{
-                trackerDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            trackerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            trackerDialog.setContentView(R.layout.dialog_tracker);
-            trackerDialog.show();
-            trackerDialog.setCanceledOnTouchOutside(false);
         }
-
-        //Listeners for Close, Download and Refresh buttons
-        View buttonTrackerClose = trackerDialog.findViewById(R.id.buttonTrackerCallClose);
-        buttonTrackerClose.setOnClickListener(trackerListener);
-        View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
-        buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
 
         String todaysDate = getCurrDate(0);
 
-        TextView todaysDateText = (TextView) trackerDialog.findViewById(R.id.trackerDateText);
-        todaysDateText.setText(todaysDate);
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_tracker", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseTracker", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("trackerDateText", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID};
+        String[] titleText = new String[] {todaysDate};
+        trackerDialog = DialogSetup.dialogCreate(trackerDialog, this, IDs, titleText, 1);
 
+        //Listener for Download button
+        View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
+        buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
 
         //Checks the times of each location until it finds one that is open, opening soon,
         //closing soon or en route or there are no other locations left.
@@ -478,10 +464,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
                     startActivity(scheduleIntent);
                     break;
-                case R.id.buttonTrackerCallClose:
-                    //Dismisses the dialog when the 'x' is hit
-                    busTrackerMain(0);
-                    break;
                 default:
                     break;
             }
@@ -490,26 +472,18 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     //region Call
-    private boolean callPopup(int choice){
+    private boolean callPopup(){
     /*
-	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog
+	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog)
 	    Description: Either creates a callDialog or dismisses it
 	    Returns:     true
     */
-        if(choice == 0) {
-            callDialog.dismiss();
-            return true;
-        }else{
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                callDialog = new Dialog(MainActivity.this);
-            }else{
-                callDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            callDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            callDialog.setContentView(R.layout.dialog_call);
-            callDialog.show();
-            callDialog.setCanceledOnTouchOutside(false);
-        }
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_call", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseCall", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID, closeID};
+        String[] titleText = new String[] {};
+        callDialog = DialogSetup.dialogCreate(callDialog, this, IDs, titleText, 0);
 
         // Check call permissions and ask user to grant them
         if (ContextCompat.checkSelfPermission(MainActivity.this,
@@ -522,14 +496,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Listeners for the call dialog buttons
-        View buttonCallCloseImage = callDialog.findViewById(R.id.buttonCallClose);
         View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
         View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
         View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
         View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
         View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
         View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
-        buttonCallCloseImage.setOnClickListener(callListener);
         buttonCallBloomImage.setOnClickListener(callListener);
         buttonCallCayImage.setOnClickListener(callListener);
         buttonCallClintImage.setOnClickListener(callListener);
@@ -556,7 +528,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 case R.id.buttonCallCay:
                     Intent callCayIntent = new Intent(Intent.ACTION_CALL);
@@ -569,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 case R.id.buttonCallClint:
                     Intent callClintIntent = new Intent(Intent.ACTION_CALL);
@@ -582,7 +554,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 case R.id.buttonCallCraw:
                     Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
@@ -595,7 +567,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 case R.id.buttonCallTerre:
                     Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
@@ -608,7 +580,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 case R.id.buttonCallMSBHC:
                     Intent callMSBHCIntent = new Intent(Intent.ACTION_CALL);
@@ -621,11 +593,7 @@ public class MainActivity extends AppCompatActivity {
                         toastText = getResources().getString(R.string.toast_call_perm);
                         Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
                     }
-                    callPopup(0);
-                    break;
-                case R.id.buttonCallClose:
-                    //Dismisses the dialog when the 'x' is hit
-                    callPopup(0);
+                    callDialog.dismiss();
                     break;
                 default:
                     break;
@@ -775,26 +743,16 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     //region Options
-    private boolean optionsSet(int optionChoice){
-        if(optionChoice == 0) {
-            optionsDialog.dismiss();
-            return true;
-        }else{
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                optionsDialog = new Dialog(MainActivity.this);
-            }else{
-                optionsDialog = new Dialog(MainActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            optionsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            optionsDialog.setContentView(R.layout.dialog_options);
-            optionsDialog.show();
-            optionsDialog.setCanceledOnTouchOutside(false);
-        }
+    private boolean optionsSet(){
 
-        //Listeners for the close and save buttons
-        View buttonOptionsDialogCloseImage = optionsDialog.findViewById(R.id.buttonOptionsClose);
+        int layoutID = getResources().getIdentifier("dialog_options", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseOptions", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID, closeID};
+        String[] titleText = new String[] {};
+        optionsDialog = DialogSetup.dialogCreate(optionsDialog, this, IDs, titleText, 0);
+
+        //Listeners for save button
         View buttonSaveImage = optionsDialog.findViewById(R.id.buttonOptionsSave);
-        buttonOptionsDialogCloseImage.setOnClickListener(optionsListener);
         buttonSaveImage.setOnClickListener(optionsListener);
 
         RadioButton radioButtonLocPref;
@@ -893,7 +851,7 @@ public class MainActivity extends AppCompatActivity {
             editor = pref.edit();
             editor.putInt("prefLocation", selectionLocPref);
             editor.apply();
-            optionsSet(0);
+            optionsDialog.dismiss();
         }else if(selectionLocPref == locationPref && selectionLang != currLocaleToInt){
             //This condition is when there has been a change to the selected language but not
             //the location preference
@@ -902,7 +860,7 @@ public class MainActivity extends AppCompatActivity {
             editor = currLocale.edit();
             editor.putString("currLocale", selectionLangToString);
             editor.apply();
-            optionsSet(0);
+            optionsDialog.dismiss();
             changeLang(selectionLangToString);
             finish();
             startActivity(getIntent());
@@ -917,7 +875,7 @@ public class MainActivity extends AppCompatActivity {
             editor = currLocale.edit();
             editor.putString("currLocale", selectionLangToString);
             editor.apply();
-            optionsSet(0);
+            optionsDialog.dismiss();
             changeLang(selectionLangToString);
             finish();
             startActivity(getIntent());
@@ -927,9 +885,6 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener optionsListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.buttonOptionsClose:
-                    optionsSet(0);
-                    break;
                 case R.id.buttonOptionsSave:
                     optionsSave();
                     break;
@@ -948,7 +903,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(openFeedbackIntent);
                 return true;
             case R.id.menuOptions:
-                optionsSet(1);
+                optionsSet();
                 return true;
             default:
                 return true;
@@ -1057,7 +1012,7 @@ public class MainActivity extends AppCompatActivity {
             //Each button, except twitter/call, will open either a dialog, activity, or webpage
             switch (v.getId()) {
                 case R.id.callButton:
-                    callPopup(1);
+                    callPopup();
                     break;
                 case R.id.providerButton:
                     Intent openProvidersIntent = new Intent(MainActivity.this, ProvidersActivity.class);
@@ -1085,7 +1040,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(openServicesIntent);
                     break;
                 case R.id.trackerButton:
-                    busTrackerMain(1);
+                    busTrackerMain();
                     break;
                 case R.id.websiteButton:
                     toastText = getResources().getString(R.string.toast_website_open);

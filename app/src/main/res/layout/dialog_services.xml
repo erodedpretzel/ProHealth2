@@ -5,32 +5,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/dialogTitleServices"
-
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dialog_bar"
-        android:background="@color/colorPrimary">
-        <ImageView
-            android:id="@+id/buttonServicesDialogClose"
-            android:src="@drawable/close_dialog_state_list_drawable"
-
-            android:layout_width="@dimen/dialog_close"
-            android:layout_height="@dimen/dialog_close"
-            android:layout_gravity="center"
-            android:gravity="end"/>
-        <TextView
-            android:id="@+id/servicesTitleText"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-
-            android:text=" "
-            android:textColor="@color/white"
-            android:textSize="@dimen/dialog_title"/>
-    </LinearLayout>
-    <LinearLayout
         android:id="@+id/dialogSubTitleServices"
 
         android:layout_width="match_parent"
@@ -38,7 +12,7 @@
         android:layout_below="@+id/dialogTitleServices"
         android:background="@color/white">
         <TextView
-            android:id="@+id/servicesLocationsText"
+            android:id="@+id/servicesSubTitleText"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -63,4 +37,34 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/dialogTitleServices"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_bar"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/buttonDialogCloseServices"
+            android:src="@drawable/close_dialog_state_list_drawable"
+
+            android:layout_width="@dimen/dialog_close"
+            android:layout_height="@dimen/dialog_close"
+            android:layout_gravity="center"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/servicesTitleText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            android:text=" "
+            android:textColor="@color/white"
+            android:textSize="@dimen/dialog_title"/>
+    </LinearLayout>
 </RelativeLayout>

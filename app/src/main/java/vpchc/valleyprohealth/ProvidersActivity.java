@@ -134,7 +134,7 @@ public class ProvidersActivity extends AppCompatActivity {
                         arraySearchString = "providers_bh_" + easy_locations[selectionProviderLocation - 1];
                         arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
                         providersList = getResources().getStringArray(arraySearchID);
-                        providersPopup(1);
+                        providersPopup();
                         spinnerProviderType.setSelection(0);
                         break;
                     case 2:
@@ -146,7 +146,7 @@ public class ProvidersActivity extends AppCompatActivity {
                         }
                         arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
                         providersList = getResources().getStringArray(arraySearchID);
-                        providersPopup(1);
+                        providersPopup();
                         spinnerProviderType.setSelection(0);
                         break;
                     case 3:
@@ -154,7 +154,7 @@ public class ProvidersActivity extends AppCompatActivity {
                         arraySearchString = "providers_medical_" + easy_locations[selectionProviderLocation - 1];
                         arraySearchID = getResources().getIdentifier(arraySearchString, "array", getPackageName());
                         providersList = getResources().getStringArray(arraySearchID);
-                        providersPopup(1);
+                        providersPopup();
                         spinnerProviderType.setSelection(0);
                         break;
                 }
@@ -192,40 +192,20 @@ public class ProvidersActivity extends AppCompatActivity {
         spinnerProviderType.setSelection(0);
     }
 
-    private boolean providersPopup(int choice){
+    private boolean providersPopup(){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with bh or medical providers listed.
 	    Returns:     true
     */
-        if(choice == 0){
-            providersDialog.dismiss();
-            return true;
-        }else{
-            //This cond. statement is to make the styling of the dialog look more modern on devices
-            //that support it which are API's >= 14
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                providersDialog = new Dialog(ProvidersActivity.this);
-            }else{
-                providersDialog = new Dialog(ProvidersActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            providersDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            providersDialog.setContentView(R.layout.dialog_providers);
-            providersDialog.show();
-            providersDialog.setCanceledOnTouchOutside(false);
-        }
-
-        //Close dialog button listener
-        View buttonProvidersCloseImage = providersDialog.findViewById(R.id.buttonProvidersClose);
-        buttonProvidersCloseImage.setOnClickListener(providerListener);
-
-        //Sets title
-        TextView providerTypeTitle = (TextView) providersDialog.findViewById(R.id.providersTypeText);
-        providerTypeTitle.setText(providerTypes[selectionProviderType + 1]);
-
-        //Sets location title
-        TextView locationsTitle = (TextView) providersDialog.findViewById(R.id.providersLocationsText);
-        locationsTitle.setText(locations[selectionProviderLocation]);
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_providers", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseProviders", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("providersTypeText", "id", this.getPackageName());
+        int subTitleID = getResources().getIdentifier("providersLocationsText", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID,subTitleID};
+        String[] titleText = new String[] {providerTypes[selectionProviderType + 1], locations[selectionProviderLocation]};
+        providersDialog = DialogSetup.dialogCreate(providersDialog, this, IDs, titleText, 2);
 
         //Populate list of providers depending on provider type and location chosen
         LinearLayout providersContent = (LinearLayout) providersDialog.findViewById(R.id.providersContent);
@@ -242,7 +222,6 @@ public class ProvidersActivity extends AppCompatActivity {
                 providerToAdd.setLayoutParams(params);
             }
         }
-
         return true;
     }
 
@@ -252,9 +231,6 @@ public class ProvidersActivity extends AppCompatActivity {
                 case R.id.backButtonProviders:
                     finish();
                     v.setSelected(true);
-                    break;
-                case R.id.buttonProvidersClose:
-                    providersPopup(0);
                     break;
                 default:
                     break;

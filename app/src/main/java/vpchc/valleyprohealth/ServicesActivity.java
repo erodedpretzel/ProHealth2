@@ -128,7 +128,7 @@ public class ServicesActivity extends AppCompatActivity {
                     case 1:
                         selectionServicesCategory = 1;
                         availableServices = getResources().getStringArray(R.array.BehavioralHealth);
-                        servicesPopup(1);
+                        servicesPopup();
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 2:
@@ -139,7 +139,7 @@ public class ServicesActivity extends AppCompatActivity {
                             selectionServicesCategory = 2;
                             availableServices = getResources().getStringArray(R.array.PatientSupport);
                         }
-                        servicesPopup(1);
+                        servicesPopup();
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 3:
@@ -154,7 +154,7 @@ public class ServicesActivity extends AppCompatActivity {
                                 availableServices = getResources().getStringArray(R.array.PrimaryCare1);
                             }
                         }
-                        servicesPopup(1);
+                        servicesPopup();
                         spinnerServicesCategories.setSelection(0);
                         break;
                     case 4:
@@ -164,7 +164,7 @@ public class ServicesActivity extends AppCompatActivity {
                         }else{
                             availableServices = getResources().getStringArray(R.array.PrimaryCare1);
                         }
-                        servicesPopup(1);
+                        servicesPopup();
                         spinnerServicesCategories.setSelection(0);
                         break;
                 }
@@ -204,40 +204,20 @@ public class ServicesActivity extends AppCompatActivity {
         spinnerServicesCategories.setSelection(0);
     }
 
-    private boolean servicesPopup(int choice){
+    private boolean servicesPopup(){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with selected type of services listed
 	    Returns:     true
     */
-        if(choice == 0) {
-            servicesDialog.dismiss();
-            return true;
-        }else{
-            //This cond. statement is to make the styling of the dialog look more modern on devices
-            //that support it which are API's >= 14
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                servicesDialog = new Dialog(ServicesActivity.this);
-            }else{
-                servicesDialog = new Dialog(ServicesActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            servicesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            servicesDialog.setContentView(R.layout.dialog_services);
-            servicesDialog.show();
-            servicesDialog.setCanceledOnTouchOutside(false);
-        }
-
-        //Back button listener
-        View buttonServicesDialogClose = servicesDialog.findViewById(R.id.buttonServicesDialogClose);
-        buttonServicesDialogClose.setOnClickListener(servicesListener);
-
-        //Sets the services title
-        TextView titleText = (TextView) servicesDialog.findViewById(R.id.servicesTitleText);
-        titleText.setText(categories[selectionServicesCategory]);
-
-        //Sets location title
-        TextView locationsTitle = (TextView) servicesDialog.findViewById(R.id.servicesLocationsText);
-        locationsTitle.setText(locations[selectionServicesLocation]);
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_services", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseServices", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("servicesTitleText", "id", this.getPackageName());
+        int subTitleID = getResources().getIdentifier("servicesSubTitleText", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID,subTitleID};
+        String[] titleText = new String[] {categories[selectionServicesCategory], locations[selectionServicesLocation]};
+        servicesDialog = DialogSetup.dialogCreate(servicesDialog, this, IDs, titleText, 2);
 
         //Populate list of services based on type of service chosen
         LinearLayout servicesContent = (LinearLayout) servicesDialog.findViewById(R.id.servicesContent);
@@ -262,9 +242,6 @@ public class ServicesActivity extends AppCompatActivity {
                 case R.id.backButtonServices:
                     finish();
                     v.setSelected(true);
-                    break;
-                case R.id.buttonServicesDialogClose:
-                    servicesPopup(0);
                     break;
                 default:
                     break;

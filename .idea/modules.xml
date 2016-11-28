@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ProHealth2.iml" filepath="$PROJECT_DIR$/ProHealth2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ValleyProHealth_Android.iml" filepath="$PROJECT_DIR$/ValleyProHealth_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/twitter4j-4.0.4/twitter4j-4.0.4.iml" filepath="$PROJECT_DIR$/twitter4j-4.0.4/twitter4j-4.0.4.iml" />
     </modules>

@@ -28,7 +28,7 @@ public class LocationsActivity extends AppCompatActivity {
     private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
 
-    Dialog locationsClinicInfoDialog;
+    Dialog locationsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +75,6 @@ public class LocationsActivity extends AppCompatActivity {
         if(locationPref == 0){
             spinnerLocationsOptions.setVisibility(View.GONE);
         }
-
-
 
         spinnerLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -129,7 +127,7 @@ public class LocationsActivity extends AppCompatActivity {
                     case 0:
                         break;
                     case 1:
-                        locationsClinicInfoPopup(1);
+                        locationsPopup();
                         spinnerLocationsOptions.setSelection(0);
                         break;
                     case 2:
@@ -161,7 +159,7 @@ public class LocationsActivity extends AppCompatActivity {
         });
     }
 
-    private boolean locationsClinicInfoPopup(int choice){
+    private boolean locationsPopup(){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with the chosen location's clinic hours listed.
@@ -169,36 +167,23 @@ public class LocationsActivity extends AppCompatActivity {
     */
         int i;
         int replaceTextId;
+        int layoutID;
         String replaceTextString;
-        if(choice == 0) {
-            locationsClinicInfoDialog.dismiss();
-            return true;
-        }else{
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                locationsClinicInfoDialog = new Dialog(LocationsActivity.this);
-            }else{
-                locationsClinicInfoDialog = new Dialog(LocationsActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            locationsClinicInfoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            if(selectionLocation == 3){//Clinton Location
-                locationsClinicInfoDialog.setContentView(R.layout.dialog_locations_clinicinfo2);
-            }else{//All other locations
-                locationsClinicInfoDialog.setContentView(R.layout.dialog_locations_clinicinfo1);
-            }
-            locationsClinicInfoDialog.show();
-            locationsClinicInfoDialog.setCanceledOnTouchOutside(false);
+
+        //Initialize the dialog
+        if(selectionLocation == 3){//Clinton Location
+            layoutID = getResources().getIdentifier("dialog_locations_clinicinfo2", "layout", this.getPackageName());
+        }else{//All other locations
+            layoutID = getResources().getIdentifier("dialog_locations_clinicinfo1", "layout", this.getPackageName());
         }
-
-        //Dialog close listener
-        View buttonDialogClose = locationsClinicInfoDialog.findViewById(R.id.buttonLocationsClinicInfoClose);
-        buttonDialogClose.setOnClickListener(locationsListener);
-
-        //Sets location title
-        TextView locationsTitle = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoLocationText);
-        locationsTitle.setText(locations[selectionLocation]);
+        int closeID = getResources().getIdentifier("buttonDialogCloseLocations", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("locationsClinicInfoLocationText", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID};
+        String[] titleText = new String[] {locations[selectionLocation]};
+        locationsDialog = DialogSetup.dialogCreate(locationsDialog, this, IDs, titleText, 1);
 
         //Sets location picture displayed
-        ImageView locationsPic = (ImageView) locationsClinicInfoDialog.findViewById(R.id.locationsPic);
+        ImageView locationsPic = (ImageView) locationsDialog.findViewById(R.id.locationsPic);
         if(selectionLocation == 1){
             locationsPic.setImageResource(R.drawable.bloomingdale_location);
         }else if(selectionLocation == 2){
@@ -214,13 +199,12 @@ public class LocationsActivity extends AppCompatActivity {
         //Don't run this for clinton location which already has hours populated
         if(selectionLocation != 3) {
             //Sets address, phone and fax
-            TextView addressText1 = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoAddress1);
-            TextView addressText2 = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoAddress2);
-            TextView phoneText = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoPhone);
-            TextView faxText = (TextView) locationsClinicInfoDialog.findViewById(R.id.locationsClinicInfoFax);
+            TextView addressText1 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress1);
+            TextView addressText2 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress2);
+            TextView phoneText = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoPhone);
+            TextView faxText = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoFax);
             String contactInfo[]  = getResources().getStringArray(R.array.locations_contact_info);
             int contactInfoIndex = (selectionLocation - 1) * 4;
-            Log.d("clinicInfo", "locationsClinicInfoPopup: " + contactInfo[contactInfoIndex]);
             addressText1.setText(contactInfo[contactInfoIndex++]);
             addressText2.setText(contactInfo[contactInfoIndex++]);
             phoneText.setText(contactInfo[contactInfoIndex++]);
@@ -230,7 +214,7 @@ public class LocationsActivity extends AppCompatActivity {
             for (i = 2; i <= 10; i += 2) {
                 replaceTextString = "locationsClinicInfoText" + i;
                 replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-                TextView tempText = (TextView) locationsClinicInfoDialog.findViewById(replaceTextId);
+                TextView tempText = (TextView) locationsDialog.findViewById(replaceTextId);
                 if (selectionLocation != 3 & selectionLocation != 5) {
                     tempText.setText("8:00 a.m. - 5:00 p.m.");
                 }else {
@@ -253,9 +237,6 @@ public class LocationsActivity extends AppCompatActivity {
                 case R.id.backButtonLocations:
                     finish();
                     v.setSelected(true);
-                    break;
-                case R.id.buttonLocationsClinicInfoClose:
-                    locationsClinicInfoPopup(0);
                     break;
                 default:
                     break;

@@ -3,13 +3,11 @@ package vpchc.valleyprohealth;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -63,28 +61,28 @@ public class FAQsActivity extends AppCompatActivity {
                         selectionCategory = 0;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_bill_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_bill_answers);
-                        faqsPopup(1);
+                        faqsPopup();
                         spinnerCategories.setSelection(0);
                         break;
                     case 2:
                         selectionCategory = 1;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_misc_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_misc_answers);
-                        faqsPopup(1);
+                        faqsPopup();
                         spinnerCategories.setSelection(0);
                         break;
                     case 3:
                         selectionCategory = 2;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_newpat_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_newpat_answers);
-                        faqsPopup(1);
+                        faqsPopup();
                         spinnerCategories.setSelection(0);
                         break;
                     case 4:
                         selectionCategory = 3;
                         categoryQuestions = getResources().getStringArray(R.array.faqs_services_questions);
                         categoryAnswers = getResources().getStringArray(R.array.faqs_services_answers);
-                        faqsPopup(1);
+                        faqsPopup();
                         spinnerCategories.setSelection(0);
                         break;
                 }
@@ -99,35 +97,19 @@ public class FAQsActivity extends AppCompatActivity {
 
     }
 
-    private boolean faqsPopup(int choice){
+    private boolean faqsPopup(){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with bh or medical providers listed.
 	    Returns:     true
     */
-        if(choice == 0) {
-            faqsDialog.dismiss();
-            return true;
-        }else{
-            //This cond. statement is to make the styling of the dialog look more modern on devices
-            //that support it which are API's >= 14
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                faqsDialog = new Dialog(FAQsActivity.this);
-            }else{
-                faqsDialog = new Dialog(FAQsActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            faqsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            faqsDialog.setContentView(R.layout.dialog_faqs);
-            faqsDialog.show();
-            faqsDialog.setCanceledOnTouchOutside(false);
-        }
-        //Dialog Close Button Listener
-        View buttonDialogClose = faqsDialog.findViewById(R.id.buttonDialogCloseFAQs);
-        buttonDialogClose.setOnClickListener(faqsListener);
-
-        //Sets title
-        TextView textDialogTitle = (TextView) faqsDialog.findViewById(R.id.faqsSectionTitle);
-        textDialogTitle.setText(categories[selectionCategory + 1]);
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_faqs", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogCloseFAQs", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("faqsSectionTitle", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID};
+        String[] titleText = new String[] {categories[selectionCategory + 1]};
+        faqsDialog = DialogSetup.dialogCreate(faqsDialog, this, IDs, titleText, 1);
 
         //Populates the Questions/Answers from the selected category
         LinearLayout faqsContent = (LinearLayout) faqsDialog.findViewById(R.id.faqsContent);
@@ -159,7 +141,7 @@ public class FAQsActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.buttonDialogCloseFAQs:
-                    faqsPopup(0);
+                    faqsDialog.dismiss();
                     break;
                 default:
                     break;

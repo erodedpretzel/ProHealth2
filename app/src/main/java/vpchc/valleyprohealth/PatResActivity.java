@@ -59,19 +59,19 @@ public class PatResActivity extends AppCompatActivity {
                     case 1:
                         selectionCategory = 0;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_diabetes);
-                        patresPopup(1);
+                        patresPopup();
                         spinnerCategories.setSelection(0);
                         break;
                     case 2:
                         selectionCategory = 1;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_prescription);
-                        patresPopup(1);
+                        patresPopup();
                         spinnerCategories.setSelection(0);
                         break;
                     case 3:
                         selectionCategory = 2;
                         categoryItems = getResources().getStringArray(R.array.patres_categories_scale);
-                        patresPopup(1);
+                        patresPopup();
                         spinnerCategories.setSelection(0);
                         break;
                 }
@@ -85,35 +85,19 @@ public class PatResActivity extends AppCompatActivity {
         });
     }
 
-    private boolean patresPopup(int choice){
+    private boolean patresPopup(){
     /*
 	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
 	    Description: Displays or dismisses a dialog with bh or medical providers listed.
 	    Returns:     true
     */
-        if(choice == 0) {
-            patresDialog.dismiss();
-            return true;
-        }else{
-            //This cond. statement is to make the styling of the dialog look more modern on devices
-            //that support it which are API's >= 14
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                patresDialog = new Dialog(PatResActivity.this);
-            }else{
-                patresDialog = new Dialog(PatResActivity.this, R.style.AppTheme_NoActionBar);
-            }
-            patresDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            patresDialog.setContentView(R.layout.dialog_patres);
-            patresDialog.show();
-            patresDialog.setCanceledOnTouchOutside(false);
-        }
-        //Sets title
-        TextView textDialogTitle = (TextView) patresDialog.findViewById(R.id.patresSubTitle);
-        textDialogTitle.setText(categories[selectionCategory + 1]);
-
-        //Close dialog listener
-        View buttonDialogClose = patresDialog.findViewById(R.id.buttonDialogClosePatRes);
-        buttonDialogClose.setOnClickListener(patresListener);
+        //Initialize the dialog
+        int layoutID = getResources().getIdentifier("dialog_patres", "layout", this.getPackageName());
+        int closeID = getResources().getIdentifier("buttonDialogClosePatRes", "id", this.getPackageName());
+        int titleID = getResources().getIdentifier("patresSubTitle", "id", this.getPackageName());
+        int[] IDs = new int[] {layoutID,closeID,titleID};
+        String[] titleText = new String[] {categories[selectionCategory + 1]};
+        patresDialog = DialogSetup.dialogCreate(patresDialog, this, IDs, titleText, 1);
 
         //Populates the Questions/Answers from the selected category
         LinearLayout patresContent = (LinearLayout) patresDialog.findViewById(R.id.patresContent);
@@ -138,9 +122,6 @@ public class PatResActivity extends AppCompatActivity {
                 case R.id.backButtonPatRes:
                     finish();
                     v.setSelected(true);
-                    break;
-                case R.id.buttonDialogClosePatRes:
-                    patresPopup(0);
                     break;
                 default:
                     break;

@@ -10,7 +10,7 @@
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonOptionsClose"
+            android:id="@+id/buttonDialogCloseOptions"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
