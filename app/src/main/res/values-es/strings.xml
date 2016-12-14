@@ -42,84 +42,96 @@
                 <item>Servicios</item>
             </string-array>
 
-            <string-array name="faqs_newpat_questions">
+            <string-array name="faqs_newpat">
                 <item>Estás aceptando nuevos pacientes?</item>
-                <item>¿Qué tan pronto voy a ser capaz de programar mi primera cita?</item>
-                <item>¿Qué necesito traer a mi primera cita?</item>
-                <item>¿Puedo hacer una cita con un consejero de salud del comportamiento?</item>
-                <item>Es lo que ofrece servicios de atención prenatal?</item>
-                <item>¿Puedo llamar y obtener información acerca de mi cónyuge/padre/adulto/niño ( de 18 años) o de sus registros médicos?</item>
-                <item>¿Puede alguien más ( es decir, abuelo, amigo de la familia , o proveedor de cuidado de niños) llevar a mi hijo a su cita?</item>
-            </string-array>
-
-            <string-array name="faqs_newpat_answers">
                 <item>Para averiguar si uno de nuestros lugares está aceptando nuevos pacientes por favor, nos dan una llamada y estaremos encantados de ayudarle. La información de contacto para todas las clínicas está disponible en la sección ubicaciones de esta aplicación.</item>
+
+                <item>¿Qué tan pronto voy a ser capaz de programar mi primera cita?</item>
                 <item>Nuevas citas de los pacientes se pueden programar tan pronto como dos semanas. Por el momento nosotros le enviará el papeleo para ser completada y presentada en el día de su cita.</item>
+
+                <item>¿Qué necesito traer a mi primera cita?</item>
                 <item>Para su primera cita, usted debe traer su nueva paciente papeleo completado, junto con la licencia y el seguro de la información de su conductor. Al llegar, la oficina hará una copia de su tarjeta de seguro médico y verificar que la información de su cuenta está al día . Una enfermera completar su historial médico después de haber sido registrado, pero por favor traiga toda la información médica relevante, incluyendo todos los nombres y las dosis de medicamentos recetados y en el mostrador medicamentos que está tomando actualmente.</item>
+
+                <item>¿Puedo hacer una cita con un consejero de salud del comportamiento?</item>
                 <item>Si usted es un paciente establecido, hable con su médico de cabecera acerca de usted en referencia a un valle profesionales consejero de Salud del Comportamiento.</item>
+
+                <item>Es lo que ofrece servicios de atención prenatal?</item>
                 <item>Los servicios prenatales, así como, la Sala de partos están disponibles en nuestra clínica Terre Haute por referencia. Para obtener más información, o para concertar una cita, póngase en contacto con el Valle de los profesionales de Community Health Center más cercano.</item>
+
+                <item>¿Puedo llamar y obtener información acerca de mi cónyuge/padre/adulto/niño ( de 18 años) o de sus registros médicos?</item>
                 <item>La Ley de Responsabilidad y Portabilidad del Seguro de Salud (HIPAA ) nos prohíbe el intercambio de información de salud del paciente confidencial sin autorización por escrito del paciente. Si un paciente le gustaría que le conceda permiso para hacer una cita para ellos o para tener acceso a sus registros médicos deben completar un formulario de divulgación de información, disponible en la sección de formularios de esta aplicación.</item>
+
+                <item>¿Puede alguien más ( es decir, abuelo, amigo de la familia , o proveedor de cuidado de niños) llevar a mi hijo a su cita?</item>
                 <item>Sí, puede conceder permiso para que otra persona para llevar a su hijo a su nombramiento después de haber completado y enviado el formulario de consentimiento disponible en la sección de formularios de esta aplicación.</item>
             </string-array>
 
-            <string-array name="faqs_bill_questions">
+            <string-array name="faqs_bill">
                 <item>¿Qué tipos de seguros se aceptan?</item>
-                <item>¿Puedo ser visto por un proveedor, incluso si no tengo seguro de salud?</item>
-                <item>Pueden ayudar a los profesionales del valle me inscribo en la cobertura de seguro de salud?</item>
-                <item>¿Qué necesito llevar para solicitar programa de descuento ?</item>
-                <item>¿Qué pasa si no puedo pagar mi factura?</item>
-                <item>¿Qué pasa si tengo otras preguntas acerca de la facturación?</item>
-            </string-array>
-
-            <string-array name="faqs_bill_answers">
                 <item>Aceptamos todas las compañías aseguradoras comerciales, Medicare y Medicaid.</item>
+
+                <item>¿Puedo ser visto por un proveedor, incluso si no tengo seguro de salud?</item>
                 <item>Sí, Valley Professionals acepta la auto-pago, y también tiene una escala móvil de tarifas para las personas elegibles.</item>
+
+                <item>Pueden ayudar a los profesionales del valle me inscribo en la cobertura de seguro de salud?</item>
                 <item>Sí, nuestra Comunidad trabajadores de la salud están especialmente entrenados para ayudar a las personas a encontrar cobertura de salud asequible. Para hacer una cita, póngase en contacto con Valley Professionals Community Health Center más cercano.</item>
+
+                <item>¿Qué necesito llevar para solicitar programa de descuento ?</item>
                 <item>Para solicitar el programa de descuento, los pacientes y sus familias deben presentar la siguiente documentación para verificar los ingresos brutos : más reciente declaración de impuestos con el IRS y / o W2 de de empleador(s) , una copia de la Seguridad Social o Discapacidad Premio Carta(s) o estado de cuenta(s) de desempleo, talones de pago de todas las employerers para el último período de 30 días, Si no está trabajando, sin ingresos, y vivir con los demás, se requiere una carta firmada y fechada por la persona que proporciona el apoyo del paciente, carné de conducir, cualquier otro ingreso que se deposita directa. Para obtener más información sobre la escala de tarifas, visite la sección de recursos del paciente de esta aplicación.</item>
+
+                <item>¿Qué pasa si no puedo pagar mi factura?</item>
                 <item>Si usted no puede pagar su factura, no dude en ponerse en contacto con nuestro Departamento de Facturación al (765) 828–1000 para establecer un plan de pago que funcione para usted.</item>
+
+                <item>¿Qué pasa si tengo otras preguntas acerca de la facturación?</item>
                 <item>Para todas las consultas relativas a la facturación, por favor, póngase en contacto con nuestro Departamento de Facturación al (765) 828–1000 .</item>
             </string-array>
 
-            <string-array name="faqs_services_questions">
+            <string-array name="faqs_services">
                 <item>¿Qué puedo hacer si no puedo pagar mi receta?</item>
-                <item>¿Cuánto tiempo tomará para que puedo recibir mi receta de recarga después de haber presentado una solicitud?</item>
-                <item>¿Tengo que ser un paciente a utilizar la clínica fuera de horario?</item>
-                <item>¿Necesito una cita para la clínica fuera de horario?</item>
-                <item>¿Qué me pueden atender en la clínica para fuera de horario?</item>
-                <item>Cuando es una clínica fuera de horario?</item>
-                <item>Hace los exámenes físicas escolares móvil Centro de Salud ofrece la escuela?</item>
-                <item>¿Qué tipos de servicios están disponibles en el Centro Móvil de Salud Basado en la Escuela?</item>
-                <item>¿Quién se puede ver en el Centro de Salud Móvil?</item>
-                <item>¿Qué necesito hacer para que mi hijo sea visto por el MSBHC?</item>
-                <item>¿Se cuenta en contra de la asistencia de mi hijo cuando él o ella es vista por el MSBHC?</item>
-                <item>¿Visita la MSBHC mi escuela?</item>
-                <item>¿Cómo sé cuando la MSBHC estará en mi escuela?</item>
-                <item>¿Tengo que ser un paciente para participar en el grupo de apoyo para diabéticos?</item>
-            </string-array>
-
-            <string-array name="faqs_services_answers">
                 <item>Valley Professionals cuenta con un Programa 403(b) asistencia con los medicamentos que pueden ayudar a las personas elegibles para pagar sus medicamentos.</item>
+
+                <item>¿Cuánto tiempo tomará para que puedo recibir mi receta de recarga después de haber presentado una solicitud?</item>
                 <item>Pedidos de reposición de la prescripción pueden tardar hasta 48 horas una vez presentadas.</item>
+
+                <item>¿Tengo que ser un paciente a utilizar la clínica fuera de horario?</item>
                 <item>No, no es necesario ser una corriente Profesionales Valle paciente a utilizar los servicios posteriores al cierre.</item>
+
+                <item>¿Necesito una cita para la clínica fuera de horario?</item>
                 <item>No, fuera de horario de oficina es de visitas en un primer llegado, primer servido.</item>
+
+                <item>¿Qué me pueden atender en la clínica para fuera de horario?</item>
                 <item>La clínica Después de las Horas es por afecciones agudas, tales como, fiebre, vómitos, congestión, dolor de garganta, síntomas de la gripe, tos, erupción cutánea, dolor de oído, u otros síntomas similares.</item>
+
+                <item>Cuando es una clínica fuera de horario?</item>
                 <item>La clínica Abierto por la noche se lleva a cabo de lunes a jueves 17:00-20:00 a tan sólo nuestra ubicación Clinton.</item>
+
+                <item>Hace los exámenes físicas escolares móvil Centro de Salud ofrece la escuela?</item>
                 <item>Sí.</item>
+
+                <item>¿Qué tipos de servicios están disponibles en el Centro Móvil de Salud Basado en la Escuela?</item>
                 <item>Visita la MSBHC para: inmunizaciones, exámenes físicos, así visitas niño, frío, fiebre, vómitos, congestión, dolor de garganta, síntomas de la gripe, tos, erupción cutánea , dolor de oído, y síntomas similares .</item>
+
+                <item>¿Quién se puede ver en el Centro de Salud Móvil?</item>
                 <item>Los estudiantes y los empleados de una escuela que aloja el centro de salud móvil puede ser visto. Hay ciertas ocasiones, durante las vacaciones escolares, cuando el centro de salud móvil está abierto a la comunidad. Para obtener más información, o para ver el horario de la MSBHC, vaya a la sección de seguimiento de la aplicación.</item>
+
+                <item>¿Qué necesito hacer para que mi hijo sea visto por el MSBHC?</item>
                 <item>Para inscribir a su hijo en los servicios MSBHC, debe completar y enviar el formulario de inscripción que se encuentra en la sección de formularios. Después de haber hecho esto, se puede llamar a la unidad móvil y hacer una cita, o su hijo puede ir simplemente a la enfermera de la escuela y ser referido.</item>
+
+                <item>¿Se cuenta en contra de la asistencia de mi hijo cuando él o ella es vista por el MSBHC?</item>
                 <item>No, la visita de su hijo al MSBHC no contará en contra de su asistencia; Por otra parte, si su hijo es enviado a casa debido a una enfermedad por un proveedor de MSBHC, sería certificado excusado su ausencia.</item>
+
+                <item>¿Visita la MSBHC mi escuela?</item>
                 <item>El MSBHC visita escuelas en el North Vermillion , South Vermillion , Southwest Parke , y corporaciones escolares North Central Parke.</item>
+
+                <item>¿Cómo sé cuando la MSBHC estará en mi escuela?</item>
                 <item>Usted puede encontrar un calendario para la MSBHC en la sección de seguimiento de esta aplicación.</item>
+
+                <item>¿Tengo que ser un paciente para participar en el grupo de apoyo para diabéticos?</item>
                 <item>No, usted no tiene que registrarse, haga una cita, o incluso ser un paciente de Valley Professionals a participar en el grupo de apoyo para diabéticos .</item>
             </string-array>
 
-            <string-array name="faqs_misc_questions">
+            <string-array name="faqs_misc">
                 <item>Se Valley contratación de profesionales?</item>
-            </string-array>
-
-            <string-array name="faqs_misc_answers">
-                <item>Visita valleyprohealth.org para ver ofertas de trabajo actuales en Valley profesionales. Puede llegar al sitio pulsando el botón de página web en la pantalla principal.</item>
+                <item>Visita valleyprohealth.org/careers para ver ofertas de trabajo actuales en Valley profesionales. Puede llegar al sitio pulsando el botón de página web en la pantalla principal.</item>
             </string-array>
 
 

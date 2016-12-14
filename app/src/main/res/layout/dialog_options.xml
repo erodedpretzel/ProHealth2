@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/dialogTitleOptions"
+        android:id="@+id/optionsDialogTitleContainer"
 
         android:layout_width="fill_parent"
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonDialogCloseOptions"
+            android:id="@+id/optionsDialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:gravity="end"/>
         <TextView
-            android:id="@+id/callOptionsText"
+            android:id="@+id/optionsDialogTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/optionsSave"
-        android:layout_below="@+id/dialogTitleOptions"
+        android:layout_below="@+id/optionsDialogTitleContainer"
 
         android:background="@color/white">
         <LinearLayout

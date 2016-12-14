@@ -1,40 +1,32 @@
 package vpchc.valleyprohealth;
 
 import org.vpchc.valleyprohealth.R;
-import android.app.Dialog;
-import android.content.SharedPreferences;
-import android.graphics.Color;
+
 import android.graphics.Typeface;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ServicesActivity extends AppCompatActivity {
 
-    String locations[];
-    String categories[];
-    String availableServices[]={};
-
     private boolean dentalCheck = false;
-    private int selectionServicesLocation;
-    private int selectionServicesCategory;
-
-    private Spinner spinnerServicesLocations;
+    private int userSelectedServicesLocation;
     private Spinner spinnerServicesCategories;
 
-    Dialog servicesDialog;
+    String availableServices[]={};
+    String categories[];
+    String locations[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Spinner spinnerServicesLocations;
+
+        //Initial setup of activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarServices);
@@ -50,15 +42,18 @@ public class ServicesActivity extends AppCompatActivity {
         View buttonBack = findViewById(R.id.backButtonServices);
         buttonBack.setOnClickListener(servicesListener);
 
+        //Setup arrays used as spinner items
         locations = getResources().getStringArray(R.array.vpchc_locations2);
         categories = getResources().getStringArray(R.array.services_categories);
 
+        //Setup locations spinner
         spinnerServicesLocations = (Spinner)findViewById(R.id.spinnerServicesLocations);
         ArrayAdapter<String> adapterServicesLocations = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locations);
         adapterServicesLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerServicesLocations.setAdapter(adapterServicesLocations);
 
+        //Setup categories spinner
         spinnerServicesCategories= (Spinner)findViewById(R.id.spinnerServicesCategories);
         ArrayAdapter<String> adapterServicesCategories= new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,categories);
@@ -66,15 +61,7 @@ public class ServicesActivity extends AppCompatActivity {
         spinnerServicesCategories.setAdapter(adapterServicesCategories);
 
         //Sets the preferred location
-        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
-        int locationPref = pref.getInt("prefLocation", 0);
-        if (locationPref == 6) {
-            locationPref = 0;//This sets MSBHC to no preference due to no location section for it
-        }
-        spinnerServicesLocations.setSelection(locationPref);
-        if(locationPref == 0){
-            spinnerServicesCategories.setVisibility(View.GONE);
-        }
+        CommonFunc.sharedPrefSet(this, spinnerServicesLocations, spinnerServicesCategories, false);
 
         spinnerServicesLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,37 +71,15 @@ public class ServicesActivity extends AppCompatActivity {
                         spinnerServicesCategories.setSelection(0);
                         spinnerServicesCategories.setVisibility(View.GONE);
                         break;
-                    case 1:
-                        servicesCategoriesChange(1);
-                        selectionServicesLocation = 1;
-                        break;
-                    case 2:
-                        servicesCategoriesChange(1);
-                        selectionServicesLocation = 2;
-                        break;
-                    case 3:
-                        servicesCategoriesChange(0);
-                        selectionServicesLocation = 3;
-                        break;
-                    case 4:
-                        servicesCategoriesChange(0);
-                        selectionServicesLocation = 4;
-                        break;
-                    case 5:
-                        servicesCategoriesChange(0);
-                        selectionServicesLocation = 5;
-                        break;
-                    case 6:
-                        servicesCategoriesChange(0);
-                        selectionServicesLocation = 6;
+                    default:
+                        userSelectedServicesLocation = position;
+                        servicesCategoriesChange();
                         break;
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
 
         });
 
@@ -125,74 +90,33 @@ public class ServicesActivity extends AppCompatActivity {
                     case 0:
                         spinnerServicesCategories.setSelection(0);
                         break;
-                    case 1:
-                        selectionServicesCategory = 1;
-                        availableServices = getResources().getStringArray(R.array.BehavioralHealth);
-                        servicesPopup();
-                        spinnerServicesCategories.setSelection(0);
-                        break;
-                    case 2:
-                        if(dentalCheck){
-                            selectionServicesCategory = 2;
-                            availableServices = getResources().getStringArray(R.array.Dental);
-                        }else{
-                            selectionServicesCategory = 2;
-                            availableServices = getResources().getStringArray(R.array.PatientSupport);
-                        }
-                        servicesPopup();
-                        spinnerServicesCategories.setSelection(0);
-                        break;
-                    case 3:
-                        if(dentalCheck){
-                            selectionServicesCategory = 3;
-                            availableServices = getResources().getStringArray(R.array.PatientSupport);
-                        }else{
-                            selectionServicesCategory = 3;
-                            if(selectionServicesLocation==5) {
-                                availableServices = getResources().getStringArray(R.array.PrimaryCare2);
-                            }else{
-                                availableServices = getResources().getStringArray(R.array.PrimaryCare1);
-                            }
-                        }
-                        servicesPopup();
-                        spinnerServicesCategories.setSelection(0);
-                        break;
-                    case 4:
-                        selectionServicesCategory = 4;
-                        if(selectionServicesLocation==5) {
-                            availableServices = getResources().getStringArray(R.array.PrimaryCare2);
-                        }else{
-                            availableServices = getResources().getStringArray(R.array.PrimaryCare1);
-                        }
-                        servicesPopup();
-                        spinnerServicesCategories.setSelection(0);
+                    default:
+                        servicesCategorySelected(position);
                         break;
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
 
         });
 
     }
 
-    private void servicesCategoriesChange(int choice){
+    private void servicesCategoriesChange(){
     /*
-	    Arguments:   None
+	    Arguments:   none
 	    Description: Changes the services category listing to show or remove dental depending on
 	                 the location.
-	    Returns:     Nothing
+	    Returns:     void
     */
 
-        if(choice == 0){
-            categories  = getResources().getStringArray(R.array.services_categories);
-            dentalCheck = false;
-        }else{
+        if(userSelectedServicesLocation == 1 || userSelectedServicesLocation ==2){
             categories  = getResources().getStringArray(R.array.services_categories2);
             dentalCheck = true;
+        }else{
+            categories  = getResources().getStringArray(R.array.services_categories);
+            dentalCheck = false;
         }
 
         spinnerServicesCategories = (Spinner) findViewById(R.id.spinnerServicesCategories);
@@ -204,36 +128,67 @@ public class ServicesActivity extends AppCompatActivity {
         spinnerServicesCategories.setSelection(0);
     }
 
-    private boolean servicesPopup(){
+    private void servicesCategorySelected(int userSelection){
     /*
-	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
-	    Description: Displays or dismisses a dialog with selected type of services listed
-	    Returns:     true
+        Arguments:   userSelection(category selected by the user)
+	    Description: Resets the categories spinner, setup the services available based on
+	                 user's selections, and brings up the dialog.
+	    Returns:     void
     */
-        //Initialize the dialog
-        int layoutID = getResources().getIdentifier("dialog_services", "layout", this.getPackageName());
-        int closeID = getResources().getIdentifier("buttonDialogCloseServices", "id", this.getPackageName());
-        int titleID = getResources().getIdentifier("servicesTitleText", "id", this.getPackageName());
-        int subTitleID = getResources().getIdentifier("servicesSubTitleText", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID,closeID,titleID,subTitleID};
-        String[] titleText = new String[] {categories[selectionServicesCategory], locations[selectionServicesLocation]};
-        servicesDialog = DialogSetup.dialogCreate(servicesDialog, this, IDs, titleText, 2);
+        //Reset categories spinner
+        spinnerServicesCategories.setSelection(0);
 
-        //Populate list of services based on type of service chosen
-        LinearLayout servicesContent = (LinearLayout) servicesDialog.findViewById(R.id.servicesContent);
-        for(int i = 0;i < availableServices.length;i++){
-            TextView serviceToAdd = new TextView(this);
-            serviceToAdd.setText(availableServices[i]);
-            serviceToAdd.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.dialog_content));
-            serviceToAdd.setTextColor(Color.parseColor("#000000"));
-            servicesContent.addView(serviceToAdd);
-            if(i != 0){
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)serviceToAdd.getLayoutParams();
-                params.setMargins(0, 50, 0, 0);
-                serviceToAdd.setLayoutParams(params);
+        //Setup the services available based on user's selections
+        availableServicesSetup(userSelection);
+
+        //Opens services dialog
+        servicesPopup(userSelection);
+    }
+
+    private void availableServicesSetup(int userSelection){
+    /*
+        Arguments:   userSelection(category selected by the user)
+	    Description: Setup the services available based on user's selections.
+	    Returns:     void
+    */
+        if(userSelection == 1){
+            availableServices = getResources().getStringArray(R.array.BehavioralHealth);
+        }else if(userSelection == 2){
+            if(dentalCheck){
+                availableServices = getResources().getStringArray(R.array.Dental);
+            }else{
+                availableServices = getResources().getStringArray(R.array.PatientSupport);
+            }
+        }else if(userSelection == 3){
+            if(dentalCheck){
+                availableServices = getResources().getStringArray(R.array.PatientSupport);
+            }else{
+                if(userSelectedServicesLocation==5){
+                    availableServices = getResources().getStringArray(R.array.PrimaryCare2);
+                }else{
+                    availableServices = getResources().getStringArray(R.array.PrimaryCare1);
+                }
+            }
+        }else{
+            if(userSelectedServicesLocation==5){
+                availableServices = getResources().getStringArray(R.array.PrimaryCare2);
+            }else{
+                availableServices = getResources().getStringArray(R.array.PrimaryCare1);
             }
         }
-        return true;
+    }
+
+    private void servicesPopup(int userSelectedCategory){
+       /*
+	    Arguments:   userSelectedCategory(category selected by the user)
+	    Description: Displays a dialog with the services listed from the chosen clinic.
+	                 and service type.
+	    Returns:     void
+    */
+        //Initialize the dialog
+        int[] options = new int[] {3, 0};
+        String[] titleText = new String[] {categories[userSelectedCategory], locations[userSelectedServicesLocation]};
+        DialogSetup.Content.contentSetup(this, "services", options, titleText, availableServices);
     }
 
     private View.OnClickListener servicesListener = new View.OnClickListener() {

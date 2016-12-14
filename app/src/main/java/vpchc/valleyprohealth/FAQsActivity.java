@@ -1,16 +1,12 @@
 package vpchc.valleyprohealth;
 
-import android.app.Dialog;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,16 +14,13 @@ import org.vpchc.valleyprohealth.R;
 
 public class FAQsActivity extends AppCompatActivity {
     String categories[]={};
-    String categoryQuestions[]={};
-    String categoryAnswers[]={};
+    String faqCategory[]={};
 
     private Spinner spinnerCategories;
-    private int selectionCategory;
-
-    Dialog faqsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Initial setup of activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faqs);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarFAQs);
@@ -43,8 +36,10 @@ public class FAQsActivity extends AppCompatActivity {
         View buttonBack = findViewById(R.id.faqsBackButton);
         buttonBack.setOnClickListener(faqsListener);
 
+        //Setup arrays used as spinner items
         categories = getResources().getStringArray(R.array.faqs_categories);
 
+        //Setup categories spinner
         spinnerCategories = (Spinner)findViewById(R.id.spinnerFAQsCategories);
         ArrayAdapter<String> adapterCategories = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item, categories);
@@ -57,80 +52,63 @@ public class FAQsActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         break;
-                    case 1:
-                        selectionCategory = 0;
-                        categoryQuestions = getResources().getStringArray(R.array.faqs_bill_questions);
-                        categoryAnswers = getResources().getStringArray(R.array.faqs_bill_answers);
-                        faqsPopup();
-                        spinnerCategories.setSelection(0);
-                        break;
-                    case 2:
-                        selectionCategory = 1;
-                        categoryQuestions = getResources().getStringArray(R.array.faqs_misc_questions);
-                        categoryAnswers = getResources().getStringArray(R.array.faqs_misc_answers);
-                        faqsPopup();
-                        spinnerCategories.setSelection(0);
-                        break;
-                    case 3:
-                        selectionCategory = 2;
-                        categoryQuestions = getResources().getStringArray(R.array.faqs_newpat_questions);
-                        categoryAnswers = getResources().getStringArray(R.array.faqs_newpat_answers);
-                        faqsPopup();
-                        spinnerCategories.setSelection(0);
-                        break;
-                    case 4:
-                        selectionCategory = 3;
-                        categoryQuestions = getResources().getStringArray(R.array.faqs_services_questions);
-                        categoryAnswers = getResources().getStringArray(R.array.faqs_services_answers);
-                        faqsPopup();
-                        spinnerCategories.setSelection(0);
+                    default:
+                        faqCategorySelected(position - 1);
                         break;
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
 
         });
 
     }
 
-    private boolean faqsPopup(){
+    private void faqCategorySelected(int userSelection){
     /*
-	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
-	    Description: Displays or dismisses a dialog with bh or medical providers listed.
-	    Returns:     true
+        Arguments:   userSelection(category selected by the user)
+	    Description: Resets the categories spinner, setup the faqs category based on
+	                 user's selections, and brings up the dialog.
+	    Returns:     void
+    */
+        //Resets the categories spinner
+        spinnerCategories.setSelection(0);
+
+        //Setup the faqs category based on user's selections
+        selectedCategorySetup(userSelection);
+
+        //Opens faqs dialog
+        faqsPopup(userSelection);
+    }
+
+    private void selectedCategorySetup(int userSelection){
+    /*
+        Arguments:   userSelectedCategory(category selected by the user)
+	    Description: Setup the faqs category based on user's selection.
+	    Returns:     void
+    */
+        if(userSelection == 0){
+            faqCategory = getResources().getStringArray(R.array.faqs_bill);
+        }else if(userSelection == 1){
+            faqCategory = getResources().getStringArray(R.array.faqs_misc);
+        }else if(userSelection == 2){
+            faqCategory = getResources().getStringArray(R.array.faqs_newpat);
+        }else{
+            faqCategory = getResources().getStringArray(R.array.faqs_services);
+        }
+    }
+
+    private void faqsPopup(int userSelectedCategory){
+    /*
+	    Arguments:   userSelectedCategory(category selected by the user)
+	    Description: Displays a dialog with the faqs listed from the chosen category.
+	    Returns:     void
     */
         //Initialize the dialog
-        int layoutID = getResources().getIdentifier("dialog_faqs", "layout", this.getPackageName());
-        int closeID = getResources().getIdentifier("buttonDialogCloseFAQs", "id", this.getPackageName());
-        int titleID = getResources().getIdentifier("faqsSectionTitle", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID,closeID,titleID};
-        String[] titleText = new String[] {categories[selectionCategory + 1]};
-        faqsDialog = DialogSetup.dialogCreate(faqsDialog, this, IDs, titleText, 1);
-
-        //Populates the Questions/Answers from the selected category
-        LinearLayout faqsContent = (LinearLayout) faqsDialog.findViewById(R.id.faqsContent);
-        for(int i = 0;i < (categoryQuestions.length);i++){
-            TextView questionToAdd = new TextView(this);
-            questionToAdd.setText(categoryQuestions[i]);
-            questionToAdd.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.dialog_content));
-            questionToAdd.setTypeface(questionToAdd.getTypeface(), Typeface.BOLD);
-            questionToAdd.setTextColor(Color.parseColor("#000000"));
-            faqsContent.addView(questionToAdd);
-            if(i != 0){
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)questionToAdd.getLayoutParams();
-                params.setMargins(0, 30, 0, 0);
-                questionToAdd.setLayoutParams(params);
-            }
-            TextView answerToAdd = new TextView(this);
-            answerToAdd.setText(categoryAnswers[i]);
-            answerToAdd.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.dialog_content));
-            faqsContent.addView(answerToAdd);
-        }
-        return true;
+        int[] options = new int[] {1, 1};
+        String[] titleText = new String[] {categories[userSelectedCategory + 1]};
+        DialogSetup.Content.contentSetup(this, "faqs", options, titleText, faqCategory);
     }
 
     private View.OnClickListener faqsListener = new View.OnClickListener() {
@@ -139,9 +117,6 @@ public class FAQsActivity extends AppCompatActivity {
                 case R.id.faqsBackButton:
                     v.setSelected(true);
                     finish();
-                    break;
-                case R.id.buttonDialogCloseFAQs:
-                    faqsDialog.dismiss();
                     break;
                 default:
                     break;

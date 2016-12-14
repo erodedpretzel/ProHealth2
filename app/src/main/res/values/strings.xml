@@ -50,86 +50,97 @@
                 <item>Services</item>
             </string-array>
 
-            <string-array name="faqs_newpat_questions">
+            <string-array name="faqs_newpat">
                 <item>Are you accepting new patients?</item>
-                <item>How soon will I be able to schedule my first appointment?</item>
-                <item>What do I need to bring to my first appointment?</item>
-                <item>Can I make an appointment with a Behavioral Health counselor?</item>
-                <item>Do you offer prenatal services?</item>
-                <item>Can I call and get information about my spouse/parent/adult/child (18+) or their medical records?</item>
-                <item>Can anyone else (i.e. grandparent, family friend, or childcare provider) bring my child to his or her appointment?</item>
-            </string-array>
-
-            <string-array name="faqs_newpat_answers">
                 <item>To find out if one of our locations is accepting new patients please give us a call and we will be glad to assist you. The contact information for all of our clinics is available in the locations section of this app.</item>
+
+                <item>How soon will I be able to schedule my first appointment?</item>
                 <item>New patient appointments can be scheduled as soon as two weeks. In the mean time we will send you paperwork to be completed and brought in on the day of your appointment.</item>
+
+                <item>What do I need to bring to my first appointment?</item>
                 <item>For your first appointment, you should bring your completed new patient paperwork, along with your driver\'s license and insurance information. When you arrive, the front office will make a copy of your medical insurance card and verify that your account information is up-to-date. A nurse will complete your medical history after you have been checked in, but please bring any relevant medical information, including all names and dosages of prescriptions and over-the-counter medications that you are currently taking.</item>
+
+                <item>Can I make an appointment with a Behavioral Health counselor?</item>
                 <item>If you are an established patient, speak with your Primary Care Provider about referring you to a Valley Professionals Behavioral Health counselor.</item>
+
+                <item>Do you offer prenatal services?</item>
                 <item>Prenatal services, as well as, Labor and Delivery are available at our Terre Haute clinic by referral. For more information, or to make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+
+                <item>Can I call and get information about my spouse/parent/adult/child (18+) or their medical records?</item>
                 <item>The Health Insurance Portability and Accountability Act (HIPAA) prohibits us from sharing confidential patient health information without written authorization from the patient. If a patient would like to grant you permission to make an appointment for them or to access their medical records they must complete a Release of Information form, available in the forms section of this app.</item>
+
+                <item>Can anyone else (i.e. grandparent, family friend, or childcare provider) bring my child to his or her appointment?</item>
                 <item>Yes, you may grant permission for another person to bring your child to his or her appointment after you have completed and submitted a consent form available in the forms section of this app.</item>
             </string-array>
 
-            <string-array name="faqs_bill_questions">
+            <string-array name="faqs_bill">
                 <item>What types of insurance do you accept?</item>
-                <item>Can I be seen by a provider even if I do not have health insurance?</item>
-                <item>Can Valley Professionals help me enroll in health insurance coverage?</item>
-                <item>What do I need to bring to apply for sliding fee scale?</item>
-                <item>What if I am unable to pay my bill?</item>
-                <item>What if I have other questions about billing?</item>
-            </string-array>
-
-            <string-array name="faqs_bill_answers">
                 <item>We accept all commercial insurance carriers, Medicare, and Medicaid.</item>
+
+                <item>Can I be seen by a provider even if I do not have health insurance?</item>
                 <item>Yes, Valley Professionals accepts self-pay, and also has a sliding-fee scale for eligible individuals.</item>
+
+                <item>Can Valley Professionals help me enroll in health insurance coverage?</item>
                 <item>Yes, our Community Health Workers are specially trained to help individuals find affordable health coverage. To make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+
+                <item>What do I need to bring to apply for sliding fee scale?</item>
                 <item>To apply for sliding fee scale, patients and their families must provide the following documents to verify gross income: Most recent tax filing with the IRS and/or W2\'s from employer(s), A copy of Social Security or Disability Award Letter(s) or unemployment statement(s),Pay stubs from all employerers for the last 30-day period, If unemployed, no income, and living with others, we require a signed and dated letter from the person providing support of the patient, Driver\'s license, Any other income that is direct deposited. For more information on sliding fee scale, visit the patient resources section of this app.</item>
+
+                <item>What if I am unable to pay my bill?</item>
                 <item>If you unable to pay your bill, feel free to contact our Billing Department at (765) 828–1000 to set up a payment plan that works for you.</item>
+
+                <item>What if I have other questions about billing?</item>
                 <item>For all inquiries regarding billing, please contact our Billing Department at (765) 828–1000.</item>
             </string-array>
 
-            <string-array name="faqs_services_questions">
+            <string-array name="faqs_services">
                 <item>What can I do if I am unable to pay for my prescription?</item>
-                <item>How long will it take for me to receive my prescription refill after I have submitted a request?</item>
-                <item>Do I have to be a patient to use the After-Hours Clinic?</item>
-                <item>Do I need an appointment for the After-Hours clinic?</item>
-                <item>What can I be seen for at the After-Hours clinic?</item>
-                <item>When is After-Hours clinic?</item>
-                <item>Does the Mobile School-Based Health Center offer school physical examinations?</item>
-                <item>What types of services are available on the Mobile School-Based Health Center?</item>
-                <item>Who can be seen on the Mobile Health Center?</item>
-                <item>What do I need to do for my child to be seen by the MSBHC?</item>
-                <item>Does it count against my child\'s attendance when he or she is seen by the MSBHC?</item>
-                <item>Does the MSBHC visit my school?</item>
-                <item>How do I know when the MSBHC will be at my school?</item>
-                <item>Do I have to be a patient to take part in the Diabetic Support Group?</item>
-            </string-array>
-
-            <string-array name="faqs_services_answers">
                 <item>Valley Professionals has a 403(b) Prescription Assistance Program that can help eligible individuals to afford their medication.</item>
+
+                <item>How long will it take for me to receive my prescription refill after I have submitted a request?</item>
                 <item>Prescription refill requests can take up to 48 hours once submitted.</item>
+
+                <item>Do I have to be a patient to use the After-Hours Clinic?</item>
                 <item>No, you are not required to be a current Valley Professionals patient to utilize the After-Hours services.</item>
+
+                <item>Do I need an appointment for the After-Hours clinic?</item>
                 <item>No, After-Hours office visits are on a first-come, first-served basis.</item>
+
+                <item>What can I be seen for at the After-Hours clinic?</item>
                 <item>The After-Hours clinic is for acute conditions, such as, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, earache, or other similar symptoms.</item>
+
+                <item>When is After-Hours clinic?</item>
                 <item>The After-Hours clinic takes place Monday through Thursday from 5:00pm to 8:00pm at our Clinton location only.</item>
+
+                <item>Does the Mobile School-Based Health Center offer school physical examinations?</item>
                 <item>Yes.</item>
+
+                <item>What types of services are available on the Mobile School-Based Health Center?</item>
                 <item>Visit the MSBHC for: immunizations, school physicals, well child visits, cold, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, ear ache, and similar symptoms.</item>
+
+                <item>Who can be seen on the Mobile Health Center?</item>
                 <item>Students and Employees of a school hosting the Mobile Health Center may be seen. There are certain occasions during school breaks when the Mobile Health Center is open to the community. For more information, or to view the MSBHC\'s schedule, go to the tracker section of the app.</item>
+
+                <item>What do I need to do for my child to be seen by the MSBHC?</item>
                 <item>To enroll your child in MSBHC services, you must complete and submit the enrollment form found in the forms section. After you have done this, you may call the mobile unit and make an appointment, or your child can simply go to the school nurse and be referred.</item>
+
+                <item>Does it count against my child\'s attendance when he or she is seen by the MSBHC?</item>
                 <item>No, your child\'s visit to the MSBHC will not count against his or her attendance; moreover, if your child is sent home due to illness by an MSBHC provider, this absence would be certified excused.</item>
+
+                <item>Does the MSBHC visit my school?</item>
                 <item>The MSBHC visits schools in the North Vermillion, South Vermillion, Southwest Parke, and North Central Parke school corporations.</item>
+
+                <item>How do I know when the MSBHC will be at my school?</item>
                 <item>You can find a schedule for the MSBHC in the tracker section of this app.</item>
+
+                <item>Do I have to be a patient to take part in the Diabetic Support Group?</item>
                 <item>No, you do not have to register, make an appointment, or even be a patient of Valley Professionals to take part in the Diabetic Support Group.</item>
             </string-array>
 
-            <string-array name="faqs_misc_questions">
+            <string-array name="faqs_misc">
                 <item>Is Valley Professionals hiring?</item>
+                <item>Visit valleyprohealth.org/careers to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
             </string-array>
-
-            <string-array name="faqs_misc_answers">
-                <item>Visit valleyprohealth.org to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
-            </string-array>
-
 
     <!--**********************************!>
        #FEEDBACK
@@ -251,6 +262,7 @@
             <string name="locations_title">Locations</string>
             <string name="location_afterhours">After-Hours Clinic:</string>
             <string name="location_hours_saturday">Saturday Clinic:</string>
+            <string name="clinicInfoAddress">Address:</string>
         <!--Array-->
             <string-array name="locations_contact_info">
                 <item>201 W. Academy St.</item>
@@ -458,7 +470,6 @@
             <string-array name="services_categories">
                 <item>Select a category</item>
                 <item>Behavioral Health</item>
-
                 <item>Patient Support</item>
                 <item>Primary Care</item>
             </string-array>
@@ -541,22 +552,26 @@
             <string name="trackerTimes">Hours:</string>
             <string name="trackerStatus">Status:</string>
             <string name="trackerScheduleDownload">Download Schedule</string>
-            <string name="tracker_status_open">Open</string>
-            <string name="tracker_status_open_soon">Opening Soon</string>
-            <string name="tracker_status_close_soon">Closing Soon</string>
-            <string name="tracker_status_closed">Closed</string>
-            <string name="tracker_status_enroute">En Route</string>
             <string name="tracker_refresh">Refresh Tracker</string>
-            <string name="outdated_firstline">Schedule outdated</string>
-            <string name="outdated_secondline">Restart App</string>
-            <string name="outdated_thirdline">to update</string>
+
         <!--Toasts-->
             <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
             <string name="toast_forms_download">Downloading Form…</string>
             <string name="toast_network_error">Error: Please check your network connection</string>
             <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
-
-
+         <!--Array-->
+            <string-array name="tracker_statuses">
+                <item>Open</item>
+                <item>Opening Soon</item>
+                <item>En Route</item>
+                <item>Closing Soon</item>
+                <item>Closed</item>
+            </string-array>
+            <string-array name="tracker_outdated">
+                <item>Schedule outdated</item>
+                <item>Restart App</item>
+                <item>to update</item>
+            </string-array>
     <!--**********************************!>
        #TWITTER
     <!***********************************-->
@@ -564,8 +579,7 @@
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
             <string name="toast_call_perm">Call permissions not enabled</string>
             <string name="icon_twitter" translatable="false">Twitter</string>
-    <string name="clinicInfoAddress">Address:</string>
-    <!--Array-->
+        <!--Array-->
             <string-array name="twitter_feed_tips">
                 <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
                 <item>If you are not able to make an appointment, please call to let us know.</item>

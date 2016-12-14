@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:grid="http://schemas.android.com/apk/res-auto"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/dialogTitleClinicInfo"
+        android:id="@+id/locations_clinicinfo2DialogTitleContainer"
 
         android:layout_width="fill_parent"
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonDialogCloseLocations"
+            android:id="@+id/locations_clinicinfo2DialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
@@ -38,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_below="@+id/dialogTitleClinicInfo">
+        android:layout_below="@+id/locations_clinicinfo2DialogTitleContainer">
         <TextView
             android:id="@+id/locationsClinicInfoLocationText"
 
@@ -46,7 +44,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
 
-            android:text=""
+            android:text="Clinton"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/dialog_subtitle"/>
     </LinearLayout>

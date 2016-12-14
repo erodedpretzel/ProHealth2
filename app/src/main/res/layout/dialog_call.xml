@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:grid="http://schemas.android.com/apk/res-auto"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -9,12 +7,11 @@
     <LinearLayout
         android:id="@+id/dialogTitleCall"
 
-
         android:layout_width="fill_parent"
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonDialogCloseCall"
+            android:id="@+id/callDialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"

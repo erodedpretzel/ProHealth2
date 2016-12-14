@@ -1,19 +1,14 @@
 package vpchc.valleyprohealth;
 
 import org.vpchc.valleyprohealth.R;
-
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -22,17 +17,13 @@ import android.widget.TextView;
 
 public class LocationsActivity extends AppCompatActivity {
 
-    String locations[] = {};
     private int selectionLocation;
-
-    private Spinner spinnerLocations;
     private Spinner spinnerLocationsOptions;
-
-    Dialog locationsDialog;
+    String locations[] = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final String[] locationCoordinates = new String[1];
+        //Initial setup of activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarLocations);
@@ -48,17 +39,18 @@ public class LocationsActivity extends AppCompatActivity {
         View buttonBack = findViewById(R.id.backButtonLocations);
         buttonBack.setOnClickListener(locationsListener);
 
-        String locationsOptions[]={};
+        //Setup arrays used as spinner items
+        locations                 = getResources().getStringArray(R.array.vpchc_locations2);
+        String locationsOptions[] = getResources().getStringArray(R.array.locations_options);
 
-        locations = getResources().getStringArray(R.array.vpchc_locations2);
-        locationsOptions = getResources().getStringArray(R.array.locations_options);
-
-        spinnerLocations = (Spinner)findViewById(R.id.spinnerLocations);
+        //Setup locations spinner
+        Spinner spinnerLocations = (Spinner)findViewById(R.id.spinnerLocations);
         ArrayAdapter<String> adapterLocations = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locations);
         adapterLocations.setDropDownViewResource(R.layout.fancy_spinner_dropdown);
         spinnerLocations.setAdapter(adapterLocations);
 
+        //Setup location options spinner
         spinnerLocationsOptions = (Spinner)findViewById(R.id.spinnerLocationsOptions);
         ArrayAdapter<String>adapterLocationsOptions = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.fancy_spinner_item,locationsOptions);
@@ -66,15 +58,7 @@ public class LocationsActivity extends AppCompatActivity {
         spinnerLocationsOptions.setAdapter(adapterLocationsOptions);
 
         //Sets the preferred location
-        SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
-        int locationPref = pref.getInt("prefLocation", 0);
-        if(locationPref == 6){
-            locationPref = 0;//This sets MSBHC to no preference do to no location section for it
-        }
-        spinnerLocations.setSelection(locationPref);
-        if(locationPref == 0){
-            spinnerLocationsOptions.setVisibility(View.GONE);
-        }
+        CommonFunc.sharedPrefSet(this, spinnerLocations, spinnerLocationsOptions, true);
 
         spinnerLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,39 +68,16 @@ public class LocationsActivity extends AppCompatActivity {
                         spinnerLocationsOptions.setSelection(0);
                         spinnerLocationsOptions.setVisibility(View.GONE);
                         break;
-                    case 1:
-                        spinnerLocationsOptions.setVisibility(View.VISIBLE);
+                    default:
                         spinnerLocationsOptions.setSelection(0);
-                        selectionLocation = 1;
-                        break;
-                    case 2:
                         spinnerLocationsOptions.setVisibility(View.VISIBLE);
-                        spinnerLocationsOptions.setSelection(0);
-                        selectionLocation = 2;
+                        selectionLocation = position;
                         break;
-                    case 3:
-                        spinnerLocationsOptions.setVisibility(View.VISIBLE);
-                        spinnerLocationsOptions.setSelection(0);
-                        selectionLocation = 3;
-                        break;
-                    case 4:
-                        spinnerLocationsOptions.setVisibility(View.VISIBLE);
-                        spinnerLocationsOptions.setSelection(0);
-                        selectionLocation = 4;
-                        break;
-                    case 5:
-                        spinnerLocationsOptions.setVisibility(View.VISIBLE);
-                        spinnerLocationsOptions.setSelection(0);
-                        selectionLocation = 5;
-                        break;
-
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
 
         });
 
@@ -128,22 +89,24 @@ public class LocationsActivity extends AppCompatActivity {
                         break;
                     case 1:
                         locationsPopup();
+                        //Reset the location options spinner
                         spinnerLocationsOptions.setSelection(0);
                         break;
                     case 2:
+                        String locationCoordinates;
                         //Opens the Google Maps app with the locations address already entered in
                         if(selectionLocation == 1){
-                            locationCoordinates[0] = "201 W. Academy St., Bloomingdale,IN 47832";
+                            locationCoordinates = "201 W. Academy St., Bloomingdale,IN 47832";
                         }else if(selectionLocation == 2){
-                            locationCoordinates[0] = "114 N. Division St., Cayuga, IN 47928";
+                            locationCoordinates = "114 N. Division St., Cayuga, IN 47928";
                         }else if(selectionLocation == 3){
-                            locationCoordinates[0] = "777 S. Main Street, Suite 100 Clinton, IN 47842";
+                            locationCoordinates = "777 S. Main Street, Suite 100 Clinton, IN 47842";
                         }else if(selectionLocation == 4){
-                            locationCoordinates[0] = "1810 Lafayette Ave, Crawfordsville, IN 47933";
-                        }else if(selectionLocation == 5){
-                            locationCoordinates[0] = "1530 North 7th Street, Suite 201, Terre Haute, IN 47807";
+                            locationCoordinates = "1810 Lafayette Ave, Crawfordsville, IN 47933";
+                        }else{
+                            locationCoordinates = "1530 North 7th Street, Suite 201, Terre Haute, IN 47807";
                         }
-                        Uri gmmIntentUri = Uri.parse("geo:0,0?q="+locationCoordinates[0]);
+                        Uri gmmIntentUri = Uri.parse("geo:0,0?q="+locationCoordinates);
                         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                         mapIntent.setPackage("com.google.android.apps.maps");
                         startActivity(mapIntent);
@@ -153,36 +116,46 @@ public class LocationsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
         });
     }
 
-    private boolean locationsPopup(){
+
+
+    private void locationsPopup(){
     /*
-	    Arguments:   choice(0 - dismiss dialog, 1 - create a dialog)
-	    Description: Displays or dismisses a dialog with the chosen location's clinic hours listed.
-	    Returns:     true
+	    Arguments:   none
+	    Description: Displays a dialog with the chosen clinics picture, contact info, and hours listed.
+	    Returns:     void
     */
-        int i;
-        int replaceTextId;
-        int layoutID;
-        String replaceTextString;
+        Dialog locationsDialog;
+        String dialogName;
 
         //Initialize the dialog
         if(selectionLocation == 3){//Clinton Location
-            layoutID = getResources().getIdentifier("dialog_locations_clinicinfo2", "layout", this.getPackageName());
-        }else{//All other locations
-            layoutID = getResources().getIdentifier("dialog_locations_clinicinfo1", "layout", this.getPackageName());
-        }
-        int closeID = getResources().getIdentifier("buttonDialogCloseLocations", "id", this.getPackageName());
-        int titleID = getResources().getIdentifier("locationsClinicInfoLocationText", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID,closeID,titleID};
-        String[] titleText = new String[] {locations[selectionLocation]};
-        locationsDialog = DialogSetup.dialogCreate(locationsDialog, this, IDs, titleText, 1);
+            dialogName = "locations_clinicinfo2";
+            locationsDialog = DialogSetup.Base.Create(this, dialogName);
+        }else{
+            dialogName = "locations_clinicinfo1";
+            String[] titleText = new String[] {locations[selectionLocation]};
+            locationsDialog = DialogSetup.Title.titleSetup(this, dialogName, 2, titleText);
 
+            //Sets address, phone and fax
+            locationContactInfoSet(locationsDialog);
+
+            //Populate list of clinic hours depending on location chosen
+            locationHoursSet(locationsDialog);
+        }
         //Sets location picture displayed
+        locationPicSet(locationsDialog);
+    }
+
+    private void locationPicSet(Dialog locationsDialog){
+    /*
+	    Arguments:   none
+	    Description: Sets location picture displayed.
+	    Returns:     void
+    */
         ImageView locationsPic = (ImageView) locationsDialog.findViewById(R.id.locationsPic);
         if(selectionLocation == 1){
             locationsPic.setImageResource(R.drawable.bloomingdale_location);
@@ -192,43 +165,52 @@ public class LocationsActivity extends AppCompatActivity {
             locationsPic.setImageResource(R.drawable.clinton_location);
         }else if(selectionLocation == 4){
             locationsPic.setImageResource(R.drawable.crawfordsville_location);
-        }else if(selectionLocation == 5){
+        }else{
             locationsPic.setImageResource(R.drawable.terrehaute_location);
         }
+    }
 
-        //Don't run this for clinton location which already has hours populated
-        if(selectionLocation != 3) {
-            //Sets address, phone and fax
-            TextView addressText1 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress1);
-            TextView addressText2 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress2);
-            TextView phoneText = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoPhone);
-            TextView faxText = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoFax);
-            String contactInfo[]  = getResources().getStringArray(R.array.locations_contact_info);
-            int contactInfoIndex = (selectionLocation - 1) * 4;
-            addressText1.setText(contactInfo[contactInfoIndex++]);
-            addressText2.setText(contactInfo[contactInfoIndex++]);
-            phoneText.setText(contactInfo[contactInfoIndex++]);
-            faxText.setText(contactInfo[contactInfoIndex]);
+    private void locationContactInfoSet(Dialog locationsDialog){
+    /*
+	    Arguments:   none
+	    Description: Sets the contact info of the location selected.
+	    Returns:     void
+    */
+        TextView addressText1 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress1);
+        TextView addressText2 = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoAddress2);
+        TextView phoneText    = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoPhone);
+        TextView faxText      = (TextView) locationsDialog.findViewById(R.id.locationsClinicInfoFax);
+        String contactInfo[]  = getResources().getStringArray(R.array.locations_contact_info);
 
-            //Populate list of clinic hours depending on location chosen
-            for (i = 2; i <= 10; i += 2) {
-                replaceTextString = "locationsClinicInfoText" + i;
-                replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-                TextView tempText = (TextView) locationsDialog.findViewById(replaceTextId);
-                if (selectionLocation != 3 & selectionLocation != 5) {
-                    tempText.setText("8:00 a.m. - 5:00 p.m.");
-                }else {
-                    if (i == 8) {
-                        tempText.setText("8:30 a.m. - 5:00 p.m.");
-                    } else if (i == 10) {
-                        tempText.setText("8:00 a.m. - 4:30 p.m.");
-                    } else {
-                        tempText.setText("8:00 a.m. - 5:00 p.m.");
-                    }
-                }
+        int contactInfoIndex = (selectionLocation - 1) * 4;
+        addressText1.setText(contactInfo[contactInfoIndex++]);
+        addressText2.setText(contactInfo[contactInfoIndex++]);
+        phoneText.setText(contactInfo[contactInfoIndex++]);
+        faxText.setText(contactInfo[contactInfoIndex]);
+    }
+
+    private void locationHoursSet(Dialog locationsDialog){
+    /*
+	    Arguments:   none
+	    Description: Set the hours of the location selected.
+	    Returns:     void
+    */
+        int replaceTextId;
+        String replaceTextString;
+
+        //Set hours for each weekday for location chosen by user
+        for (int i = 0; i < 5; i++) {
+            replaceTextString = "locationsClinicInfoHours" + i;
+            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
+            TextView hoursText = (TextView) locationsDialog.findViewById(replaceTextId);
+            if (selectionLocation == 5 && i == 3) {//Terre haute, Thursday
+                hoursText.setText("8:30 a.m. - 5:00 p.m.");
+            }else if(selectionLocation == 5 && i == 4) {//Terre Haute, Friday
+                hoursText.setText("8:00 a.m. - 4:30 p.m.");
+            }else {
+                hoursText.setText("8:00 a.m. - 5:00 p.m.");
             }
         }
-        return true;
     }
 
     private View.OnClickListener locationsListener = new View.OnClickListener() {

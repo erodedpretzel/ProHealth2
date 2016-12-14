@@ -5,41 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/dialogSubTitleServices"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dialogTitleServices"
-        android:background="@color/white">
-        <TextView
-            android:id="@+id/servicesSubTitleText"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-
-            android:text=""
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/dialog_subtitle"
-            />
-    </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/dialogSubTitleServices"
-        android:background="@color/white">
-        <LinearLayout
-            android:id="@+id/servicesContent"
-            android:orientation="vertical"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/dialogTitleServices"
+        android:id="@+id/servicesDialogTitleContainer"
 
         android:layout_width="match_parent"
         android:layout_height="@dimen/dialog_bar"
@@ -48,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
         <ImageView
-            android:id="@+id/buttonDialogCloseServices"
+            android:id="@+id/servicesDialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
@@ -56,7 +22,7 @@
             android:layout_gravity="center"
             android:gravity="end"/>
         <TextView
-            android:id="@+id/servicesTitleText"
+            android:id="@+id/servicesDialogTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -67,4 +33,39 @@
             android:textColor="@color/white"
             android:textSize="@dimen/dialog_title"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/servicesDialogSubTitleContainer"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/servicesDialogTitleContainer"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/servicesDialogSubTitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dialog_subtitle"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/servicesDialogSubTitleContainer"
+        android:background="@color/white">
+        <LinearLayout
+            android:id="@+id/servicesContent"
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </ScrollView>
 </RelativeLayout>

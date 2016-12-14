@@ -5,20 +5,20 @@
     android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/dialogTitleProviders"
+        android:id="@+id/providersDialogTitleContainer"
 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonDialogCloseProviders"
+            android:id="@+id/providersDialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
             android:layout_height="@dimen/dialog_close"
             android:gravity="end"/>
         <TextView
-            android:id="@+id/providersTypeText"
+            android:id="@+id/providersDialogTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,14 +30,14 @@
             />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/dialogSubTitleProviders"
+        android:id="@+id/providersDialogSubTitleContainer"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dialogTitleProviders"
+        android:layout_below="@+id/providersDialogTitleContainer"
         android:background="@color/white">
         <TextView
-            android:id="@+id/providersLocationsText"
+            android:id="@+id/providersDialogSubTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,7 +50,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dialogSubTitleProviders"
+        android:layout_below="@+id/providersDialogSubTitleContainer"
         android:background="@color/white">
         <LinearLayout
             android:id="@+id/providersContent"

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:grid="http://schemas.android.com/apk/res-auto"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/dialogTitleClinicInfo"
+        android:id="@+id/locations_clinicinfo1DialogTitleContainer"
 
         android:layout_width="fill_parent"
         android:layout_height="@dimen/dialog_bar"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/buttonDialogCloseLocations"
+            android:id="@+id/locations_clinicinfo1DialogClose"
             android:src="@drawable/close_dialog_state_list_drawable"
 
             android:layout_width="@dimen/dialog_close"
@@ -21,7 +19,7 @@
             android:layout_gravity="center"
             android:gravity="end"/>
         <TextView
-            android:id="@+id/locationsClinicInfoTitleText"
+            android:id="@+id/locations_clinicinfo1DialogTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,14 +31,14 @@
             android:textSize="@dimen/dialog_title"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/locationsClinicInfoBar"
+        android:id="@+id/locations_clinicinfo1DialogSubTitleContainer"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_below="@+id/dialogTitleClinicInfo">
+        android:layout_below="@+id/locations_clinicinfo1DialogTitleContainer">
         <TextView
-            android:id="@+id/locationsClinicInfoLocationText"
+            android:id="@+id/locations_clinicinfo1DialogSubTitle"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,7 +56,7 @@
 
         android:background="@color/white"
 
-        android:layout_below="@+id/locationsClinicInfoBar"/>
+        android:layout_below="@+id/locations_clinicinfo1DialogSubTitleContainer"/>
     <ScrollView
         android:requiresFadingEdge="vertical"
 
@@ -132,7 +130,31 @@
                 android:textSize="@dimen/dialog_content"
                 android:textColor="#000000"/>
             <TextView
+                android:id="@+id/locationsClinicInfoHours0"
+
+                android:layout_gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:text=" "
+                android:textSize="@dimen/dialog_content"
+                android:textColor="#000000"/>
+            <TextView
                 android:id="@+id/locationsClinicInfoText2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+
+                android:text="@string/location_hours_tuesday"
+                android:textStyle="bold"
+                android:textSize="@dimen/dialog_content"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/locationsClinicInfoHours1"
 
                 android:layout_gravity="center"
 
@@ -151,12 +173,36 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
 
-                android:text="@string/location_hours_tuesday"
+                android:text="@string/location_hours_wednesday"
                 android:textStyle="bold"
                 android:textSize="@dimen/dialog_content"
                 android:textColor="#000000"/>
             <TextView
+                android:id="@+id/locationsClinicInfoHours2"
+
+                android:layout_gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:text=" "
+                android:textSize="@dimen/dialog_content"
+                android:textColor="#000000"/>
+            <TextView
                 android:id="@+id/locationsClinicInfoText4"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+
+                android:text="@string/location_hours_thursday"
+                android:textStyle="bold"
+                android:textSize="@dimen/dialog_content"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/locationsClinicInfoHours3"
 
                 android:layout_gravity="center"
 
@@ -175,60 +221,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
 
-                android:text="@string/location_hours_wednesday"
-                android:textStyle="bold"
-                android:textSize="@dimen/dialog_content"
-                android:textColor="#000000"/>
-            <TextView
-                android:id="@+id/locationsClinicInfoText6"
-
-                android:layout_gravity="center"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-
-                android:text=" "
-                android:textSize="@dimen/dialog_content"
-                android:textColor="#000000"/>
-            <TextView
-                android:id="@+id/locationsClinicInfoText7"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-
-                android:text="@string/location_hours_thursday"
-                android:textStyle="bold"
-                android:textSize="@dimen/dialog_content"
-                android:textColor="#000000"/>
-            <TextView
-                android:id="@+id/locationsClinicInfoText8"
-
-                android:layout_gravity="center"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-
-                android:text=" "
-                android:textSize="@dimen/dialog_content"
-                android:textColor="#000000"/>
-            <TextView
-                android:id="@+id/locationsClinicInfoText9"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-
                 android:text="@string/location_hours_friday"
                 android:textStyle="bold"
                 android:textSize="@dimen/dialog_content"
                 android:textColor="#000000"/>
             <TextView
-                android:id="@+id/locationsClinicInfoText10"
+                android:id="@+id/locationsClinicInfoHours4"
 
                 android:layout_gravity="center"
 

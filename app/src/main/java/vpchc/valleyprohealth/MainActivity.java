@@ -13,7 +13,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -75,16 +74,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Initial setup of activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         //Changes the menu icon
         Drawable menuIcon = ContextCompat.getDrawable(getApplicationContext(),R.drawable.menu_state_list_drawable);
         toolbar.setOverflowIcon(menuIcon);
-
 
         //Checks if preference exists and if not, run the location preferences dialog
         pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
@@ -203,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         //This section is used to initiate the onPageSelected listener after the mpager has
         //completely loaded. If this wasn't here, the first page wouldn't initiate the
         //onPageSelected section until the user scrolled to the second page and then came back.
-        //Essentially the user couldn't be able to click most of the buttons without it initially.
+        //Essentially the user couldn't be able to click most of the buttons initially without it.
         mPager.post(new Runnable(){
             @Override
             public void run() {
@@ -234,11 +233,11 @@ public class MainActivity extends AppCompatActivity {
 
     //region Bus Tracker
     private void updateBusTracker() {
-        /*
-            Arguments:   None
-            Description: Updates the current bus location from the web and stores the values
-            Returns:     Null
-        */
+    /*
+         Arguments:   None
+         Description: Updates the current bus location from the web and stores the values.
+         Returns:     void
+    */
 
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -262,8 +261,8 @@ public class MainActivity extends AppCompatActivity {
                     //Stores day when update is ran to compare against current date for outdated
                     //schedule and stores date to be displayed so that the user can understand the outdated
                     //schedule better.
-                    getCurrDay(1);
-                    getCurrDate(1);
+                    setBusDate();
+                    setBusDayOfYear();
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -282,48 +281,47 @@ public class MainActivity extends AppCompatActivity {
             }
         }.execute();
     }
-
     private void busTrackerMain(){
     /*
-	    Arguments:   choice (0 - dismiss dialog, 1 - create dialog)
+	    Arguments:   none
 	    Description: Main function for the bus tracker.
-	    Returns:     Nothing
+	    Returns:     void
     */
-        int busCheckStatus = 0;
-        //0 - Location, 1 - Hours, 2 - Start Time, 3 - End Time, 4 - Flag
-        String[] locationsArray = new String[5];
-
-        //Below if statement there is no stored bus preferences.
-        locations = getSharedPreferences("locations_0", MODE_PRIVATE);
-        if(!(locations.contains("locations_0"))){
+        //Checks if there a stored bus schedule.
+        if(!busPreferenceExistCheck()){
             String toastNetworkText = getResources().getString(R.string.toast_network_error);
             Toast.makeText(getApplicationContext(), toastNetworkText ,Toast.LENGTH_LONG).show();
             return;
         }
 
-        String todaysDate = getCurrDate(0);
-
         //Initialize the dialog
-        int layoutID = getResources().getIdentifier("dialog_tracker", "layout", this.getPackageName());
-        int closeID = getResources().getIdentifier("buttonDialogCloseTracker", "id", this.getPackageName());
-        int titleID = getResources().getIdentifier("trackerDateText", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID,closeID,titleID};
-        String[] titleText = new String[] {todaysDate};
-        trackerDialog = DialogSetup.dialogCreate(trackerDialog, this, IDs, titleText, 1);
+        String[] titleText = new String[] {loadBusDate()};
+        trackerDialog = DialogSetup.Title.titleSetup(this, "tracker", 2, titleText);
 
         //Listener for Download button
         View buttonTrackerScheduleDownload = trackerDialog.findViewById(R.id.buttonTrackerScheduleDownload);
         buttonTrackerScheduleDownload.setOnClickListener(trackerListener);
 
+        //0 - Location, 1 - Hours, 2 - Start Time, 3 - End Time, 4 - Flag
+        String[] locationsArray = new String[5];
+
         //Checks the times of each location until it finds one that is open, opening soon,
         //closing soon or en route or there are no other locations left.
-        busCheckStatus = busLocationCheck(locationsArray);
+        int busCheckStatus = busLocationCheck(locationsArray);
 
         //Sets the bus information displayed on the screen.
         busInfoDisplay(busCheckStatus, locationsArray);
     }
-
-    private int busLocationCheck(String[] locationsArray){
+    private boolean busPreferenceExistCheck(){
+    /*
+	    Arguments:   none
+	    Description: Checks if there a stored bus schedule.
+	    Returns:     returns true if there is a stored bus schedule and false if there isn't
+    */
+        locations = getSharedPreferences("locations_0", MODE_PRIVATE);
+        return locations.contains("locations_0");
+    }
+    private int busLocationCheck(String[] locationsArray) {
     /*
 	    Arguments:   locationsArray - Bus information
 	    Description: Checks each location of the bus unless a condition is met.
@@ -332,25 +330,23 @@ public class MainActivity extends AppCompatActivity {
         int i = 0;
         int r;
         String[] parseText;
-        while(true){
+        while (true) {
             locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
-            String loc = locations.getString("locations_" + i,"DEFAULT");
+            String loc = locations.getString("locations_" + i, "DEFAULT");
             parseText = loc.split(",");
             locationsArray[0] = (parseText[0]);
             locationsArray[1] = (parseText[1]);
             locationsArray[2] = (parseText[2]);
             locationsArray[3] = (parseText[3]);
             locationsArray[4] = (parseText[4]);
-            r = busTimeCheck(i,locationsArray);
-            if (r != 0 || locationsArray[4].equals("0")){
+            r = busTimeCheck(i, locationsArray);
+            if (r != 0 || locationsArray[4].equals("0")) {
                 break;
             }
             i++;
         }
         return r;
     }
-
-
     private int busTimeCheck(Integer count, String[] locationsArray){
     /*
 	    Arguments:   Array with locations info
@@ -400,58 +396,55 @@ public class MainActivity extends AppCompatActivity {
             return 0;
         }
     }
-
-    private int busInfoDisplay(Integer status, String[] locationsArray){
+    private void busInfoDisplay(int status, String[] locationsArray){
     /*
 	    Arguments:   Status - Status of the bus, locationsArray - Bus information
 	    Description: Displays the bus information on the screen.
-	    Returns:     True
+	    Returns:     void
     */
-        String busStatus;
-        String location;
-        String hours;
         //Setup the locations, hours, & status to be displayed
-        currDay = getSharedPreferences("currDay", MODE_PRIVATE);
-        int busDay = currDay.getInt("currDay", -1);
-        if(busDay < getCurrDay(0)){
-            //This condition is a check if the current schedule the user has is outdated.
-            //If so it lets the user know.
-            String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
-            Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
-            String outdatedText1 = getResources().getString(R.string.outdated_firstline);
-            String outdatedText2 = getResources().getString(R.string.outdated_secondline);
-            String outdatedText3 = getResources().getString(R.string.outdated_thirdline);
-            location  = outdatedText1;
-            hours     = outdatedText2;
-            busStatus = outdatedText3;
-        }else{
-            location  = locationsArray[0];
-            hours     = locationsArray[1];
-            if(status == 1){
-                busStatus = getResources().getString(R.string.tracker_status_open);
-            }else if(status == 2){
-                busStatus = getResources().getString(R.string.tracker_status_open_soon);
-            }else if(status == 3){
-                busStatus = getResources().getString(R.string.tracker_status_enroute);
-            }else if(status == 4){
-                busStatus = getResources().getString(R.string.tracker_status_close_soon);
-            }else{
-                busStatus = getResources().getString(R.string.tracker_status_closed);
-            }
-        }
+        String[] busDisplayText;
+        busDisplayText = busDayCompare(status, locationsArray);
 
         //Gets the text areas where the bus information will be displayed
         TextView locationText = (TextView) trackerDialog.findViewById(R.id.trackerLocationText);
         TextView timesText    = (TextView) trackerDialog.findViewById(R.id.trackerTimesText);
         TextView statusText   = (TextView) trackerDialog.findViewById(R.id.trackerStatusText);
 
-
         //Displays the current bus information on the screen
-        locationText.setText(location);
-        timesText.setText(hours);
-        statusText.setText(busStatus);
+        locationText.setText(busDisplayText[0]);
+        timesText.setText(busDisplayText[1]);
+        statusText.setText(busDisplayText[2]);
+    }
 
-        return 1;
+    private String[] busDayCompare(int status, String[] locationsArray){
+    /*
+	    Arguments:   none
+	    Description: Compare the stored bus day against the current day and then sets the
+	                 bus information text.
+	    Returns:     void
+    */
+        String[] busDisplayText = {"","",""};
+
+        int busDay = loadBusDayOfYear();
+        int currentDay = getDayOfYear();
+        if(busDay != currentDay){
+            //Displays a toast letting the user know their schedule is outdated
+            String toastOutdatedText = getResources().getString(R.string.toast_schedule_outdated);
+            Toast.makeText(getApplicationContext(), toastOutdatedText ,Toast.LENGTH_LONG).show();
+
+            //Displays a message about the outdated text in the bus information sections
+            String[]busOutdatedText = getResources().getStringArray(R.array.tracker_outdated);
+            busDisplayText[0]  = busOutdatedText[0];
+            busDisplayText[1]  = busOutdatedText[1];
+            busDisplayText[2]  = busOutdatedText[2];
+        }else{
+            busDisplayText[0]  = locationsArray[0];
+            busDisplayText[1]  = locationsArray[1];
+            String[]busStatuses = getResources().getStringArray(R.array.tracker_statuses);
+            busDisplayText[2] = busStatuses[status];
+        }
+        return busDisplayText;
     }
 
     private View.OnClickListener trackerListener = new View.OnClickListener() {
@@ -460,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.buttonTrackerScheduleDownload:
                     String toastDownloadText = getResources().getString(R.string.toast_tracker_download_schedule);
                     Toast.makeText(getApplicationContext(),toastDownloadText,Toast.LENGTH_SHORT).show();
-                    Uri scheduleUri = Uri.parse("http://vpchc.org/files/MSBHC_2016_Jan_May.pdf?");
+                    Uri scheduleUri = Uri.parse("https://valleyprohealth.org/files/schedule/current_schedule.pdf?");
                     Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
                     startActivity(scheduleIntent);
                     break;
@@ -472,28 +465,17 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     //region Call
-    private boolean callPopup(){
+    private void callPopup(){
     /*
-	    Arguments:   Choice( 0 - dismiss dialog, 1 - make a new dialog)
-	    Description: Either creates a callDialog or dismisses it
-	    Returns:     true
+	    Arguments:   none
+	    Description: Displays a dialog with call buttons for each clinic site listed.
+	    Returns:     void
     */
         //Initialize the dialog
-        int layoutID = getResources().getIdentifier("dialog_call", "layout", this.getPackageName());
-        int closeID = getResources().getIdentifier("buttonDialogCloseCall", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID, closeID};
-        String[] titleText = new String[] {};
-        callDialog = DialogSetup.dialogCreate(callDialog, this, IDs, titleText, 0);
+        callDialog = DialogSetup.Base.Create(this, "call");
 
-        // Check call permissions and ask user to grant them
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CALL_PHONE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[]{Manifest.permission.CALL_PHONE},
-                    0);
-        }
+        //Check call permissions and, if needed, ask user to grant them
+        callPermisisonsCheck();
 
         //Listeners for the call dialog buttons
         View buttonCallBloomImage = callDialog.findViewById(R.id.buttonCallBloom);
@@ -508,151 +490,145 @@ public class MainActivity extends AppCompatActivity {
         buttonCallCrawImage.setOnClickListener(callListener);
         buttonCallTerreImage.setOnClickListener(callListener);
         buttonCallMSBHCImage.setOnClickListener(callListener);
+    }
 
-        return true;
+    private void callPermisisonsCheck(){
+    /*
+	    Arguments:   none
+	    Description: Check call permissions and, if needed, ask user to grant them.
+	    Returns:     void
+    */
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    0);
+        }
+
     }
 
     private View.OnClickListener callListener = new View.OnClickListener() {
         public void onClick(View v) {
-            String toastText;
-            //All but the last will call the location and dismiss the dialog.
             switch (v.getId()) {
                 case R.id.buttonCallBloom:
-                    Intent callBloomIntent = new Intent(Intent.ACTION_CALL);
-                    try {
-                        callBloomIntent.setData(Uri.parse("tel:7654989000"));
-                        startActivity(callBloomIntent);
-                        toastText = getResources().getString(R.string.toast_call_bloom);
-                        Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex) {
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:7654989000", getResources().getString(R.string.toast_call_bloom));
                     break;
                 case R.id.buttonCallCay:
-                    Intent callCayIntent = new Intent(Intent.ACTION_CALL);
-                    try{
-                        callCayIntent.setData(Uri.parse("tel:7654929042"));
-                        startActivity(callCayIntent);
-                        toastText = getResources().getString(R.string.toast_call_cay);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex) {
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:7654929042", getResources().getString(R.string.toast_call_cay));
                     break;
                 case R.id.buttonCallClint:
-                    Intent callClintIntent = new Intent(Intent.ACTION_CALL);
-                    try {
-                        callClintIntent.setData(Uri.parse("tel:7658281003"));
-                        startActivity(callClintIntent);
-                        toastText = getResources().getString(R.string.toast_call_clint);
-                        Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex) {
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:7658281003", getResources().getString(R.string.toast_call_clint));
                     break;
                 case R.id.buttonCallCraw:
-                    Intent callCrawIntent = new Intent(Intent.ACTION_CALL);
-                    try{
-                        callCrawIntent.setData(Uri.parse("tel:7653625100"));
-                        startActivity(callCrawIntent);
-                        toastText = getResources().getString(R.string.toast_call_craw);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex){
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:7653625100", getResources().getString(R.string.toast_call_craw));
                     break;
                 case R.id.buttonCallTerre:
-                    Intent callTerreIntent = new Intent(Intent.ACTION_CALL);
-                    try{
-                        callTerreIntent.setData(Uri.parse("tel:8122387631"));
-                        startActivity(callTerreIntent);
-                        toastText = getResources().getString(R.string.toast_call_terre);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex){
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:8122387631", getResources().getString(R.string.toast_call_terre));
                     break;
                 case R.id.buttonCallMSBHC:
-                    Intent callMSBHCIntent = new Intent(Intent.ACTION_CALL);
-                    try {
-                        callMSBHCIntent.setData(Uri.parse("tel:7655926164"));
-                        startActivity(callMSBHCIntent);
-                        toastText = getResources().getString(R.string.toast_call_MSBHC);
-                        Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT).show();
-                    }catch(SecurityException ex){
-                        toastText = getResources().getString(R.string.toast_call_perm);
-                        Toast.makeText(getApplicationContext(),toastText,Toast.LENGTH_SHORT).show();
-                    }
-                    callDialog.dismiss();
+                    callAttempt("tel:7655926164", getResources().getString(R.string.toast_call_MSBHC));
                     break;
                 default:
                     break;
             }
         }
     };
+
+    private void callAttempt(String sitePhoneNumber, String callingSiteToastText){
+    /*
+	    Arguments:   sitePhoneNumber(string of the site's phone #),
+	                 callingSiteToastText(text used in toast when calling site)
+	    Description: Attempts to call the site chosen and then dismisses the dialog.
+	    Returns:     void
+    */
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        try{
+            callIntent.setData(Uri.parse("tel:8122387631"));
+            startActivity(callIntent);
+            Toast.makeText(getApplicationContext(),callingSiteToastText,Toast.LENGTH_SHORT).show();
+        }catch(SecurityException ex){
+            String noPermToastText = getResources().getString(R.string.toast_call_perm);
+            Toast.makeText(getApplicationContext(),noPermToastText,Toast.LENGTH_SHORT).show();
+        }
+        callDialog.dismiss();
+    }
     //endregion
 
     //region Current Date
-    private int getCurrDay(int choice){
+    private int getDayOfYear(){
     /*
-	    Arguments:   Choice(0 - ignore setting preference, 1 - set preference)
-	    Description: Gets the current day of the year and depending on the choice, may set
-	                 the currDay shared preference.
-	                 (ex. Nov 11 is day 308 out of 365).
-	    Returns:     The current day of the year
+	    Arguments:   none
+	    Description: Gets the current day of the year. (ex. Nov 11 is day 308 out of 365).
+	    Returns:     day of the year
     */
-
         Calendar ca1 = Calendar.getInstance();
-        int dayOfYear = ca1.get(Calendar.DAY_OF_YEAR);
-        if(choice == 1) {
-            currDay = getSharedPreferences("currDay", MODE_PRIVATE);
-            editor = currDay.edit();
-            editor.putInt("currDay", dayOfYear);
-            editor.apply();
-        }
-        return dayOfYear;
+        return ca1.get(Calendar.DAY_OF_YEAR);
     }
-
-    private String getCurrDate(int choice){
+    private void setBusDayOfYear(){
     /*
-	    Arguments:   Choice(0 - load preference, 1 - set preference)
-	    Description: Gets  current date formats it in xx/xx/20xx
-	    Returns:     todaysDate - The current date
+	    Arguments:   none
+	    Description: Gets the current day of the year and depending on the choice, may set
+	                 the currDay shared preference. (ex. Nov 11 is day 308 out of 365).
+	    Returns:     void
     */
-        String todaysDate = "";
-        if(choice == 1){
-            Calendar currDate       = Calendar.getInstance();
-            String todaysYear       = Integer.toString(currDate.get(Calendar.YEAR));
-            String todaysMonth      = Integer.toString(currDate.get(Calendar.MONTH) + 1);
-            String todaysDay        = Integer.toString(currDate.get(Calendar.DATE));
-            todaysDate       = todaysMonth + "/" + todaysDay + "/" + todaysYear;
-            currDay = getSharedPreferences("currDate", MODE_PRIVATE);
-            editor = currDay.edit();
-            editor.putString("currDate", todaysDate);
-            editor.apply();
-        }else{
-            SharedPreferences dateOfDay = getSharedPreferences("currDate", MODE_PRIVATE);
-            todaysDate = dateOfDay.getString("currDate", " ");
-        }
+        int dayOfYear = getDayOfYear();
+        currDay = getSharedPreferences("currDay", MODE_PRIVATE);
+        editor = currDay.edit();
+        editor.putInt("currDay", dayOfYear);
+        editor.apply();
+    }
+    private int loadBusDayOfYear(){
+    /*
+	    Arguments:   none
+	    Description: Loads the day of the year the bus schedule was stored.
+	    Returns:     day of the year the bus schedule was stored
+    */
+        currDay = getSharedPreferences("currDay", MODE_PRIVATE);
+        return currDay.getInt("currDay", -1);
+    }
+    private String getCurrentDate(){
+    /*
+	    Arguments:   none
+	    Description: Gets current date formats it in mm/dd/yyyy form.
+	    Returns:     todaysDate - The current date in mm/dd/yyyy form
+    */
+        Calendar currDate       = Calendar.getInstance();
+        String todaysYear       = Integer.toString(currDate.get(Calendar.YEAR));
+        String todaysMonth      = Integer.toString(currDate.get(Calendar.MONTH) + 1);
+        String todaysDay        = Integer.toString(currDate.get(Calendar.DATE));
+        String todaysDate       = todaysMonth + "/" + todaysDay + "/" + todaysYear;
         return todaysDate;
     }
+    private void setBusDate(){
+    /*
+	    Arguments:   none
+	    Description: Sets the date the bus schedule was stored in a preference.
+	    Returns:     void
+    */
+        String todaysDate = getCurrentDate();
+        currDay = getSharedPreferences("currDate", MODE_PRIVATE);
+        editor  = currDay.edit();
+        editor.putString("currDate", todaysDate);
+        editor.apply();
+    }
+    private String loadBusDate() {
+    /*
+	    Arguments:   none
+	    Description: Loads the date the bus schedule was stored.
+	    Returns:     date in mm/dd/yyyy form
+    */
+        SharedPreferences dateOfDay = getSharedPreferences("currDate", MODE_PRIVATE);
+        return dateOfDay.getString("currDate", " ");
+    }
+
     //endregion
 
     //region Location Preference
     private boolean locationPreferenceSet(int choice){
         //This is the initial locations preference
-        // dialog that appears when a user first loads the app.
-        if(choice == 0) {
+        //dialog that appears when a user first loads the app.
+        if(choice == 0){
             prefDialog.dismiss();
             return true;
         }else{
@@ -680,33 +656,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         break;
-                    case 1:
-                        savingLocationPreference(0);
-                        break;
-                    case 2:
-                        savingLocationPreference(1);
-                        break;
-                    case 3:
-                        savingLocationPreference(2);
-                        break;
-                    case 4:
-                        savingLocationPreference(3);
-                        break;
-                    case 5:
-                        savingLocationPreference(4);;
-                        break;
-                    case 6:
-                        savingLocationPreference(5);
-                        break;
-                    case 7:
-                        savingLocationPreference(6);
+                    default:
+                        savingLocationPreference(position - 1);
                         break;
                 }
             }
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parentView) {}
 
         });
         return true;
@@ -726,39 +682,35 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         locationPreferenceSet(0);
     }
-
-    private void changeLang(String langChoice){
-    /*
-        Arguments:   langChoice(Either en for english or es for spanish)
-	    Description: Changes the language to either English or Spanish depending on the argument.
-	    Returns:     Nothing
-    */
-        Locale myLocale = new Locale(langChoice);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-    }
     //endregion
 
     //region Options
-    private boolean optionsSet(){
-
-        int layoutID = getResources().getIdentifier("dialog_options", "layout", this.getPackageName());
-        int closeID = getResources().getIdentifier("buttonDialogCloseOptions", "id", this.getPackageName());
-        int[] IDs = new int[] {layoutID, closeID};
-        String[] titleText = new String[] {};
-        optionsDialog = DialogSetup.dialogCreate(optionsDialog, this, IDs, titleText, 0);
+    private void optionsPopup(){
+    /*
+        Arguments:   none
+	    Description: Displays a dialog with the location preference and language options listed.
+	    Returns:     void
+    */
+        //Initialize the dialog
+        optionsDialog = DialogSetup.Base.Create(this, "options");
 
         //Listeners for save button
         View buttonSaveImage = optionsDialog.findViewById(R.id.buttonOptionsSave);
         buttonSaveImage.setOnClickListener(optionsListener);
 
-        RadioButton radioButtonLocPref;
-        RadioButton radioButtonLang;
-
         //Presets the location preference radio button to current location preference
+        optionsLocationPreset();
+
+        //Presets the language radio button to spanish if set or english by default
+        optionsLanguagePreset();
+    }
+    private void optionsLocationPreset(){
+    /*
+        Arguments:   none
+	    Description: Presets the location preference radio button to current location preference.
+	    Returns:     void
+    */
+        RadioButton radioButtonLocPref;
         pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
         if(locationPref == 0){
@@ -777,8 +729,14 @@ public class MainActivity extends AppCompatActivity {
             radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonMSBHC);
         }
         radioButtonLocPref.setChecked(true);
-
-        //Presets the language radio button to spanish if set or english by default
+    }
+    private void optionsLanguagePreset(){
+    /*
+        Arguments:   none
+	    Description: Presets the language radio button to spanish if set or english by default.
+	    Returns:     void
+    */
+        RadioButton radioButtonLang;
         currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
         String currentLocale = currLocale.getString("currLocale", "en");
         if(currentLocale.equals("es")){
@@ -787,81 +745,90 @@ public class MainActivity extends AppCompatActivity {
             radioButtonLang = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonLangEn);
         }
         radioButtonLang.setChecked(true);
-
-        return true;
     }
-
     private void optionsSave() {
     /*
-	    Arguments:   None
+	    Arguments:   none
 	    Description: Performs actions, depending on what the user chooses, when they tap
-	                 the save button in the options dialog
-	    Returns:     Nothing
+	                 the save button in the options dialog.
+	    Returns:     void
     */
 
-        int selectionLocPref;
-        int selectionLang;
         int currLocaleToInt;
-        String selectionLangToString;
+        String indexLangToString;
 
-        //Get the index of the selected radio button from the location pref section
-        RadioGroup radioGroupLocPref = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLocPref);
-        int selectedLocPrefId = radioGroupLocPref.getCheckedRadioButtonId();
-        RadioButton radioButtonLocPref = (RadioButton)optionsDialog.findViewById(selectedLocPrefId);
-        selectionLocPref = radioGroupLocPref.indexOfChild(radioButtonLocPref);
+        //Get selected option radio button index
+        int indexLocPref = getSelectedRadioButtonIndex(0);
+        int indexLang    = getSelectedRadioButtonIndex(1);
 
-        //Get the index of the selected radio button from the language section
-        RadioGroup radioGroupLang = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLang);
-        int selectedLangId = radioGroupLang.getCheckedRadioButtonId();
-        RadioButton radioButtonLang = (RadioButton)optionsDialog.findViewById(selectedLangId);
-        selectionLang = radioGroupLang.indexOfChild(radioButtonLang);
-
-        //Gets the current locale
-        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
-        String currentLocale = currLocale.getString("currLocale", "en");
-
-        //Converts the current locale to any easy to use number
-        if(currentLocale.equals("en")){
-            currLocaleToInt = 0;
+        //Converts index language to a string to compare against current locale.
+        if(indexLang == 0){
+            indexLangToString = "en";
         }else{
-            currLocaleToInt = 1;
+            indexLangToString = "es";
         }
 
-        //Converts the selected language to an easy to use string
-        if(selectionLang == 0){
-            selectionLangToString = "en";
+        optionsSet(indexLocPref, indexLangToString);
+    }
+    private int getSelectedRadioButtonIndex(int buttonGroupChoice){
+    /*
+	    Arguments:   buttonGroupChoice(option button group)
+	    Description: Get selected option radio button index.
+	    Returns:     Selected radio button index
+    */
+        RadioGroup radioOptionGroup;
+
+        if(buttonGroupChoice == 0){
+            radioOptionGroup = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLocPref);
         }else{
-            selectionLangToString = "es";
+            radioOptionGroup = (RadioGroup)optionsDialog.findViewById(R.id.optionsRadioGroupLang);
         }
+        int selectedId = radioOptionGroup.getCheckedRadioButtonId();
+        RadioButton radioOptionButton = (RadioButton)optionsDialog.findViewById(selectedId);
+        return radioOptionGroup.indexOfChild(radioOptionButton);
+    }
+    private void optionsSet(int indexLocPref, String indexLangToString){
+    /*
+	    Arguments:   indexLocPref(index of selected location preference radio button),
+	                 indexLang(index of selected language radio button converted to a string)
+	    Description: Check if any radio buttons selected have changed and set them to the
+	                 newly selected buttons if they have.
+	    Returns:     void
+    */
 
         //Gets the current location preference
         SharedPreferences pref = getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", -1);
 
-        if(selectionLocPref == locationPref && selectionLang == currLocaleToInt){
+        //Gets the current locale
+        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
+        String currentLocale = currLocale.getString("currLocale", "en");
+
+        //Compare current location preference and locale against selected ones
+        if(indexLocPref == locationPref && indexLangToString.equals(currentLocale)){
             //This condition is when there have been no changes to either the location preference
             //or the selected language
             String toastNoChange = getResources().getString(R.string.toast_options_no_change);
             Toast.makeText(getApplicationContext(),toastNoChange,Toast.LENGTH_SHORT).show();
-        }else if(selectionLocPref != locationPref && selectionLang == currLocaleToInt){
+        }else if(indexLocPref != locationPref && indexLangToString.equals(currentLocale)){
             //This condition is when there has been a change to the location preference but not
             //the selected language
             String toastLocPrefChange = getResources().getString(R.string.toast_options_loc_pref_change);
             Toast.makeText(getApplicationContext(),toastLocPrefChange,Toast.LENGTH_SHORT).show();
             editor = pref.edit();
-            editor.putInt("prefLocation", selectionLocPref);
+            editor.putInt("prefLocation", indexLocPref);
             editor.apply();
             optionsDialog.dismiss();
-        }else if(selectionLocPref == locationPref && selectionLang != currLocaleToInt){
+        }else if(indexLocPref == locationPref && indexLangToString.equals(currentLocale)){
             //This condition is when there has been a change to the selected language but not
             //the location preference
             String toastLangChange = getResources().getString(R.string.toast_options_lang_change);
             Toast.makeText(getApplicationContext(),toastLangChange,Toast.LENGTH_SHORT).show();
             editor = currLocale.edit();
-            editor.putString("currLocale", selectionLangToString);
+            editor.putString("currLocale", indexLangToString);
             editor.apply();
             optionsDialog.dismiss();
-            changeLang(selectionLangToString);
+            changeLang(indexLangToString);
             finish();
             startActivity(getIntent());
         }else{
@@ -870,18 +837,30 @@ public class MainActivity extends AppCompatActivity {
             String toastBothChange = getResources().getString(R.string.toast_options_both_change);
             Toast.makeText(getApplicationContext(),toastBothChange,Toast.LENGTH_SHORT).show();
             editor = pref.edit();
-            editor.putInt("prefLocation", selectionLocPref);
+            editor.putInt("prefLocation", indexLocPref);
             editor.apply();
             editor = currLocale.edit();
-            editor.putString("currLocale", selectionLangToString);
+            editor.putString("currLocale", indexLangToString);
             editor.apply();
             optionsDialog.dismiss();
-            changeLang(selectionLangToString);
+            changeLang(indexLangToString);
             finish();
             startActivity(getIntent());
         }
     }
-
+    private void changeLang(String langChoice){
+    /*
+        Arguments:   langChoice(Either en for english or es for spanish)
+	    Description: Changes the language to either English or Spanish depending on the argument.
+	    Returns:     void
+    */
+        Locale myLocale = new Locale(langChoice);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+    }
     private View.OnClickListener optionsListener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -903,7 +882,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(openFeedbackIntent);
                 return true;
             case R.id.menuOptions:
-                optionsSet();
+                optionsPopup();
                 return true;
             default:
                 return true;
@@ -919,9 +898,9 @@ public class MainActivity extends AppCompatActivity {
     //region Twitter
     private void twitterFeedSetup() {
     /*
-	    Arguments:   None
+	    Arguments:   none
 	    Description: Finds the latest tweet for #ValleyProHealth and sets the feed up.
-	    Returns:     Nothing
+	    Returns:     void
     */
         //This is needed in order for the feed to scroll.
         final TextView twitterFeed =(TextView)findViewById(R.id.twitterFeed);
@@ -983,7 +962,7 @@ public class MainActivity extends AppCompatActivity {
     private int twitterFeedTips(){
     /*
 	    Arguments:   None
-	    Description: Gets a random tip from the tipsArray in the string.xml file
+	    Description: Gets a random tip from the tipsArray in the string.xml file.
 	    Returns:     A random tip
     */
         Random r = new Random();
@@ -1105,6 +1084,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+        //Update tracker everytime the user re-enters the app
         updateBusTracker();
     }
 
