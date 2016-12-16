@@ -422,6 +422,7 @@
                 <item>Dana Tinkle, LMHC</item>
             </string-array>
             <string-array name="providers_bh_terrehaute">
+                <item>Amber Cadick, PhD</item>
                 <item>Sara Ritter, LCSW</item>
                 <item>Lacey Skwortz, LCSW</item>
                 <item>Lisa Tincher, PMHNP</item>
@@ -452,6 +453,34 @@
                 <item>Gwyndolen Morson, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_terrehaute">
+                <item>Andre Anderson, M.D.</item>
+                <item>Eric D. Beachy, M.D.</item>
+                <item>Tamara Copeland, M.D.</item>
+                <item>Danielle Cundiff, D.O.</item>
+                <item>Jonathan Dario, M.D.</item>
+                <item>Robert Ehresman, M.D.</item>
+                <item>Eugene Epplin, M.D.</item>
+                <item>Sean Ewing, M.D.</item>
+                <item>Alexander Facista, M.D.</item>
+                <item>Christopher Fitzsimmons, M.D.</item>
+                <item>George Fritch, M.D.</item>
+                <item>Angela Hatfield, M.D.</item>
+                <item>Danny Isawi, M.D.</item>
+                <item>Elias Khalaf, M.D.</item>
+                <item>Kenneth Kigorwe, M.D.</item>
+                <item>Amy Laib, M.D.</item>
+                <item>Darcy Lash, M.D.</item>
+                <item>Jansen Mallari, M.D.</item>
+                <item>Steven McDonald, M.D.</item>
+                <item>Kenneth Reece, M.D.</item>
+                <item>Puja Sharma, M.D.</item>
+                <item>Joshua Slep, M.D.</item>
+                <item>Patrick Titzer, M.D.</item>
+                <item>Tony Tran, M.D.</item>
+                <item>Laurie Valera, M.D.</item>
+                <item>Christopher Walker, M.D.</item>
+                <item>Laura Watt, M.D.</item>
+                <item>Amanda Williams, M.D.</item>
                 <item>Leslie Batty, FNP-C</item>
                 <item>Beth Fields, FNP-C</item>
             </string-array>
