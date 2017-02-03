@@ -325,10 +325,10 @@ public class MainActivity extends AppCompatActivity {
     /*
 	    Arguments:   locationsArray - Bus information
 	    Description: Checks each location of the bus unless a condition is met.
-	    Returns:     r - status of the bus
+	    Returns:     locationStatus - Status of the bus location
     */
         int i = 0;
-        int r;
+        int locationStatus;
         String[] parseText;
         while (true) {
             locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
@@ -339,13 +339,13 @@ public class MainActivity extends AppCompatActivity {
             locationsArray[2] = (parseText[2]);
             locationsArray[3] = (parseText[3]);
             locationsArray[4] = (parseText[4]);
-            r = busTimeCheck(i, locationsArray);
-            if (r != 0 || locationsArray[4].equals("0")) {
+            locationStatus = busTimeCheck(i, locationsArray);
+            if (locationStatus != 0 || locationsArray[4].equals("0")) {
                 break;
             }
             i++;
         }
-        return r;
+        return locationStatus;
     }
     private int busTimeCheck(Integer count, String[] locationsArray){
     /*
@@ -482,12 +482,14 @@ public class MainActivity extends AppCompatActivity {
         View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
         View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
         View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
+       // View buttonCallRockImage  = callDialog.findViewById(R.id.buttonCallRock);
         View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
         View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
         buttonCallBloomImage.setOnClickListener(callListener);
         buttonCallCayImage.setOnClickListener(callListener);
         buttonCallClintImage.setOnClickListener(callListener);
         buttonCallCrawImage.setOnClickListener(callListener);
+      //  buttonCallRockImage.setOnClickListener(callListener);
         buttonCallTerreImage.setOnClickListener(callListener);
         buttonCallMSBHCImage.setOnClickListener(callListener);
     }
@@ -523,6 +525,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.buttonCallCraw:
                     callAttempt("tel:7653625100", getResources().getString(R.string.toast_call_craw));
                     break;
+                /*
+                case R.id.buttonCallRock:
+                    callAttempt("tel:7655691123", getResources().getString(R.string.toast_call_rock));
+                    break;
+                 */
                 case R.id.buttonCallTerre:
                     callAttempt("tel:8122387631", getResources().getString(R.string.toast_call_terre));
                     break;
@@ -544,7 +551,7 @@ public class MainActivity extends AppCompatActivity {
     */
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         try{
-            callIntent.setData(Uri.parse("tel:8122387631"));
+            callIntent.setData(Uri.parse(sitePhoneNumber));
             startActivity(callIntent);
             Toast.makeText(getApplicationContext(),callingSiteToastText,Toast.LENGTH_SHORT).show();
         }catch(SecurityException ex){

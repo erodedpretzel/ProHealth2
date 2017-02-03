@@ -33,6 +33,7 @@
             <string name="toast_call_cay">Calling Cayuga Location…</string>
             <string name="toast_call_clint">Calling Clinton Location…</string>
             <string name="toast_call_craw">Calling Crawfordsville Location…</string>
+            <string name="toast_call_rock">Calling Rockville Location…</string>
             <string name="toast_call_terre">Calling Terre Haute Location…</string>
             <string name="toast_call_MSBHC">Calling MSBHC…</string>
 
@@ -590,11 +591,11 @@
             <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
          <!--Array-->
             <string-array name="tracker_statuses">
+                <item>Closed</item>
                 <item>Open</item>
                 <item>Opening Soon</item>
                 <item>En Route</item>
                 <item>Closing Soon</item>
-                <item>Closed</item>
             </string-array>
             <string-array name="tracker_outdated">
                 <item>Schedule outdated</item>

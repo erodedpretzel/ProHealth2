@@ -46,7 +46,7 @@
             android:src="@drawable/call_bloom_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
@@ -55,7 +55,7 @@
             android:src="@drawable/call_cay_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
@@ -64,7 +64,7 @@
             android:src="@drawable/call_clint_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
@@ -73,16 +73,17 @@
             android:src="@drawable/call_craw_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
+
         <ImageView
             android:id="@+id/buttonCallTerre"
             android:src="@drawable/call_terre_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
@@ -91,7 +92,7 @@
             android:src="@drawable/call_msbhc_state_list_drawable"
 
             android:layout_gravity="center"
-            android:layout_weight=".166667"
+            android:layout_weight=".143"
 
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>

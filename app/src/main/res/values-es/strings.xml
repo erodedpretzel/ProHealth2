@@ -27,6 +27,7 @@
         <string name="toast_call_cay">Llamando Ubicación Cayuga…</string>
         <string name="toast_call_clint">Llamando Ubicación Clinton…</string>
         <string name="toast_call_craw">Llamando Ubicación Crawfordsville…</string>
+        <string name="toast_call_rock">Llamando Ubicación Rockville…</string>
         <string name="toast_call_terre">Llamando Ubicación Terre Haute…</string>
 
 
@@ -432,6 +433,14 @@
             <string name="outdated_secondline">Rastreador de Actualización</string>
             <string name="outdated_firstline">Horario Obsoleta</string>
             <string name="outdated_thirdline">actualizar</string>
+        <!--Array-->
+        <string-array name="tracker_statuses">
+            <item>Cerrado</item>
+            <item>Abierto</item>
+            <item>Próxima apertura</item>
+            <item>En Camino</item>
+            <item>Próximas a concluir</item>
+        </string-array>
 
 
     <!--**********************************!>
