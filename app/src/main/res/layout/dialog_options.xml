@@ -100,6 +100,14 @@
                 android:text="Crawfordsville"
                 android:textSize="@dimen/dialog_content"/>
             <RadioButton
+                android:id="@+id/optionsRadioButtonRock"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Rockville"
+                android:textSize="@dimen/dialog_content"/>
+            <RadioButton
                 android:id="@+id/optionsRadioButtonTerre"
 
                 android:layout_width="wrap_content"

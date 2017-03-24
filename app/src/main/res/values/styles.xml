@@ -9,9 +9,10 @@
     </style>
 
     <style name="AppTheme.NoActionBar.Main" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/colorGrey</item>
-        <item name="colorPrimaryDark">@color/colorGrey</item>
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

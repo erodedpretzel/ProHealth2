@@ -23,7 +23,7 @@ public class CommonFunc {
         SharedPreferences pref = context.getSharedPreferences("prefLocation", MODE_PRIVATE);
         int locationPref = pref.getInt("prefLocation", 0);
 
-        if(locationPref == 0 || (locationPref == 6 && noBusCheck)){
+        if(locationPref == 0 || (locationPref == 7 && noBusCheck)){
             locations.setSelection(0);
             options.setVisibility(View.GONE);
         }else{

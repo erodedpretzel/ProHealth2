@@ -95,14 +95,16 @@ public class LocationsActivity extends AppCompatActivity {
                     case 2:
                         String locationCoordinates;
                         //Opens the Google Maps app with the locations address already entered in
-                        if(selectionLocation == 1){
+                        if (selectionLocation == 1) {
                             locationCoordinates = "201 W. Academy St., Bloomingdale,IN 47832";
-                        }else if(selectionLocation == 2){
+                        } else if (selectionLocation == 2) {
                             locationCoordinates = "114 N. Division St., Cayuga, IN 47928";
-                        }else if(selectionLocation == 3){
+                        } else if (selectionLocation == 3) {
                             locationCoordinates = "777 S. Main Street, Suite 100 Clinton, IN 47842";
-                        }else if(selectionLocation == 4){
+                        } else if (selectionLocation == 4) {
                             locationCoordinates = "1810 Lafayette Ave, Crawfordsville, IN 47933";
+                        } else if (selectionLocation == 5) {
+                            locationCoordinates = "727 N Lincoln Rd, Rockville, IN 47872";
                         }else{
                             locationCoordinates = "1530 North 7th Street, Suite 201, Terre Haute, IN 47807";
                         }
@@ -165,6 +167,8 @@ public class LocationsActivity extends AppCompatActivity {
             locationsPic.setImageResource(R.drawable.clinton_location);
         }else if(selectionLocation == 4){
             locationsPic.setImageResource(R.drawable.crawfordsville_location);
+        }else if(selectionLocation == 5){
+            locationsPic.setImageResource(R.drawable.rockville_location);
         }else{
             locationsPic.setImageResource(R.drawable.terrehaute_location);
         }
@@ -203,9 +207,9 @@ public class LocationsActivity extends AppCompatActivity {
             replaceTextString = "locationsClinicInfoHours" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView hoursText = (TextView) locationsDialog.findViewById(replaceTextId);
-            if (selectionLocation == 5 && i == 3) {//Terre haute, Thursday
+            if (selectionLocation == 6 && i == 3) {//Terre haute, Thursday
                 hoursText.setText("8:30 a.m. - 5:00 p.m.");
-            }else if(selectionLocation == 5 && i == 4) {//Terre Haute, Friday
+            }else if(selectionLocation == 6 && i == 4) {//Terre Haute, Friday
                 hoursText.setText("8:00 a.m. - 4:30 p.m.");
             }else {
                 hoursText.setText("8:00 a.m. - 5:00 p.m.");

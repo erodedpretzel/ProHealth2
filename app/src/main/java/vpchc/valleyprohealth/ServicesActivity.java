@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class ServicesActivity extends AppCompatActivity {
 
     private boolean dentalCheck = false;
+    private boolean medOnlyCheck = false;
     private int userSelectedServicesLocation;
     private Spinner spinnerServicesCategories;
 
@@ -61,7 +62,7 @@ public class ServicesActivity extends AppCompatActivity {
         spinnerServicesCategories.setAdapter(adapterServicesCategories);
 
         //Sets the preferred location
-        CommonFunc.sharedPrefSet(this, spinnerServicesLocations, spinnerServicesCategories, false);
+        CommonFunc.sharedPrefSet(this, spinnerServicesLocations, spinnerServicesCategories, true);
 
         spinnerServicesLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -111,12 +112,19 @@ public class ServicesActivity extends AppCompatActivity {
 	    Returns:     void
     */
 
-        if(userSelectedServicesLocation == 1 || userSelectedServicesLocation ==2){
+        if(userSelectedServicesLocation == 5){
+            categories  = getResources().getStringArray(R.array.services_categories3);
+            dentalCheck = false;
+            medOnlyCheck = true;
+        }
+        else if(userSelectedServicesLocation == 1 || userSelectedServicesLocation == 2){
             categories  = getResources().getStringArray(R.array.services_categories2);
             dentalCheck = true;
+            medOnlyCheck = false;
         }else{
             categories  = getResources().getStringArray(R.array.services_categories);
             dentalCheck = false;
+            medOnlyCheck = false;
         }
 
         spinnerServicesCategories = (Spinner) findViewById(R.id.spinnerServicesCategories);
@@ -152,7 +160,11 @@ public class ServicesActivity extends AppCompatActivity {
 	    Returns:     void
     */
         if(userSelection == 1){
-            availableServices = getResources().getStringArray(R.array.BehavioralHealth);
+            if(medOnlyCheck){
+                availableServices = getResources().getStringArray(R.array.PrimaryCare1);
+            }else{
+                availableServices = getResources().getStringArray(R.array.BehavioralHealth);
+            }
         }else if(userSelection == 2){
             if(dentalCheck){
                 availableServices = getResources().getStringArray(R.array.Dental);
@@ -163,14 +175,14 @@ public class ServicesActivity extends AppCompatActivity {
             if(dentalCheck){
                 availableServices = getResources().getStringArray(R.array.PatientSupport);
             }else{
-                if(userSelectedServicesLocation==5){
+                if(userSelectedServicesLocation==6){
                     availableServices = getResources().getStringArray(R.array.PrimaryCare2);
                 }else{
                     availableServices = getResources().getStringArray(R.array.PrimaryCare1);
                 }
             }
         }else{
-            if(userSelectedServicesLocation==5){
+            if(userSelectedServicesLocation==6){
                 availableServices = getResources().getStringArray(R.array.PrimaryCare2);
             }else{
                 availableServices = getResources().getStringArray(R.array.PrimaryCare1);

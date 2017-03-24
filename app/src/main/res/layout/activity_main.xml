@@ -14,7 +14,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_bar"
-            android:background="?attr/colorPrimary"
+            android:background="@color/white"
 
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <LinearLayout

@@ -169,6 +169,7 @@
             <string-array name="forms1">
                 <item>Seleccione un formulario</item>
                 <item>Liberación de información</item>
+                <item>Liberación de registros</item>
             </string-array>
 
             <string-array name="forms2">
@@ -192,22 +193,34 @@
             <string-array name="forms1_url">
                 <item>http://valleyprohealth.org/files/forms/es/release_of_information.pdf</item>
             </string-array>
+            <string-array name="forms1_release_url">
+                <item>http://valleyprohealth.org/files/forms/es/records_release_bloomingdale.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/records_release_cayuga.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/records_release_clinton.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/records_release_crawfordsville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/records_release_rockville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/records_release_terrehaute.pdf</item>
+            </string-array>
 
             <string-array name="forms2_bloom_url">
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_bloom.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_bloom_spanish.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_bloomingdale.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_bloomingdale.pdf</item>
             </string-array>
             <string-array name="forms2_cay_url">
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_cay.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_cay.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_cayuga.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_cayuga.pdf</item>
             </string-array>
             <string-array name="forms2_clint_url">
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_clint.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_clint.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_clinton.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_clinton.pdf</item>
             </string-array>
             <string-array name="forms2_craw_url">
                 <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_crawfordsville.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_crawfordsville.pdf</item>
+            </string-array>
+            <string-array name="forms2_rock_url">
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_rockville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_child_rockville.pdf</item>
             </string-array>
             <string-array name="forms2_terre_url">
                 <item>http://valleyprohealth.org/files/forms/es/new_patient_packet_adult_terrehaute.pdf</item>
@@ -467,6 +480,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
                 <item>MSBHC</item>
             </string-array>
@@ -476,6 +490,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
             </string-array>
 
@@ -486,6 +501,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
                 <item>MSBHC</item>
             </string-array>

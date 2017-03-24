@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             locationPreferenceSet(1);
         }
 
-        //Sets up the language for the app depending on the pref choosen if there is one
+        //Sets up the language for the app depending on the pref chosen if there is one
         currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
         String currentLocale = currLocale.getString("currLocale", "en");
         if(!currLocale.contains("currLocale") &
@@ -179,13 +179,13 @@ public class MainActivity extends AppCompatActivity {
                         {
                             case R.id.homeRadioButton:
                                 int pos = mPager.getCurrentItem();
-                                if (pos == 1) {
+                                if (pos == 1){
                                     mPager.setCurrentItem(0, true);
                                 }
                                 break;
                             case R.id.homeRadioButton2:
                                 int pos2 = mPager.getCurrentItem();
-                                if (pos2 == 0) {
+                                if (pos2 == 0){
                                     mPager.setCurrentItem(1, true);
                                 }
                                 break;
@@ -218,9 +218,9 @@ public class MainActivity extends AppCompatActivity {
         //Creates a new fragment when the user scrolls on the main page.
         @Override
         public Fragment getItem(int position) {
-            if (position == 0) {
+            if (position == 0){
                 return new ScreenSlidePageFragmentOne();
-            } else {
+            } else{
                 return new ScreenSlidePageFragmentTwo();
             }
         }
@@ -482,14 +482,14 @@ public class MainActivity extends AppCompatActivity {
         View buttonCallCayImage   = callDialog.findViewById(R.id.buttonCallCay);
         View buttonCallClintImage = callDialog.findViewById(R.id.buttonCallClint);
         View buttonCallCrawImage  = callDialog.findViewById(R.id.buttonCallCraw);
-       // View buttonCallRockImage  = callDialog.findViewById(R.id.buttonCallRock);
+        View buttonCallRockImage  = callDialog.findViewById(R.id.buttonCallRock);
         View buttonCallTerreImage = callDialog.findViewById(R.id.buttonCallTerre);
         View buttonCallMSBHCImage = callDialog.findViewById(R.id.buttonCallMSBHC);
         buttonCallBloomImage.setOnClickListener(callListener);
         buttonCallCayImage.setOnClickListener(callListener);
         buttonCallClintImage.setOnClickListener(callListener);
         buttonCallCrawImage.setOnClickListener(callListener);
-      //  buttonCallRockImage.setOnClickListener(callListener);
+        buttonCallRockImage.setOnClickListener(callListener);
         buttonCallTerreImage.setOnClickListener(callListener);
         buttonCallMSBHCImage.setOnClickListener(callListener);
     }
@@ -525,11 +525,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.buttonCallCraw:
                     callAttempt("tel:7653625100", getResources().getString(R.string.toast_call_craw));
                     break;
-                /*
                 case R.id.buttonCallRock:
                     callAttempt("tel:7655691123", getResources().getString(R.string.toast_call_rock));
                     break;
-                 */
                 case R.id.buttonCallTerre:
                     callAttempt("tel:8122387631", getResources().getString(R.string.toast_call_terre));
                     break;
@@ -678,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
     private void savingLocationPreference(int preferenceChoice){
     /*
 	    Arguments:   preferenceChoice(0 - No preference, 1 - Bloomingdale, 2 - Cayuga, 3 - Clinton,
-	                 4 - Crawfordsville, 5 - Terre Haute, 6 - MSBHC)
+	                 4 - Crawfordsville, 5 - Rockville, 6 - Terre Haute, 7 - MSBHC)
 	    Description: Stores the preferred location
 	    Returns:     Nothing
     */
@@ -731,6 +729,8 @@ public class MainActivity extends AppCompatActivity {
         }else if (locationPref == 4){
             radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonCraw);
         }else if(locationPref == 5){
+            radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonRock);
+        }else if(locationPref == 6){
             radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonTerre);
         }else{
             radioButtonLocPref = (RadioButton)optionsDialog.findViewById(R.id.optionsRadioButtonMSBHC);

@@ -21,6 +21,7 @@ public class ProvidersActivity extends AppCompatActivity {
 
     private int selectionProviderLocation;
     private boolean dentalCheck = false;
+    private boolean medOnlyCheck = false;
 
     private Spinner spinnerProviderType;
 
@@ -29,6 +30,7 @@ public class ProvidersActivity extends AppCompatActivity {
 
         Spinner spinnerProviderLocations;
 
+        //Initial setup of activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_providers);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarProviders);
@@ -108,13 +110,18 @@ public class ProvidersActivity extends AppCompatActivity {
 	    Description: Changes the provider type listing.
 	    Returns:     void
     */
-        if(selectionProviderLocation == 1 || selectionProviderLocation == 2){//Bloomingdale, Cayuga
+        if(selectionProviderLocation == 5) {//Rockville
+            providerTypes = getResources().getStringArray(R.array.provider_types3);
+            dentalCheck = false;
+            medOnlyCheck = true;
+        }else if(selectionProviderLocation == 2){//Cayuga
             providerTypes = getResources().getStringArray(R.array.provider_types2);
             dentalCheck = true;
+            medOnlyCheck = false;
         }else{
             providerTypes = getResources().getStringArray(R.array.provider_types);
-            dentalCheck = false
-            ;
+            dentalCheck = false;
+            medOnlyCheck = false;
         }
 
         //Setup Provider Type spinner with new type list
@@ -154,7 +161,11 @@ public class ProvidersActivity extends AppCompatActivity {
 
         //Select string based on user selection
         if(userSelection == 1){
-            arraySearchString = "providers_bh_" + easy_locations[selectionProviderLocation - 1];
+            if(medOnlyCheck) {
+                arraySearchString = "providers_medical_" + easy_locations[selectionProviderLocation - 1];
+            }else{
+                arraySearchString = "providers_bh_" + easy_locations[selectionProviderLocation - 1];
+            }
         }else if(userSelection == 2){
             if(dentalCheck){
                 arraySearchString = "providers_dental_" + easy_locations[selectionProviderLocation - 1];

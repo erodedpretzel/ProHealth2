@@ -78,6 +78,15 @@
             android:layout_width="@dimen/call_button_width"
             android:layout_height="@dimen/call_button_height"/>
 
+       <ImageView
+            android:id="@+id/buttonCallRock"
+            android:src="@drawable/call_rock_state_list_drawable"
+
+            android:layout_gravity="center"
+            android:layout_weight=".143"
+
+            android:layout_width="@dimen/call_button_width"
+            android:layout_height="@dimen/call_button_height"/>
         <ImageView
             android:id="@+id/buttonCallTerre"
             android:src="@drawable/call_terre_state_list_drawable"

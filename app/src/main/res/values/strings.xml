@@ -37,6 +37,7 @@
             <string name="toast_call_terre">Calling Terre Haute Location…</string>
             <string name="toast_call_MSBHC">Calling MSBHC…</string>
 
+
     <!--**********************************!>
        #FAQS
     <!***********************************-->
@@ -143,6 +144,7 @@
                 <item>Visit valleyprohealth.org/careers to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
             </string-array>
 
+
     <!--**********************************!>
        #FEEDBACK
     <!***********************************-->
@@ -213,28 +215,35 @@
                 <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_terre_haute.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_rockville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/records_release_terrehaute.pdf</item>
             </string-array>
+
             <string-array name="forms2_bloom_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloom.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloom.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomingdale.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomingdale.pdf</item>
             </string-array>
             <string-array name="forms2_cay_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_cay.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_cay.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_cayuga.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_cayuga.pdf</item>
             </string-array>
             <string-array name="forms2_clint_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_clint.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_clint.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_clinton.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_clinton.pdf</item>
             </string-array>
             <string-array name="forms2_craw_url">
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
             </string-array>
+            <string-array name="forms2_rock_url">
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_rockville.pdf</item>
+                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_rockville.pdf</item>
+            </string-array>
             <string-array name="forms2_terre_url">
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
             </string-array>
+
             <string-array name="forms3_url">
                 <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
@@ -249,6 +258,8 @@
                 <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
                 <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
             </string-array>
+
+
     <!--**********************************!>
         #LOCATIONS
     <!***********************************-->
@@ -282,6 +293,10 @@
                 <item>Crawfordsville, IN 47933</item>
                 <item>(765) 362–5100</item>
                 <item>Fax: (765) 362–5171</item>
+                <item>727 N Lincoln Rd</item>
+                <item>Rockville, IN 47872</item>
+                <item>(765) 569-1123</item>
+                <item>Fax: (765) 569-6412</item>
                 <item>1530 North 7th Site, Suite 201</item>
                 <item>Terre Haute, IN 47807</item>
                 <item>(812) 238–7631</item>
@@ -292,6 +307,7 @@
                 <item>Clinic Info</item>
                 <item>Get Directions</item>
             </string-array>
+
 
     <!--**********************************!>
         #MAIN
@@ -318,6 +334,8 @@
             <string name="toast_memwebsite_open">Opening Memory Center Website…</string>
             <string name="toast_reswebsite_open">Opening UH Residency Website…</string>
             <string name="toast_portal_open">Opening VPCHC Patient Portal webpage…</string>
+
+
     <!--**********************************!>
         #OPTIONS
     <!***********************************-->
@@ -336,6 +354,7 @@
             <string name="toast_options_lang_change">Changing language in app…</string>
             <string name="toast_options_both_change">Changing preferred location and language…</string>
 
+
     <!--**********************************!>
         #PATIENT RESOURCES
     <!***********************************-->
@@ -353,7 +372,7 @@
             </string-array>
             <string-array name="patres_categories_prescription">
                 <item>We have several ways to help patients that are having trouble affording their medication.</item>
-                <item>340B Program: This program helps cover the cost of many precscription medications. Based on your family income and size determines how much you have to pay for your medications. Application for the sliding fee scale is required for this program. If you qualify, medications may be free or low cost.</item>
+                <item>340B Program: This program helps cover the cost of many prescription medications. Based on your family income and size determines how much you have to pay for your medications. Application for the sliding fee scale is required for this program. If you qualify, medications may be free or low cost.</item>
                 <item>Drug Companies: Many of commonly prescribed drugs can be obtained through drug companies at no cost or low cost. Our Community Health Workers can assist in these applications.</item>
                 <item>Good Rx: The website goodrx.com has comparison shopping on prescriptions and offer many good coupons.</item>
                 <item>Additional programs are also available such as discount drug cards and the Freestyle Promise Program.</item>
@@ -382,9 +401,13 @@
                 <item>Dental</item>
                 <item>Primary Care</item>
             </string-array>
+            <string-array name="provider_types3">
+                <item>Select a type of provider</item>
+                <item>Primary Care</item>
+            </string-array>
 
             <string-array name="providers_dental_bloomingdale">
-                <item>Dr. Dane Mishler, DDS</item>
+                <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_dental_cayuga">
                 <item>Dr. Nichole Barnett, DDS</item>
@@ -393,6 +416,9 @@
                 <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_dental_crawfordsville">
+                <item>Currently none at this location</item>
+            </string-array>
+            <string-array name="providers_dental_rockville">
                 <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_dental_terrehaute">
@@ -421,6 +447,9 @@
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Keith Seegers, LCSW</item>
                 <item>Dana Tinkle, LMHC</item>
+            </string-array>
+            <string-array name="providers_bh_rockville">
+                <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_bh_terrehaute">
                 <item>Amber Cadick, PhD</item>
@@ -452,6 +481,9 @@
             <string-array name="providers_medical_crawfordsville">
                 <item>Dr. Do S. Hwang, MD</item>
                 <item>Gwyndolen Morson, FNP-C</item>
+            </string-array>
+            <string-array name="providers_medical_rockville">
+                <item>Jordan Ryley, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_terrehaute">
                 <item>Andre Anderson, M.D.</item>
@@ -503,7 +535,6 @@
                 <item>Patient Support</item>
                 <item>Primary Care</item>
             </string-array>
-
             <string-array name="services_categories2">
                 <item>Select a category</item>
                 <item>Behavioral Health</item>
@@ -511,7 +542,10 @@
                 <item>Patient Support</item>
                 <item>Primary Care</item>
             </string-array>
-
+            <string-array name="services_categories3">
+                <item>Select a category</item>
+                <item>Primary Care</item>
+            </string-array>
             <string-array name="BehavioralHealth">
                 <item>•Child/Adolescent counseling</item>
                 <item>•Crisis counseling</item>
@@ -519,11 +553,9 @@
                 <item>•Psychiatry</item>
                 <item>•Testing/assessment(upon referral)</item>
             </string-array>
-
             <string-array name="Dental">
                 <item>•Preventive and restorative services</item>
             </string-array>
-
             <string-array name="PatientSupport">
                 <item>•Community Health Workers</item>
                 <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
@@ -533,7 +565,6 @@
                 <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
                 <item>-Are patient advocates  and your navigator through the healthcare system</item>
             </string-array>
-
             <string-array name="PrimaryCare1">
                 <item>•Acute illness</item>
                 <item>•Chronic disease care</item>
@@ -550,7 +581,6 @@
                 <item>•Well child visits</item>
                 <item>•Women\'s health</item>
             </string-array>
-
             <string-array name="PrimaryCare2">
                 <item>•Acute illness</item>
                 <item>•Chronic disease care</item>
@@ -602,6 +632,8 @@
                 <item>Restart App</item>
                 <item>to update</item>
             </string-array>
+
+
     <!--**********************************!>
        #TWITTER
     <!***********************************-->
@@ -628,6 +660,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
                 <item>MSBHC</item>
             </string-array>
@@ -638,6 +671,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
             </string-array>
 
@@ -648,6 +682,7 @@
                 <item>Cayuga</item>
                 <item>Clinton</item>
                 <item>Crawfordsville</item>
+                <item>Rockville</item>
                 <item>Terre Haute</item>
                 <item>MSBHC</item>
             </string-array>
@@ -657,6 +692,7 @@
                 <item>cayuga</item>
                 <item>clinton</item>
                 <item>crawfordsville</item>
+                <item>rockville</item>
                 <item>terrehaute</item>
                 <item>msbhc</item>
             </string-array>

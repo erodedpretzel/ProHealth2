@@ -3,11 +3,13 @@ package vpchc.valleyprohealth;
 import org.vpchc.valleyprohealth.R;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 public class FormsActivity extends AppCompatActivity {
 
+    private SharedPreferences currLocale;
     private Spinner spinnerFormsCategories;
     private Spinner spinnerFormsSelection;
     private String[]finalForms = {"Select a form"};
@@ -70,7 +73,7 @@ public class FormsActivity extends AppCompatActivity {
         spinnerFormsSelection.setVisibility(View.GONE);
 
         //Sets the preferred location
-        CommonFunc.sharedPrefSet(this, spinnerFormsLocations, spinnerFormsCategories, false);
+        CommonFunc.sharedPrefSet(this, spinnerFormsLocations, spinnerFormsCategories, true);
 
         spinnerFormsLocations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -86,7 +89,6 @@ public class FormsActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {}
-
         });
 
         spinnerFormsCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -112,7 +114,7 @@ public class FormsActivity extends AppCompatActivity {
                     case 0:
                         break;
                     default:
-                        formsDownload(position - 1);
+                        formsDownload(position);
                         break;
                 }
             }
@@ -125,7 +127,7 @@ public class FormsActivity extends AppCompatActivity {
     private void spinnerFormsLocationSelectionSetup(int selection){
     /*
         Arguments:   selection(location selected by user,
-                      0 - Directions chosen, 1 - location chosen)
+                               0 - directions chosen, 1 - location chosen)
 	    Description: Populates the forms selection based on the category chosen
 	    Returns:     void
     */
@@ -166,7 +168,7 @@ public class FormsActivity extends AppCompatActivity {
 
     private void formsDownload(int formSelection){
     /*
-	    Arguments:   formSelection(index of array of URLs)
+	    Arguments:   formSelection(form selected by user)
 	    Description: Gets URL from an array based on user's selection
 	                 and opens that URL to download the form
 	    Returns:     void
@@ -186,31 +188,38 @@ public class FormsActivity extends AppCompatActivity {
 
     private String formsSelectURL(int formSelection){
     /*
-	    Arguments:   formSelection(index of array of URLs)
+	    Arguments:   formSelection(form selected by user)
 	    Description: Selects the appropriate URL based on user's selection
 	    Returns:     URL string of form to download
     */
         String[] urlArray = {};
+        currLocale = getSharedPreferences("currLocale", MODE_PRIVATE);
+        String currentLocale = currLocale.getString("currLocale", "en");
 
         if(selectionCategory == 1){//Consent
-            if(formSelection == 3){
+            if(formSelection == 4 || (formSelection == 2 && currentLocale.equals("es"))){
                 urlArray = getResources().getStringArray(R.array.forms1_release_url);
-                formSelection = selectionLocation - 1;
-            }else if(formSelection == 4){
-                formSelection = 3;
+                return urlArray[selectionLocation - 1];
+            }else if(formSelection == 5){
+                urlArray = getResources().getStringArray(R.array.forms1_url);
+                return urlArray[3];//Release of records creates a gap which adds an extra 1 to
+                //the index which causes an out of bounds when accessing the forms array.
+                //This fixes that.
             }else{
                 urlArray = getResources().getStringArray(R.array.forms1_url);
             }
-        }else if(selectionCategory == 2) {//New Patient
-            if ((selectionLocation == 1)) {
+        }else if(selectionCategory == 2){//New Patient
+            if (selectionLocation == 1){
                 urlArray = getResources().getStringArray(R.array.forms2_bloom_url);
-            }else if (selectionLocation == 2) {
+            }else if (selectionLocation == 2){
                 urlArray = getResources().getStringArray(R.array.forms2_cay_url);
             }else if (selectionLocation == 3){
                 urlArray = getResources().getStringArray(R.array.forms2_clint_url);
-            }else if (selectionLocation == 4 ) {
+            }else if (selectionLocation == 4 ){
                 urlArray = getResources().getStringArray(R.array.forms2_craw_url);
-            } else if (selectionLocation == 5) {
+            }else if (selectionLocation == 5){
+                urlArray = getResources().getStringArray(R.array.forms2_rock_url);
+            }else{
                 urlArray = getResources().getStringArray(R.array.forms2_terre_url);
             }
         }else if(selectionCategory == 3){//Notice
@@ -220,8 +229,8 @@ public class FormsActivity extends AppCompatActivity {
         }else{//Student
             urlArray = getResources().getStringArray(R.array.forms5_url);
         }
-
-        return urlArray[formSelection];
+        return urlArray[formSelection - 1];//Minus one to line up user selection, which has the
+        //non-usable "please selects" which offsets it by one, with the forms arrays.
     }
 
     private void formOpenURL(String formURL){
