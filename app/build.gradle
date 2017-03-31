@@ -8,15 +8,15 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "org.vpchc.valleyprohealth"
         minSdkVersion 10
-        targetSdkVersion 24
-        versionCode 5
-        versionName "1.22"
+        targetSdkVersion 25
+        versionCode 6
+        versionName "1.3"
     }
 
 

@@ -66,6 +66,7 @@ public class FeedbackActivity extends AppCompatActivity {
                     emailIntent.setType("text/plain");
                     emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
                     try {
+                        startActivity(emailIntent);
                         String toastMessage = getResources().getString(R.string.toast_feedback_send_message);
                         Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
                     } catch (android.content.ActivityNotFoundException ex) {

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -207,11 +208,23 @@ public class LocationsActivity extends AppCompatActivity {
             replaceTextString = "locationsClinicInfoHours" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView hoursText = (TextView) locationsDialog.findViewById(replaceTextId);
-            if (selectionLocation == 6 && i == 3) {//Terre haute, Thursday
-                hoursText.setText("8:30 a.m. - 5:00 p.m.");
-            }else if(selectionLocation == 6 && i == 4) {//Terre Haute, Friday
-                hoursText.setText("8:00 a.m. - 4:30 p.m.");
-            }else {
+            if (selectionLocation == 5){//Rockville
+                if (i == 0 || i == 2 || i ==4 ){//Mon,Wed,Fri
+                    Log.d("Mon/Wed/Fri", "i: " + i);
+                    hoursText.setText("7:30 a.m. - 5:00 p.m.");
+                }else{//Tues,Thu
+                    Log.d("Tue/Thu", "i: " + i);
+                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
+                }
+            }else if (selectionLocation == 6) {//Terre Haute
+                if (i == 3) {//Thu
+                    hoursText.setText("8:30 a.m. - 5:00 p.m.");
+                }else if (i == 4){//Fri
+                    hoursText.setText("8:00 a.m. - 4:30 p.m.");
+                }else{//Mon,Tue,Wed
+                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
+                }
+            }else {//All other hours
                 hoursText.setText("8:00 a.m. - 5:00 p.m.");
             }
         }
