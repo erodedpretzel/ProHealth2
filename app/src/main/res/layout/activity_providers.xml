@@ -65,7 +65,7 @@
 
         android:background="@color/white">
         <LinearLayout
-            android:layout_weight=".3333"
+            android:layout_weight=".5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Spinner
@@ -78,24 +78,11 @@
                 android:layout_height="@dimen/spinner_height"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_weight=".3333"
+            android:layout_weight=".5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Spinner
                 android:id="@+id/spinnerProviderType"
-                style="@style/fancySpinnerDropDown"
-
-                android:layout_gravity="center"
-
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spinner_height" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight=".3333"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:id="@+id/spinnerProvidersList"
                 style="@style/fancySpinnerDropDown"
 
                 android:layout_gravity="center"

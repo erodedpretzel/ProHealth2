@@ -123,6 +123,8 @@ public class LocationsActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void locationsPopup(){
     /*
 	    Arguments:   none

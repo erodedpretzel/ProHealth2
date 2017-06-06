@@ -26,7 +26,8 @@
             android:gravity="center"
 
             android:textColor="@color/white"
-            android:textSize="@dimen/dialog_title" />
+            android:textSize="@dimen/dialog_title"
+            />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/providersDialogSubTitleContainer"
@@ -35,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/providersDialogTitleContainer"
         android:background="@color/white">
-
         <TextView
             android:id="@+id/providersDialogSubTitle"
 
@@ -59,23 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <ImageView
-                android:id="@+id/providersDialogProviderPicture"
-
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/providersDialogProviderBio"
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-
-                android:textColor="@color/black"
-                android:textSize="@dimen/dialog_content"/>
-        </LinearLayout>
+            android:layout_marginRight="10dp"/>
     </ScrollView>
 </RelativeLayout>
