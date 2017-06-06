@@ -389,6 +389,35 @@
     <!***********************************-->
         <!--Text-->
             <string name="title_providers">Providers</string>
+            <string name="provider_bio_dr_aziz_abed">Providers</string>
+            <string name="provider_bio_dr_bing_gale">Providers</string>
+            <string name="provider_bio_dr_do_s_hwang">Providers</string>
+            <string name="provider_bio_beth_fields">Providers</string>
+            <string name="provider_bio_brandi_larson">Providers</string>
+            <string name="provider_bio_christi_busenbark">Providers</string>
+            <string name="provider_bio_gretchen_blevins">Providers</string>
+            <string name="provider_bio_gwyndolen_morson">Providers</string>
+            <string name="provider_bio_leslie_batty">Providers</string>
+            <string name="provider_bio_louwanna_wallace">Providers</string>
+            <string name="provider_bio_nicole_cook">Providers</string>
+            <string name="provider_bio_nicole_hall">Providers</string>
+            <string name="provider_bio_renae_norman">Providers</string>
+            <string name="provider_bio_tammy_mundy">Providers</string>
+            <string name="provider_bio_dr_paul_taraska">Providers</string>
+            <string name="provider_bio_dr_julia_wernz">Providers</string>
+            <string name="provider_bio_johnathan_detwiler">Providers</string>
+            <string name="provider_bio_linda_lonneman">Providers</string>
+            <string name="provider_bio_david_mcintyre">Providers</string>
+            <string name="provider_bio_megan_neitling">Providers</string>
+            <string name="provider_bio_sara_ritter">Providers</string>
+            <string name="provider_bio_keith_seegers">Providers</string>
+            <string name="provider_bio_lacey_skwortz">Providers</string>
+            <string name="provider_bio_dana_tinkle">Providers</string>
+            <string name="provider_bio_lisa_tincher">Providers</string>
+            <string name="provider_bio_heather_woods">Providers</string>
+            <string name="provider_bio_dr_nichole_barnett">Indiana University\nIndiana University School of Medicine\n\nDr. Smith enjoys the interactions he experiences through patient care and getting to know his patients better.  Dr. Smith also enjoys traveling, spending time with friends and family and watching Cubs baseball in his free time.
+</string>
+
         <!--Arrays-->
             <string-array name="provider_types">
                 <item>Select a type of provider</item>
@@ -410,6 +439,7 @@
                 <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_dental_cayuga">
+                <item>Select a provider</item>
                 <item>Dr. Nichole Barnett, DDS</item>
             </string-array>
             <string-array name="providers_dental_clinton">
@@ -429,14 +459,17 @@
             </string-array>
 
             <string-array name="providers_bh_bloomingdale">
+                <item>Select a provider</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Megan Neitling, LMHCA</item>
             </string-array>
             <string-array name="providers_bh_cayuga">
+                <item>Select a provider</item>
                 <item>Johnathan Detwiler, MS</item>
                 <item>Lisa Tincher, PMHNP</item>
             </string-array>
             <string-array name="providers_bh_clinton">
+                <item>Select a provider</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Dr. Julia Wernz, PhD, HSPP</item>
                 <item>Linda Lonneman, LCSW</item>
@@ -444,6 +477,7 @@
                 <item>Lisa Tincher, PMHNP</item>
             </string-array>
             <string-array name="providers_bh_crawfordsville">
+                <item>Select a provider</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Keith Seegers, LCSW</item>
                 <item>Dana Tinkle, LMHC</item>
@@ -452,25 +486,29 @@
                 <item>Currently none at this location</item>
             </string-array>
             <string-array name="providers_bh_terrehaute">
-                <item>Amber Cadick, PhD</item>
+                <item>Select a provider</item>
                 <item>Sara Ritter, LCSW</item>
                 <item>Lacey Skwortz, LCSW</item>
                 <item>Lisa Tincher, PMHNP</item>
             </string-array>
             <string-array name="providers_bh_msbhc">
+                <item>Select a provider</item>
                 <item>Heather Woods, LMHCA</item>
             </string-array>
 
             <string-array name="providers_medical_bloomingdale">
+                <item>Select a provider</item>
                 <item>Christi Busenbark, FNP-C</item>
                 <item>Louwanna Wallace, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_cayuga">
+                <item>Select a provider</item>
                 <item>Dr. Bing Gale, MD</item>
                 <item>Renae Norman, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_clinton">
-                <item>Dr. Aziz Abed, MD</item>
+                <item>Select a provider</item>
+                <item>Dr. Aziz Abed, MD, MPH</item>
                 <item>Dr. Bing Gale, MD</item>
                 <item>Dr. Steven Macke, MD</item>
                 <item>Gretchen Blevins, FNP-C</item>
@@ -479,45 +517,22 @@
                 <item>Tammi Mundy, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_crawfordsville">
+                <item>Select a provider</item>
                 <item>Dr. Do S. Hwang, MD</item>
                 <item>Gwyndolen Morson, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_rockville">
+                <item>Select a provider</item>
                 <item>Jordan Ryley, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_terrehaute">
-                <item>Andre Anderson, M.D.</item>
-                <item>Eric D. Beachy, M.D.</item>
-                <item>Tamara Copeland, M.D.</item>
-                <item>Danielle Cundiff, D.O.</item>
-                <item>Jonathan Dario, M.D.</item>
-                <item>Robert Ehresman, M.D.</item>
-                <item>Eugene Epplin, M.D.</item>
-                <item>Sean Ewing, M.D.</item>
-                <item>Alexander Facista, M.D.</item>
-                <item>Christopher Fitzsimmons, M.D.</item>
-                <item>George Fritch, M.D.</item>
-                <item>Angela Hatfield, M.D.</item>
-                <item>Danny Isawi, M.D.</item>
-                <item>Elias Khalaf, M.D.</item>
-                <item>Kenneth Kigorwe, M.D.</item>
-                <item>Amy Laib, M.D.</item>
-                <item>Darcy Lash, M.D.</item>
-                <item>Jansen Mallari, M.D.</item>
-                <item>Steven McDonald, M.D.</item>
-                <item>Kenneth Reece, M.D.</item>
-                <item>Puja Sharma, M.D.</item>
-                <item>Joshua Slep, M.D.</item>
-                <item>Patrick Titzer, M.D.</item>
-                <item>Tony Tran, M.D.</item>
-                <item>Laurie Valera, M.D.</item>
-                <item>Christopher Walker, M.D.</item>
-                <item>Laura Watt, M.D.</item>
-                <item>Amanda Williams, M.D.</item>
+                <item>Select a provider</item>
                 <item>Leslie Batty, FNP-C</item>
                 <item>Beth Fields, FNP-C</item>
+                <item>Residents</item>
             </string-array>
             <string-array name="providers_medical_msbhc">
+                <item>Select a provider</item>
                 <item>Nicole Cook, FNP-C</item>
                 <item>Renae Norman, FNP-C</item>
             </string-array>
@@ -641,7 +656,8 @@
             <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
             <string name="toast_call_perm">Call permissions not enabled</string>
             <string name="icon_twitter" translatable="false">Twitter</string>
-        <!--Array-->
+    <string name="toast_residencybio_open">Opening Residency Website...</string>
+    <!--Array-->
             <string-array name="twitter_feed_tips">
                 <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
                 <item>If you are not able to make an appointment, please call to let us know.</item>
