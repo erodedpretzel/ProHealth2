@@ -19,682 +19,762 @@
     <!--**********************************!>
         #CALL
     <!***********************************-->
-        <!--Text-->
-            <string name="call_directions">Call a location</string>
-            <string name="call_location_bloom" translatable="false">Bloomingdale</string>
-            <string name="call_location_cay"   translatable="false">Cayuga</string>
-            <string name="call_location_clint" translatable="false">Clinton</string>
-            <string name="call_location_craw"  translatable="false">Crawfordsville</string>
-            <string name="call_location_terre" translatable="false">Terre Haute</string>
-            <string name="call_location_msbhc" translatable="false">MSBHC</string>
-            <string name="call_location">\@drawable/call_site_off</string>
-        <!--Toasts-->
-            <string name="toast_call_bloom">Calling Bloomingdale Location…</string>
-            <string name="toast_call_cay">Calling Cayuga Location…</string>
-            <string name="toast_call_clint">Calling Clinton Location…</string>
-            <string name="toast_call_craw">Calling Crawfordsville Location…</string>
-            <string name="toast_call_rock">Calling Rockville Location…</string>
-            <string name="toast_call_terre">Calling Terre Haute Location…</string>
-            <string name="toast_call_MSBHC">Calling MSBHC…</string>
+    <!--Text-->
+    <string name="call_directions">Call a location</string>
+    <string name="call_location_bloom" translatable="false">Bloomingdale</string>
+    <string name="call_location_cay"   translatable="false">Cayuga</string>
+    <string name="call_location_clint" translatable="false">Clinton</string>
+    <string name="call_location_craw"  translatable="false">Crawfordsville</string>
+    <string name="call_location_terre" translatable="false">Terre Haute</string>
+    <string name="call_location_msbhc" translatable="false">MSBHC</string>
+    <string name="call_location">\@drawable/call_site_off</string>
+    <!--Toasts-->
+    <string name="toast_call_bloom">Calling Bloomingdale Location…</string>
+    <string name="toast_call_cay">Calling Cayuga Location…</string>
+    <string name="toast_call_clint">Calling Clinton Location…</string>
+    <string name="toast_call_craw">Calling Crawfordsville Location…</string>
+    <string name="toast_call_rock">Calling Rockville Location…</string>
+    <string name="toast_call_terre">Calling Terre Haute Location…</string>
+    <string name="toast_call_MSBHC">Calling MSBHC…</string>
 
 
     <!--**********************************!>
        #FAQS
     <!***********************************-->
-        <!--Text-->
-            <string name="title_faqs" translatable="false">FAQs</string>
-        <!--Array-->
-            <string-array name="faqs_categories">
-                <item>Select a category</item>
-                <item>Billing/Insurance</item>
-                <item>Miscellaneous</item>
-                <item>New Patients</item>
-                <item>Services</item>
-            </string-array>
+    <!--Text-->
+    <string name="title_faqs" translatable="false">FAQs</string>
+    <!--Array-->
+    <string-array name="faqs_categories">
+        <item>Select a category</item>
+        <item>Billing/Insurance</item>
+        <item>Miscellaneous</item>
+        <item>New Patients</item>
+        <item>Services</item>
+    </string-array>
 
-            <string-array name="faqs_newpat">
-                <item>Are you accepting new patients?</item>
-                <item>To find out if one of our locations is accepting new patients please give us a call and we will be glad to assist you. The contact information for all of our clinics is available in the locations section of this app.</item>
+    <string-array name="faqs_newpat">
+        <item>Are you accepting new patients?</item>
+        <item>To find out if one of our locations is accepting new patients please give us a call and we will be glad to assist you. The contact information for all of our clinics is available in the locations section of this app.</item>
 
-                <item>How soon will I be able to schedule my first appointment?</item>
-                <item>New patient appointments can be scheduled as soon as two weeks. In the mean time we will send you paperwork to be completed and brought in on the day of your appointment.</item>
+        <item>How soon will I be able to schedule my first appointment?</item>
+        <item>New patient appointments can be scheduled as soon as two weeks. In the mean time we will send you paperwork to be completed and brought in on the day of your appointment.</item>
 
-                <item>What do I need to bring to my first appointment?</item>
-                <item>For your first appointment, you should bring your completed new patient paperwork, along with your driver\'s license and insurance information. When you arrive, the front office will make a copy of your medical insurance card and verify that your account information is up-to-date. A nurse will complete your medical history after you have been checked in, but please bring any relevant medical information, including all names and dosages of prescriptions and over-the-counter medications that you are currently taking.</item>
+        <item>What do I need to bring to my first appointment?</item>
+        <item>For your first appointment, you should bring your completed new patient paperwork, along with your driver\'s license and insurance information. When you arrive, the front office will make a copy of your medical insurance card and verify that your account information is up-to-date. A nurse will complete your medical history after you have been checked in, but please bring any relevant medical information, including all names and dosages of prescriptions and over-the-counter medications that you are currently taking.</item>
 
-                <item>Can I make an appointment with a Behavioral Health counselor?</item>
-                <item>If you are an established patient, speak with your Primary Care Provider about referring you to a Valley Professionals Behavioral Health counselor.</item>
+        <item>Can I make an appointment with a Behavioral Health counselor?</item>
+        <item>If you are an established patient, speak with your Primary Care Provider about referring you to a Valley Professionals Behavioral Health counselor.</item>
 
-                <item>Do you offer prenatal services?</item>
-                <item>Prenatal services, as well as, Labor and Delivery are available at our Terre Haute clinic by referral. For more information, or to make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+        <item>Do you offer prenatal services?</item>
+        <item>Prenatal services, as well as, Labor and Delivery are available at our Terre Haute clinic by referral. For more information, or to make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
 
-                <item>Can I call and get information about my spouse/parent/adult/child (18+) or their medical records?</item>
-                <item>The Health Insurance Portability and Accountability Act (HIPAA) prohibits us from sharing confidential patient health information without written authorization from the patient. If a patient would like to grant you permission to make an appointment for them or to access their medical records they must complete a Release of Information form, available in the forms section of this app.</item>
+        <item>Can I call and get information about my spouse/parent/adult/child (18+) or their medical records?</item>
+        <item>The Health Insurance Portability and Accountability Act (HIPAA) prohibits us from sharing confidential patient health information without written authorization from the patient. If a patient would like to grant you permission to make an appointment for them or to access their medical records they must complete a Release of Information form, available in the forms section of this app.</item>
 
-                <item>Can anyone else (i.e. grandparent, family friend, or childcare provider) bring my child to his or her appointment?</item>
-                <item>Yes, you may grant permission for another person to bring your child to his or her appointment after you have completed and submitted a consent form available in the forms section of this app.</item>
-            </string-array>
+        <item>Can anyone else (i.e. grandparent, family friend, or childcare provider) bring my child to his or her appointment?</item>
+        <item>Yes, you may grant permission for another person to bring your child to his or her appointment after you have completed and submitted a consent form available in the forms section of this app.</item>
+    </string-array>
 
-            <string-array name="faqs_bill">
-                <item>What types of insurance do you accept?</item>
-                <item>We accept all commercial insurance carriers, Medicare, and Medicaid.</item>
+    <string-array name="faqs_bill">
+        <item>What types of insurance do you accept?</item>
+        <item>We accept all commercial insurance carriers, Medicare, and Medicaid.</item>
 
-                <item>Can I be seen by a provider even if I do not have health insurance?</item>
-                <item>Yes, Valley Professionals accepts self-pay, and also has a sliding-fee scale for eligible individuals.</item>
+        <item>Can I be seen by a provider even if I do not have health insurance?</item>
+        <item>Yes, Valley Professionals accepts self-pay, and also has a sliding-fee scale for eligible individuals.</item>
 
-                <item>Can Valley Professionals help me enroll in health insurance coverage?</item>
-                <item>Yes, our Community Health Workers are specially trained to help individuals find affordable health coverage. To make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
+        <item>Can Valley Professionals help me enroll in health insurance coverage?</item>
+        <item>Yes, our Community Health Workers are specially trained to help individuals find affordable health coverage. To make an appointment, contact the Valley Professionals Community Health Center nearest you.</item>
 
-                <item>What do I need to bring to apply for sliding fee scale?</item>
-                <item>To apply for sliding fee scale, patients and their families must provide the following documents to verify gross income: Most recent tax filing with the IRS and/or W2\'s from employer(s), A copy of Social Security or Disability Award Letter(s) or unemployment statement(s),Pay stubs from all employerers for the last 30-day period, If unemployed, no income, and living with others, we require a signed and dated letter from the person providing support of the patient, Driver\'s license, Any other income that is direct deposited. For more information on sliding fee scale, visit the patient resources section of this app.</item>
+        <item>What do I need to bring to apply for sliding fee scale?</item>
+        <item>To apply for sliding fee scale, patients and their families must provide the following documents to verify gross income: Most recent tax filing with the IRS and/or W2\'s from employer(s), A copy of Social Security or Disability Award Letter(s) or unemployment statement(s),Pay stubs from all employerers for the last 30-day period, If unemployed, no income, and living with others, we require a signed and dated letter from the person providing support of the patient, Driver\'s license, Any other income that is direct deposited. For more information on sliding fee scale, visit the patient resources section of this app.</item>
 
-                <item>What if I am unable to pay my bill?</item>
-                <item>If you unable to pay your bill, feel free to contact our Billing Department at (765) 828–1000 to set up a payment plan that works for you.</item>
+        <item>What if I am unable to pay my bill?</item>
+        <item>If you unable to pay your bill, feel free to contact our Billing Department at (765) 828–1000 to set up a payment plan that works for you.</item>
 
-                <item>What if I have other questions about billing?</item>
-                <item>For all inquiries regarding billing, please contact our Billing Department at (765) 828–1000.</item>
-            </string-array>
+        <item>What if I have other questions about billing?</item>
+        <item>For all inquiries regarding billing, please contact our Billing Department at (765) 828–1000.</item>
+    </string-array>
 
-            <string-array name="faqs_services">
-                <item>What can I do if I am unable to pay for my prescription?</item>
-                <item>Valley Professionals has a 403(b) Prescription Assistance Program that can help eligible individuals to afford their medication.</item>
+    <string-array name="faqs_services">
+        <item>What can I do if I am unable to pay for my prescription?</item>
+        <item>Valley Professionals has a 403(b) Prescription Assistance Program that can help eligible individuals to afford their medication.</item>
 
-                <item>How long will it take for me to receive my prescription refill after I have submitted a request?</item>
-                <item>Prescription refill requests can take up to 48 hours once submitted.</item>
+        <item>How long will it take for me to receive my prescription refill after I have submitted a request?</item>
+        <item>Prescription refill requests can take up to 48 hours once submitted.</item>
 
-                <item>Do I have to be a patient to use the After-Hours Clinic?</item>
-                <item>No, you are not required to be a current Valley Professionals patient to utilize the After-Hours services.</item>
+        <item>Do I have to be a patient to use the After-Hours Clinic?</item>
+        <item>No, you are not required to be a current Valley Professionals patient to utilize the After-Hours services.</item>
 
-                <item>Do I need an appointment for the After-Hours clinic?</item>
-                <item>No, After-Hours office visits are on a first-come, first-served basis.</item>
+        <item>Do I need an appointment for the After-Hours clinic?</item>
+        <item>No, After-Hours office visits are on a first-come, first-served basis.</item>
 
-                <item>What can I be seen for at the After-Hours clinic?</item>
-                <item>The After-Hours clinic is for acute conditions, such as, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, earache, or other similar symptoms.</item>
+        <item>What can I be seen for at the After-Hours clinic?</item>
+        <item>The After-Hours clinic is for acute conditions, such as, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, earache, or other similar symptoms.</item>
 
-                <item>When is After-Hours clinic?</item>
-                <item>The After-Hours clinic takes place Monday through Thursday from 5:00pm to 8:00pm at our Clinton location only.</item>
+        <item>When is After-Hours clinic?</item>
+        <item>The After-Hours clinic takes place Monday through Thursday from 5:00pm to 8:00pm at our Clinton location only.</item>
 
-                <item>Does the Mobile School-Based Health Center offer school physical examinations?</item>
-                <item>Yes.</item>
+        <item>Does the Mobile School-Based Health Center offer school physical examinations?</item>
+        <item>Yes.</item>
 
-                <item>What types of services are available on the Mobile School-Based Health Center?</item>
-                <item>Visit the MSBHC for: immunizations, school physicals, well child visits, cold, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, ear ache, and similar symptoms.</item>
+        <item>What types of services are available on the Mobile School-Based Health Center?</item>
+        <item>Visit the MSBHC for: immunizations, school physicals, well child visits, cold, fever, vomiting, congestion, sore throat, flu symptoms, cough, rash, ear ache, and similar symptoms.</item>
 
-                <item>Who can be seen on the Mobile Health Center?</item>
-                <item>Students and Employees of a school hosting the Mobile Health Center may be seen. There are certain occasions during school breaks when the Mobile Health Center is open to the community. For more information, or to view the MSBHC\'s schedule, go to the tracker section of the app.</item>
+        <item>Who can be seen on the Mobile Health Center?</item>
+        <item>Students and Employees of a school hosting the Mobile Health Center may be seen. There are certain occasions during school breaks when the Mobile Health Center is open to the community. For more information, or to view the MSBHC\'s schedule, go to the tracker section of the app.</item>
 
-                <item>What do I need to do for my child to be seen by the MSBHC?</item>
-                <item>To enroll your child in MSBHC services, you must complete and submit the enrollment form found in the forms section. After you have done this, you may call the mobile unit and make an appointment, or your child can simply go to the school nurse and be referred.</item>
+        <item>What do I need to do for my child to be seen by the MSBHC?</item>
+        <item>To enroll your child in MSBHC services, you must complete and submit the enrollment form found in the forms section. After you have done this, you may call the mobile unit and make an appointment, or your child can simply go to the school nurse and be referred.</item>
 
-                <item>Does it count against my child\'s attendance when he or she is seen by the MSBHC?</item>
-                <item>No, your child\'s visit to the MSBHC will not count against his or her attendance; moreover, if your child is sent home due to illness by an MSBHC provider, this absence would be certified excused.</item>
+        <item>Does it count against my child\'s attendance when he or she is seen by the MSBHC?</item>
+        <item>No, your child\'s visit to the MSBHC will not count against his or her attendance; moreover, if your child is sent home due to illness by an MSBHC provider, this absence would be certified excused.</item>
 
-                <item>Does the MSBHC visit my school?</item>
-                <item>The MSBHC visits schools in the North Vermillion, South Vermillion, Southwest Parke, and North Central Parke school corporations.</item>
+        <item>Does the MSBHC visit my school?</item>
+        <item>The MSBHC visits schools in the North Vermillion, South Vermillion, Southwest Parke, and North Central Parke school corporations.</item>
 
-                <item>How do I know when the MSBHC will be at my school?</item>
-                <item>You can find a schedule for the MSBHC in the tracker section of this app.</item>
+        <item>How do I know when the MSBHC will be at my school?</item>
+        <item>You can find a schedule for the MSBHC in the tracker section of this app.</item>
 
-                <item>Do I have to be a patient to take part in the Diabetic Support Group?</item>
-                <item>No, you do not have to register, make an appointment, or even be a patient of Valley Professionals to take part in the Diabetic Support Group.</item>
-            </string-array>
+        <item>Do I have to be a patient to take part in the Diabetic Support Group?</item>
+        <item>No, you do not have to register, make an appointment, or even be a patient of Valley Professionals to take part in the Diabetic Support Group.</item>
+    </string-array>
 
-            <string-array name="faqs_misc">
-                <item>Is Valley Professionals hiring?</item>
-                <item>Visit valleyprohealth.org/careers to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
-            </string-array>
+    <string-array name="faqs_misc">
+        <item>Is Valley Professionals hiring?</item>
+        <item>Visit valleyprohealth.org/careers to view current job openings at Valley Professionals. You can get to the site by tapping the website button on the home screen.</item>
+    </string-array>
 
 
     <!--**********************************!>
        #FEEDBACK
     <!***********************************-->
-        <!--Text-->
-            <string name="title_feedback">Feedback</string>
-            <string name="menu_feedback">Feedback</string>
-            <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
-            <string name="feedback_message">If you would us feedback, please send a message</string>
-            <string name="feedback_message_dialog_title">Give Us Feedback</string>
-        <!--Toasts-->
-            <string name="toast_feedback_send_message">Sending message…</string>
-            <string name="toast_feedback_no_clients">There are no email clients installed.</string>
-            <string name="toast_feedback_rate">Opening app page in Google Play Store</string>
+    <!--Text-->
+    <string name="title_feedback">Feedback</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="feedback_playstore">If you like our app, please rate us on the Play Store</string>
+    <string name="feedback_message">If you would us feedback, please send a message</string>
+    <string name="feedback_message_dialog_title">Give Us Feedback</string>
+    <!--Toasts-->
+    <string name="toast_feedback_send_message">Sending message…</string>
+    <string name="toast_feedback_no_clients">There are no email clients installed.</string>
+    <string name="toast_feedback_rate">Opening app page in Google Play Store</string>
 
 
     <!--**********************************!>
        #FORMS
     <!***********************************-->
-        <!--Text-->
-            <string name="title_forms">Forms</string>
+    <!--Text-->
+    <string name="title_forms">Forms</string>
 
-        <!--Array-->
-            <string-array name="forms_categories">
-                <item>Select a category</item>
-                <item>Consent</item>
-                <item>New Patient</item>
-                <item>Notice</item>
-                <item>Sliding Fee Scale</item>
-                <item>Student</item>
-            </string-array>
-            <string-array name="forms1">
-                <item>Select a form</item>
-                <item>Behavioral Health Release</item>
-                <item>Minor Child</item>
-                <item>Release of Information</item>
-                <item>Release of Records</item>
-                <item>Telemedicine</item>
-            </string-array>
-            <string-array name="forms2">
-                <item>Select a form</item>
-                <item>Adult</item>
-                <item>Child</item>
-            </string-array>
-            <string-array name="forms3">
-                <item>Select a form</item>
-                <item>Acknowledgement of Bill of Rights</item>
-                <item>Bill of Rights</item>
-                <item>Privacy Practice</item>
-            </string-array>
-            <string-array name="forms4">
-                <item>Select a form</item>
-                <item>Sliding Fee Scale</item>
-            </string-array>
-            <string-array name="forms5">
-                <item>Select a form</item>
-                <item>ISHAA Physical</item>
-                <item>MSBHC Enrollment</item>
-            </string-array>
+    <!--Array-->
+    <string-array name="forms_categories">
+        <item>Select a category</item>
+        <item>Consent</item>
+        <item>New Patient</item>
+        <item>Notice</item>
+        <item>Sliding Fee Scale</item>
+        <item>Student</item>
+    </string-array>
+    <string-array name="forms1">
+        <item>Select a form</item>
+        <item>Behavioral Health Release</item>
+        <item>Minor Child</item>
+        <item>Release of Information</item>
+        <item>Release of Records</item>
+        <item>Telemedicine</item>
+    </string-array>
+    <string-array name="forms2">
+        <item>Select a form</item>
+        <item>Adult</item>
+        <item>Child</item>
+    </string-array>
+    <string-array name="forms3">
+        <item>Select a form</item>
+        <item>Acknowledgement of Bill of Rights</item>
+        <item>Bill of Rights</item>
+        <item>Privacy Practice</item>
+    </string-array>
+    <string-array name="forms4">
+        <item>Select a form</item>
+        <item>Sliding Fee Scale</item>
+    </string-array>
+    <string-array name="forms5">
+        <item>Select a form</item>
+        <item>ISHAA Physical</item>
+        <item>MSBHC Enrollment</item>
+    </string-array>
 
-            <string-array name="forms1_url">
-                <item>http://valleyprohealth.org/files/forms/en/behavioral_health_release.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/minor_child_consent_to_treat.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/release_of_information.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/telemedicine_consent.pdf</item>
-            </string-array>
-            <string-array name="forms1_release_url">
-                <item>http://valleyprohealth.org/files/forms/en/records_release_bloomingdale.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_rockville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/records_release_terrehaute.pdf</item>
-            </string-array>
+    <string-array name="forms1_url">
+        <item>http://valleyprohealth.org/files/forms/en/behavioral_health_release.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/minor_child_consent_to_treat.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/release_of_information.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/telemedicine_consent.pdf</item>
+    </string-array>
+    <string-array name="forms1_release_url">
+        <item>http://valleyprohealth.org/files/forms/en/records_release_bloomingdale.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_cayuga.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_clinton.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_crawfordsville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_rockville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/records_release_terrehaute.pdf</item>
+    </string-array>
 
-            <string-array name="forms2_bloom_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomingdale.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomingdale.pdf</item>
-            </string-array>
-            <string-array name="forms2_cay_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_cayuga.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_cayuga.pdf</item>
-            </string-array>
-            <string-array name="forms2_clint_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_clinton.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_clinton.pdf</item>
-            </string-array>
-            <string-array name="forms2_craw_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
-            </string-array>
-            <string-array name="forms2_rock_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_rockville.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_rockville.pdf</item>
-            </string-array>
-            <string-array name="forms2_terre_url">
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
-            </string-array>
+    <string-array name="forms2_bloom_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_bloomingdale.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_bloomingdale.pdf</item>
+    </string-array>
+    <string-array name="forms2_cay_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_cayuga.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_cayuga.pdf</item>
+    </string-array>
+    <string-array name="forms2_clint_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_clinton.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_clinton.pdf</item>
+    </string-array>
+    <string-array name="forms2_craw_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_crawfordsville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_crawfordsville.pdf</item>
+    </string-array>
+    <string-array name="forms2_rock_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_rockville.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_rockville.pdf</item>
+    </string-array>
+    <string-array name="forms2_terre_url">
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_adult_terrehaute.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/new_patient_packet_child_terrehaute.pdf</item>
+    </string-array>
 
-            <string-array name="forms3_url">
-                <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/notice_privacy_practices.pdf</item>
-            </string-array>
+    <string-array name="forms3_url">
+        <item>http://valleyprohealth.org/files/forms/en/acknowledgement_receipt.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/patient_bill_of_rights.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/notice_privacy_practices.pdf</item>
+    </string-array>
 
-            <string-array name="forms4_url">
-                <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
-            </string-array>
+    <string-array name="forms4_url">
+        <item>http://valleyprohealth.org/files/forms/en/sliding_fee_scale_reqs.pdf</item>
+    </string-array>
 
-            <string-array name="forms5_url">
-                <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
-                <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
-            </string-array>
+    <string-array name="forms5_url">
+        <item>http://valleyprohealth.org/files/forms/en/ihsaa_physical.pdf</item>
+        <item>http://valleyprohealth.org/files/forms/en/msbhc_student_enrollment.pdf</item>
+    </string-array>
 
 
     <!--**********************************!>
         #LOCATIONS
     <!***********************************-->
-        <!--Text-->
-            <string name="title_locations">Locations</string>
-            <string name="location_hours_monday">Monday:</string>
-            <string name="location_hours_tuesday">Tuesday:</string>
-            <string name="location_hours_wednesday">Wednesday:</string>
-            <string name="location_hours_thursday">Thursday:</string>
-            <string name="location_hours_friday">Friday:</string>
-            <string name="locations_clinchours_dialog_title">Clinic Info</string>
-            <string name="locations_title">Locations</string>
-            <string name="location_afterhours">After-Hours Clinic:</string>
-            <string name="location_hours_saturday">Saturday Clinic:</string>
-            <string name="clinicInfoAddress">Address:</string>
-        <!--Array-->
-            <string-array name="locations_contact_info">
-                <item>201 W. Academy St.</item>
-                <item>Bloomingdale, IN 47832</item>
-                <item>(765) 498–9000</item>
-                <item>Fax: (765) 498–9004</item>
-                <item>703 W. Park Street</item>
-                <item>Cayuga, IN 47928</item>
-                <item>(765) 492–9042</item>
-                <item>Fax: (765) 492–9048</item>
-                <item>777 S. Main Street, Suite 100</item>
-                <item>Clinton, IN 47842</item>
-                <item>(765) 828–1003</item>
-                <item>Fax: (765) 828–1030</item>
-                <item>1810 Layfayette Ave.</item>
-                <item>Crawfordsville, IN 47933</item>
-                <item>(765) 362–5100</item>
-                <item>Fax: (765) 362–5171</item>
-                <item>727 N Lincoln Rd</item>
-                <item>Rockville, IN 47872</item>
-                <item>(765) 569-1123</item>
-                <item>Fax: (765) 569-6412</item>
-                <item>1530 North 7th Site, Suite 201</item>
-                <item>Terre Haute, IN 47807</item>
-                <item>(812) 238–7631</item>
-                <item>Fax: (812) 238–7003</item>
-            </string-array>
-            <string-array name="locations_options">
-                <item>Select an option</item>
-                <item>Clinic Info</item>
-                <item>Get Directions</item>
-            </string-array>
+    <!--Text-->
+    <string name="title_locations">Locations</string>
+    <string name="location_hours_monday">Monday:</string>
+    <string name="location_hours_tuesday">Tuesday:</string>
+    <string name="location_hours_wednesday">Wednesday:</string>
+    <string name="location_hours_thursday">Thursday:</string>
+    <string name="location_hours_friday">Friday:</string>
+    <string name="locations_clinchours_dialog_title">Clinic Info</string>
+    <string name="locations_title">Locations</string>
+    <string name="location_afterhours">After-Hours Clinic:</string>
+    <string name="location_hours_saturday">Saturday Clinic:</string>
+    <string name="clinicInfoAddress">Address:</string>
+    <!--Array-->
+    <string-array name="locations_contact_info">
+        <item>201 W. Academy St.</item>
+        <item>Bloomingdale, IN 47832</item>
+        <item>(765) 498–9000</item>
+        <item>Fax: (765) 498–9004</item>
+        <item>703 W. Park Street</item>
+        <item>Cayuga, IN 47928</item>
+        <item>(765) 492–9042</item>
+        <item>Fax: (765) 492–9048</item>
+        <item>777 S. Main Street, Suite 100</item>
+        <item>Clinton, IN 47842</item>
+        <item>(765) 828–1003</item>
+        <item>Fax: (765) 828–1030</item>
+        <item>1810 Layfayette Ave.</item>
+        <item>Crawfordsville, IN 47933</item>
+        <item>(765) 362–5100</item>
+        <item>Fax: (765) 362–5171</item>
+        <item>727 N Lincoln Rd</item>
+        <item>Rockville, IN 47872</item>
+        <item>(765) 569-1123</item>
+        <item>Fax: (765) 569-6412</item>
+        <item>1530 North 7th Site, Suite 201</item>
+        <item>Terre Haute, IN 47807</item>
+        <item>(812) 238–7631</item>
+        <item>Fax: (812) 238–7003</item>
+    </string-array>
+    <string-array name="locations_options">
+        <item>Select an option</item>
+        <item>Clinic Info</item>
+        <item>Get Directions</item>
+    </string-array>
 
 
     <!--**********************************!>
         #MAIN
     <!***********************************-->
-        <!--Text-->
-            <string name="title_main" translatable="false">&#160;Valley Professionals \n Community Health Center</string>
-            <string name="icon_providers">Providers</string>
-            <string name="icon_contact_us">Call</string>
-            <string name="icon_locations">Locations</string>
-            <string name="icon_forms">Forms</string>
-            <string name="icon_patient_portal" translatable="false">Patient\nPortal</string>
-            <string name="icon_bustracker">MSBHC\nTracker</string>
-            <string name="icon_facebook" translatable="false">Facebook</string>
-            <string name="icon_services">Services</string>
-            <string name="icon_website">Website</string>
-            <string name="icon_faq">FAQs</string>
-            <string name="icon_patres">Patient\nResources</string>
-            <string name="icon_memory" translatable="false">Memory &amp;\nAging Center</string>
-            <string name="icon_residency" translatable="false">UH\nResidency</string>
-        <!--Array-->
-            <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
-            <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
-            <string name="toast_website_open">Opening VPCHC website…</string>
-            <string name="toast_memwebsite_open">Opening Memory Center Website…</string>
-            <string name="toast_reswebsite_open">Opening UH Residency Website…</string>
-            <string name="toast_portal_open">Opening VPCHC Patient Portal webpage…</string>
+    <!--Text-->
+    <string name="title_main" translatable="false">&#160;Valley Professionals \n Community Health Center</string>
+    <string name="icon_providers">Providers</string>
+    <string name="icon_contact_us">Call</string>
+    <string name="icon_locations">Locations</string>
+    <string name="icon_forms">Forms</string>
+    <string name="icon_patient_portal" translatable="false">Patient\nPortal</string>
+    <string name="icon_bustracker">MSBHC\nTracker</string>
+    <string name="icon_facebook" translatable="false">Facebook</string>
+    <string name="icon_services">Services</string>
+    <string name="icon_website">Website</string>
+    <string name="icon_faq">FAQs</string>
+    <string name="icon_patres">Patient\nResources</string>
+    <string name="icon_memory" translatable="false">Memory &amp;\nAging Center</string>
+    <string name="icon_residency" translatable="false">UH\nResidency</string>
+    <!--Array-->
+    <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
+    <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
+    <string name="toast_website_open">Opening VPCHC website…</string>
+    <string name="toast_memwebsite_open">Opening Memory Center Website…</string>
+    <string name="toast_reswebsite_open">Opening UH Residency Website…</string>
+    <string name="toast_portal_open">Opening VPCHC Patient Portal webpage…</string>
 
 
     <!--**********************************!>
         #OPTIONS
     <!***********************************-->
-        <!--Text-->
-            <string name="menu_options">Options</string>
-            <string name="title_options">Options</string>
-            <string name="options_language">Language:</string>
-            <string name="options_lang_en">English</string>
-            <string name="options_lang_es">Spanish</string>
-            <string name="options_loc_pref">Locations Preference:</string>
-            <string name="options_loc_pref_no_pref">No Preference</string>
-        <!--Toasts-->
-            <string name="toast_location_preference_save">Saving location preference…</string>
-            <string name="toast_options_no_change">No changes found.</string>
-            <string name="toast_options_loc_pref_change">Changing preferred location…</string>
-            <string name="toast_options_lang_change">Changing language in app…</string>
-            <string name="toast_options_both_change">Changing preferred location and language…</string>
+    <!--Text-->
+    <string name="menu_options">Options</string>
+    <string name="title_options">Options</string>
+    <string name="options_language">Language:</string>
+    <string name="options_lang_en">English</string>
+    <string name="options_lang_es">Spanish</string>
+    <string name="options_loc_pref">Locations Preference:</string>
+    <string name="options_loc_pref_no_pref">No Preference</string>
+    <!--Toasts-->
+    <string name="toast_location_preference_save">Saving location preference…</string>
+    <string name="toast_options_no_change">No changes found.</string>
+    <string name="toast_options_loc_pref_change">Changing preferred location…</string>
+    <string name="toast_options_lang_change">Changing language in app…</string>
+    <string name="toast_options_both_change">Changing preferred location and language…</string>
 
 
     <!--**********************************!>
         #PATIENT RESOURCES
     <!***********************************-->
-        <!--Text-->
-            <string name="title_patres">Patient Resources</string>
-        <!--Array-->
-            <string-array name="patres_categories">
-                <item>Select a category</item>
-                <item>Diabetic Support Group</item>
-                <item>Prescription Assistance</item>
-                <item>Sliding Fee Scale</item>
-            </string-array>
-            <string-array name="patres_categories_diabetes">
-                <item>Valley Professionals holds monthly Diabetes Support Group meetings that are completely free and open to anyone who is affected by Diabetes, even if you are not a patient with Valley Professionals. For more information visit valleyprohealth.org/diabetes</item>
-            </string-array>
-            <string-array name="patres_categories_prescription">
-                <item>We have several ways to help patients that are having trouble affording their medication.</item>
-                <item>340B Program: This program helps cover the cost of many prescription medications. Based on your family income and size determines how much you have to pay for your medications. Application for the sliding fee scale is required for this program. If you qualify, medications may be free or low cost.</item>
-                <item>Drug Companies: Many of commonly prescribed drugs can be obtained through drug companies at no cost or low cost. Our Community Health Workers can assist in these applications.</item>
-                <item>Good Rx: The website goodrx.com has comparison shopping on prescriptions and offer many good coupons.</item>
-                <item>Additional programs are also available such as discount drug cards and the Freestyle Promise Program.</item>
-            </string-array>
-            <string-array name="patres_categories_scale">
-                <item>If patients are not covered by any type of medical insurance for their medical needs, a sliding fee scale is available for patients to receive a discounted rate. Discounts available are based on patient family size and income in accordance with the most recent U.S. Department of Health and Human Services Federal Poverty Guidelines.</item>
-                <item>The sliding fee scale is based upon the current income of all family members, and the number of people in the household. An individual who is unemployed, has no income and is being supported by others must provide documentation showing that no federal income taxes have been filed, and the person supporting the patient must provide written and signed documentation that they are providing food and shelter for the patient. </item>
-                <item>In order to qualify for the sliding fee scale at VPCHC, patients and their families must have a combined income that falls within the U.S. Federal Poverty Guidelines.</item>
-            </string-array>
+    <!--Text-->
+    <string name="title_patres">Patient Resources</string>
+    <!--Array-->
+    <string-array name="patres_categories">
+        <item>Select a category</item>
+        <item>Diabetic Support Group</item>
+        <item>Prescription Assistance</item>
+        <item>Sliding Fee Scale</item>
+    </string-array>
+    <string-array name="patres_categories_diabetes">
+        <item>Valley Professionals holds monthly Diabetes Support Group meetings that are completely free and open to anyone who is affected by Diabetes, even if you are not a patient with Valley Professionals. For more information visit valleyprohealth.org/diabetes</item>
+    </string-array>
+    <string-array name="patres_categories_prescription">
+        <item>We have several ways to help patients that are having trouble affording their medication.</item>
+        <item>340B Program: This program helps cover the cost of many prescription medications. Based on your family income and size determines how much you have to pay for your medications. Application for the sliding fee scale is required for this program. If you qualify, medications may be free or low cost.</item>
+        <item>Drug Companies: Many of commonly prescribed drugs can be obtained through drug companies at no cost or low cost. Our Community Health Workers can assist in these applications.</item>
+        <item>Good Rx: The website goodrx.com has comparison shopping on prescriptions and offer many good coupons.</item>
+        <item>Additional programs are also available such as discount drug cards and the Freestyle Promise Program.</item>
+    </string-array>
+    <string-array name="patres_categories_scale">
+        <item>If patients are not covered by any type of medical insurance for their medical needs, a sliding fee scale is available for patients to receive a discounted rate. Discounts available are based on patient family size and income in accordance with the most recent U.S. Department of Health and Human Services Federal Poverty Guidelines.</item>
+        <item>The sliding fee scale is based upon the current income of all family members, and the number of people in the household. An individual who is unemployed, has no income and is being supported by others must provide documentation showing that no federal income taxes have been filed, and the person supporting the patient must provide written and signed documentation that they are providing food and shelter for the patient. </item>
+        <item>In order to qualify for the sliding fee scale at VPCHC, patients and their families must have a combined income that falls within the U.S. Federal Poverty Guidelines.</item>
+    </string-array>
 
 
     <!--**********************************!>
         #PROVIDERS
     <!***********************************-->
-        <!--Text-->
-            <string name="title_providers">Providers</string>
-        <!--Arrays-->
-            <string-array name="provider_types">
-                <item>Select a type of provider</item>
-                <item>Behavioral Health</item>
-                <item>Primary Care</item>
-            </string-array>
-            <string-array name="provider_types2">
-                <item>Select a type of provider</item>
-                <item>Behavioral Health</item>
-                <item>Dental</item>
-                <item>Primary Care</item>
-            </string-array>
-            <string-array name="provider_types3">
-                <item>Select a type of provider</item>
-                <item>Primary Care</item>
-            </string-array>
+    <!--Text-->
+    <string name="title_providers">Providers</string>
 
-            <string-array name="providers_dental_bloomingdale">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_dental_cayuga">
-                <item>Dr. Nichole Barnett, DDS</item>
-            </string-array>
-            <string-array name="providers_dental_clinton">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_dental_crawfordsville">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_dental_rockville">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_dental_terrehaute">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_dental_msbhc">
-                <item>Currently none at this location</item>
-            </string-array>
+    <string name="provider_bio_education_dr_aziz_abed">•University of Illinois at Chicago\n•University of Illinois at Chicago – School of Public Health\n•St. George’s University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
+    <string name="provider_bio_personal_dr_aziz_abed">Dr. Abed enjoys weight training and sports, including football, basketball, and baseball.</string>
 
-            <string-array name="providers_bh_bloomingdale">
-                <item>Dr. Paul Taraska, MD</item>
-                <item>Megan Neitling, LMHCA</item>
-            </string-array>
-            <string-array name="providers_bh_cayuga">
-                <item>Johnathan Detwiler, MS</item>
-                <item>Lisa Tincher, PMHNP</item>
-            </string-array>
-            <string-array name="providers_bh_clinton">
-                <item>Dr. Paul Taraska, MD</item>
-                <item>Dr. Julia Wernz, PhD, HSPP</item>
-                <item>Linda Lonneman, LCSW</item>
-                <item>David McIntyre, LCAC</item>
-                <item>Lisa Tincher, PMHNP</item>
-            </string-array>
-            <string-array name="providers_bh_crawfordsville">
-                <item>Dr. Paul Taraska, MD</item>
-                <item>Keith Seegers, LCSW</item>
-                <item>Dana Tinkle, LMHC</item>
-            </string-array>
-            <string-array name="providers_bh_rockville">
-                <item>Currently none at this location</item>
-            </string-array>
-            <string-array name="providers_bh_terrehaute">
-                <item>Amber Cadick, PhD</item>
-                <item>Sara Ritter, LCSW</item>
-                <item>Lacey Skwortz, LCSW</item>
-                <item>Lisa Tincher, PMHNP</item>
-            </string-array>
-            <string-array name="providers_bh_msbhc">
-                <item>Heather Woods, LMHCA</item>
-            </string-array>
+    <string name="provider_bio_education_dr_bing_gale">•Ball State University – BS Physiology\n•Indiana University School of Medicine – Doctor of Medicine</string>
+    <string name="provider_bio_personal_dr_bing_gale">Dr. Gale has been practicing in the area for over fifteen years. She enjoys focusing on patient care and creating a happier and healthier community.</string>
 
-            <string-array name="providers_medical_bloomingdale">
-                <item>Christi Busenbark, FNP-C</item>
-                <item>Louwanna Wallace, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_cayuga">
-                <item>Dr. Bing Gale, MD</item>
-                <item>Renae Norman, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_clinton">
-                <item>Dr. Aziz Abed, MD</item>
-                <item>Dr. Bing Gale, MD</item>
-                <item>Dr. Steven Macke, MD</item>
-                <item>Gretchen Blevins, FNP-C</item>
-                <item>Nicole Hall, FNP-C</item>
-                <item>Brandi Larson, FNP-C</item>
-                <item>Tammi Mundy, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_crawfordsville">
-                <item>Dr. Do S. Hwang, MD</item>
-                <item>Gwyndolen Morson, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_rockville">
-                <item>Jordan Ryley, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_terrehaute">
-                <item>Andre Anderson, M.D.</item>
-                <item>Eric D. Beachy, M.D.</item>
-                <item>Tamara Copeland, M.D.</item>
-                <item>Danielle Cundiff, D.O.</item>
-                <item>Jonathan Dario, M.D.</item>
-                <item>Robert Ehresman, M.D.</item>
-                <item>Eugene Epplin, M.D.</item>
-                <item>Sean Ewing, M.D.</item>
-                <item>Alexander Facista, M.D.</item>
-                <item>Christopher Fitzsimmons, M.D.</item>
-                <item>George Fritch, M.D.</item>
-                <item>Angela Hatfield, M.D.</item>
-                <item>Danny Isawi, M.D.</item>
-                <item>Elias Khalaf, M.D.</item>
-                <item>Kenneth Kigorwe, M.D.</item>
-                <item>Amy Laib, M.D.</item>
-                <item>Darcy Lash, M.D.</item>
-                <item>Jansen Mallari, M.D.</item>
-                <item>Steven McDonald, M.D.</item>
-                <item>Kenneth Reece, M.D.</item>
-                <item>Puja Sharma, M.D.</item>
-                <item>Joshua Slep, M.D.</item>
-                <item>Patrick Titzer, M.D.</item>
-                <item>Tony Tran, M.D.</item>
-                <item>Laurie Valera, M.D.</item>
-                <item>Christopher Walker, M.D.</item>
-                <item>Laura Watt, M.D.</item>
-                <item>Amanda Williams, M.D.</item>
-                <item>Leslie Batty, FNP-C</item>
-                <item>Beth Fields, FNP-C</item>
-            </string-array>
-            <string-array name="providers_medical_msbhc">
-                <item>Nicole Cook, FNP-C</item>
-                <item>Renae Norman, FNP-C</item>
-            </string-array>
+    <string name="provider_bio_education_dr_do_s_hwang">•Pusan National University College of Medicine</string>
+    <string name="provider_bio_personal_dr_do_s_hwang">Dr. Hwang is passionate about providing medical care for the patients of VPCHC and has served Montgomery County residents for 40+ years. He enjoys traveling and spending time with his family!</string>
+
+    <string name="provider_bio_education_dr_steven_waltz">•Purdue University\n•Indiana University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
+    <string name="provider_bio_personal_dr_steven_waltz">Dr. Waltz has been practicing medicine in the Wabash Valley for over 30 years. He enjoys teaching and mentoring other primary care providers in his role as Chief Medical Officer at Valley Professionals, as well as continuing to provide excellent care to his patients in Rockville.</string>
+
+    <string name="provider_bio_education_leslie_batty">•Indiana State University - MSN\n•Indiana University School of Medicine•</string>
+    <string name="provider_bio_persona_leslie_batty">Leslie is married with 2 daughters. She is active in her church, enjoys spending time with her family, watching her daughters in their many sporting events, and photography.</string>
+
+    <string name="provider_bio_education_gretchen_blevins">•Marshall University School of Nursing - MSN\n•University of New Hampshire School of Nursing - BSN</string>
+    <string name="provider_bio_personal_gretchen_blevins">In addition to practicing medicine, Gretchen enjoys spending time with her family swimming, kayaking, ATV riding, and trying new things like sky diving when she gets the opportunity.</string>
+
+    <string name="provider_bio_education_christi_busenbark">•Indiana University - MSN\n•Purdue University - BSN</string>
+    <string name="provider_bio_personal_christi_busenbark">Christi enjoys spending time with her four children and family. She is an avid reader and also enjoys photography.</string>
+
+    <string name="provider_bio_education_nicole_cook">•Southern Illinois University Edwardsville - BSN\n•St. Louis University School of Nursing - MSN</string>
+    <string name="provider_bio_personal_nicole_cook">Nicole says her favorite part of working on the Mobile Health Unit is being able to provide healthcare services to children who may not normally receive healthcare as well as working with the wonderful school staff. In her free time, she enjoys spending time with her husband and daughter. Originally from the St. Louis area, Nicole is an avid St. Louis Cardinals fan.</string>
+
+    <string name="provider_bio_education_beth_fields">•MSN – Indiana State University\n•BSN – Indiana Wesleyan University</string>
+    <string name="provider_bio_personal_beth_fields">Beth considers it an honor and a privilege to care for persons who entrust her with their healthcare needs. In her free time she enjoys spending time with her family, gardening, and travel.</string>
+
+    <string name="provider_bio_education_nicole_hall">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_nicole_hall">Nicole Hall is committed to her patients and holistic care. She enjoys running, shopping, and serving her country in the Indiana Air National Guard.</string>
+
+    <string name="provider_bio_education_brandi_larson">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_brandi_larson">Brandi Personal Statement</string>
+
+    <string name="provider_bio_education_gwyndolen_morson">•Georgetown University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_gwyndolen_morson">Gwyn Personal Statement</string>
+
+    <string name="provider_bio_education_tammy_mundy">•Indiana University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_tammy_mundy">In addition to practicing medicine, Tammy enjoys traveling, reading and visiting antique shops. Tammy is married with 2 children and one grandchild.</string>
+
+    <string name="provider_bio_education_renae_norman">•Indiana Wesleyan University - MSN\n•Indiana Wesleyan University - BSN</string>
+    <string name="provider_bio_personal_renae_norman">In addition to practicing medicine, Renae enjoys reading and spending time with her husband and their three children. Renae’s children are very active in athletics, therefore she spends a lot of time supporting the North Vermillion Falcons.</string>
+
+    <string name="provider_bio_education_jordan_ryley">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_jordan_ryley">Jordan’s favorite part of working for Valley Professionals in Rockville is knowing that she is a part of the solution to the shortage of rural health providers. She also enjoys the connection that she has with the patients, coming from a small town herself. Jordan enjoys traveling and all things outdoors, especially hiking and gardening.</string>
+
+    <string name="provider_bio_education_louwanna_wallace">•Indiana State University - MSN, BSN\nUniversity of Indianapolis - ASN</string>
+    <string name="provider_bio_personal_louwanna_wallace">Louwanna has been in the healthcare field more than 40 years and enjoys providing health care in a rural clinic setting In her free time, she enjoys spending time with family, hunting, reading, and music.</string>
+
+    <string name="provider_bio_education_dr_paul_taraska">•Indiana University School of Medicine\n•Wabash College - BS</string>
+    <string name="provider_bio_personal_dr_paul_taraska">Dr. Taraska Personal Statement</string>
+
+    <string name="provider_bio_education_dr_julia_wernz">•PhD Indiana State University\n•MS Indiana State University\n•BA Oral Roberts University</string>
+    <string name="provider_bio_personal_dr_julia_wernz">Dr. Wernz is a psychologist with more than ten years of experience, She specializes in treating patients with attention deficit, pervasive developmental, mood, anxiety and personality disorders, while collaborating with medical providers and other service providers to comprehensively treat patients. Dr. Wernz created the behavioral health integration model for the VPCHC as well as developed the current integrated MAT addictions program. She also serves, as the Director of Behavioral Health for all VPCHC locations.</string>
+
+    <string name="provider_bio_education_johnathan_detwiler">•Indiana State University - MS\n•Purdue University - BA</string>
+    <string name="provider_bio_personal_johnathan_detwiler">Johnathan is currently working towards a PhD at Indiana State University. He has been working in integrated healthcare since August 2015 and has a passion for helping patients reach their Behavioral Health treatment goals. Johnathan is an avid outdoorsman, golfer, and enjoys riding anything from motorcycles to jet skis. He has a passion for animal welfare and enjoys spending time with his dogs and his cat.</string>
+
+    <string name="provider_bio_education_linda_lonneman">•University of Southern Indiana - MSW\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_linda_lonneman">Linda is married and has two children, three granddaughters, and two stepdaughters. She enjoys spending time with family and friends, cycling and outdoor activities, traveling, and caring for her animals.</string>
+
+    <string name="provider_bio_education_david_mcintyre">•Indiana State University</string>
+    <string name="provider_bio_personal_david_mcintyre">Dave is a Licensed Clinical Addictions Counselor (LCAC) and is a certified Medically Assisted Treatment (MAT) provider. Dave has worked in the field of addictions and mental health for over 30 years. In addition to providing clinical services, Dave has served as the Coordinator of Counselor Training Services at the Fairbanks Research and Training Institute, and worked as Training Specialist for the Indiana Department of Mental Health and Addiction Services. In his free time, Dave enjoys spending time with his grandkids, vacationing with family, coaching basketball, fishing, and being outdoors.</string>
+
+    <string name="provider_bio_education_megan_neitling">•Indiana State University - MS\n•Indiana State University - MS</string>
+    <string name="provider_bio_personal_megan_neitling">Megan is pursuing her PhD at the California Institute of Integral Studies. Megan enjoys working with children, adolescents, adults, couples, and families to improve their quality of life through counseling. Megan enjoys traveling, live music, and Netflix. She spends weekends relaxing with family and friends.</string>
+
+    <string name="provider_bio_education_sara_ritter">•Indiana University - MSW\n•Indiana University - MSW</string>
+    <string name="provider_bio_personal_sara_ritter">Sara has an LCSW as well as her LCAC (Licensed Clinical Addictions Counselor) and has been working in the field of mental health and addictions for over 30 years. She enjoys working with people of all ages and treatment concerns. During her time away from work, Sara enjoys reading, being outside, taking vacations, and spending time with friends and family.</string>
+
+    <string name="provider_bio_education_keith_seegers">•Indiana University - MSW\n•Purdue University - BS</string>
+    <string name="provider_bio_personal_keith_seegers">Keith is married with two adult children and two grandsons. He enjoys travel and the out of doors. He takes special interest in history, especially Williamsburg, VA. He enjoys his home gardens and dog and cat.</string>
+
+    <string name="provider_bio_education_lacey_skwortz">•University of Southern Indiana - MSW\n•Anderson University - BS</string>
+    <string name="provider_bio_personal_lacey_skwortz">Lacey comes from a big family, is married and has a daughter. She was born in Cory, Indiana, but has lived most of her life in Terre Haute and has been a social worker in the community since 2006. Lacey became a social worker because she has a heart for helping others and enjoys getting to know her patients and assisting them in meeting their goals.</string>
+
+    <string name="provider_bio_education_dana_tinkle">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
+    <string name="provider_bio_personal_dana_tinkle">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
+
+    <string name="provider_bio_education_lisa_tincher">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_lisa_tincher">Dana is currently working towards becoming a Registered Play Therapist. She works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
+
+    <string name="provider_bio_education_heather_woods">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_heather_woods">Heather is currently working towards becoming a Registered Play Therapist. Her favorite part of working on the Mobile School-Based Health Center is having the ability to provide services to children and adolescents who may otherwise not be able to receive behavioral healthcare, as well as, the privilege of working and collaborating with some wonderful members of the school staff. Heather enjoys spending her free-time with family and friends. She also enjoys crafting, decorating, listening to music, learning new things, and playing with her two dogs.</string>
+
+    <string name="provider_bio_education_dr_nichole_barnett">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology & Chemistry</string>
+    <string name="provider_bio_personal_dr_nichole_barnett">Dr. Barnett became a dentist so she could help the underserved, and her goal is to make every patient feel comfortable while having their dental work done. In addition to being a dentist, she is also a member of a gospel trio along with her husband and sister-in-law. In her free time she enjoys spending time with her family, hunting and fishing.</string>
+
+    <string name="provider_bio_education_jamie_tidwell">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_jamie_tidwell">Jamie loves being a Dental Hygienist and giving her patients a clean, healthy smile. In her spare time, Jamie loves to spend time with her family and friends going camping and fishing.</string>
+    <!--Arrays-->
+    <string-array name="provider_types">
+        <item>Select a type of provider</item>
+        <item>Behavioral Health</item>
+        <item>Primary Care</item>
+    </string-array>
+    <string-array name="provider_types2">
+        <item>Select a type of provider</item>
+        <item>Behavioral Health</item>
+        <item>Dental</item>
+        <item>Primary Care</item>
+    </string-array>
+    <string-array name="provider_types3">
+        <item>Select a type of provider</item>
+        <item>Primary Care</item>
+    </string-array>
+
+    <string-array name="providers_dental_bloomingdale">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_dental_cayuga">
+        <item>Select a provider</item>
+        <item>Dr. Nichole Barnett, DDS</item>
+        <item>Jamie Tidwell, LDH</item>
+    </string-array>
+    <string-array name="providers_dental_clinton">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_dental_crawfordsville">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_dental_rockville">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_dental_terrehaute">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_dental_msbhc">
+        <item>Currently none at this location</item>
+    </string-array>
+
+    <string-array name="providers_bh_bloomingdale">
+        <item>Select a provider</item>
+        <item>Dr. Paul Taraska, MD</item>
+        <item>Megan Neitling, LMHCA</item>
+    </string-array>
+    <string-array name="providers_bh_cayuga">
+        <item>Select a provider</item>
+        <item>Johnathan Detwiler, MS</item>
+        <item>Lisa Tincher, PMHNP</item>
+    </string-array>
+    <string-array name="providers_bh_clinton">
+        <item>Select a provider</item>
+        <item>Dr. Paul Taraska, MD</item>
+        <item>Dr. Julia Wernz, PhD, HSPP</item>
+        <item>Linda Lonneman, LCSW</item>
+        <item>David McIntyre, LCAC</item>
+        <item>Lisa Tincher, PMHNP</item>
+    </string-array>
+    <string-array name="providers_bh_crawfordsville">
+        <item>Select a provider</item>
+        <item>Dr. Paul Taraska, MD</item>
+        <item>Keith Seegers, LCSW</item>
+        <item>Dana Tinkle, LMHC</item>
+    </string-array>
+    <string-array name="providers_bh_rockville">
+        <item>Currently none at this location</item>
+    </string-array>
+    <string-array name="providers_bh_terrehaute">
+        <item>Select a provider</item>
+        <item>Sara Ritter, LCSW</item>
+        <item>Lacey Skwortz, LCSW</item>
+        <item>Lisa Tincher, PMHNP</item>
+    </string-array>
+    <string-array name="providers_bh_msbhc">
+        <item>Select a provider</item>
+        <item>Heather Woods, LMHCA</item>
+    </string-array>
+
+    <string-array name="providers_medical_bloomingdale">
+        <item>Select a provider</item>
+        <item>Christi Busenbark, FNP-C</item>
+        <item>Louwanna Wallace, FNP-C</item>
+    </string-array>
+    <string-array name="providers_medical_cayuga">
+        <item>Select a provider</item>
+        <item>Dr. Bing Gale, MD</item>
+        <item>Renae Norman, FNP-C</item>
+    </string-array>
+    <string-array name="providers_medical_clinton">
+        <item>Select a provider</item>
+        <item>Dr. Aziz Abed, MD, MPH</item>
+        <item>Dr. Bing Gale, MD</item>
+        <item>Gretchen Blevins, FNP-C</item>
+        <item>Nicole Hall, FNP-C</item>
+        <item>Brandi Larson, FNP-C</item>
+        <item>Tammi Mundy, FNP-C</item>
+    </string-array>
+    <string-array name="providers_medical_crawfordsville">
+        <item>Select a provider</item>
+        <item>Dr. Do S. Hwang, MD</item>
+        <item>Gwyndolen Morson, FNP-C</item>
+    </string-array>
+    <string-array name="providers_medical_rockville">
+        <item>Select a provider</item>
+        <item>Dr. Steven Waltz, MD</item>
+        <item>Jordan Ryley, FNP-C</item>
+    </string-array>
+    <string-array name="providers_medical_terrehaute">
+        <item>Select a provider</item>
+        <item>Leslie Batty, FNP-C</item>
+        <item>Beth Fields, FNP-C</item>
+        <item>Residents</item>
+    </string-array>
+    <string-array name="providers_medical_msbhc">
+        <item>Select a provider</item>
+        <item>Nicole Cook, FNP-C</item>
+        <item>Renae Norman, FNP-C</item>
+    </string-array>
 
 
     <!--**********************************!>
            #SERVICES
     <!***********************************-->
-        <!--Text-->
-            <string name="title_services">Services</string>
-        <!--Arrays-->
-            <string-array name="services_categories">
-                <item>Select a category</item>
-                <item>Behavioral Health</item>
-                <item>Patient Support</item>
-                <item>Primary Care</item>
-            </string-array>
-            <string-array name="services_categories2">
-                <item>Select a category</item>
-                <item>Behavioral Health</item>
-                <item>Dental</item>
-                <item>Patient Support</item>
-                <item>Primary Care</item>
-            </string-array>
-            <string-array name="services_categories3">
-                <item>Select a category</item>
-                <item>Primary Care</item>
-            </string-array>
-            <string-array name="BehavioralHealth">
-                <item>•Child/Adolescent counseling</item>
-                <item>•Crisis counseling</item>
-                <item>•Family counseling</item>
-                <item>•Psychiatry</item>
-                <item>•Testing/assessment(upon referral)</item>
-            </string-array>
-            <string-array name="Dental">
-                <item>•Preventive and restorative services</item>
-            </string-array>
-            <string-array name="PatientSupport">
-                <item>•Community Health Workers</item>
-                <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
-                <item>-Educate patients on preventive health care behaviors</item>
-                <item>-Help patients find necessities like food, clothes, and toiletries</item>
-                <item>•Patient Care Coordinator</item>
-                <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
-                <item>-Are patient advocates  and your navigator through the healthcare system</item>
-            </string-array>
-            <string-array name="PrimaryCare1">
-                <item>•Acute illness</item>
-                <item>•Chronic disease care</item>
-                <item>•CDL exam</item>
-                <item>•Family planning</item>
-                <item>•Geriatric care</item>
-                <item>•Immunizations</item>
-                <item>•Laboratory services</item>
-                <item>•Men\'s health</item>
-                <item>•Minor surgery</item>
-                <item>•Nutritional counseling</item>
-                <item>•Physical exam</item>
-                <item>•Preventive care</item>
-                <item>•Well child visits</item>
-                <item>•Women\'s health</item>
-            </string-array>
-            <string-array name="PrimaryCare2">
-                <item>•Acute illness</item>
-                <item>•Chronic disease care</item>
-                <item>•Colposcopy</item>
-                <item>•CDL exam</item>
-                <item>•Family planning</item>
-                <item>•Geriatric care</item>
-                <item>•Immunizations</item>
-                <item>•Labor and Delivery</item>
-                <item>•Laboratory services</item>
-                <item>•Men\'s health</item>
-                <item>•Minor surgery</item>
-                <item>•Nutritional counseling</item>
-                <item>•Pregnancy care</item>
-                <item>•Preventive care</item>
-                <item>•Physical exam</item>
-                <item>•Well child visits</item>
-                <item>•Women\'s health</item>
-                <item>•Vasectomy</item>
-            </string-array>
+    <!--Text-->
+    <string name="title_services">Services</string>
+    <!--Arrays-->
+    <string-array name="services_categories">
+        <item>Select a category</item>
+        <item>Behavioral Health</item>
+        <item>Patient Support</item>
+        <item>Primary Care</item>
+    </string-array>
+    <string-array name="services_categories2">
+        <item>Select a category</item>
+        <item>Behavioral Health</item>
+        <item>Dental</item>
+        <item>Patient Support</item>
+        <item>Primary Care</item>
+    </string-array>
+    <string-array name="services_categories3">
+        <item>Select a category</item>
+        <item>Primary Care</item>
+    </string-array>
+    <string-array name="BehavioralHealth">
+        <item>•Child/Adolescent counseling</item>
+        <item>•Crisis counseling</item>
+        <item>•Family counseling</item>
+        <item>•Psychiatry</item>
+        <item>•Testing/assessment(upon referral)</item>
+    </string-array>
+    <string-array name="Dental">
+        <item>•Preventive and restorative services</item>
+    </string-array>
+    <string-array name="PatientSupport">
+        <item>•Community Health Workers</item>
+        <item>-Provide assistance navigating the Insurance Marketplace, Healthy Indiana Plan, and Medicaid applications</item>
+        <item>-Educate patients on preventive health care behaviors</item>
+        <item>-Help patients find necessities like food, clothes, and toiletries</item>
+        <item>•Patient Care Coordinator</item>
+        <item>-Work with a Care Coordinators and learn how to manage chronic health concerns, and take steps to improve your health</item>
+        <item>-Are patient advocates  and your navigator through the healthcare system</item>
+    </string-array>
+    <string-array name="PrimaryCare1">
+        <item>•Acute illness</item>
+        <item>•Chronic disease care</item>
+        <item>•CDL exam</item>
+        <item>•Family planning</item>
+        <item>•Geriatric care</item>
+        <item>•Immunizations</item>
+        <item>•Laboratory services</item>
+        <item>•Men\'s health</item>
+        <item>•Minor surgery</item>
+        <item>•Nutritional counseling</item>
+        <item>•Physical exam</item>
+        <item>•Preventive care</item>
+        <item>•Well child visits</item>
+        <item>•Women\'s health</item>
+    </string-array>
+    <string-array name="PrimaryCare2">
+        <item>•Acute illness</item>
+        <item>•Chronic disease care</item>
+        <item>•Colposcopy</item>
+        <item>•CDL exam</item>
+        <item>•Family planning</item>
+        <item>•Geriatric care</item>
+        <item>•Immunizations</item>
+        <item>•Labor and Delivery</item>
+        <item>•Laboratory services</item>
+        <item>•Men\'s health</item>
+        <item>•Minor surgery</item>
+        <item>•Nutritional counseling</item>
+        <item>•Pregnancy care</item>
+        <item>•Preventive care</item>
+        <item>•Physical exam</item>
+        <item>•Well child visits</item>
+        <item>•Women\'s health</item>
+        <item>•Vasectomy</item>
+    </string-array>
 
 
     <!--**********************************!>
         #TRACKER
     <!***********************************-->
-        <!--Text-->
-            <string name="trackerDescription">MSBHC Tracker</string>
-            <string name="trackerLocationText">Location:</string>
-            <string name="trackerTimes">Hours:</string>
-            <string name="trackerStatus">Status:</string>
-            <string name="trackerScheduleDownload">Download Schedule</string>
-            <string name="tracker_refresh">Refresh Tracker</string>
+    <!--Text-->
+    <string name="trackerDescription">MSBHC Tracker</string>
+    <string name="trackerLocationText">Location:</string>
+    <string name="trackerTimes">Hours:</string>
+    <string name="trackerStatus">Status:</string>
+    <string name="trackerScheduleDownload">Download Schedule</string>
+    <string name="tracker_refresh">Refresh Tracker</string>
 
-        <!--Toasts-->
-            <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
-            <string name="toast_forms_download">Downloading Form…</string>
-            <string name="toast_network_error">Error: Please check your network connection</string>
-            <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
-         <!--Array-->
-            <string-array name="tracker_statuses">
-                <item>Closed</item>
-                <item>Open</item>
-                <item>Opening Soon</item>
-                <item>En Route</item>
-                <item>Closing Soon</item>
-            </string-array>
-            <string-array name="tracker_outdated">
-                <item>Schedule outdated</item>
-                <item>Restart App</item>
-                <item>to update</item>
-            </string-array>
+    <!--Toasts-->
+    <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
+    <string name="toast_forms_download">Downloading Form…</string>
+    <string name="toast_network_error">Error: Please check your network connection</string>
+    <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
+    <!--Array-->
+    <string-array name="tracker_statuses">
+        <item>Closed</item>
+        <item>Open</item>
+        <item>Opening Soon</item>
+        <item>En Route</item>
+        <item>Closing Soon</item>
+    </string-array>
+    <string-array name="tracker_outdated">
+        <item>Schedule outdated</item>
+        <item>Restart App</item>
+        <item>to update</item>
+    </string-array>
 
 
     <!--**********************************!>
        #TWITTER
     <!***********************************-->
-        <!--Text-->
-            <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
-            <string name="toast_call_perm">Call permissions not enabled</string>
-            <string name="icon_twitter" translatable="false">Twitter</string>
-        <!--Array-->
-            <string-array name="twitter_feed_tips">
-                <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
-                <item>If you are not able to make an appointment, please call to let us know.</item>
-                <item>Refills can take up to 48 business hours to refill.</item>
-                <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
-            </string-array>
+    <!--Text-->
+    <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
+    <string name="toast_call_perm">Call permissions not enabled</string>
+    <string name="icon_twitter" translatable="false">Twitter</string>
+    <string name="toast_residencybio_open">Opening Residency Website...</string>
+    <string name="provider_bio_education_title">Education:</string>
+    <string name="provider_bio_personal_title">Personal:</string>
+    <!--Array-->
+    <string-array name="twitter_feed_tips">
+        <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
+        <item>If you are not able to make an appointment, please call to let us know.</item>
+        <item>Refills can take up to 48 business hours to refill.</item>
+        <item>Do you need resources in your community? Do you need help find health coverage for your family? Contact one of our CHWs!</item>
+    </string-array>
 
 
     <!--**********************************!>
        #VPCHC LOCATIONS
     <!***********************************-->
-        <!--Arrays-->
-            <string-array name="vpchc_locations">
-                <item>Select a location</item>
-                <item>Bloomingdale</item>
-                <item>Cayuga</item>
-                <item>Clinton</item>
-                <item>Crawfordsville</item>
-                <item>Rockville</item>
-                <item>Terre Haute</item>
-                <item>MSBHC</item>
-            </string-array>
+    <!--Arrays-->
+    <string-array name="vpchc_locations">
+        <item>Select a location</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
+        <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Rockville</item>
+        <item>Terre Haute</item>
+        <item>MSBHC</item>
+    </string-array>
 
-            <string-array name="vpchc_locations2">
-                <item>Select a location</item>
-                <item>Bloomingdale</item>
-                <item>Cayuga</item>
-                <item>Clinton</item>
-                <item>Crawfordsville</item>
-                <item>Rockville</item>
-                <item>Terre Haute</item>
-            </string-array>
+    <string-array name="vpchc_locations2">
+        <item>Select a location</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
+        <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Rockville</item>
+        <item>Terre Haute</item>
+    </string-array>
 
-            <string-array name="preferred_locations">
-                <item>Select a preferred location</item>
-                <item>No Preference</item>
-                <item>Bloomingdale</item>
-                <item>Cayuga</item>
-                <item>Clinton</item>
-                <item>Crawfordsville</item>
-                <item>Rockville</item>
-                <item>Terre Haute</item>
-                <item>MSBHC</item>
-            </string-array>
+    <string-array name="preferred_locations">
+        <item>Select a preferred location</item>
+        <item>No Preference</item>
+        <item>Bloomingdale</item>
+        <item>Cayuga</item>
+        <item>Clinton</item>
+        <item>Crawfordsville</item>
+        <item>Rockville</item>
+        <item>Terre Haute</item>
+        <item>MSBHC</item>
+    </string-array>
 
-            <string-array name="easy_locations">
-                <item>bloomingdale</item>
-                <item>cayuga</item>
-                <item>clinton</item>
-                <item>crawfordsville</item>
-                <item>rockville</item>
-                <item>terrehaute</item>
-                <item>msbhc</item>
-            </string-array>
+    <string-array name="easy_locations">
+        <item>bloomingdale</item>
+        <item>cayuga</item>
+        <item>clinton</item>
+        <item>crawfordsville</item>
+        <item>rockville</item>
+        <item>terrehaute</item>
+        <item>msbhc</item>
+    </string-array>
 
 </resources>
