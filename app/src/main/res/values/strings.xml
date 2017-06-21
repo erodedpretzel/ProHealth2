@@ -465,16 +465,16 @@
     <string name="provider_bio_education_lacey_skwortz">•University of Southern Indiana - MSW\n•Anderson University - BS</string>
     <string name="provider_bio_personal_lacey_skwortz">Lacey comes from a big family, is married and has a daughter. She was born in Cory, Indiana, but has lived most of her life in Terre Haute and has been a social worker in the community since 2006. Lacey became a social worker because she has a heart for helping others and enjoys getting to know her patients and assisting them in meeting their goals.</string>
 
-    <string name="provider_bio_education_dana_tinkle">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
-    <string name="provider_bio_personal_dana_tinkle">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
+    <string name="provider_bio_education_lisa_tincher">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
+    <string name="provider_bio_personal_lisa_tincher">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
 
-    <string name="provider_bio_education_lisa_tincher">•Indiana State University - MS\n•Indiana State University - BS</string>
-    <string name="provider_bio_personal_lisa_tincher">Dana is currently working towards becoming a Registered Play Therapist. She works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
+    <string name="provider_bio_education_dana_tinkle">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_dana_tinkle">Dana is currently working towards becoming a Registered Play Therapist. She works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
 
     <string name="provider_bio_education_heather_woods">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_heather_woods">Heather is currently working towards becoming a Registered Play Therapist. Her favorite part of working on the Mobile School-Based Health Center is having the ability to provide services to children and adolescents who may otherwise not be able to receive behavioral healthcare, as well as, the privilege of working and collaborating with some wonderful members of the school staff. Heather enjoys spending her free-time with family and friends. She also enjoys crafting, decorating, listening to music, learning new things, and playing with her two dogs.</string>
 
-    <string name="provider_bio_education_dr_nichole_barnett">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology & Chemistry</string>
+    <string name="provider_bio_education_dr_nichole_barnett">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology &amp; Chemistry</string>
     <string name="provider_bio_personal_dr_nichole_barnett">Dr. Barnett became a dentist so she could help the underserved, and her goal is to make every patient feel comfortable while having their dental work done. In addition to being a dentist, she is also a member of a gospel trio along with her husband and sister-in-law. In her free time she enjoys spending time with her family, hunting and fishing.</string>
 
     <string name="provider_bio_education_jamie_tidwell">•Indiana State University - MS\n•Indiana State University - BS</string>
@@ -522,7 +522,7 @@
 
     <string-array name="providers_bh_bloomingdale">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, MD</item>
+        <item>Dr. Paul Taraska, M.D.</item>
         <item>Megan Neitling, LMHCA</item>
     </string-array>
     <string-array name="providers_bh_cayuga">
@@ -532,7 +532,7 @@
     </string-array>
     <string-array name="providers_bh_clinton">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, MD</item>
+        <item>Dr. Paul Taraska, M.D.</item>
         <item>Dr. Julia Wernz, PhD, HSPP</item>
         <item>Linda Lonneman, LCSW</item>
         <item>David McIntyre, LCAC</item>
@@ -540,7 +540,7 @@
     </string-array>
     <string-array name="providers_bh_crawfordsville">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, MD</item>
+        <item>Dr. Paul Taraska, M.D.</item>
         <item>Keith Seegers, LCSW</item>
         <item>Dana Tinkle, LMHC</item>
     </string-array>
@@ -565,13 +565,13 @@
     </string-array>
     <string-array name="providers_medical_cayuga">
         <item>Select a provider</item>
-        <item>Dr. Bing Gale, MD</item>
+        <item>Dr. Bing Gale, M.D.</item>
         <item>Renae Norman, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_clinton">
         <item>Select a provider</item>
-        <item>Dr. Aziz Abed, MD, MPH</item>
-        <item>Dr. Bing Gale, MD</item>
+        <item>Dr. Aziz Abed, M.D., MPH</item>
+        <item>Dr. Bing Gale, M.D.</item>
         <item>Gretchen Blevins, FNP-C</item>
         <item>Nicole Hall, FNP-C</item>
         <item>Brandi Larson, FNP-C</item>
@@ -579,12 +579,12 @@
     </string-array>
     <string-array name="providers_medical_crawfordsville">
         <item>Select a provider</item>
-        <item>Dr. Do S. Hwang, MD</item>
+        <item>Dr. Do S. Hwang, M.D.</item>
         <item>Gwyndolen Morson, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_rockville">
         <item>Select a provider</item>
-        <item>Dr. Steven Waltz, MD</item>
+        <item>Dr. Steven Waltz, M.D.</item>
         <item>Jordan Ryley, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_terrehaute">

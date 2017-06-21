@@ -354,9 +354,12 @@ public class ProvidersActivity extends AppCompatActivity {
 	    Description: Set the provider bio.
 	    Returns:     void
     */
-        int providerBioString = getResources().getIdentifier("provider_bio_" + searchableProviderName, "string", getPackageName());
-        TextView providerBioText = (TextView) providerDialog.findViewById(R.id.providersDialogProviderBio);
-        providerBioText.setText(providerBioString);
+        int providerBioEducationString = getResources().getIdentifier("provider_bio_education_" + searchableProviderName, "string", getPackageName());
+        int providerBioPersonalString = getResources().getIdentifier("provider_bio_personal_" + searchableProviderName, "string", getPackageName());
+        TextView providerBioEducationText = (TextView) providerDialog.findViewById(R.id.providerDialogProviderEducationContent);
+        TextView providerBioPersonalText = (TextView) providerDialog.findViewById(R.id.providerDialogProviderPersonalContent);
+        providerBioEducationText.setText(providerBioEducationString);
+        providerBioPersonalText.setText(providerBioPersonalString);
     }
 
     private View.OnClickListener providerListener = new View.OnClickListener() {
