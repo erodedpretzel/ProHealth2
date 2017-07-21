@@ -265,27 +265,28 @@ public class ProvidersActivity extends AppCompatActivity {
         if(title.equals("M.D.")){
             if(providerTypeSelected.equals("bh")){
                 title = "Psychiatrist";
+                title = getResources().getString(R.string.provider_credentials_psych);
             }else{
-                title = "Physician";
+                title = getResources().getString(R.string.provider_credentials_doc);
             }
         }else if(title.equals("PhD")){//Only Dr. Wernz but will need to change when other PhDs are hired
-            title = "Director of Behavioral Health";
+            title = getResources().getString(R.string.provider_credentials_psych2);
         }else if(title.equals("FNP-C")){
-            title = "Certified Family Nurse Practitioner";
+            title = getResources().getString(R.string.provider_credentials_fnp);
         }else if(title.equals("MS")){
-            title = "Mental Health Counselor";
+            title = getResources().getString(R.string.provider_credentials_mentalcoun);
         }else if(title.equals("LCSW")){
-            title = "Licensed Clinical Social Worker";
+            title = getResources().getString(R.string.provider_credentials_lcsw);
         }else if(title.equals("LCAC")){
-            title = "Licensed Clinical Addictions Coordinator";
+            title = getResources().getString(R.string.provider_credentials_lcac);
         }else if(title.equals("LMHCA")){
-            title = "Licensed Mental Health Coordinator Associates";
+            title = getResources().getString(R.string.provider_credentials_lmhca);
         }else if(title.equals("PMHNP")){
-            title = "Psychiatric-Mental Health Nurse Practitioner";
+            title = getResources().getString(R.string.provider_credentials_pmhnp);
         }else if(title.equals("LDH")){
-            title = "Licensed Dental Hygienist";
+            title = getResources().getString(R.string.provider_credentials_ldh);
         }else{
-            title = "Dentist";
+            title = getResources().getString(R.string.provider_credentials_dentist);
         }
 
         //Stores the name and expanded title in the array to be returned

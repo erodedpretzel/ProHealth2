@@ -206,12 +206,22 @@ public class LocationsActivity extends AppCompatActivity {
             replaceTextString = "locationsClinicInfoHours" + i;
             replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
             TextView hoursText = (TextView) locationsDialog.findViewById(replaceTextId);
-            if (selectionLocation == 5){//Rockville
+            if (selectionLocation == 1){//Bloomingdale
+                if (i == 0){
+                    hoursText.setText("8:00 a.m. - 8:00 p.m.");
+                }else{
+                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
+                }
+            } else if (selectionLocation == 2){//Cayuga
+                if (i == 2){
+                    hoursText.setText("8:00 a.m. - 8:00 p.m.");
+                }else{
+                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
+                }
+            } else if (selectionLocation == 5){//Rockville
                 if (i == 0 || i == 2 || i ==4 ){//Mon,Wed,Fri
-                    Log.d("Mon/Wed/Fri", "i: " + i);
                     hoursText.setText("7:30 a.m. - 5:00 p.m.");
                 }else{//Tues,Thu
-                    Log.d("Tue/Thu", "i: " + i);
                     hoursText.setText("8:00 a.m. - 5:00 p.m.");
                 }
             }else if (selectionLocation == 6) {//Terre Haute

@@ -390,95 +390,97 @@
     <!--Text-->
     <string name="title_providers">Providers</string>
 
-    <string name="provider_bio_education_dr_aziz_abed">•University of Illinois at Chicago\n•University of Illinois at Chicago – School of Public Health\n•St. George’s University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
+    <string name="provider_bio_education_title">Education:</string>
+    <string name="provider_bio_personal_title" translatable="false">Personal:</string>
+
+    <string name="provider_bio_education_dr_aziz_abed" translatable="false">•University of Illinois at Chicago\n•University of Illinois at Chicago – School of Public Health\n•St. George’s University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
     <string name="provider_bio_personal_dr_aziz_abed">Dr. Abed enjoys weight training and sports, including football, basketball, and baseball.</string>
 
-    <string name="provider_bio_education_dr_bing_gale">•Ball State University – BS Physiology\n•Indiana University School of Medicine – Doctor of Medicine</string>
+    <string name="provider_bio_education_dr_bing_gale" translatable="false">•Ball State University – BS Physiology\n•Indiana University School of Medicine – Doctor of Medicine</string>
     <string name="provider_bio_personal_dr_bing_gale">Dr. Gale has been practicing in the area for over fifteen years. She enjoys focusing on patient care and creating a happier and healthier community.</string>
-
-    <string name="provider_bio_education_dr_do_s_hwang">•Pusan National University College of Medicine</string>
-    <string name="provider_bio_personal_dr_do_s_hwang">Dr. Hwang is passionate about providing medical care for the patients of VPCHC and has served Montgomery County residents for 40+ years. He enjoys traveling and spending time with his family!</string>
-
-    <string name="provider_bio_education_dr_steven_waltz">•Purdue University\n•Indiana University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
+    
+    <string name="provider_bio_education_dr_steven_waltz" translatable="false">•Purdue University\n•Indiana University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
     <string name="provider_bio_personal_dr_steven_waltz">Dr. Waltz has been practicing medicine in the Wabash Valley for over 30 years. He enjoys teaching and mentoring other primary care providers in his role as Chief Medical Officer at Valley Professionals, as well as continuing to provide excellent care to his patients in Rockville.</string>
 
-    <string name="provider_bio_education_leslie_batty">•Indiana State University - MSN\n•Indiana University School of Medicine•</string>
-    <string name="provider_bio_persona_leslie_batty">Leslie is married with 2 daughters. She is active in her church, enjoys spending time with her family, watching her daughters in their many sporting events, and photography.</string>
+    <string name="provider_bio_education_leslie_batty" translatable="false">•Indiana State University - MSN\n•Indiana University School of Medicine\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_leslie_batty">Leslie is married with 2 daughters. She is active in her church, enjoys spending time with her family, watching her daughters in their many sporting events, and photography.</string>
 
-    <string name="provider_bio_education_gretchen_blevins">•Marshall University School of Nursing - MSN\n•University of New Hampshire School of Nursing - BSN</string>
+    <string name="provider_bio_education_gretchen_blevins" translatable="false">•Marshall University School of Nursing - MSN\n•University of New Hampshire School of Nursing - BSN</string>
     <string name="provider_bio_personal_gretchen_blevins">In addition to practicing medicine, Gretchen enjoys spending time with her family swimming, kayaking, ATV riding, and trying new things like sky diving when she gets the opportunity.</string>
 
-    <string name="provider_bio_education_christi_busenbark">•Indiana University - MSN\n•Purdue University - BSN</string>
+    <string name="provider_bio_education_christi_busenbark" translatable="false">•Indiana University - MSN\n•Purdue University - BSN</string>
     <string name="provider_bio_personal_christi_busenbark">Christi enjoys spending time with her four children and family. She is an avid reader and also enjoys photography.</string>
 
-    <string name="provider_bio_education_nicole_cook">•Southern Illinois University Edwardsville - BSN\n•St. Louis University School of Nursing - MSN</string>
+    <string name="provider_bio_education_nicole_cook" translatable="false">•Southern Illinois University Edwardsville - BSN\n•St. Louis University School of Nursing - MSN</string>
     <string name="provider_bio_personal_nicole_cook">Nicole says her favorite part of working on the Mobile Health Unit is being able to provide healthcare services to children who may not normally receive healthcare as well as working with the wonderful school staff. In her free time, she enjoys spending time with her husband and daughter. Originally from the St. Louis area, Nicole is an avid St. Louis Cardinals fan.</string>
 
-    <string name="provider_bio_education_beth_fields">•MSN – Indiana State University\n•BSN – Indiana Wesleyan University</string>
+    <string name="provider_bio_education_beth_fields" translatable="false">•Indiana State University - MSN\n•Indiana Wesleyan University - BSN</string>
     <string name="provider_bio_personal_beth_fields">Beth considers it an honor and a privilege to care for persons who entrust her with their healthcare needs. In her free time she enjoys spending time with her family, gardening, and travel.</string>
 
-    <string name="provider_bio_education_nicole_hall">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_education_nicole_hall" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_nicole_hall">Nicole Hall is committed to her patients and holistic care. She enjoys running, shopping, and serving her country in the Indiana Air National Guard.</string>
 
-    <string name="provider_bio_education_brandi_larson">•Indiana State University - MSN\n•Indiana State University - BSN</string>
-    <string name="provider_bio_personal_brandi_larson">Brandi Personal Statement</string>
+    <string name="provider_bio_education_brandi_larson" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_brandi_larson">Brandi is passionate about providing medical care for the patients of VPCHC.</string>
 
-    <string name="provider_bio_education_gwyndolen_morson">•Georgetown University - MSN\n•Indiana State University - BSN</string>
-    <string name="provider_bio_personal_gwyndolen_morson">Gwyn Personal Statement</string>
+    <string name="provider_bio_education_gwyndolen_morson" translatable="false">•Georgetown University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_personal_gwyndolen_morson">Gwyndolen enjoys focusing on patient care and creating a happier and healthier community. In her free time she enjoys spending time with her family.</string>
 
-    <string name="provider_bio_education_tammy_mundy">•Indiana University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_education_tammy_mundy" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_tammy_mundy">In addition to practicing medicine, Tammy enjoys traveling, reading and visiting antique shops. Tammy is married with 2 children and one grandchild.</string>
 
-    <string name="provider_bio_education_renae_norman">•Indiana Wesleyan University - MSN\n•Indiana Wesleyan University - BSN</string>
+    <string name="provider_bio_education_renae_norman" translatable="false">•Indiana Wesleyan University - MSN\n•Indiana Wesleyan University - BSN</string>
     <string name="provider_bio_personal_renae_norman">In addition to practicing medicine, Renae enjoys reading and spending time with her husband and their three children. Renae’s children are very active in athletics, therefore she spends a lot of time supporting the North Vermillion Falcons.</string>
 
-    <string name="provider_bio_education_jordan_ryley">•Indiana State University - MSN\n•Indiana State University - BSN</string>
+    <string name="provider_bio_education_jordan_ryley" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_jordan_ryley">Jordan’s favorite part of working for Valley Professionals in Rockville is knowing that she is a part of the solution to the shortage of rural health providers. She also enjoys the connection that she has with the patients, coming from a small town herself. Jordan enjoys traveling and all things outdoors, especially hiking and gardening.</string>
 
-    <string name="provider_bio_education_louwanna_wallace">•Indiana State University - MSN, BSN\nUniversity of Indianapolis - ASN</string>
+    <string name="provider_bio_education_louwanna_wallace" translatable="false">•Indiana State University - MSN, BSN\n•University of Indianapolis - ASN</string>
     <string name="provider_bio_personal_louwanna_wallace">Louwanna has been in the healthcare field more than 40 years and enjoys providing health care in a rural clinic setting In her free time, she enjoys spending time with family, hunting, reading, and music.</string>
 
-    <string name="provider_bio_education_dr_paul_taraska">•Indiana University School of Medicine\n•Wabash College - BS</string>
-    <string name="provider_bio_personal_dr_paul_taraska">Dr. Taraska Personal Statement</string>
+    <string name="provider_bio_education_dr_paul_taraska" translatable="false">•Indiana University School of Medicine\n•Wabash College - BS</string>
+    <string name="provider_bio_personal_dr_paul_taraska">Dr. Taraska is passionate about providing behavorial healthcare for the patients of VPCHC.</string>
 
-    <string name="provider_bio_education_dr_julia_wernz">•PhD Indiana State University\n•MS Indiana State University\n•BA Oral Roberts University</string>
+    <string name="provider_bio_education_dr_julia_wernz" translatable="false">•Indiana State University - PhD\n•Indiana State University - MS\n•Oral Roberts University - BA</string>
     <string name="provider_bio_personal_dr_julia_wernz">Dr. Wernz is a psychologist with more than ten years of experience, She specializes in treating patients with attention deficit, pervasive developmental, mood, anxiety and personality disorders, while collaborating with medical providers and other service providers to comprehensively treat patients. Dr. Wernz created the behavioral health integration model for the VPCHC as well as developed the current integrated MAT addictions program. She also serves, as the Director of Behavioral Health for all VPCHC locations.</string>
 
-    <string name="provider_bio_education_johnathan_detwiler">•Indiana State University - MS\n•Purdue University - BA</string>
+    <string name="provider_bio_education_johnathan_detwiler" translatable="false">•Indiana State University - MS\n•Purdue University - BA</string>
     <string name="provider_bio_personal_johnathan_detwiler">Johnathan is currently working towards a PhD at Indiana State University. He has been working in integrated healthcare since August 2015 and has a passion for helping patients reach their Behavioral Health treatment goals. Johnathan is an avid outdoorsman, golfer, and enjoys riding anything from motorcycles to jet skis. He has a passion for animal welfare and enjoys spending time with his dogs and his cat.</string>
 
-    <string name="provider_bio_education_linda_lonneman">•University of Southern Indiana - MSW\n•Indiana State University - BS</string>
+    <string name="provider_bio_education_linda_lonneman" translatable="false">•University of Southern Indiana - MSW\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_linda_lonneman">Linda is married and has two children, three granddaughters, and two stepdaughters. She enjoys spending time with family and friends, cycling and outdoor activities, traveling, and caring for her animals.</string>
 
-    <string name="provider_bio_education_david_mcintyre">•Indiana State University</string>
+    <string name="provider_bio_education_david_mcintyre" translatable="false">•Indiana State University</string>
     <string name="provider_bio_personal_david_mcintyre">Dave is a Licensed Clinical Addictions Counselor (LCAC) and is a certified Medically Assisted Treatment (MAT) provider. Dave has worked in the field of addictions and mental health for over 30 years. In addition to providing clinical services, Dave has served as the Coordinator of Counselor Training Services at the Fairbanks Research and Training Institute, and worked as Training Specialist for the Indiana Department of Mental Health and Addiction Services. In his free time, Dave enjoys spending time with his grandkids, vacationing with family, coaching basketball, fishing, and being outdoors.</string>
 
-    <string name="provider_bio_education_megan_neitling">•Indiana State University - MS\n•Indiana State University - MS</string>
+    <string name="provider_bio_education_megan_neitling" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_megan_neitling">Megan is pursuing her PhD at the California Institute of Integral Studies. Megan enjoys working with children, adolescents, adults, couples, and families to improve their quality of life through counseling. Megan enjoys traveling, live music, and Netflix. She spends weekends relaxing with family and friends.</string>
 
-    <string name="provider_bio_education_sara_ritter">•Indiana University - MSW\n•Indiana University - MSW</string>
+    <string name="provider_bio_education_sara_ritter" translatable="false">•Indiana University - MSW\n•Indiana University - BS</string>
     <string name="provider_bio_personal_sara_ritter">Sara has an LCSW as well as her LCAC (Licensed Clinical Addictions Counselor) and has been working in the field of mental health and addictions for over 30 years. She enjoys working with people of all ages and treatment concerns. During her time away from work, Sara enjoys reading, being outside, taking vacations, and spending time with friends and family.</string>
 
-    <string name="provider_bio_education_keith_seegers">•Indiana University - MSW\n•Purdue University - BS</string>
+    <string name="provider_bio_education_keith_seegers" translatable="false">•Indiana University - MSW\n•Purdue University - BS</string>
     <string name="provider_bio_personal_keith_seegers">Keith is married with two adult children and two grandsons. He enjoys travel and the out of doors. He takes special interest in history, especially Williamsburg, VA. He enjoys his home gardens and dog and cat.</string>
 
-    <string name="provider_bio_education_lacey_skwortz">•University of Southern Indiana - MSW\n•Anderson University - BS</string>
+    <string name="provider_bio_education_lacey_skwortz" translatable="false">•University of Southern Indiana - MSW\n•Anderson University - BS</string>
     <string name="provider_bio_personal_lacey_skwortz">Lacey comes from a big family, is married and has a daughter. She was born in Cory, Indiana, but has lived most of her life in Terre Haute and has been a social worker in the community since 2006. Lacey became a social worker because she has a heart for helping others and enjoys getting to know her patients and assisting them in meeting their goals.</string>
 
-    <string name="provider_bio_education_lisa_tincher">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
+    <string name="provider_bio_education_lisa_tincher" translatable="false">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
     <string name="provider_bio_personal_lisa_tincher">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
 
-    <string name="provider_bio_education_dana_tinkle">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_education_dana_tinkle" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_dana_tinkle">Dana is currently working towards becoming a Registered Play Therapist. She works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
 
-    <string name="provider_bio_education_heather_woods">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_education_heather_woods" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_heather_woods">Heather is currently working towards becoming a Registered Play Therapist. Her favorite part of working on the Mobile School-Based Health Center is having the ability to provide services to children and adolescents who may otherwise not be able to receive behavioral healthcare, as well as, the privilege of working and collaborating with some wonderful members of the school staff. Heather enjoys spending her free-time with family and friends. She also enjoys crafting, decorating, listening to music, learning new things, and playing with her two dogs.</string>
 
-    <string name="provider_bio_education_dr_nichole_barnett">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology &amp; Chemistry</string>
+    <string name="provider_bio_education_dr_nichole_barnett" translatable="false">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology &amp; Chemistry</string>
     <string name="provider_bio_personal_dr_nichole_barnett">Dr. Barnett became a dentist so she could help the underserved, and her goal is to make every patient feel comfortable while having their dental work done. In addition to being a dentist, she is also a member of a gospel trio along with her husband and sister-in-law. In her free time she enjoys spending time with her family, hunting and fishing.</string>
 
-    <string name="provider_bio_education_jamie_tidwell">•Indiana State University - MS\n•Indiana State University - BS</string>
+    <string name="provider_bio_education_jamie_tidwell" translatable="false">•Lake Land College</string>
     <string name="provider_bio_personal_jamie_tidwell">Jamie loves being a Dental Hygienist and giving her patients a clean, healthy smile. In her spare time, Jamie loves to spend time with her family and friends going camping and fishing.</string>
+    <!--Toasts-->
+    <string name="toast_residencybio_open">Opening Residency Website...</string>
     <!--Arrays-->
     <string-array name="provider_types">
         <item>Select a type of provider</item>
@@ -542,7 +544,7 @@
         <item>Select a provider</item>
         <item>Dr. Paul Taraska, M.D.</item>
         <item>Keith Seegers, LCSW</item>
-        <item>Dana Tinkle, LMHC</item>
+        <item>Dana Tinkle, LMHCA</item>
     </string-array>
     <string-array name="providers_bh_rockville">
         <item>Currently none at this location</item>
@@ -575,11 +577,10 @@
         <item>Gretchen Blevins, FNP-C</item>
         <item>Nicole Hall, FNP-C</item>
         <item>Brandi Larson, FNP-C</item>
-        <item>Tammi Mundy, FNP-C</item>
+        <item>Tammy Mundy, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_crawfordsville">
         <item>Select a provider</item>
-        <item>Dr. Do S. Hwang, M.D.</item>
         <item>Gwyndolen Morson, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_rockville">
@@ -718,9 +719,17 @@
     <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
     <string name="toast_call_perm">Call permissions not enabled</string>
     <string name="icon_twitter" translatable="false">Twitter</string>
-    <string name="toast_residencybio_open">Opening Residency Website...</string>
-    <string name="provider_bio_education_title">Education:</string>
-    <string name="provider_bio_personal_title">Personal:</string>
+    <string name="provider_credentials_psych">Psychiatrist</string>
+    <string name="provider_credentials_doc">Physician</string>
+    <string name="provider_credentials_psych2">Psychologist</string>
+    <string name="provider_credentials_fnp">Nurse Practitioner</string>
+    <string name="provider_credentials_mentalcoun">Mental Health Counselor</string>
+    <string name="provider_credentials_lcsw">Licensed Clinical Social Worker</string>
+    <string name="provider_credentials_lcac">Licensed Clinical Addictions Coordinator</string>
+    <string name="provider_credentials_lmhca">Licensed Mental Health Coordinator Associates</string>
+    <string name="provider_credentials_pmhnp">Psychiatric-Mental Health Nurse Practitioner</string>
+    <string name="provider_credentials_ldh" translatable="false">Licensed Dental Hygienist</string>
+    <string name="provider_credentials_dentist">Dentist</string>
     <!--Array-->
     <string-array name="twitter_feed_tips">
         <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
