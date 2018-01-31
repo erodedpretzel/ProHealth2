@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NUM_PAGES = 2;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private String flag = "0";
 
     Dialog callDialog;
     Dialog prefDialog;
@@ -306,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
         String[] locationsArray = new String[5];
 
         //Checks the times of each location until it finds one that is open, opening soon,
-        //closing soon or en route or there are no other locations left.
+        //closing soon or en route or there are no other locations left which means it is closed.
         int busCheckStatus = busLocationCheck(locationsArray);
 
         //Sets the bus information displayed on the screen.
@@ -338,16 +339,16 @@ public class MainActivity extends AppCompatActivity {
             locationsArray[1] = (parseText[1]);
             locationsArray[2] = (parseText[2]);
             locationsArray[3] = (parseText[3]);
-            locationsArray[4] = (parseText[4]);
+            flag = (parseText[4]);
             locationStatus = busTimeCheck(i, locationsArray);
-            if (locationStatus != 0 || locationsArray[4].equals("0")) {
+            if (locationStatus != 0 || flag.equals("0")) {
                 break;
             }
             i++;
         }
         return locationStatus;
     }
-    private int busTimeCheck(Integer count, String[] locationsArray){
+    private int busTimeCheck(Integer firstLocationCheck, String[] locationsArray){
     /*
 	    Arguments:   Array with locations info
 	    Description: Looks at the start and end times of the bus location and compares to
@@ -386,8 +387,13 @@ public class MainActivity extends AppCompatActivity {
         compareEnd   = busEndTime - currentTime;
         if(compareEnd <= 1.8e6 && compareEnd > 0){
             return 4;
-        }else if(count > 0 && compareStart > 1.8e6) {
-            return 3;
+        }else if(compareStart > 1.8e6) {
+            if(firstLocationCheck > 0){
+                return 3;
+            }else{
+                flag = "0";
+                return 0;
+            }
         }else if(compareStart < 1.8e6 && compareStart > 0){
             return 2;
         }else if(compareStart <= 0 && compareEnd > 0){
