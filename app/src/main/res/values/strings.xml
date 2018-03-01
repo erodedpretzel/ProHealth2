@@ -396,6 +396,12 @@
     <string name="provider_bio_education_dr_aziz_abed" translatable="false">•University of Illinois at Chicago\n•University of Illinois at Chicago – School of Public Health\n•St. George’s University School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
     <string name="provider_bio_personal_dr_aziz_abed">Dr. Abed enjoys weight training and sports, including football, basketball, and baseball.</string>
 
+    <string name="provider_bio_education_dr_danielle_cundiff" translatable="false">•University of Southern Indiana\n•University of Pikeville KYCOM School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
+    <string name="provider_bio_personal_dr_danielle_cundiff">Dr. Cundiff was born and raised in Dana, IN. She is excited to now get the opportunity to be practicing near her hometown. Dr. Cundiff enjoys spending time outdoors when she can, am is a huge 'I Love Lucy" fan, and enjoys skydiving.</string>
+
+    <string name="provider_bio_education_dr_christopher_fitzsimmons" translatable="false">•Chico State University - Biology\n•Ross University Medical School - MD\n•Union Hospital Family Medicine Residency Program</string>
+    <string name="provider_bio_personal_dr_christopher_fitzsimmons">Dr. Fitzsimmons enjoys film and running. He is an avid Star Wars fanatic. He believes prevention is the best medicine.He serves our country as a doctor in the Air Force Reserve. He chose to work at our FQHC due to our many in house services.</string>
+
     <string name="provider_bio_education_dr_bing_gale" translatable="false">•Ball State University – BS Physiology\n•Indiana University School of Medicine – Doctor of Medicine</string>
     <string name="provider_bio_personal_dr_bing_gale">Dr. Gale has been practicing in the area for over fifteen years. She enjoys focusing on patient care and creating a happier and healthier community.</string>
     
@@ -404,6 +410,9 @@
 
     <string name="provider_bio_education_leslie_batty" translatable="false">•Indiana State University - MSN\n•Indiana University School of Medicine\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_leslie_batty">Leslie is married with 2 daughters. She is active in her church, enjoys spending time with her family, watching her daughters in their many sporting events, and photography.</string>
+
+    <string name="provider_bio_education_jessica_bekkering" translatable="false">•Indiana State University - MSN\n•Chamberlain College of Nursing - BSN</string>
+    <string name="provider_bio_personal_jessica_bekkering">Jessica began her journey in medical field 16 years ago as medic in the Air Force. She was born and raised in Dana, IN and after several years and many moves she is excited to be settled back and providing care close to her hometown.</string>
 
     <string name="provider_bio_education_gretchen_blevins" translatable="false">•Marshall University School of Nursing - MSN\n•University of New Hampshire School of Nursing - BSN</string>
     <string name="provider_bio_personal_gretchen_blevins">In addition to practicing medicine, Gretchen enjoys spending time with her family swimming, kayaking, ATV riding, and trying new things like sky diving when she gets the opportunity.</string>
@@ -423,14 +432,14 @@
     <string name="provider_bio_education_brandi_larson" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_brandi_larson">Brandi is passionate about providing medical care for the patients of VPCHC.</string>
 
-    <string name="provider_bio_education_gwyndolen_morson">•Georgetown University - MSN\n•Indiana State University - BSN</string>
-    <string name="provider_bio_personal_gwyndolen_morson">Gwyndolen enjoys focusing on patient care and creating a happier and healthier community. In her free time she enjoys spending time with her family.</string>
-
     <string name="provider_bio_education_tammy_mundy" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_tammy_mundy">In addition to practicing medicine, Tammy enjoys traveling, reading and visiting antique shops. Tammy is married with 2 children and one grandchild.</string>
 
     <string name="provider_bio_education_renae_norman" translatable="false">•Indiana Wesleyan University - MSN\n•Indiana Wesleyan University - BSN</string>
     <string name="provider_bio_personal_renae_norman">In addition to practicing medicine, Renae enjoys reading and spending time with her husband and their three children. Renae’s children are very active in athletics, therefore she spends a lot of time supporting the North Vermillion Falcons.</string>
+
+    <string name="provider_bio_education_tammy_pearson" translatable="false">•Indiana State University - MSN\n•Indiana University - BSN</string>
+    <string name="provider_bio_personal_tammy_pearson">Tammy has always had a passion for caring for others. She is married and has 2 grown children, as son and a daughter. She enjoys spending time with her family and her special fur baby dog, Dodger.</string>
 
     <string name="provider_bio_education_jordan_ryley" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_jordan_ryley">Jordan’s favorite part of working for Valley Professionals in Rockville is knowing that she is a part of the solution to the shortage of rural health providers. She also enjoys the connection that she has with the patients, coming from a small town herself. Jordan enjoys traveling and all things outdoors, especially hiking and gardening.</string>
@@ -444,6 +453,9 @@
     <string name="provider_bio_education_dr_julia_wernz" translatable="false">•Indiana State University - PhD\n•Indiana State University - MS\n•Oral Roberts University - BA</string>
     <string name="provider_bio_personal_dr_julia_wernz">Dr. Wernz is a psychologist with more than ten years of experience, She specializes in treating patients with attention deficit, pervasive developmental, mood, anxiety and personality disorders, while collaborating with medical providers and other service providers to comprehensively treat patients. Dr. Wernz created the behavioral health integration model for the VPCHC as well as developed the current integrated MAT addictions program. She also serves, as the Director of Behavioral Health for all VPCHC locations.</string>
 
+    <string name="provider_bio_education_gary_anderson" translatable="false">•Indiana State University - BS in Social Sciences Education\n•Indiana State University - MS in Agency Counseling</string>
+    <string name="provider_bio_personal_gary_anderson">Gary has worked as a social worker serving the needs of families in the Wabash Valley area for over 15 years. He is married and has 2 children. He's all about spending time with his family, traveling and enjoying the outdoors as much as possible.</string>
+
     <string name="provider_bio_education_johnathan_detwiler" translatable="false">•Indiana State University - MS\n•Purdue University - BA</string>
     <string name="provider_bio_personal_johnathan_detwiler">Johnathan is currently working towards a PhD at Indiana State University. He has been working in integrated healthcare since August 2015 and has a passion for helping patients reach their Behavioral Health treatment goals. Johnathan is an avid outdoorsman, golfer, and enjoys riding anything from motorcycles to jet skis. He has a passion for animal welfare and enjoys spending time with his dogs and his cat.</string>
 
@@ -452,6 +464,9 @@
 
     <string name="provider_bio_education_david_mcintyre" translatable="false">•Indiana State University</string>
     <string name="provider_bio_personal_david_mcintyre">Dave is a Licensed Clinical Addictions Counselor (LCAC) and is a certified Medically Assisted Treatment (MAT) provider. Dave has worked in the field of addictions and mental health for over 30 years. In addition to providing clinical services, Dave has served as the Coordinator of Counselor Training Services at the Fairbanks Research and Training Institute, and worked as Training Specialist for the Indiana Department of Mental Health and Addiction Services. In his free time, Dave enjoys spending time with his grandkids, vacationing with family, coaching basketball, fishing, and being outdoors.</string>
+
+    <string name="provider_bio_education_zac_milam" translatable="false">•Indiana State University - BS\n•Indiana State University - MS</string>
+    <string name="provider_bio_personal_zac_milam">Zac is a lifelong resident of the Wabash Valley. He has experience in providing services in the office, school, and home settings. His areas of interest include working with children, trauma, and grief & bereavement. In his free time, he enjoys music, comic books, TV & movies, reading, cooking, hockey & football, and spending time with his wife and daughter.</string>
 
     <string name="provider_bio_education_megan_neitling" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_megan_neitling">Megan is pursuing her PhD at the California Institute of Integral Studies. Megan enjoys working with children, adolescents, adults, couples, and families to improve their quality of life through counseling. Megan enjoys traveling, live music, and Netflix. She spends weekends relaxing with family and friends.</string>
@@ -465,6 +480,9 @@
     <string name="provider_bio_education_lacey_skwortz" translatable="false">•University of Southern Indiana - MSW\n•Anderson University - BS</string>
     <string name="provider_bio_personal_lacey_skwortz">Lacey comes from a big family, is married and has a daughter. She was born in Cory, Indiana, but has lived most of her life in Terre Haute and has been a social worker in the community since 2006. Lacey became a social worker because she has a heart for helping others and enjoys getting to know her patients and assisting them in meeting their goals.</string>
 
+    <string name="provider_bio_education_tasha_stevens" translatable="false">•Indiana State University - BA\n•Indiana State University - MSW\n•Indiana State University - BS</string>
+    <string name="provider_bio_personal_tasha_stevens">Tasha has always had a passion for mental health and diversity. She is constantly amazed by the resiliency and strength people possess. She enjoys working at VPCHC because of the holistic treatment we are able to provide people. When not working, she loves spending time with her family, friends, and 2 adorable chihuahuas.</string>
+
     <string name="provider_bio_education_lisa_tincher" translatable="false">•Stony Brook University - Post-Masters\n•Indiana State University - MS\n•Indiana Wesleyan University - BS</string>
     <string name="provider_bio_personal_lisa_tincher">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
 
@@ -477,8 +495,6 @@
     <string name="provider_bio_education_dr_nichole_barnett" translatable="false">•Indiana University School of Dentistry - DDS\n•Oakland City University - Bachelor of Science Biology &amp; Chemistry</string>
     <string name="provider_bio_personal_dr_nichole_barnett">Dr. Barnett became a dentist so she could help the underserved, and her goal is to make every patient feel comfortable while having their dental work done. In addition to being a dentist, she is also a member of a gospel trio along with her husband and sister-in-law. In her free time she enjoys spending time with her family, hunting and fishing.</string>
 
-    <string name="provider_bio_education_jamie_tidwell" translatable="false">•Lake Land College</string>
-    <string name="provider_bio_personal_jamie_tidwell">Jamie loves being a Dental Hygienist and giving her patients a clean, healthy smile. In her spare time, Jamie loves to spend time with her family and friends going camping and fishing.</string>
     <!--Toasts-->
     <string name="toast_residencybio_open">Opening Residency Website...</string>
     <!--Arrays-->
@@ -504,7 +520,6 @@
     <string-array name="providers_dental_cayuga">
         <item>Select a provider</item>
         <item>Dr. Nichole Barnett, DDS</item>
-        <item>Jamie Tidwell, LDH</item>
     </string-array>
     <string-array name="providers_dental_clinton">
         <item>Currently none at this location</item>
@@ -524,27 +539,32 @@
 
     <string-array name="providers_bh_bloomingdale">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, M.D.</item>
+        <item>Dr. Paul Taraska, MD</item>
+        <item>Zac Milam, LMHC</item>
         <item>Megan Neitling, LMHCA</item>
     </string-array>
     <string-array name="providers_bh_cayuga">
         <item>Select a provider</item>
+        <item>Dr. Paul Taraska, MD</item>
         <item>Johnathan Detwiler, MS</item>
+        <item>Tasha Stevens, LCSW, RN</item>
         <item>Lisa Tincher, PMHNP</item>
     </string-array>
     <string-array name="providers_bh_clinton">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, M.D.</item>
+        <item>Dr. Paul Taraska, MD</item>
         <item>Dr. Julia Wernz, PhD, HSPP</item>
+        <item>Gary Anderson, LMHC</item>
         <item>Linda Lonneman, LCSW</item>
         <item>David McIntyre, LCAC</item>
+        <item>Zac Milam, LMHC</item>
         <item>Lisa Tincher, PMHNP</item>
     </string-array>
     <string-array name="providers_bh_crawfordsville">
         <item>Select a provider</item>
-        <item>Dr. Paul Taraska, M.D.</item>
+        <item>Dr. Paul Taraska, MD</item>
         <item>Keith Seegers, LCSW</item>
-        <item>Dana Tinkle, LMHCA</item>
+        <item>Dana Tinkle, LMHC</item>
     </string-array>
     <string-array name="providers_bh_rockville">
         <item>Currently none at this location</item>
@@ -562,18 +582,21 @@
 
     <string-array name="providers_medical_bloomingdale">
         <item>Select a provider</item>
+        <item>Dr. Christopher Fitzsimmons, MD</item>
         <item>Christi Busenbark, FNP-C</item>
         <item>Louwanna Wallace, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_cayuga">
         <item>Select a provider</item>
-        <item>Dr. Bing Gale, M.D.</item>
+        <item>Dr. Bing Gale, MD</item>
+        <item>Dr. Danielle Cundiff, DO</item>
         <item>Renae Norman, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_clinton">
         <item>Select a provider</item>
-        <item>Dr. Aziz Abed, M.D., MPH</item>
-        <item>Dr. Bing Gale, M.D.</item>
+        <item>Dr. Aziz Abed, MD, MPH</item>
+        <item>Dr. Danielle Cundiff, DO</item>
+        <item>Dr. Bing Gale, MD</item>
         <item>Gretchen Blevins, FNP-C</item>
         <item>Nicole Hall, FNP-C</item>
         <item>Brandi Larson, FNP-C</item>
@@ -581,17 +604,22 @@
     </string-array>
     <string-array name="providers_medical_crawfordsville">
         <item>Select a provider</item>
-        <item>Gwyndolen Morson, FNP-C</item>
+        <item>Dr. Danielle Cundiff, DO</item>
+        <item>Dr. Christopher Fitzsimmons, MD</item>
+        <item>Jessica Bekkering, FNP-C</item>
+        <item>Brandi Larson, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_rockville">
         <item>Select a provider</item>
-        <item>Dr. Steven Waltz, M.D.</item>
+        <item>Dr. Christopher Fitzsimmons, MD</item>
+        <item>Dr. Steven Waltz, MD</item>
         <item>Jordan Ryley, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_terrehaute">
         <item>Select a provider</item>
         <item>Leslie Batty, FNP-C</item>
         <item>Beth Fields, FNP-C</item>
+        <item>Tammy Pearson, FNP-C</item>
         <item>Residents</item>
     </string-array>
     <string-array name="providers_medical_msbhc">
@@ -693,7 +721,7 @@
     <string name="tracker_refresh">Refresh Tracker</string>
 
     <!--Toasts-->
-    <string name="toast_tracker_download_schedule">Downloading MSBHC Schedule…</string>
+    <string name="toast_tracker_download_schedule">Opening MSBHC Schedule…</string>
     <string name="toast_forms_download">Downloading Form…</string>
     <string name="toast_network_error">Error: Please check your network connection</string>
     <string name="toast_schedule_outdated">Your MSBHC schedule is outdated please restart the app to update.</string>
@@ -730,6 +758,7 @@
     <string name="provider_credentials_pmhnp">Psychiatric-Mental Health Nurse Practitioner</string>
     <string name="provider_credentials_ldh" translatable="false">Licensed Dental Hygienist</string>
     <string name="provider_credentials_dentist">Dentist</string>
+    <string name="trackerScheduleView">View Schedule</string>
     <!--Array-->
     <string-array name="twitter_feed_tips">
         <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>

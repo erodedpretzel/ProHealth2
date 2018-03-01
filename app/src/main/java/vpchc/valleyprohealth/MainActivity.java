@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.buttonTrackerScheduleDownload:
                     String toastDownloadText = getResources().getString(R.string.toast_tracker_download_schedule);
                     Toast.makeText(getApplicationContext(),toastDownloadText,Toast.LENGTH_SHORT).show();
-                    Uri scheduleUri = Uri.parse("https://valleyprohealth.org/files/schedule/current_schedule.pdf?");
+                    Uri scheduleUri = Uri.parse("https://calendar.google.com/calendar/embed?src=flc9fq7tt9nlo52qhlchoscu3s%40group.calendar.google.com&ctz=America/New_York");
                     Intent scheduleIntent = new Intent(Intent.ACTION_VIEW, scheduleUri);
                     startActivity(scheduleIntent);
                     break;
