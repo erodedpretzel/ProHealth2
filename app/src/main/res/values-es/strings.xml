@@ -375,7 +375,7 @@
             <string name="provider_bio_personal_tammy_mundy">Además de practicar la medicina, Tammy le gusta viajar, leer y visitar tiendas de antigüedades. Tammy es casado con 2 hijos y un nieto.</string>
 
     <!--Toasts-->
-            <string name="toast_residencybio_open">Abrir sitio web de residencia...</string>
+            <string name="toast_residencybio_open">Abrir sitio web de residencia…</string>
     <!--Arrays-->
             <string-array name="provider_types">
                 <item>Seleccionar un tipo de proveedor</item>
@@ -421,7 +421,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Zac Milam, LMHC</item>
-                <item>Megan Neitling, LMHCA</item>
+                <item>Megan Neitling, LMHC-A</item>
             </string-array>
             <string-array name="providers_bh_cayuga">
                 <item>Seleccione un proveedor de</item>
@@ -434,7 +434,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Dr. Julia Wernz, PhD, HSPP</item>
-                <item>Gary Anderson, LMHC</item>
+                <item>Gary Anderson, MS</item>
                 <item>Linda Lonneman, LCSW</item>
                 <item>David McIntyre, LCAC</item>
                 <item>Lisa Tincher, PMHNP</item>
@@ -443,7 +443,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Keith Seegers, LCSW</item>
-                <item>Dana Tinkle, LMHC</item>
+                <item>Dana Tinkle, RPT, LCSW</item>
             </string-array>
             <string-array name="providers_bh_rockville">
                 <item>Currently none at this location</item>
@@ -457,7 +457,7 @@
             <string-array name="providers_bh_msbhc">
                 <item>Seleccione un proveedor de</item>
                 <item>Zac Milam, LMHC</item>
-                <item>Heather Woods, LMHCA</item>
+                <item>Heather Woods, LMHC</item>
             </string-array>
 
             <string-array name="providers_medical_bloomingdale">

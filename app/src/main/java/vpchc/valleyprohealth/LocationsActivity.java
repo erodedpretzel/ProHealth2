@@ -2,17 +2,22 @@ package vpchc.valleyprohealth;
 
 import org.vpchc.valleyprohealth.R;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -133,20 +138,16 @@ public class LocationsActivity extends AppCompatActivity {
         String dialogName;
 
         //Initialize the dialog
-        if(selectionLocation == 3){//Clinton Location
-            dialogName = "locations_clinicinfo2";
-            locationsDialog = DialogSetup.Base.Create(this, dialogName);
-        }else{
-            dialogName = "locations_clinicinfo1";
-            String[] titleText = new String[] {locations[selectionLocation]};
-            locationsDialog = DialogSetup.Title.titleSetup(this, dialogName, 2, titleText);
+        dialogName = "locations_clinicinfo";
+        String[] titleText = new String[] {locations[selectionLocation]};
+        locationsDialog = DialogSetup.Title.titleSetup(this, dialogName, 2, titleText);
 
-            //Sets address, phone and fax
-            locationContactInfoSet(locationsDialog);
+        //Sets address, phone and fax
+        locationContactInfoSet(locationsDialog);
 
-            //Populate list of clinic hours depending on location chosen
-            locationHoursSet(locationsDialog);
-        }
+        //Populate list of clinic hours depending on location chosen
+        locationHoursSet(locationsDialog);
+
         //Sets location picture displayed
         locationPicSet(locationsDialog);
     }
@@ -198,44 +199,39 @@ public class LocationsActivity extends AppCompatActivity {
 	    Description: Set the hours of the location selected.
 	    Returns:     void
     */
-        int replaceTextId;
-        String replaceTextString;
+        String locationHoursList[]={};
+
+
+        //Set the size of the text added
+        int contentSize = (int) (this.getResources().getDimension(R.dimen.dialog_content) / this.getResources().getDisplayMetrics().density);
+        int contentTitleSize = (int) (this.getResources().getDimension(R.dimen.dialog_title) / this.getResources().getDisplayMetrics().density);
+
+        //Get LinearLayout ID where hours will be placed
+        int locationsHoursContentID = this.getResources().getIdentifier("locationsClinicInfoHours", "id", this.getPackageName());
+        LinearLayout locationsHoursContent = (LinearLayout) locationsDialog.findViewById(locationsHoursContentID);
+
+        //Get hours for location
+        int locationhoursID= getResources().getIdentifier("locations_contact_hours" + Integer.toString(selectionLocation), "array", getPackageName());
+        String locationhours[] = getResources().getStringArray(locationhoursID);
 
         //Set hours for each weekday for location chosen by user
-        for (int i = 0; i < 5; i++) {
-            replaceTextString = "locationsClinicInfoHours" + i;
-            replaceTextId = getResources().getIdentifier(replaceTextString, "id", getPackageName());
-            TextView hoursText = (TextView) locationsDialog.findViewById(replaceTextId);
-            if (selectionLocation == 1){//Bloomingdale
-                if (i == 0){
-                    hoursText.setText("8:00 a.m. - 8:00 p.m.");
-                }else{
-                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
-                }
-            } else if (selectionLocation == 2){//Cayuga
-                if (i == 2){
-                    hoursText.setText("8:00 a.m. - 8:00 p.m.");
-                }else{
-                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
-                }
-            } else if (selectionLocation == 5){//Rockville
-                if (i == 0 || i == 2 || i ==4 ){//Mon,Wed,Fri
-                    hoursText.setText("7:30 a.m. - 5:00 p.m.");
-                }else{//Tues,Thu
-                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
-                }
-            }else if (selectionLocation == 6) {//Terre Haute
-                if (i == 3) {//Thu
-                    hoursText.setText("8:30 a.m. - 5:00 p.m.");
-                }else if (i == 4){//Fri
-                    hoursText.setText("8:00 a.m. - 4:30 p.m.");
-                }else{//Mon,Tue,Wed
-                    hoursText.setText("8:00 a.m. - 5:00 p.m.");
-                }
-            }else {//All other hours
-                hoursText.setText("8:00 a.m. - 5:00 p.m.");
+        for(int i = 0;i < (locationhours.length);i++){
+            Log.d(Integer.toString(locationsHoursContentID), "locationHoursSet: ");
+            TextView itemToAdd = new TextView(this);
+            itemToAdd.setText(locationhours[i]);
+            //Sets the title for those locations that have extended/after-hours
+            if(locationhours[i].equals("Extended Hours") || locationhours[i].equals("After-Hours")){
+                itemToAdd.setTextSize(contentTitleSize);
+                itemToAdd.setTextColor(Color.parseColor("#3a4e8c"));
+                itemToAdd.setTypeface(null, Typeface.BOLD);
+            }else{
+                itemToAdd.setTextSize(contentSize);
+                itemToAdd.setTextColor(Color.parseColor("#000000"));
             }
+            itemToAdd.setGravity(Gravity.CENTER);
+            locationsHoursContent.addView(itemToAdd);
         }
+
     }
 
     private View.OnClickListener locationsListener = new View.OnClickListener() {

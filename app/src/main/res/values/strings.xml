@@ -280,27 +280,83 @@
         <item>201 W. Academy St.</item>
         <item>Bloomingdale, IN 47832</item>
         <item>(765) 498–9000</item>
-        <item>Fax: (765) 498–9004</item>
+        <item>(765) 498–9004</item>
         <item>703 W. Park Street</item>
         <item>Cayuga, IN 47928</item>
         <item>(765) 492–9042</item>
-        <item>Fax: (765) 492–9048</item>
+        <item>(765) 492–9048</item>
         <item>777 S. Main Street, Suite 100</item>
         <item>Clinton, IN 47842</item>
         <item>(765) 828–1003</item>
-        <item>Fax: (765) 828–1030</item>
+        <item>(765) 828–1030</item>
         <item>1810 Layfayette Ave.</item>
         <item>Crawfordsville, IN 47933</item>
         <item>(765) 362–5100</item>
-        <item>Fax: (765) 362–5171</item>
+        <item>(765) 362–5171</item>
         <item>727 N Lincoln Rd</item>
         <item>Rockville, IN 47872</item>
         <item>(765) 569-1123</item>
-        <item>Fax: (765) 569-6412</item>
+        <item>(765) 569-6412</item>
         <item>1530 North 7th Site, Suite 201</item>
         <item>Terre Haute, IN 47807</item>
         <item>(812) 238–7631</item>
-        <item>Fax: (812) 238–7003</item>
+        <item>(812) 238–7003</item>
+    </string-array>
+    <string-array name="locations_contact_hours1">
+        <item>Monday - Friday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Closed</item>
+        <item>12:00 pm to 1:00 pm</item>
+        <item>Extended Hours</item>
+        <item>Monday</item>
+        <item>5:00 pm to 8:00 pm</item>
+    </string-array>
+    <string-array name="locations_contact_hours2">
+        <item>Monday - Friday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Closed</item>
+        <item>12:00 pm to 1:00 pm</item>
+        <item>Extended Hours</item>
+        <item>Wednesday</item>
+        <item>5:00 pm to 8:00 pm</item>
+    </string-array>
+    <string-array name="locations_contact_hours3">
+        <item>Monday - Friday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Closed</item>
+        <item>12:00 pm to 1:00 pm.,</item>
+        <item>Phone calls accepted during this time.</item>
+        <item>After-Hours</item>
+        <item>Monday - Thursday</item>
+        <item>5:00 pm to 8:00 pm</item>
+        <item>Saturday</item>
+        <item>9:00 am to 1:00 pm</item>
+    </string-array>
+    <string-array name="locations_contact_hours4">
+        <item>Monday - Friday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Closed</item>
+        <item>12:00 pm to 1:00 pm.,</item>
+        <item>Phone calls accepted during this time.</item>
+    </string-array>
+    <string-array name="locations_contact_hours5">
+        <item>Monday, Wednesday, Friday</item>
+        <item>7:30 am to 5:00 pm</item>
+        <item>Tuesday, Thursday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Closed</item>
+        <item>12:30 p.m. – 1:30 p.m.</item>
+    </string-array>
+    <string-array name="locations_contact_hours6">
+        <item>Monday - Wedneday</item>
+        <item>8:00 am to 5:00 pm</item>
+        <item>Thursday</item>
+        <item>8:30 am to 5:00 pm</item>
+        <item>Friday</item>
+        <item>8:00 am to 4:30 pm</item>
+        <item>Closed</item>
+        <item>12:00 p.m. – 1:00 p.m.,</item>
+        <item>Phone calls accepted during this time.</item>
     </string-array>
     <string-array name="locations_options">
         <item>Select an option</item>
@@ -466,7 +522,7 @@
     <string name="provider_bio_personal_david_mcintyre">Dave is a Licensed Clinical Addictions Counselor (LCAC) and is a certified Medically Assisted Treatment (MAT) provider. Dave has worked in the field of addictions and mental health for over 30 years. In addition to providing clinical services, Dave has served as the Coordinator of Counselor Training Services at the Fairbanks Research and Training Institute, and worked as Training Specialist for the Indiana Department of Mental Health and Addiction Services. In his free time, Dave enjoys spending time with his grandkids, vacationing with family, coaching basketball, fishing, and being outdoors.</string>
 
     <string name="provider_bio_education_zac_milam" translatable="false">•Indiana State University - BS\n•Indiana State University - MS</string>
-    <string name="provider_bio_personal_zac_milam">Zac is a lifelong resident of the Wabash Valley. He has experience in providing services in the office, school, and home settings. His areas of interest include working with children, trauma, and grief & bereavement. In his free time, he enjoys music, comic books, TV & movies, reading, cooking, hockey & football, and spending time with his wife and daughter.</string>
+    <string name="provider_bio_personal_zac_milam">Zac is a lifelong resident of the Wabash Valley. He has experience in providing services in the office, school, and home settings. His areas of interest include working with children, trauma, and grief and bereavement. In his free time, he enjoys music, comic books, TV and movies, reading, cooking, hockey and football, and spending time with his wife and daughter.</string>
 
     <string name="provider_bio_education_megan_neitling" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_megan_neitling">Megan is pursuing her PhD at the California Institute of Integral Studies. Megan enjoys working with children, adolescents, adults, couples, and families to improve their quality of life through counseling. Megan enjoys traveling, live music, and Netflix. She spends weekends relaxing with family and friends.</string>
@@ -487,7 +543,7 @@
     <string name="provider_bio_personal_lisa_tincher">Lisa has worked as a nurse practitioner since 1999, first as Family Nurse Practitioner for 10 years, and for the last 7 years as a Psychiatric Mental Health NP. Lisa’s favorite hobby is scuba diving. She also loves spending time with her family including, two daughters and two grandchildren.</string>
 
     <string name="provider_bio_education_dana_tinkle" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
-    <string name="provider_bio_personal_dana_tinkle">Dana is currently working towards becoming a Registered Play Therapist. She works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
+    <string name="provider_bio_personal_dana_tinkle">Dana is currently working towards becoming a Registered Play Therapist. Dana works with clients of all ages and mental health concerns, and has a strong clinical interest in childhood trauma treatment. Dana is married and enjoys traveling with her husband. Her hobbies include reading, fitness classes, and listening to music. She also loves to spend time with her friends and family.</string>
 
     <string name="provider_bio_education_heather_woods" translatable="false">•Indiana State University - MS\n•Indiana State University - BS</string>
     <string name="provider_bio_personal_heather_woods">Heather is currently working towards becoming a Registered Play Therapist. Her favorite part of working on the Mobile School-Based Health Center is having the ability to provide services to children and adolescents who may otherwise not be able to receive behavioral healthcare, as well as, the privilege of working and collaborating with some wonderful members of the school staff. Heather enjoys spending her free-time with family and friends. She also enjoys crafting, decorating, listening to music, learning new things, and playing with her two dogs.</string>
@@ -541,7 +597,7 @@
         <item>Select a provider</item>
         <item>Dr. Paul Taraska, MD</item>
         <item>Zac Milam, LMHC</item>
-        <item>Megan Neitling, LMHCA</item>
+        <item>Megan Neitling, LMHC-A</item>
     </string-array>
     <string-array name="providers_bh_cayuga">
         <item>Select a provider</item>
@@ -554,7 +610,7 @@
         <item>Select a provider</item>
         <item>Dr. Paul Taraska, MD</item>
         <item>Dr. Julia Wernz, PhD, HSPP</item>
-        <item>Gary Anderson, LMHC</item>
+        <item>Gary Anderson, MS</item>
         <item>Linda Lonneman, LCSW</item>
         <item>David McIntyre, LCAC</item>
         <item>Zac Milam, LMHC</item>
@@ -564,7 +620,7 @@
         <item>Select a provider</item>
         <item>Dr. Paul Taraska, MD</item>
         <item>Keith Seegers, LCSW</item>
-        <item>Dana Tinkle, LMHC</item>
+        <item>Dana Tinkle, LMHC, RPT</item>
     </string-array>
     <string-array name="providers_bh_rockville">
         <item>Currently none at this location</item>
@@ -577,6 +633,7 @@
     </string-array>
     <string-array name="providers_bh_msbhc">
         <item>Select a provider</item>
+        <item>Zac Milam, LMHC</item>
         <item>Heather Woods, LMHCA</item>
     </string-array>
 
@@ -759,6 +816,8 @@
     <string name="provider_credentials_ldh" translatable="false">Licensed Dental Hygienist</string>
     <string name="provider_credentials_dentist">Dentist</string>
     <string name="trackerScheduleView">View Schedule</string>
+    <string name="location_clinicinfo_contactus">Contact Us</string>
+    <string name="location_clinicinfo_hours">Hours</string>
     <!--Array-->
     <string-array name="twitter_feed_tips">
         <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
