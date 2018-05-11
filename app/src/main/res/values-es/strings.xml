@@ -248,19 +248,69 @@
     <!***********************************-->
         <!--Text-->
             <string name="title_locations">Ubicaciones</string>
-            <string name="location_hours_friday">Viernes:</string>
-            <string name="location_hours_monday">Lunes:</string>
-            <string name="location_hours_thursday">Jueves:</string>
-            <string name="location_hours_tuesday">Martes:</string>
-            <string name="location_hours_wednesday">Miércoles:</string>
             <string name="locations_clinchours_dialog_title">Horario de la Clínica</string>
         <!--Arrays-->
+            <string-array name="locations_contact_hours1">
+                <item>Lunes - Viernes</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Cerrado</item>
+                <item>12:00 pm to 1:00 pm</item>
+                <item>Horas extendidas</item>
+                <item>Lunes</item>
+                <item>5:00 pm to 8:00 pm</item>
+            </string-array>
+            <string-array name="locations_contact_hours2">
+                <item>Lunes - Viernes</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Cerrado</item>
+                <item>12:00 pm to 1:00 pm</item>
+                <item>Horas extendidas</item>
+                <item>Miércoles</item>
+                <item>5:00 pm to 8:00 pm</item>
+            </string-array>
+            <string-array name="locations_contact_hours3">
+                <item>Lunes - Viernes</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Cerrado</item>
+                <item>12:00 pm to 1:00 pm.,</item>
+                <item>Llamadas telefónicas aceptadas durante este tiempo.</item>
+                <item>Después de horas</item>
+                <item>Lunes - Jueves</item>
+                <item>5:00 pm to 8:00 pm</item>
+                <item>Sábado</item>
+                <item>9:00 am to 1:00 pm</item>
+            </string-array>
+            <string-array name="locations_contact_hours4">
+                <item>Lunes - Viernes</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Cerrado</item>
+                <item>12:00 pm to 1:00 pm.,</item>
+                <item>Llamadas telefónicas aceptadas durante este tiempo.</item>
+            </string-array>
+            <string-array name="locations_contact_hours5">
+                <item>Lunes, Miércoles, Viernes</item>
+                <item>7:30 am to 5:00 pm</item>
+                <item>Martes, Jueves</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Cerrado</item>
+                <item>12:30 p.m. to 1:30 p.m.</item>
+            </string-array>
+            <string-array name="locations_contact_hours6">
+                <item>Lunes - Miércoles</item>
+                <item>8:00 am to 5:00 pm</item>
+                <item>Jueves</item>
+                <item>8:30 am to 5:00 pm</item>
+                <item>Viernes</item>
+                <item>8:00 am to 4:30 pm</item>
+                <item>Cerrado</item>
+                <item>12:00 p.m. to 1:00 p.m.,</item>
+                <item>Llamadas telefónicas aceptadas durante este tiempo.</item>
+            </string-array>
             <string-array name="locations_options">
                 <item>Seleccione una opcion</item>
                 <item>Información de la clínica</item>
                 <item>Obtener las Direcciones</item>
             </string-array>
-
 
     <!--**********************************!>
         #MAIN
@@ -339,7 +389,7 @@
             <string name="clinicInfoAddress">Dirección:</string>
 
             <string name="provider_bio_personal_beth_fields">Beth considera que es un honor y un privilegio cuidar a las personas que le confían sus necesidades de atención médica. En su tiempo libre le gusta pasar tiempo con su familia, jardinería y viajes.</string>
-            <string name="provider_bio_personal_brandi_larson">Brandi es un apasionado de la prestación de atención médica para los pacientes de VPCHC.</string>
+            <string name="provider_bio_personal_brandi_larson">Brandi es originario de Reno Nevada nacido y criado. Ella ha estado en Indiana desde 2006. Brandi disfruta ejercitándose y pasando tiempo con sus dos hermosos hijos. Ella se dedica al país y sirve en la Guardia Nacional Aérea. Ella es una apasionada de la atención integral del paciente preventiva.</string>
             <string name="provider_bio_personal_christi_busenbark">Christi disfruta pasar tiempo con sus cuatro hijos y su familia. Es un ávido lector y también disfruta de la fotografía.</string>
             <string name="provider_bio_personal_dana_tinkle">Dana está trabajando para convertirse en un Terapeuta de Juego Registrado. Ella trabaja con clientes de todas las edades y problemas de salud mental, y que tiene un gran interés clínico en la infancia tratamiento del trauma. Dana está casado y disfruta de viajar con su marido. Sus hobbies son la lectura, clases de fitness, y escuchar música. Ella también le encanta pasar tiempo con sus amigos y familia.</string>
             <string name="provider_bio_personal_david_mcintyre">Dave es una Licencia de Clínica de Adicciones Consejero (LCAC) y tiene un certificado de asistencia médica, Tratamiento (MAT), el proveedor. Dave ha trabajado en el campo de las adicciones y la salud mental durante más de 30 años. Además de proporcionar servicios clínicos, Dave se ha desempeñado como Coordinador de la Consejera de Servicios de Capacitación en el Fairbanks Investigación y el Instituto de Capacitación, y trabajó como Especialista de Capacitación para el Departamento de Indiana de Salud Mental y Servicios de Adicción. En su tiempo libre, a Dave le gusta pasar tiempo con sus nietos, de vacaciones con la familia, entrenador de baloncesto, pesca, y estar al aire libre.</string>
@@ -355,9 +405,9 @@
             <string name="provider_bio_personal_gretchen_blevins">Además de practicar la medicina, Gretchen disfruta pasar tiempo con su familia de la natación, kayak, ATV montar a caballo, y de probar cosas nuevas como el cielo de buceo cuando llega la oportunidad.</string>
             <string name="provider_bio_personal_jessica_bekkering">Jessica comenzó su viaje en el campo de la medicina hace 16 años como médica en la Fuerza Aérea. Ella nació y se crió en Dana, IN y después de varios años y muchas mudanzas, está emocionada de que se establezca y brinde cuidados cerca de su ciudad natal.</string>
             <string name="provider_bio_personal_heather_woods">Heather es actualmente trabajando para convertirse en un Terapeuta de Juego Registrado. Su parte favorita de trabajar en la Escuela Móvil-Centro de Salud es tener la capacidad de proporcionar servicios a los niños y adolescentes que de lo contrario puede no ser capaz de recibir cuidados de salud conductual, así como, el privilegio de trabajar y colaborar con algunos de los maravillosos miembros del personal de la escuela. Heather le gusta pasar su tiempo libre con la familia y los amigos. Ella también disfruta de manualidades, decoración, escuchar música, aprender cosas nuevas, y jugando con sus dos perros.</string>
-            <string name="provider_bio_personal_jamie_tidwell">Jamie le encanta ser un Higienista Dental y dando a sus pacientes un lugar limpio, saludable sonrisa. En su tiempo libre, Jamie le encanta pasar tiempo con su familia y amigos se va de camping y pesca.</string>
             <string name="provider_bio_personal_johnathan_detwiler">Johnathan está trabajando hacia un Doctorado en la Universidad Estatal de Indiana. Él ha estado trabajando en la atención integral de la salud a partir de agosto de 2015 y tiene una pasión por ayudar a los pacientes a alcanzar su tratamiento de Salud Conductual de los objetivos. Johnathan es un ávido amante de la naturaleza, el jugador de golf y disfruta de montar cualquier cosa, desde motocicletas, motos de agua. Él tiene una pasión por el bienestar de los animales y le gusta pasar tiempo con sus perros y su gato.</string>
             <string name="provider_bio_personal_jordan_ryley">Jordan parte favorita de trabajar en el Valle de los Profesionales en Rockville es saber que ella es una parte de la solución a la escasez de zonas rurales proveedores de servicios de salud. Ella también disfruta de la conexión que tiene con los pacientes, que viene de un pequeño pueblo a sí misma. Jordan disfruta de viajar y de todas las cosas al aire libre, especialmente el senderismo y la jardinería.</string>
+            <string name="provider_bio_personal_brandie_ruark">Como residente de por vida del condado de Parke, Brandie espera atender las necesidades de atención médica de la comunidad a la que llama hogar. Brandie disfruta de pasar tiempo con su familia, viajar, hacer excursiones, cultivar un huerto y solo tiene un amor general por la naturaleza.</string>
             <string name="provider_bio_personal_keith_seegers">Keith es casado con dos hijos y dos nietos. Disfruta de los viajes y de la salida de las puertas. Él tiene interés especial en la historia, especialmente en Williamsburg, virginia. Él disfruta de su casa, los jardines y el perro y el gato.</string>
             <string name="provider_bio_personal_lacey_skwortz">Lacey viene de una gran familia, está casado y tiene una hija. Ella nació en Cory, Indiana, pero ha vivido la mayor parte de su vida en Terre Haute y ha sido un trabajador social en la comunidad desde el año 2006. Lacey se convirtió en un trabajador social, porque ella tiene un corazón para ayudar a los demás y disfruta de conocer a sus pacientes y ayudarles en el cumplimiento de sus objetivos.</string>
             <string name="provider_bio_personal_zac_milam">Zac es un residente de toda la vida del Valle de Wabash. Tiene experiencia en la prestación de servicios en la oficina, la escuela y el hogar. Sus áreas de interés incluyen trabajar con niños, trauma y duelo y duelo. En su tiempo libre, le gusta la música, los cómics, la televisión y el cine, la lectura, la cocina, el hockey y el fútbol, ​​y pasa tiempo con su esposa y su hija.</string>
@@ -389,8 +439,7 @@
                 <item>Atención primaria</item>
             </string-array>
             <string-array name="provider_types3">
-                <item>Seleccionar un tipo de proveedor</item>teamviwer
-
+                <item>Seleccionar un tipo de proveedor</item>
                 <item>Atención primaria</item>
             </string-array>
 
@@ -421,7 +470,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Zac Milam, LMHC</item>
-                <item>Megan Neitling, LMHC-A</item>
+                <item>Megan Neitling, LMHCA</item>
             </string-array>
             <string-array name="providers_bh_cayuga">
                 <item>Seleccione un proveedor de</item>
@@ -443,7 +492,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Paul Taraska, MD</item>
                 <item>Keith Seegers, LCSW</item>
-                <item>Dana Tinkle, RPT, LCSW</item>
+                <item>Dana Tinkle, LCSW, RPT</item>
             </string-array>
             <string-array name="providers_bh_rockville">
                 <item>Currently none at this location</item>
@@ -493,6 +542,7 @@
                 <item>Seleccione un proveedor de</item>
                 <item>Dr. Christopher Fitzsimmons, MD</item>
                 <item>Dr. Steven Waltz, MD</item>
+                <item>Brandie Ruark, FNP-C</item>
                 <item>Jordan Ryley, FNP-C</item>
             </string-array>
             <string-array name="providers_medical_terrehaute">
@@ -669,13 +719,15 @@
     <string name="provider_credentials_fnp">Practicante de enfermería</string>
     <string name="provider_credentials_lcac">Coordinador Clínico de Adicciones Licenciado</string>
     <string name="provider_credentials_lcsw">Licenciado Trabajador Social Certificado</string>
-    <string name="provider_credentials_ldh">Higienista dental con licencia</string>
+    <string name="provider_credentials_lmhc">Coordinador de Salud Mental con Licencia</string>
     <string name="provider_credentials_lmhca">Asociados de Coordinador de Salud Mental con Licencia</string>
     <string name="provider_credentials_mentalcoun">Consejero de Salud Mental</string>
     <string name="provider_credentials_pmhnp">Psiquiátrica-Enfermera de Salud Mental</string>
     <string name="provider_credentials_psych">Psiquiatra</string>
     <string name="provider_credentials_psych2">Psicólogo</string>
     <string name="trackerScheduleView">Ver Horario</string>
+    <string name="location_clinicinfo_contactus">Contáctenos</string>
+    <string name="location_clinicinfo_hours">Horas</string>
 
 
 </resources>

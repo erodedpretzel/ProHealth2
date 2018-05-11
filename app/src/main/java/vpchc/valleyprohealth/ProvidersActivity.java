@@ -125,7 +125,7 @@ public class ProvidersActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         break;
-                    case 3:
+                    case 4:
                         //Opens residency bios webpage
                         if(selectionProviderLocation == 6 && providerTypeSelected.equals("medical")){
                             String toastText = getResources().getString(R.string.toast_residencybio_open);
@@ -262,9 +262,8 @@ public class ProvidersActivity extends AppCompatActivity {
         title = splitProviderInfo[1].replaceAll("\\s+","");
 
         //Expands the title of the provider
-        if(title.equals("M.D.")){
+        if(title.equals("MD") || title.equals("DO")){
             if(providerTypeSelected.equals("bh")){
-                title = "Psychiatrist";
                 title = getResources().getString(R.string.provider_credentials_psych);
             }else{
                 title = getResources().getString(R.string.provider_credentials_doc);
@@ -279,12 +278,12 @@ public class ProvidersActivity extends AppCompatActivity {
             title = getResources().getString(R.string.provider_credentials_lcsw);
         }else if(title.equals("LCAC")){
             title = getResources().getString(R.string.provider_credentials_lcac);
+        }else if(title.equals("LMHC")){
+            title = getResources().getString(R.string.provider_credentials_lmhc);
         }else if(title.equals("LMHCA")){
             title = getResources().getString(R.string.provider_credentials_lmhca);
         }else if(title.equals("PMHNP")){
             title = getResources().getString(R.string.provider_credentials_pmhnp);
-        }else if(title.equals("LDH")){
-            title = getResources().getString(R.string.provider_credentials_ldh);
         }else{
             title = getResources().getString(R.string.provider_credentials_dentist);
         }

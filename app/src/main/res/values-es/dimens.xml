@@ -3,7 +3,8 @@
 
     <dimen name="home_icon">15dp</dimen>
     <dimen name="dialog_title">18dp</dimen>
-    <dimen name="provider_dialog_title">25dp</dimen>
+    <dimen name="dialog_content_title">25dp</dimen>
+    <dimen name="provider_dialog_title">22dp</dimen>
     <dimen name="dialog_content">16dp</dimen>
     <dimen name="call_location">20dp</dimen>
     <dimen name="location_clinic_hours_dialog">16dp</dimen>

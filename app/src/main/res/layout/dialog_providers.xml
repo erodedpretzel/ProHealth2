@@ -8,7 +8,7 @@
         android:id="@+id/providersDialogTitleContainer"
 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dialog_close"
         android:background="@color/colorPrimary">
         <ImageView
             android:id="@+id/providersDialogClose"

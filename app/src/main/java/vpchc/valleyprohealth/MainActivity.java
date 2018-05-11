@@ -335,16 +335,22 @@ public class MainActivity extends AppCompatActivity {
             locations = getSharedPreferences("locations_" + i, MODE_PRIVATE);
             String loc = locations.getString("locations_" + i, "DEFAULT");
             parseText = loc.split(",");
-            locationsArray[0] = (parseText[0]);
-            locationsArray[1] = (parseText[1]);
-            locationsArray[2] = (parseText[2]);
-            locationsArray[3] = (parseText[3]);
+            locationsArray[0] = (parseText[0]);//Location Displayed
+            locationsArray[1] = (parseText[1]);//Times Displayed
+            locationsArray[2] = (parseText[2]);//Start Time
+            locationsArray[3] = (parseText[3]);//End Time
             flag = (parseText[4]);
-            locationStatus = busTimeCheck(i, locationsArray);
-            if (locationStatus != 0 || flag.equals("0")) {
+            //Checks if starttime is empty which means the bus is closed for the day
+            if(locationsArray[2].equals("")){
+                locationStatus = 0;
                 break;
+            }else {
+                locationStatus = busTimeCheck(i, locationsArray);
+                if (locationStatus != 0 || flag.equals("0")) {
+                    break;
+                }
+                i++;
             }
-            i++;
         }
         return locationStatus;
     }
@@ -1022,7 +1028,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.portalButton:
                     toastText = getResources().getString(R.string.toast_portal_open);
                     Toast.makeText(getApplicationContext(), toastText ,Toast.LENGTH_SHORT).show();
-                    String portalUrl  = "https://secure2.myunionportal.org/vpchc/default.aspx";
+                    String portalUrl  = "https://mycw108.ecwcloud.com/portal14763/jsp/100mp/login_otp.jsp";
                     Intent portalLink = new Intent(Intent.ACTION_VIEW);
                     portalLink.setData(Uri.parse(portalUrl));
                     startActivity(portalLink);

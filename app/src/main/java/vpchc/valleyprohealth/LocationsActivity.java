@@ -201,10 +201,9 @@ public class LocationsActivity extends AppCompatActivity {
     */
         String locationHoursList[]={};
 
-
         //Set the size of the text added
         int contentSize = (int) (this.getResources().getDimension(R.dimen.dialog_content) / this.getResources().getDisplayMetrics().density);
-        int contentTitleSize = (int) (this.getResources().getDimension(R.dimen.dialog_title) / this.getResources().getDisplayMetrics().density);
+        int contentTitleSize = (int) (this.getResources().getDimension(R.dimen.dialog_content_title) / this.getResources().getDisplayMetrics().density);
 
         //Get LinearLayout ID where hours will be placed
         int locationsHoursContentID = this.getResources().getIdentifier("locationsClinicInfoHours", "id", this.getPackageName());
@@ -216,11 +215,11 @@ public class LocationsActivity extends AppCompatActivity {
 
         //Set hours for each weekday for location chosen by user
         for(int i = 0;i < (locationhours.length);i++){
-            Log.d(Integer.toString(locationsHoursContentID), "locationHoursSet: ");
             TextView itemToAdd = new TextView(this);
             itemToAdd.setText(locationhours[i]);
             //Sets the title for those locations that have extended/after-hours
-            if(locationhours[i].equals("Extended Hours") || locationhours[i].equals("After-Hours")){
+            if(locationhours[i].equals("Extended Hours") || locationhours[i].equals("After-Hours") || locationhours[i].equals("Horas extendidas") ||
+                    locationhours[i].equals("Después de horas")){
                 itemToAdd.setTextSize(contentTitleSize);
                 itemToAdd.setTextColor(Color.parseColor("#3a4e8c"));
                 itemToAdd.setTypeface(null, Typeface.BOLD);
@@ -231,7 +230,6 @@ public class LocationsActivity extends AppCompatActivity {
             itemToAdd.setGravity(Gravity.CENTER);
             locationsHoursContent.addView(itemToAdd);
         }
-
     }
 
     private View.OnClickListener locationsListener = new View.OnClickListener() {

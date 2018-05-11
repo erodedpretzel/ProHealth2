@@ -36,6 +36,7 @@
     <string name="toast_call_rock">Calling Rockville Location…</string>
     <string name="toast_call_terre">Calling Terre Haute Location…</string>
     <string name="toast_call_MSBHC">Calling MSBHC…</string>
+    <string name="toast_call_perm">Call permissions not enabled</string>
 
 
     <!--**********************************!>
@@ -345,7 +346,7 @@
         <item>Tuesday, Thursday</item>
         <item>8:00 am to 5:00 pm</item>
         <item>Closed</item>
-        <item>12:30 p.m. – 1:30 p.m.</item>
+        <item>12:30 p.m. to 1:30 p.m.</item>
     </string-array>
     <string-array name="locations_contact_hours6">
         <item>Monday - Wedneday</item>
@@ -355,7 +356,7 @@
         <item>Friday</item>
         <item>8:00 am to 4:30 pm</item>
         <item>Closed</item>
-        <item>12:00 p.m. – 1:00 p.m.,</item>
+        <item>12:00 p.m. to 1:00 p.m.,</item>
         <item>Phone calls accepted during this time.</item>
     </string-array>
     <string-array name="locations_options">
@@ -382,7 +383,7 @@
     <string name="icon_faq">FAQs</string>
     <string name="icon_patres">Patient\nResources</string>
     <string name="icon_memory" translatable="false">Memory &amp;\nAging Center</string>
-    <string name="icon_residency" translatable="false">UH\nResidency</string>
+    <string name="icon_residency" translatable="false">UH Residency</string>
     <!--Array-->
     <string name="toast_twitter_open">Opening VPCHC Twitter page…</string>
     <string name="toast_facebook_open">Opening VPCHC Facebook page…</string>
@@ -446,6 +447,18 @@
     <!--Text-->
     <string name="title_providers">Providers</string>
 
+    <string name="provider_credentials_psych">Psychiatrist</string>
+    <string name="provider_credentials_doc">Physician</string>
+    <string name="provider_credentials_psych2">Psychologist</string>
+    <string name="provider_credentials_fnp">Nurse Practitioner</string>
+    <string name="provider_credentials_mentalcoun">Mental Health Counselor</string>
+    <string name="provider_credentials_lcsw">Licensed Clinical Social Worker</string>
+    <string name="provider_credentials_lcac">Licensed Clinical Addictions Coordinator</string>
+    <string name="provider_credentials_lmhc">Licensed Mental Health Coordinator</string>
+    <string name="provider_credentials_lmhca">Licensed Mental Health Coordinator Associates</string>
+    <string name="provider_credentials_pmhnp">Psychiatric-Mental Health Nurse Practitioner</string>
+    <string name="provider_credentials_dentist">Dentist</string>
+
     <string name="provider_bio_education_title">Education:</string>
     <string name="provider_bio_personal_title" translatable="false">Personal:</string>
 
@@ -453,10 +466,10 @@
     <string name="provider_bio_personal_dr_aziz_abed">Dr. Abed enjoys weight training and sports, including football, basketball, and baseball.</string>
 
     <string name="provider_bio_education_dr_danielle_cundiff" translatable="false">•University of Southern Indiana\n•University of Pikeville KYCOM School of Medicine\n•Union Hospital Family Medicine Residency Program</string>
-    <string name="provider_bio_personal_dr_danielle_cundiff">Dr. Cundiff was born and raised in Dana, IN. She is excited to now get the opportunity to be practicing near her hometown. Dr. Cundiff enjoys spending time outdoors when she can, am is a huge 'I Love Lucy" fan, and enjoys skydiving.</string>
+    <string name="provider_bio_personal_dr_danielle_cundiff">Dr. Cundiff was born and raised in Dana, IN. She is excited to now get the opportunity to be practicing near her hometown. Dr. Cundiff enjoys spending time outdoors when she can, and is a huge "I Love Lucy" fan, and enjoys skydiving.</string>
 
     <string name="provider_bio_education_dr_christopher_fitzsimmons" translatable="false">•Chico State University - Biology\n•Ross University Medical School - MD\n•Union Hospital Family Medicine Residency Program</string>
-    <string name="provider_bio_personal_dr_christopher_fitzsimmons">Dr. Fitzsimmons enjoys film and running. He is an avid Star Wars fanatic. He believes prevention is the best medicine.He serves our country as a doctor in the Air Force Reserve. He chose to work at our FQHC due to our many in house services.</string>
+    <string name="provider_bio_personal_dr_christopher_fitzsimmons">""</string>
 
     <string name="provider_bio_education_dr_bing_gale" translatable="false">•Ball State University – BS Physiology\n•Indiana University School of Medicine – Doctor of Medicine</string>
     <string name="provider_bio_personal_dr_bing_gale">Dr. Gale has been practicing in the area for over fifteen years. She enjoys focusing on patient care and creating a happier and healthier community.</string>
@@ -486,7 +499,7 @@
     <string name="provider_bio_personal_nicole_hall">Nicole Hall is committed to her patients and holistic care. She enjoys running, shopping, and serving her country in the Indiana Air National Guard.</string>
 
     <string name="provider_bio_education_brandi_larson" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
-    <string name="provider_bio_personal_brandi_larson">Brandi is passionate about providing medical care for the patients of VPCHC.</string>
+    <string name="provider_bio_personal_brandi_larson">Brandi is originally from Reno Nevada born and raised. She has been in Indiana since 2006. Brandi enjoys working out and spending time with her two beautiful children. She is devoted to country and serves in the Air National Guard. She is passionate about holistic preventative patient care.</string>
 
     <string name="provider_bio_education_tammy_mundy" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_tammy_mundy">In addition to practicing medicine, Tammy enjoys traveling, reading and visiting antique shops. Tammy is married with 2 children and one grandchild.</string>
@@ -497,10 +510,13 @@
     <string name="provider_bio_education_tammy_pearson" translatable="false">•Indiana State University - MSN\n•Indiana University - BSN</string>
     <string name="provider_bio_personal_tammy_pearson">Tammy has always had a passion for caring for others. She is married and has 2 grown children, as son and a daughter. She enjoys spending time with her family and her special fur baby dog, Dodger.</string>
 
+    <string name="provider_bio_education_brandie_ruark" translatable="false">•Indiana Wesleyan University - MSN\n•Indiana Wesleyan University - BSN</string>
+    <string name="provider_bio_personal_brandie_ruark">As a lifelong resident of Parke county, Brandie looks forward to serving the healthcare needs of the community she calls home. Brandie enjoys time with family, traveling, hiking, gardening and just have a general love for nature.</string>
+
     <string name="provider_bio_education_jordan_ryley" translatable="false">•Indiana State University - MSN\n•Indiana State University - BSN</string>
     <string name="provider_bio_personal_jordan_ryley">Jordan’s favorite part of working for Valley Professionals in Rockville is knowing that she is a part of the solution to the shortage of rural health providers. She also enjoys the connection that she has with the patients, coming from a small town herself. Jordan enjoys traveling and all things outdoors, especially hiking and gardening.</string>
 
-    <string name="provider_bio_education_louwanna_wallace" translatable="false">Georgetown University - MSN,\n•Indiana University - BSN</string>
+    <string name="provider_bio_education_louwanna_wallace" translatable="false">•Georgetown University - MSN,\n•Indiana University - BSN</string>
     <string name="provider_bio_personal_louwanna_wallace">Louwanna has been in the healthcare field more than 40 years and enjoys providing health care in a rural clinic setting In her free time, she enjoys spending time with family, hunting, reading, and music.</string>
 
     <string name="provider_bio_education_dr_paul_taraska" translatable="false">•Indiana University School of Medicine\n•Wabash College - BS</string>
@@ -510,7 +526,7 @@
     <string name="provider_bio_personal_dr_julia_wernz">Dr. Wernz is a psychologist with more than ten years of experience, She specializes in treating patients with attention deficit, pervasive developmental, mood, anxiety and personality disorders, while collaborating with medical providers and other service providers to comprehensively treat patients. Dr. Wernz created the behavioral health integration model for the VPCHC as well as developed the current integrated MAT addictions program. She also serves, as the Director of Behavioral Health for all VPCHC locations.</string>
 
     <string name="provider_bio_education_gary_anderson" translatable="false">•Indiana State University - BS in Social Sciences Education\n•Indiana State University - MS in Agency Counseling</string>
-    <string name="provider_bio_personal_gary_anderson">Gary has worked as a social worker serving the needs of families in the Wabash Valley area for over 15 years. He is married and has 2 children. He's all about spending time with his family, traveling and enjoying the outdoors as much as possible.</string>
+    <string name="provider_bio_personal_gary_anderson">Gary has worked as a social worker serving the needs of families in the Wabash Valley area for over 15 years. He is married and has 2 children. He\'s all about spending time with his family, traveling and enjoying the outdoors as much as possible.</string>
 
     <string name="provider_bio_education_johnathan_detwiler" translatable="false">•Indiana State University - MS\n•Purdue University - BA</string>
     <string name="provider_bio_personal_johnathan_detwiler">Johnathan is currently working towards a PhD at Indiana State University. He has been working in integrated healthcare since August 2015 and has a passion for helping patients reach their Behavioral Health treatment goals. Johnathan is an avid outdoorsman, golfer, and enjoys riding anything from motorcycles to jet skis. He has a passion for animal welfare and enjoys spending time with his dogs and his cat.</string>
@@ -597,7 +613,7 @@
         <item>Select a provider</item>
         <item>Dr. Paul Taraska, MD</item>
         <item>Zac Milam, LMHC</item>
-        <item>Megan Neitling, LMHC-A</item>
+        <item>Megan Neitling, LMHCA</item>
     </string-array>
     <string-array name="providers_bh_cayuga">
         <item>Select a provider</item>
@@ -633,8 +649,7 @@
     </string-array>
     <string-array name="providers_bh_msbhc">
         <item>Select a provider</item>
-        <item>Zac Milam, LMHC</item>
-        <item>Heather Woods, LMHCA</item>
+        <item>Heather Woods, LMHC</item>
     </string-array>
 
     <string-array name="providers_medical_bloomingdale">
@@ -670,6 +685,7 @@
         <item>Select a provider</item>
         <item>Dr. Christopher Fitzsimmons, MD</item>
         <item>Dr. Steven Waltz, MD</item>
+        <item>Brandie Ruark, FNP-C</item>
         <item>Jordan Ryley, FNP-C</item>
     </string-array>
     <string-array name="providers_medical_terrehaute">
@@ -802,22 +818,8 @@
     <!***********************************-->
     <!--Text-->
     <string name="main_twitter_feed_initial_tweet">Check here for latest news and information concerning Valley Professional Community Health Center.</string>
-    <string name="toast_call_perm">Call permissions not enabled</string>
     <string name="icon_twitter" translatable="false">Twitter</string>
-    <string name="provider_credentials_psych">Psychiatrist</string>
-    <string name="provider_credentials_doc">Physician</string>
-    <string name="provider_credentials_psych2">Psychologist</string>
-    <string name="provider_credentials_fnp">Nurse Practitioner</string>
-    <string name="provider_credentials_mentalcoun">Mental Health Counselor</string>
-    <string name="provider_credentials_lcsw">Licensed Clinical Social Worker</string>
-    <string name="provider_credentials_lcac">Licensed Clinical Addictions Coordinator</string>
-    <string name="provider_credentials_lmhca">Licensed Mental Health Coordinator Associates</string>
-    <string name="provider_credentials_pmhnp">Psychiatric-Mental Health Nurse Practitioner</string>
-    <string name="provider_credentials_ldh" translatable="false">Licensed Dental Hygienist</string>
-    <string name="provider_credentials_dentist">Dentist</string>
     <string name="trackerScheduleView">View Schedule</string>
-    <string name="location_clinicinfo_contactus">Contact Us</string>
-    <string name="location_clinicinfo_hours">Hours</string>
     <!--Array-->
     <string-array name="twitter_feed_tips">
         <item>Check out our Patient Portal where you can schedule appointments, email your provider, request refills and more! See one of our receptionists to enroll for free now!</item>
@@ -873,5 +875,7 @@
         <item>terrehaute</item>
         <item>msbhc</item>
     </string-array>
+    <string name="location_clinicinfo_hours">Hours</string>
+    <string name="location_clinicinfo_contactus">Contact Us</string>
 
 </resources>

@@ -19,7 +19,7 @@
 
 
     <dimen name="dialog_bar">50dp</dimen>
-    <dimen name="dialog_title">25dp</dimen>
+    <dimen name="dialog_title">2dp</dimen>
     <dimen name="dialog_subtitle">20dp</dimen>
     <dimen name="dialog_close">50dp</dimen>
     <dimen name="dialog_content">18dp</dimen>
